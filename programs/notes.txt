@@ -1,0 +1,12 @@
+
+2024-04-15: first prototype board works.
+
+Issues that came up bringing the thing online:
+- CS# signals are all floating until IO#/M is pulled low, need a pull-up! (test with 7SEG_CS#)
+  - they actually aren't floating, this was a misunderstanding
+- 74LS154 are wide not narrow footprints
+  - buying adapters for this, but need to fix in next fab
+- is the memory 128K or 64K??
+  - it is 128K, but the DMUX 74LS154 is taking A16/A18/A19 into account, which limits RAM to 64K
+  - quick fix is to tie pins 21, 22, 23 to GND
+  - need a better way to do CS#'s for RAM & BIOS

@@ -582,6 +582,10 @@
       {
         "netclass": "Data Bus",
         "pattern": "/8088_AD[0-9]+"
+      },
+      {
+        "netclass": "12V_1A",
+        "pattern": "-12V"
       }
     ]
   },

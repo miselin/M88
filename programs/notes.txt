@@ -10,3 +10,9 @@ Issues that came up bringing the thing online:
   - it is 128K, but the DMUX 74LS154 is taking A16/A18/A19 into account, which limits RAM to 64K
   - quick fix is to tie pins 21, 22, 23 to GND
   - need a better way to do CS#'s for RAM & BIOS
+- just use an 8-bit latch/register for the 7-seg, the 4-bit one is a pain to find
+
+
+74LS154s are kinda hard to find. Look into more readily available options...
+ - 74LS138s are much easier to find (Mouser has them!) - 3-to-8.
+   Truly simpler logic.

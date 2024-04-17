@@ -1118,7 +1118,7 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 58.42) (xy 205.74 65.405)
+			(xy 199.39 60.96) (xy 199.39 65.405)
 		)
 		(stroke
 			(width 0)
@@ -1408,7 +1408,7 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 65.405) (xy 207.645 65.405)
+			(xy 199.39 65.405) (xy 207.645 65.405)
 		)
 		(stroke
 			(width 0)
@@ -1521,7 +1521,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4mm_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4mm_Pad_Via"
 			(at 36.83 69.85 0)
 			(effects
 				(font
@@ -1652,7 +1652,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4mm_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4mm_Pad_Via"
 			(at 36.83 125.095 0)
 			(effects
 				(font
@@ -1785,7 +1785,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4mm_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4mm_Pad_Via"
 			(at 36.83 114.3 0)
 			(effects
 				(font
@@ -1916,7 +1916,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4mm_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4mm_Pad_Via"
 			(at 36.83 80.645 0)
 			(effects
 				(font
@@ -2115,7 +2115,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4mm_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4mm_Pad_Via"
 			(at 36.83 102.87 0)
 			(effects
 				(font
@@ -2319,7 +2319,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4mm_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4mm_Pad_Via"
 			(at 36.83 91.44 0)
 			(effects
 				(font
@@ -2696,7 +2696,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 205.74 58.42 0)
+		(at 199.39 60.96 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2705,7 +2705,7 @@
 		(fields_autoplaced yes)
 		(uuid "cf5e333f-0c8b-4751-a2ba-22877fb33725")
 		(property "Reference" "#PWR091"
-			(at 205.74 62.23 0)
+			(at 199.39 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2714,15 +2714,16 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 205.74 53.34 0)
+			(at 201.93 59.6899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 205.74 58.42 0)
+			(at 199.39 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2731,7 +2732,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 205.74 58.42 0)
+			(at 199.39 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2740,7 +2741,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 205.74 58.42 0)
+			(at 199.39 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2786,7 +2787,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4mm_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4mm_Pad_Via"
 			(at 36.83 135.89 0)
 			(effects
 				(font
@@ -2851,7 +2852,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4mm_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4mm_Pad_Via"
 			(at 36.83 158.115 0)
 			(effects
 				(font
@@ -2916,7 +2917,7 @@
 				)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4mm_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4mm_Pad_Via"
 			(at 36.83 147.32 0)
 			(effects
 				(font
@@ -2983,7 +2984,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "SparkFun-Switch:Momentary_SMD_4.6x2.8mm_h2.5mm"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm_H4.3mm"
 			(at 151.13 67.31 0)
 			(effects
 				(font

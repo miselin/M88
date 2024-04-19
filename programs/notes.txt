@@ -16,3 +16,10 @@ Issues that came up bringing the thing online:
 74LS154s are kinda hard to find. Look into more readily available options...
  - 74LS138s are much easier to find (Mouser has them!) - 3-to-8.
    Truly simpler logic.
+
+todo:
+- [x] Move to 8-bit latch for 7-seg (with two displays, why not)
+- [x] Stop using LS154s
+- [ ] Condense all the memory chip selects into one DMUX
+- [ ] Fix BIOS ROM chip select after ^ happens
+- [ ] Consider adding 128K of RAM at 0x80000

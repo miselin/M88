@@ -37,8 +37,9 @@ timer_handler:
     mov ax, [es:0x15]
     inc ax
 
-    ; technically this is ~11 on my machine
-    cmp ax, 11 ; 18
+    ; 24 MHz crystal instead of 14.31818 MHz
+    ; means the PIT runs 60% faster
+    cmp ax, 30 ; 18
     jl .done
 
     mov al, 'T'

@@ -17,7 +17,7 @@ cli
 mov al, 0x00
 out 0xF0, al
 
-; for POST work area at 50:05
+; default data segment at start of memory
 mov ax, 0x50
 mov ds, ax
 
@@ -31,14 +31,25 @@ mov bp, sp
 mov al, 0x01
 out 0xF0, al
 
-; cheat: we know we have 128K
-; put the stack right at the top of that (0x1FFFF)
-mov ax, 0x1000
+; does memory work?
+mov ax, 0x55AA
+mov di, 0x0000
+mov [ds:di], ax
+cmp [ds:di], ax
+je .memory_ok
+
+hlt
+
+.memory_ok:
+
+; cheat: we know we have 64K (due to a demux schematic bug, instead of 128K)
+; put the stack right at the top of that (0x0FFFF)
+mov ax, 0x0000
 mov ss, ax
 mov sp, 0xFFFF
 mov bp, sp
 
-; POST #2 - check memory & the stack
+; POST #2 - memory is OK
 mov dx, 2
 push dx
 pop ax

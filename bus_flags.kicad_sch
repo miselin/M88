@@ -4660,6 +4660,17 @@
 		)
 		(uuid "69a9ff76-3309-4403-99f4-30301196e8d5")
 	)
+	(label "~{IO}{slash}M"
+		(at 96.52 123.19 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8a5da69e-ee48-4383-bb0a-2830d805dce9")
+	)
 	(label "~{BUSEN}"
 		(at 207.01 35.56 0)
 		(fields_autoplaced yes)

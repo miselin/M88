@@ -5475,7 +5475,7 @@
 		)
 		(uuid "9bc4f639-64d3-4c81-8882-fa10cef8573b")
 	)
-	(label "IRQ[2..7]"
+	(label "IR[2..7]"
 		(at 74.93 124.46 180)
 		(fields_autoplaced yes)
 		(effects

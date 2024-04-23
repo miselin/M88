@@ -2513,7 +2513,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a7eadd94-ba82-4df1-9ac5-0e5862a569c2")
-		(property "Reference" "C41"
+		(property "Reference" "C49"
 			(at 153.67 62.23 90)
 			(effects
 				(font
@@ -2565,19 +2565,19 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6/d8ffe6c7-769b-4cc5-aca4-7a87a4c90d3d"
-					(reference "C41")
+					(reference "C49")
 					(unit 1)
 				)
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6/e6292733-ef24-480c-87ef-102058650c41"
-					(reference "C42")
+					(reference "C47")
 					(unit 1)
 				)
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6/3295199e-1d64-463f-a9c7-137d49446518"
-					(reference "C43")
+					(reference "C48")
 					(unit 1)
 				)
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6/27cb51fc-351a-4f47-9680-d3bd1524539b"
-					(reference "C44")
+					(reference "C46")
 					(unit 1)
 				)
 			)
@@ -2826,7 +2826,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "faf7da12-38dd-4982-97ce-a8d2a4de4da8")
-		(property "Reference" "U30"
+		(property "Reference" "U32"
 			(at 148.59 76.2 0)
 			(effects
 				(font
@@ -2970,19 +2970,19 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6/d8ffe6c7-769b-4cc5-aca4-7a87a4c90d3d"
-					(reference "U30")
-					(unit 1)
-				)
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6/e6292733-ef24-480c-87ef-102058650c41"
-					(reference "U31")
-					(unit 1)
-				)
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6/3295199e-1d64-463f-a9c7-137d49446518"
 					(reference "U32")
 					(unit 1)
 				)
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6/e6292733-ef24-480c-87ef-102058650c41"
+					(reference "U30")
+					(unit 1)
+				)
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6/3295199e-1d64-463f-a9c7-137d49446518"
+					(reference "U31")
+					(unit 1)
+				)
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6/27cb51fc-351a-4f47-9680-d3bd1524539b"
-					(reference "U33")
+					(reference "U29")
 					(unit 1)
 				)
 			)

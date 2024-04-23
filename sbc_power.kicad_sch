@@ -1859,10 +1859,28 @@
 		)
 	)
 	(junction
+		(at 196.85 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "14f7f983-148e-4c9b-9d0a-e6ab7b4b2335")
+	)
+	(junction
 		(at 154.305 50.165)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1b4dac79-846b-4cd3-a218-a3da4ec46bf4")
+	)
+	(junction
+		(at 232.41 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "301fd253-acbf-4e8f-8c67-669ef5271712")
+	)
+	(junction
+		(at 241.3 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3080956e-5282-4978-8768-70e723ab5674")
 	)
 	(junction
 		(at 87.63 46.99)
@@ -1875,6 +1893,24 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "38401baf-d391-4f16-81f6-b3a1a6bb5edd")
+	)
+	(junction
+		(at 260.35 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3af9a95d-b76e-40ae-9bd8-7abf6fa2fa21")
+	)
+	(junction
+		(at 250.19 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4590d0f3-9eba-4ec7-93e4-3754be583e0d")
+	)
+	(junction
+		(at 214.63 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "481eece6-f4dd-41c0-8848-90d3667d5b84")
 	)
 	(junction
 		(at 83.82 160.02)
@@ -1895,10 +1931,34 @@
 		(uuid "689a4d45-4508-44f7-9501-4e9bf2541709")
 	)
 	(junction
+		(at 250.19 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6bbf1b4f-81f7-4f0f-b079-fd460eb56127")
+	)
+	(junction
+		(at 270.51 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6d87b03b-89ff-4f3c-89e0-3438079fb4cc")
+	)
+	(junction
 		(at 198.755 38.1)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "822f5005-6aa1-41de-8a24-b1fea9bd1270")
+	)
+	(junction
+		(at 260.35 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "90e4778d-1f16-4ed4-8064-d53635d8165d")
+	)
+	(junction
+		(at 241.3 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "91b56fa4-8841-402b-a36f-0da15947636b")
 	)
 	(junction
 		(at 77.47 46.99)
@@ -1913,6 +1973,12 @@
 		(uuid "9e79df2c-c31b-4b4a-a099-28a6ce079a80")
 	)
 	(junction
+		(at 232.41 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9ee01102-cfd3-42fe-a912-8ae73dc88a8b")
+	)
+	(junction
 		(at 154.305 62.23)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1925,10 +1991,52 @@
 		(uuid "a2f93c7e-a450-4b3b-80f9-da46aaed8764")
 	)
 	(junction
+		(at 270.51 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b5545281-de0d-4c6c-9ade-3a348bca4247")
+	)
+	(junction
+		(at 228.6 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b73a9753-04e3-476b-a4ac-edc43b3bbb30")
+	)
+	(junction
+		(at 223.52 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c3c3d31e-c159-4ada-87e4-b1dce5a4c5fa")
+	)
+	(junction
 		(at 175.26 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cb6b8877-6bd2-4c8b-83c1-37e9b52ac749")
+	)
+	(junction
+		(at 205.74 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cba2b84c-addf-42d9-a193-577a270f4364")
+	)
+	(junction
+		(at 205.74 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cc400988-2254-4bc7-81bf-e6c89c032d4f")
+	)
+	(junction
+		(at 214.63 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cccc704e-ed82-4692-a06f-ffd85997082d")
+	)
+	(junction
+		(at 228.6 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cd5dc69a-b10e-4a2a-a679-e0d48ac22419")
 	)
 	(junction
 		(at 120.65 87.63)
@@ -1943,10 +2051,32 @@
 		(uuid "e5a5c6b7-2266-4ecd-afed-58e2ea9c5870")
 	)
 	(junction
+		(at 196.85 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f46c054b-205c-4681-9466-8080ca16607f")
+	)
+	(junction
 		(at 123.19 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f740bd6e-5d7b-4e34-a92e-dbea4555d6ac")
+	)
+	(junction
+		(at 223.52 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fbc6b480-e389-4511-a93b-b352afd0ba0b")
+	)
+	(wire
+		(pts
+			(xy 250.19 148.59) (xy 250.19 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "060d6706-e507-4d0f-8c9e-83e79dbb2527")
 	)
 	(wire
 		(pts
@@ -1960,6 +2090,26 @@
 	)
 	(wire
 		(pts
+			(xy 270.51 152.4) (xy 279.4 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1596ed1c-74dc-4d1a-9b01-7a6ca4afedfe")
+	)
+	(wire
+		(pts
+			(xy 187.96 148.59) (xy 187.96 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "172c2a52-ba8f-491b-9193-144f340f0e59")
+	)
+	(wire
+		(pts
 			(xy 158.75 95.25) (xy 194.945 95.25)
 		)
 		(stroke
@@ -1967,6 +2117,16 @@
 			(type default)
 		)
 		(uuid "1a14db38-426d-4751-a735-bd4b9e9c6e07")
+	)
+	(wire
+		(pts
+			(xy 270.51 138.43) (xy 270.51 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a322010-827c-49da-873f-74d4937497f4")
 	)
 	(wire
 		(pts
@@ -1990,6 +2150,16 @@
 	)
 	(wire
 		(pts
+			(xy 228.6 152.4) (xy 232.41 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2032f98d-2082-4625-9992-cae1bf70d2f5")
+	)
+	(wire
+		(pts
 			(xy 109.22 91.44) (xy 116.84 91.44)
 		)
 		(stroke
@@ -1997,6 +2167,26 @@
 			(type default)
 		)
 		(uuid "220349a7-3ca2-4335-b3bd-5585f3c2e316")
+	)
+	(wire
+		(pts
+			(xy 223.52 152.4) (xy 228.6 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "25a9c93b-5ea8-4043-8513-9963a3372108")
+	)
+	(wire
+		(pts
+			(xy 205.74 152.4) (xy 214.63 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "25aa4625-119f-4ce1-8329-65d65f0cba48")
 	)
 	(wire
 		(pts
@@ -2030,6 +2220,26 @@
 	)
 	(wire
 		(pts
+			(xy 250.19 138.43) (xy 260.35 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "304c97c0-e430-4b29-977a-b74fa207769d")
+	)
+	(wire
+		(pts
+			(xy 232.41 148.59) (xy 232.41 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32f31b33-1f38-4acf-9fbd-6b233f25d4a5")
+	)
+	(wire
+		(pts
 			(xy 175.26 87.63) (xy 194.945 87.63)
 		)
 		(stroke
@@ -2037,6 +2247,16 @@
 			(type default)
 		)
 		(uuid "34ef8e8c-43fe-403d-b9ae-4753e4c15c1f")
+	)
+	(wire
+		(pts
+			(xy 260.35 138.43) (xy 260.35 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3658a96c-e0a7-41fb-ae53-151e72196b6e")
 	)
 	(wire
 		(pts
@@ -2060,6 +2280,16 @@
 	)
 	(wire
 		(pts
+			(xy 279.4 138.43) (xy 279.4 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39f85020-226b-4f7c-a410-9f5c89241b58")
+	)
+	(wire
+		(pts
 			(xy 87.63 26.67) (xy 87.63 36.83)
 		)
 		(stroke
@@ -2070,6 +2300,16 @@
 	)
 	(wire
 		(pts
+			(xy 260.35 138.43) (xy 270.51 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3b3fbfe7-804e-4f34-8082-a66a941fd6d3")
+	)
+	(wire
+		(pts
 			(xy 87.63 46.99) (xy 102.87 46.99)
 		)
 		(stroke
@@ -2077,6 +2317,16 @@
 			(type default)
 		)
 		(uuid "3c3bbe94-f2cd-45f6-b6a1-8d8364a714a6")
+	)
+	(wire
+		(pts
+			(xy 232.41 152.4) (xy 241.3 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3e636492-27ec-4662-ade6-eede09da7710")
 	)
 	(wire
 		(pts
@@ -2107,6 +2357,16 @@
 			(type default)
 		)
 		(uuid "43e4ea1f-be9e-452e-9c16-284bda6704b8")
+	)
+	(wire
+		(pts
+			(xy 241.3 152.4) (xy 250.19 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4461a60b-a1bc-4251-a131-40f794d8d763")
 	)
 	(wire
 		(pts
@@ -2230,6 +2490,16 @@
 	)
 	(wire
 		(pts
+			(xy 260.35 152.4) (xy 260.35 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "64fb10af-b6a3-4e5f-876a-a35876d0bbcb")
+	)
+	(wire
+		(pts
 			(xy 115.57 46.99) (xy 115.57 57.15)
 		)
 		(stroke
@@ -2250,6 +2520,16 @@
 	)
 	(wire
 		(pts
+			(xy 228.6 128.27) (xy 228.6 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "66e50ed5-821e-4974-874a-3c62f28ec175")
+	)
+	(wire
+		(pts
 			(xy 77.47 55.88) (xy 82.55 55.88)
 		)
 		(stroke
@@ -2267,6 +2547,16 @@
 			(type default)
 		)
 		(uuid "69a60946-38a8-4780-bd18-7c40a9685f45")
+	)
+	(wire
+		(pts
+			(xy 205.74 148.59) (xy 205.74 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "71625785-069b-477f-b950-60020df4a51d")
 	)
 	(wire
 		(pts
@@ -2330,6 +2620,26 @@
 	)
 	(wire
 		(pts
+			(xy 228.6 152.4) (xy 228.6 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "76cf789d-b9de-44f6-afdf-ffccf35bc5b3")
+	)
+	(wire
+		(pts
+			(xy 241.3 148.59) (xy 241.3 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78088439-b6d3-42f5-aa0b-e035b0cc8be8")
+	)
+	(wire
+		(pts
 			(xy 78.74 91.44) (xy 72.39 91.44)
 		)
 		(stroke
@@ -2337,6 +2647,26 @@
 			(type default)
 		)
 		(uuid "786e924b-6152-4297-8a7e-8344d5fa1c3d")
+	)
+	(wire
+		(pts
+			(xy 241.3 138.43) (xy 241.3 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "79c4e775-56f0-4875-823f-6c6da3e2f310")
+	)
+	(wire
+		(pts
+			(xy 232.41 143.51) (xy 232.41 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7adf76cd-a2b1-46b4-a2b4-950bb2ce63f9")
 	)
 	(wire
 		(pts
@@ -2370,6 +2700,16 @@
 	)
 	(wire
 		(pts
+			(xy 196.85 138.43) (xy 196.85 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "831b563c-33cd-4842-ad94-bd627b80dd74")
+	)
+	(wire
+		(pts
 			(xy 201.93 41.91) (xy 198.755 41.91)
 		)
 		(stroke
@@ -2377,6 +2717,16 @@
 			(type default)
 		)
 		(uuid "8556e0b9-ba48-4a33-bac3-c5a783414897")
+	)
+	(wire
+		(pts
+			(xy 223.52 148.59) (xy 223.52 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87c611be-6b25-494c-b4c5-a2371aca5a42")
 	)
 	(wire
 		(pts
@@ -2430,6 +2780,16 @@
 	)
 	(wire
 		(pts
+			(xy 223.52 143.51) (xy 223.52 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9549cd42-7e9f-4579-af9f-87a5b775b178")
+	)
+	(wire
+		(pts
 			(xy 158.75 92.71) (xy 194.945 92.71)
 		)
 		(stroke
@@ -2450,6 +2810,16 @@
 	)
 	(wire
 		(pts
+			(xy 196.85 138.43) (xy 205.74 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ab3f415-fbfb-48c2-8d7e-8eca7752bd1d")
+	)
+	(wire
+		(pts
 			(xy 154.305 50.165) (xy 158.115 50.165)
 		)
 		(stroke
@@ -2457,6 +2827,16 @@
 			(type default)
 		)
 		(uuid "9b08b0f4-076e-4bb5-8f09-640864e3cfe2")
+	)
+	(wire
+		(pts
+			(xy 250.19 152.4) (xy 260.35 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9b9d5be7-4cfd-4174-8d48-3ddafb9d6497")
 	)
 	(wire
 		(pts
@@ -2470,6 +2850,26 @@
 	)
 	(wire
 		(pts
+			(xy 260.35 152.4) (xy 270.51 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a17ff8c1-dad7-46cb-ba9a-7d169d2ea976")
+	)
+	(wire
+		(pts
+			(xy 214.63 138.43) (xy 223.52 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a4e40bad-f893-4c58-a46e-68006f0528b8")
+	)
+	(wire
+		(pts
 			(xy 72.39 93.98) (xy 78.74 93.98)
 		)
 		(stroke
@@ -2477,6 +2877,16 @@
 			(type default)
 		)
 		(uuid "a5874841-e337-4568-9e37-1f59bba49691")
+	)
+	(wire
+		(pts
+			(xy 279.4 152.4) (xy 279.4 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a5b9d8d8-c7bb-483b-91f9-276a2819535c")
 	)
 	(wire
 		(pts
@@ -2490,6 +2900,16 @@
 	)
 	(wire
 		(pts
+			(xy 223.52 138.43) (xy 228.6 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a689bc96-008b-4bc0-b704-b636014fceae")
+	)
+	(wire
+		(pts
 			(xy 77.47 55.88) (xy 77.47 53.34)
 		)
 		(stroke
@@ -2497,6 +2917,36 @@
 			(type default)
 		)
 		(uuid "a8c0ff4b-16c5-4244-8b03-492e0644a956")
+	)
+	(wire
+		(pts
+			(xy 214.63 152.4) (xy 223.52 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8c2955f-7f00-4624-b51a-8321b80e9261")
+	)
+	(wire
+		(pts
+			(xy 187.96 152.4) (xy 196.85 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aa77a385-fd9b-4b73-a77c-bc292412a970")
+	)
+	(wire
+		(pts
+			(xy 228.6 138.43) (xy 232.41 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b071dd71-8ac2-4f3d-a0bc-4e4d612bc0db")
 	)
 	(wire
 		(pts
@@ -2540,6 +2990,16 @@
 	)
 	(wire
 		(pts
+			(xy 187.96 138.43) (xy 196.85 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c476cdfc-ca37-4708-9841-69432b20c918")
+	)
+	(wire
+		(pts
 			(xy 109.22 93.98) (xy 116.84 93.98)
 		)
 		(stroke
@@ -2580,6 +3040,26 @@
 	)
 	(wire
 		(pts
+			(xy 241.3 138.43) (xy 250.19 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca779809-3f2e-455b-9775-5da7232f92c6")
+	)
+	(wire
+		(pts
+			(xy 270.51 152.4) (xy 270.51 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cc89c99e-78ea-4b25-ba48-272555434238")
+	)
+	(wire
+		(pts
 			(xy 87.63 55.88) (xy 87.63 53.34)
 		)
 		(stroke
@@ -2590,6 +3070,16 @@
 	)
 	(wire
 		(pts
+			(xy 214.63 148.59) (xy 214.63 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d02c4c1a-1273-404e-a083-3fa03387dc0e")
+	)
+	(wire
+		(pts
 			(xy 63.5 33.02) (xy 63.5 46.99)
 		)
 		(stroke
@@ -2597,6 +3087,26 @@
 			(type default)
 		)
 		(uuid "d04694bf-0992-4bb1-804c-11d45da1d088")
+	)
+	(wire
+		(pts
+			(xy 250.19 138.43) (xy 250.19 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d13b68c4-fd39-460e-9d17-497569f2236e")
+	)
+	(wire
+		(pts
+			(xy 187.96 138.43) (xy 187.96 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d2ad41f6-8e4a-43a7-a945-1cb782a842ff")
 	)
 	(wire
 		(pts
@@ -2620,6 +3130,56 @@
 	)
 	(wire
 		(pts
+			(xy 196.85 148.59) (xy 196.85 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "de6237b7-5507-48ea-958c-5ae2d51ed5d9")
+	)
+	(wire
+		(pts
+			(xy 270.51 138.43) (xy 279.4 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "de940d24-cf95-4f54-b2d8-da5b9e46bd6a")
+	)
+	(wire
+		(pts
+			(xy 205.74 138.43) (xy 205.74 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e43fb7bd-60a8-4b4f-8abe-662f489d67a4")
+	)
+	(wire
+		(pts
+			(xy 214.63 138.43) (xy 214.63 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e6b6fc1d-71ad-4ec6-b361-781758288e53")
+	)
+	(wire
+		(pts
+			(xy 232.41 138.43) (xy 241.3 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eb1699b3-fde4-4d6d-b8aa-c3a6aaa79694")
+	)
+	(wire
+		(pts
 			(xy 186.69 50.165) (xy 198.755 50.165)
 		)
 		(stroke
@@ -2627,6 +3187,16 @@
 			(type default)
 		)
 		(uuid "eb35dc59-c504-4f78-9b19-30d6f8a3fc06")
+	)
+	(wire
+		(pts
+			(xy 196.85 152.4) (xy 205.74 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f04c1fc7-f828-42ea-ac74-3eaa71cef345")
 	)
 	(wire
 		(pts
@@ -2670,6 +3240,16 @@
 	)
 	(wire
 		(pts
+			(xy 205.74 138.43) (xy 214.63 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7a5dce8-7be6-443f-8570-b59aa2ac2925")
+	)
+	(wire
+		(pts
 			(xy 154.305 62.23) (xy 158.115 62.23)
 		)
 		(stroke
@@ -2688,6 +3268,16 @@
 			(justify left bottom)
 		)
 		(uuid "a235c4be-c096-437e-8a4f-95d32af9355a")
+	)
+	(text "Distributed capacitance to be spread across the PCB\nUse smaller caps e.g. Nichicon UZT1E4R7MCL1GB"
+		(exclude_from_sim no)
+		(at 242.824 163.576 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e3ba8651-45c9-47d6-b30f-7fed20754e34")
 	)
 	(label "+5VSB"
 		(at 164.465 38.1 180)
@@ -3112,7 +3702,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0d529db6-4815-42ae-ae99-e8a8335769b8")
-		(property "Reference" "TP3"
+		(property "Reference" "TP4"
 			(at 139.573 44.45 90)
 			(effects
 				(font
@@ -3161,7 +3751,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "TP3")
+					(reference "TP4")
 					(unit 1)
 				)
 			)
@@ -3301,6 +3891,214 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 228.6 154.94 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "12be428a-e96f-4fc3-bdf2-c85a95acc6d9")
+		(property "Reference" "#PWR0224"
+			(at 228.6 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 228.6 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 228.6 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 228.6 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 228.6 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c21af16a-7763-474f-8e81-3a00bba392cf")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "#PWR0224")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 223.52 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "18560bae-747f-4497-9207-c1dad5fb0382")
+		(property "Reference" "C1"
+			(at 226.06 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 226.06 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 223.52 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 223.52 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E4R7MCL1GB -- Aluminum Electrolytic Capacitors - SMD 4.7uF 25V 20% AEC-Q200  "
+			(at 223.52 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fe42d3c3-ee2b-4e90-b68a-6de84a90207d")
+		)
+		(pin "2"
+			(uuid "121e2246-2105-4a75-b09e-cebb0e437203")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 187.96 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1bbc3e4a-aa9c-40a8-8655-ab9c18fc25ae")
+		(property "Reference" "C45"
+			(at 190.5 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 190.5 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 187.96 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 187.96 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E4R7MCL1GB -- Aluminum Electrolytic Capacitors - SMD 4.7uF 25V 20% AEC-Q200  "
+			(at 187.96 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b63714c4-102e-46f1-9824-cb2d3d251600")
+		)
+		(pin "2"
+			(uuid "2aa12b07-c864-49d4-af33-7d701e2585ad")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C45")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 146.05 119.38 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3366,6 +4164,77 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 250.19 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "300cd72e-8c16-4c6e-9993-3df2c395f6d4")
+		(property "Reference" "C43"
+			(at 252.73 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 252.73 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 250.19 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 250.19 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E4R7MCL1GB -- Aluminum Electrolytic Capacitors - SMD 4.7uF 25V 20% AEC-Q200  "
+			(at 250.19 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "81bf8ba3-e5c2-4533-880f-76aaff043f99")
+		)
+		(pin "2"
+			(uuid "0d5ead49-ea95-4aa6-9f43-b5f03d7fa1e2")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C43")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 123.19 92.71 180)
 		(unit 1)
@@ -3375,7 +4244,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3c641721-b842-4903-847a-c21fa0931fbc")
-		(property "Reference" "TP8"
+		(property "Reference" "TP5"
 			(at 125.73 94.7419 0)
 			(effects
 				(font
@@ -3426,7 +4295,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "TP8")
+					(reference "TP5")
 					(unit 1)
 				)
 			)
@@ -3493,6 +4362,148 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
 					(reference "#PWR0147")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 279.4 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3d6db2d9-095e-4230-99d9-ed4d92b0c946")
+		(property "Reference" "C13"
+			(at 281.94 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 281.94 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 279.4 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 279.4 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E4R7MCL1GB -- Aluminum Electrolytic Capacitors - SMD 4.7uF 25V 20% AEC-Q200  "
+			(at 279.4 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f14e05e8-34a9-4082-a0f6-4f26c500ba9a")
+		)
+		(pin "2"
+			(uuid "9a2eccd4-25fd-4b7d-89a8-0d4e366241ad")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 205.74 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "438f7203-3dc8-41c1-a3b3-d2ceb7911cb1")
+		(property "Reference" "C18"
+			(at 208.28 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 208.28 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 205.74 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 205.74 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E4R7MCL1GB -- Aluminum Electrolytic Capacitors - SMD 4.7uF 25V 20% AEC-Q200  "
+			(at 205.74 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5cb0af9d-eabd-49cf-a7e8-fd114204a13b")
+		)
+		(pin "2"
+			(uuid "c8430646-35f4-4a33-98b4-55d00ea06506")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C18")
 					(unit 1)
 				)
 			)
@@ -3641,7 +4652,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4c34fcd1-8486-4dde-ae00-074cfecd9402")
-		(property "Reference" "TP6"
+		(property "Reference" "TP3"
 			(at 183.388 57.15 90)
 			(effects
 				(font
@@ -3690,7 +4701,78 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "TP6")
+					(reference "TP3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 214.63 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "517494c1-e730-4ce2-a499-8e05c2832e1d")
+		(property "Reference" "C20"
+			(at 217.17 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 217.17 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 214.63 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 214.63 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E4R7MCL1GB -- Aluminum Electrolytic Capacitors - SMD 4.7uF 25V 20% AEC-Q200  "
+			(at 214.63 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "51fd4cb6-9629-464e-bde3-c8a221d9a365")
+		)
+		(pin "2"
+			(uuid "fe82983e-907f-4bbd-bbfe-b7c146e2dd72")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C20")
 					(unit 1)
 				)
 			)
@@ -3706,7 +4788,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5605b98b-795b-4850-8ad1-9dbcccfd36e1")
-		(property "Reference" "J3"
+		(property "Reference" "J6"
 			(at 146.05 80.01 0)
 			(effects
 				(font
@@ -3824,7 +4906,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "J3")
+					(reference "J6")
 					(unit 1)
 				)
 			)
@@ -3840,7 +4922,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "586d0d49-a623-4f62-99ac-09be517e3e36")
-		(property "Reference" "TP2"
+		(property "Reference" "TP1"
 			(at 183.388 32.385 90)
 			(effects
 				(font
@@ -3889,7 +4971,78 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "TP2")
+					(reference "TP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 232.41 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5f8f9730-dd4f-4bcc-a922-6b52552eb0c2")
+		(property "Reference" "C12"
+			(at 234.95 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 234.95 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 232.41 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 232.41 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E4R7MCL1GB -- Aluminum Electrolytic Capacitors - SMD 4.7uF 25V 20% AEC-Q200  "
+			(at 232.41 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6f65fe8a-e939-4e0f-8d40-fd7cb4ef12e7")
+		)
+		(pin "2"
+			(uuid "c2fdc1f8-7f71-45c3-ae00-dd178d3dde73")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C12")
 					(unit 1)
 				)
 			)
@@ -3905,7 +5058,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "68d1d0cb-9245-4f6f-b995-2f074190d385")
-		(property "Reference" "TP7"
+		(property "Reference" "TP2"
 			(at 177.8 83.0579 0)
 			(effects
 				(font
@@ -3956,7 +5109,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "TP7")
+					(reference "TP2")
 					(unit 1)
 				)
 			)
@@ -4038,7 +5191,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7ec8a65b-108d-491e-bb29-0b58d1e4c34f")
-		(property "Reference" "C39"
+		(property "Reference" "C57"
 			(at 86.36 163.3982 0)
 			(effects
 				(font
@@ -4047,7 +5200,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100 uF 20% 35V Electrolytic"
+		(property "Value" "470 uF 20% 35V Electrolytic"
 			(at 86.36 165.9382 0)
 			(effects
 				(font
@@ -4057,7 +5210,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_5x5.8"
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
 			(at 83.82 165.1 0)
 			(effects
 				(font
@@ -4075,7 +5228,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Chemi-Con APXG160ARA101ME61G "
+		(property "Description" "UWT1E101MCL1GS -- Aluminum Electrolytic Capacitors - SMD 25volts 100uF AEC-Q200  "
 			(at 83.82 165.1 0)
 			(effects
 				(font
@@ -4093,7 +5246,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "C39")
+					(reference "C57")
 					(unit 1)
 				)
 			)
@@ -4109,7 +5262,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "87554370-3ce5-4b5c-b448-49cc4af2a3aa")
-		(property "Reference" "C30"
+		(property "Reference" "C59"
 			(at 118.11 42.7482 0)
 			(effects
 				(font
@@ -4128,7 +5281,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_5x5.8"
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
 			(at 115.57 44.45 0)
 			(effects
 				(font
@@ -4146,7 +5299,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Chemi-Con APXG160ARA101ME61G "
+		(property "Description" "UWT1E101MCL1GS -- Aluminum Electrolytic Capacitors - SMD 25volts 100uF AEC-Q200  "
 			(at 115.57 44.45 0)
 			(effects
 				(font
@@ -4164,7 +5317,78 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "C30")
+					(reference "C59")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 260.35 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "87705c78-896d-47e7-b5e5-be028aed2604")
+		(property "Reference" "C44"
+			(at 262.89 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 262.89 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 260.35 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 260.35 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E4R7MCL1GB -- Aluminum Electrolytic Capacitors - SMD 4.7uF 25V 20% AEC-Q200  "
+			(at 260.35 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1c35c95d-22c2-4db9-ba14-d184fcc4f84c")
+		)
+		(pin "2"
+			(uuid "c26bdeb1-2844-4eb9-b995-18d7f61c62cf")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C44")
 					(unit 1)
 				)
 			)
@@ -4247,7 +5471,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8e3fb8bb-71ff-4910-bd54-c88dbb37231f")
-		(property "Reference" "F2"
+		(property "Reference" "F3"
 			(at 86.36 152.3999 0)
 			(effects
 				(font
@@ -4301,7 +5525,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "F2")
+					(reference "F3")
 					(unit 1)
 				)
 			)
@@ -4511,6 +5735,77 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 196.85 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a7ae5747-0e44-4285-a027-e7b85ed5f6c5")
+		(property "Reference" "C17"
+			(at 199.39 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 199.39 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 196.85 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 196.85 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E4R7MCL1GB -- Aluminum Electrolytic Capacitors - SMD 4.7uF 25V 20% AEC-Q200  "
+			(at 196.85 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dc115bea-18bd-4528-9136-3c3bcb1bd2f4")
+		)
+		(pin "2"
+			(uuid "43d826e2-e948-4884-8937-472092389e96")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 115.57 57.15 0)
 		(unit 1)
@@ -4586,7 +5881,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ad4e1284-48d3-45f3-89f5-8c2bb2a0daeb")
-		(property "Reference" "TP4"
+		(property "Reference" "TP6"
 			(at 183.388 44.45 90)
 			(effects
 				(font
@@ -4635,7 +5930,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "TP4")
+					(reference "TP6")
 					(unit 1)
 				)
 			)
@@ -4702,6 +5997,77 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
 					(reference "#PWR0209")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 270.51 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bc1c2dc4-3830-4268-bd4c-8ee9995fd2ad")
+		(property "Reference" "C26"
+			(at 273.05 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 273.05 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 270.51 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 270.51 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E4R7MCL1GB -- Aluminum Electrolytic Capacitors - SMD 4.7uF 25V 20% AEC-Q200  "
+			(at 270.51 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "15e4abba-6fc5-4a84-ba16-ac32af6c2b49")
+		)
+		(pin "2"
+			(uuid "1fb99364-c4e6-467a-9b84-a25bf0d729d2")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C26")
 					(unit 1)
 				)
 			)
@@ -4783,7 +6149,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c398401d-911d-44f9-9693-2edbf1d3ac6a")
-		(property "Reference" "C54"
+		(property "Reference" "C58"
 			(at 80.01 49.0982 0)
 			(effects
 				(font
@@ -4792,7 +6158,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100 uF 20% 35V Electrolytic"
+		(property "Value" "470 uF 20% 35V Electrolytic"
 			(at 80.01 51.6382 0)
 			(effects
 				(font
@@ -4802,7 +6168,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_5x5.8"
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
 			(at 77.47 50.8 0)
 			(effects
 				(font
@@ -4820,7 +6186,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Chemi-Con APXG160ARA101ME61G "
+		(property "Description" "UWT1E101MCL1GS -- Aluminum Electrolytic Capacitors - SMD 25volts 100uF AEC-Q200  "
 			(at 77.47 50.8 0)
 			(effects
 				(font
@@ -4838,7 +6204,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "C54")
+					(reference "C58")
 					(unit 1)
 				)
 			)
@@ -4987,7 +6353,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d451f356-6b06-460c-bcea-2ae777dbdef0")
-		(property "Reference" "R65"
+		(property "Reference" "R11"
 			(at 123.19 80.0099 0)
 			(effects
 				(font
@@ -5041,7 +6407,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "R65")
+					(reference "R11")
 					(unit 1)
 				)
 			)
@@ -5057,7 +6423,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d82f0b83-4896-4867-a2d3-362d97084627")
-		(property "Reference" "TP1"
+		(property "Reference" "TP8"
 			(at 139.573 32.385 90)
 			(effects
 				(font
@@ -5106,7 +6472,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "TP1")
+					(reference "TP8")
 					(unit 1)
 				)
 			)
@@ -5122,7 +6488,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d861058a-3090-4680-8894-ea9036d8833b")
-		(property "Reference" "F3"
+		(property "Reference" "F2"
 			(at 90.17 39.3699 0)
 			(effects
 				(font
@@ -5176,7 +6542,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "F3")
+					(reference "F2")
 					(unit 1)
 				)
 			)
@@ -5192,7 +6558,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e004e29f-dec3-435c-8e6c-feee165c9651")
-		(property "Reference" "TP5"
+		(property "Reference" "TP7"
 			(at 139.573 56.515 90)
 			(effects
 				(font
@@ -5241,7 +6607,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "TP5")
+					(reference "TP7")
 					(unit 1)
 				)
 			)
@@ -5257,7 +6623,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e7fbf4c9-dbee-4dae-981f-4cc2c85bc451")
-		(property "Reference" "C31"
+		(property "Reference" "C56"
 			(at 90.17 51.2317 0)
 			(effects
 				(font
@@ -5266,7 +6632,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100 uF 20% 35V Electrolytic"
+		(property "Value" "470 uF 20% 35V Electrolytic"
 			(at 85.09 49.9618 0)
 			(effects
 				(font
@@ -5276,7 +6642,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:CP_Elec_5x5.8"
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
 			(at 87.63 50.8 0)
 			(effects
 				(font
@@ -5294,7 +6660,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Chemi-Con APXG160ARA101ME61G "
+		(property "Description" "UWT1E101MCL1GS -- Aluminum Electrolytic Capacitors - SMD 25volts 100uF AEC-Q200  "
 			(at 87.63 50.8 0)
 			(effects
 				(font
@@ -5312,7 +6678,144 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "C31")
+					(reference "C56")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 228.6 128.27 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e8e4c358-0279-43d0-a8c8-f45bfa5a4afd")
+		(property "Reference" "#PWR0263"
+			(at 228.6 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 228.6 123.825 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 228.6 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 228.6 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 228.6 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4e84e290-d734-4329-a9a4-3c710cdc70e3")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "#PWR0263")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 241.3 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ee76d7c3-aca3-4842-9e10-3095d033542a")
+		(property "Reference" "C24"
+			(at 243.84 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 243.84 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 241.3 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 241.3 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E4R7MCL1GB -- Aluminum Electrolytic Capacitors - SMD 4.7uF 25V 20% AEC-Q200  "
+			(at 241.3 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f41afe63-6c92-488c-90e0-4c10df63e350")
+		)
+		(pin "2"
+			(uuid "270bd037-c2bb-4c5d-8348-009f8489ccc4")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C24")
 					(unit 1)
 				)
 			)

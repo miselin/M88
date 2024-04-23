@@ -4971,7 +4971,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "237e9271-b42d-43e0-a850-047c81b1d59e")
-		(property "Reference" "C17"
+		(property "Reference" "C34"
 			(at 168.9163 46.99 90)
 			(effects
 				(font
@@ -5023,7 +5023,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/3cc0661d-bb7d-4aa8-8cb0-0145893b26d4"
-					(reference "C17")
+					(reference "C34")
 					(unit 1)
 				)
 			)
@@ -5038,7 +5038,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "285d0734-164b-42da-848a-89ae05c70f5e")
-		(property "Reference" "RN7"
+		(property "Reference" "RN11"
 			(at 244.856 27.94 90)
 			(effects
 				(font
@@ -5111,7 +5111,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/3cc0661d-bb7d-4aa8-8cb0-0145893b26d4"
-					(reference "RN7")
+					(reference "RN11")
 					(unit 1)
 				)
 			)
@@ -5194,7 +5194,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "75e713c5-b42b-40dd-acaf-23b1bd634061")
-		(property "Reference" "U16"
+		(property "Reference" "U18"
 			(at 163.4841 62.23 0)
 			(effects
 				(font
@@ -5328,7 +5328,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/3cc0661d-bb7d-4aa8-8cb0-0145893b26d4"
-					(reference "U16")
+					(reference "U18")
 					(unit 1)
 				)
 			)
@@ -5343,7 +5343,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "865b4e1f-bf03-4ff6-a08d-678a3cbb2063")
-		(property "Reference" "RN8"
+		(property "Reference" "RN10"
 			(at 244.856 55.88 90)
 			(effects
 				(font
@@ -5416,7 +5416,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/3cc0661d-bb7d-4aa8-8cb0-0145893b26d4"
-					(reference "RN8")
+					(reference "RN10")
 					(unit 1)
 				)
 			)
@@ -5498,7 +5498,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8db15160-40cf-46e4-af8e-f10b2f390dfd")
-		(property "Reference" "C18"
+		(property "Reference" "C33"
 			(at 101.6063 49.53 90)
 			(effects
 				(font
@@ -5550,7 +5550,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/3cc0661d-bb7d-4aa8-8cb0-0145893b26d4"
-					(reference "C18")
+					(reference "C33")
 					(unit 1)
 				)
 			)

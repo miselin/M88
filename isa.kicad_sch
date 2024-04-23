@@ -1352,6 +1352,176 @@
 				)
 			)
 		)
+		(symbol "Device:R_US"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R_US"
+				(at -2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 1.016 -0.254 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor, US symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_US_0_1"
+				(polyline
+					(pts
+						(xy 0 -2.286) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_US_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "power:+12V"
 			(power)
 			(pin_names
@@ -4205,6 +4375,16 @@
 		)
 		(uuid "59277e72-514c-4314-b5ae-8f95fb8c72ac")
 	)
+	(wire
+		(pts
+			(xy 115.57 43.18) (xy 115.57 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5938f0be-336f-409d-835c-8f14176aa14d")
+	)
 	(bus
 		(pts
 			(xy 184.15 147.32) (xy 184.15 148.59)
@@ -4324,6 +4504,16 @@
 			(type default)
 		)
 		(uuid "63fb50f5-1ad5-4726-8c15-68737ad6b6c1")
+	)
+	(wire
+		(pts
+			(xy 106.68 40.64) (xy 106.68 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "646e1f61-ad3a-4b13-955f-21db07f0a6b9")
 	)
 	(bus
 		(pts
@@ -4645,6 +4835,16 @@
 		)
 		(uuid "7e308f75-9c16-4002-9826-b6cdd577a155")
 	)
+	(wire
+		(pts
+			(xy 115.57 29.21) (xy 115.57 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8017e6dd-9c1c-417d-a010-0501cbd95e62")
+	)
 	(bus
 		(pts
 			(xy 278.13 68.58) (xy 269.24 68.58)
@@ -4907,7 +5107,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 40.64) (xy 96.52 40.64)
+			(xy 83.82 40.64) (xy 106.68 40.64)
 		)
 		(stroke
 			(width 0)
@@ -5777,6 +5977,16 @@
 	)
 	(wire
 		(pts
+			(xy 106.68 29.21) (xy 106.68 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e26387b2-4b7e-4421-8b0a-aaa521c44855")
+	)
+	(wire
+		(pts
 			(xy 41.91 109.22) (xy 52.07 109.22)
 		)
 		(stroke
@@ -6047,7 +6257,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 43.18) (xy 92.71 43.18)
+			(xy 83.82 43.18) (xy 115.57 43.18)
 		)
 		(stroke
 			(width 0)
@@ -8767,6 +8977,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_US")
+		(at 115.57 35.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "20270a4c-3f0f-4d42-8da2-896a0bcc792e")
+		(property "Reference" "R3"
+			(at 118.11 34.2899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 118.11 36.8299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 116.586 35.814 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 115.57 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "0c496d97-b1ba-4190-826f-b12a2bdfd157")
+		)
+		(pin "1"
+			(uuid "e3ae4382-aac1-48ba-a0f7-3edbd49fd18d")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
+					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 213.36 139.7 90)
 		(unit 1)
@@ -9035,6 +9315,77 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 72.39 176.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3d82c283-2772-432a-90be-1076b0af034c")
+		(property "Reference" "C7"
+			(at 74.93 174.8282 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10UF 16V 20%"
+			(at 74.93 177.3682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_5x4.5"
+			(at 72.39 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 72.39 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E100MCL1GB -- Aluminum Electrolytic Capacitors - SMD 25volts 10uF AEC-Q200  "
+			(at 72.39 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "75712acb-7d5b-4cd4-bc99-08043062829b")
+		)
+		(pin "2"
+			(uuid "5bc38369-7875-4af0-a629-28bd6d7b6306")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
+					(reference "C7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:-12V")
 		(at 213.36 83.82 90)
 		(unit 1)
@@ -9169,36 +9520,17 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Polarized_Small_US")
-		(at 82.55 176.53 0)
+		(lib_id "power:+5V")
+		(at 115.57 29.21 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "499de704-98ad-4d78-a96a-8bea910af0bc")
-		(property "Reference" "C35"
-			(at 85.09 174.8282 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10 uF 10% 10V Tantalum Kemet T landing (3528-12 EIA)"
-			(at 85.09 177.3682 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3528-12_Kemet-T"
-			(at 82.55 176.53 0)
+		(uuid "4b52af42-9fd2-4239-a258-bb970bf4b792")
+		(property "Reference" "#PWR0222"
+			(at 115.57 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9206,8 +9538,25 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 82.55 176.53 0)
+		(property "Value" "+5V"
+			(at 115.57 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9216,7 +9565,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 82.55 176.53 0)
+			(at 115.57 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9225,15 +9574,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "78b92d99-fbb8-4efc-b7fa-ac11ffa179b6")
-		)
-		(pin "2"
-			(uuid "8ea42f57-fdc7-4911-91f7-ad0dbf49c266")
+			(uuid "bad9d03c-28d6-4cb5-8aaa-6ac12bd0b387")
 		)
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "C35")
+					(reference "#PWR0222")
 					(unit 1)
 				)
 			)
@@ -9308,16 +9654,16 @@
 	)
 	(symbol
 		(lib_id "Device:C_Polarized_Small_US")
-		(at 91.44 176.53 0)
+		(at 101.6 176.53 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "572dd582-cef7-4dd6-a92d-f2ebb0930853")
-		(property "Reference" "C36"
-			(at 93.98 174.8282 0)
+		(uuid "5af941cc-e352-46aa-a36f-3a070647f29d")
+		(property "Reference" "C29"
+			(at 104.14 174.8282 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9325,8 +9671,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10 uF 10% 10V Tantalum Kemet T landing (3528-12 EIA)"
-			(at 93.98 177.3682 0)
+		(property "Value" "10UF 16V 20%"
+			(at 104.14 177.3682 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9335,8 +9681,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3528-12_Kemet-T"
-			(at 91.44 176.53 0)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_5x4.5"
+			(at 101.6 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9345,7 +9691,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 91.44 176.53 0)
+			(at 101.6 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9353,8 +9699,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 91.44 176.53 0)
+		(property "Description" "UZT1E100MCL1GB -- Aluminum Electrolytic Capacitors - SMD 25volts 10uF AEC-Q200  "
+			(at 101.6 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9363,15 +9709,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "48efc214-264a-4de5-b8c3-90d043bf3433")
+			(uuid "9d11be1a-8c66-4a10-b7d3-4068bcbec820")
 		)
 		(pin "2"
-			(uuid "42e5b661-cbca-4008-9c21-eeaa2fb8dab2")
+			(uuid "2052bf66-4c49-47ee-bb72-3b382f81a3dd")
 		)
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "C36")
+					(reference "C29")
 					(unit 1)
 				)
 			)
@@ -9646,6 +9992,77 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 82.55 176.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7271a9db-4c2f-48dc-8252-7e5b6abfe6c8")
+		(property "Reference" "C8"
+			(at 85.09 174.8282 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10UF 16V 20%"
+			(at 85.09 177.3682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_5x4.5"
+			(at 82.55 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 82.55 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E100MCL1GB -- Aluminum Electrolytic Capacitors - SMD 25volts 10uF AEC-Q200  "
+			(at 82.55 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ec41f5f0-7b2f-42e3-93d7-79f4410fa8e6")
+		)
+		(pin "2"
+			(uuid "86efb484-05a4-414a-a54b-1484be409cfe")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
+					(reference "C8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+12V")
 		(at 45.72 34.29 270)
 		(unit 1)
@@ -9707,77 +10124,6 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
 					(reference "#PWR0173")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized_Small_US")
-		(at 72.39 176.53 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7604ff35-4f93-47c0-ad7c-448e7c794f83")
-		(property "Reference" "C34"
-			(at 74.93 174.8282 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10 uF 10% 10V Tantalum Kemet T landing (3528-12 EIA)"
-			(at 74.93 177.3682 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3528-12_Kemet-T"
-			(at 72.39 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 72.39 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 72.39 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bb414567-77e3-49ff-a492-62b2b482116d")
-		)
-		(pin "2"
-			(uuid "02e1c67e-5a28-4f47-906a-4729dc19b34f")
-		)
-		(instances
-			(project "sbc_8088"
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "C34")
 					(unit 1)
 				)
 			)
@@ -10118,6 +10464,77 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 110.49 176.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "911404e7-c53d-422d-944f-a7242cf4f59c")
+		(property "Reference" "C10"
+			(at 113.03 174.8282 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10UF 16V 20%"
+			(at 113.03 177.3682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_5x4.5"
+			(at 110.49 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 110.49 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E100MCL1GB -- Aluminum Electrolytic Capacitors - SMD 25volts 10uF AEC-Q200  "
+			(at 110.49 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "822454b0-3c8b-465f-bc7a-6ff2ee553706")
+		)
+		(pin "2"
+			(uuid "478c453d-cd87-486d-9994-544aa313c9d9")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
+					(reference "C10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:-12V")
 		(at 127 83.82 90)
 		(unit 1)
@@ -10319,36 +10736,17 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Polarized_Small_US")
-		(at 101.6 176.53 0)
+		(lib_id "power:+5V")
+		(at 106.68 29.21 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "9ef67782-bef3-4e08-9290-540b1c07d5fd")
-		(property "Reference" "C37"
-			(at 104.14 174.8282 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10 uF 10% 10V Tantalum Kemet T landing (3528-12 EIA)"
-			(at 104.14 177.3682 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3528-12_Kemet-T"
-			(at 101.6 176.53 0)
+		(uuid "b2c5bd1c-ced3-44ea-8f98-079cd4047858")
+		(property "Reference" "#PWR076"
+			(at 106.68 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10356,8 +10754,25 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 101.6 176.53 0)
+		(property "Value" "+5V"
+			(at 106.68 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10366,7 +10781,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 101.6 176.53 0)
+			(at 106.68 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10375,86 +10790,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "98e9edc0-7bc3-4ba0-ac71-6ddb738c7384")
-		)
-		(pin "2"
-			(uuid "3520ccf0-9493-4f19-8bca-b5e515267e4e")
+			(uuid "ec7d7016-aaa9-4806-955e-595564c6ab75")
 		)
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "C37")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized_Small_US")
-		(at 63.5 176.53 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a91f70fa-7bdc-4b15-8bcf-ac6ff9881520")
-		(property "Reference" "C33"
-			(at 66.04 174.8282 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10 uF 10% 10V Tantalum Kemet T landing (3528-12 EIA)"
-			(at 66.04 177.3682 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3528-12_Kemet-T"
-			(at 63.5 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 63.5 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 63.5 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9d3c8d6c-b5a2-4a2f-8587-51bb380d5568")
-		)
-		(pin "2"
-			(uuid "d1c841dd-84dc-467f-b586-93a939249fb8")
-		)
-		(instances
-			(project "sbc_8088"
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "C33")
+					(reference "#PWR076")
 					(unit 1)
 				)
 			)
@@ -10537,7 +10878,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d6ebe26d-25ef-4bb7-8139-689e191e16ee")
-		(property "Reference" "J4"
+		(property "Reference" "J5"
 			(at 69.85 61.595 0)
 			(effects
 				(font
@@ -10769,7 +11110,78 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "J4")
+					(reference "J5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 91.44 176.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d7b389a1-af62-4e34-a631-ba3876b33e58")
+		(property "Reference" "C11"
+			(at 93.98 174.8282 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10UF 16V 20%"
+			(at 93.98 177.3682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_5x4.5"
+			(at 91.44 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 91.44 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E100MCL1GB -- Aluminum Electrolytic Capacitors - SMD 25volts 10uF AEC-Q200  "
+			(at 91.44 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "311d5dbc-7d6a-4bb8-a7c5-d6a5e02cd162")
+		)
+		(pin "2"
+			(uuid "9d692a12-39af-44fb-a25c-236b46b5164b")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
+					(reference "C11")
 					(unit 1)
 				)
 			)
@@ -10852,7 +11264,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dca8cc63-17b1-4a75-bac5-175cac672fd0")
-		(property "Reference" "J5"
+		(property "Reference" "J4"
 			(at 157.48 61.595 0)
 			(effects
 				(font
@@ -11084,7 +11496,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "J5")
+					(reference "J4")
 					(unit 1)
 				)
 			)
@@ -11225,6 +11637,147 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 63.5 176.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ece06777-379d-4b29-9de2-470a309152e6")
+		(property "Reference" "C27"
+			(at 66.04 174.8282 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10UF 16V 20%"
+			(at 66.04 177.3682 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_5x4.5"
+			(at 63.5 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 63.5 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UZT1E100MCL1GB -- Aluminum Electrolytic Capacitors - SMD 25volts 10uF AEC-Q200  "
+			(at 63.5 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d55fd7c2-7deb-4e84-9cfc-b81bc02fa76e")
+		)
+		(pin "2"
+			(uuid "9a05dfa7-2b93-4740-939a-fdba70e4700d")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
+					(reference "C27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 106.68 35.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f58a7c7c-cf8f-4cbb-a48c-bff1a3fbf27e")
+		(property "Reference" "R1"
+			(at 109.22 34.2899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 109.22 36.8299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 107.696 35.814 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 106.68 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 106.68 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "4f049683-bd33-4a76-868f-f46bbe59686f")
+		)
+		(pin "1"
+			(uuid "5df65b65-9995-46d1-90df-3aa51e86cacb")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Custom:Bus_ISA_8bit_Host")
 		(at 243.84 106.68 0)
 		(unit 1)
@@ -11234,7 +11787,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f6acd07c-0df5-4fd9-9c7d-ef7f5a15219d")
-		(property "Reference" "J6"
+		(property "Reference" "J3"
 			(at 243.84 61.595 0)
 			(effects
 				(font
@@ -11466,7 +12019,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "J6")
+					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -11534,77 +12087,6 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
 					(reference "#PWR0195")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Polarized_Small_US")
-		(at 110.49 176.53 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "faf3fab5-9cd9-4203-962f-cb918a975990")
-		(property "Reference" "C38"
-			(at 113.03 174.8282 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10 uF 10% 10V Tantalum Kemet T landing (3528-12 EIA)"
-			(at 113.03 177.3682 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3528-12_Kemet-T"
-			(at 110.49 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 110.49 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 110.49 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7ff2b946-cd8c-4460-b54d-47d15924ca5c")
-		)
-		(pin "2"
-			(uuid "2f57e93a-0246-482e-8327-5aa5e45f6719")
-		)
-		(instances
-			(project "sbc_8088"
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "C38")
 					(unit 1)
 				)
 			)

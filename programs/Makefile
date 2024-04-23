@@ -12,7 +12,7 @@ C16 := bcc
 C16_OBJS := build/rom/main.o16
 C16_FLAGS := -0 -ansi -S
 
-ROM_OBJS := build/rom/rom.obj build/rom/optionrom.obj build/rom/isrs.obj build/rom/isr.obj build/rom/pic.obj build/rom/pit.obj
+ROM_OBJS := build/rom/rom.obj build/rom/optionrom.obj build/rom/isrs.obj build/rom/isr.obj build/rom/pic.obj build/rom/pit.obj build/rom/kbc.obj
 
 all: mkdirs build/rom.bin build/rom.ith
 

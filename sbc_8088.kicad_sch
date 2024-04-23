@@ -141,6 +141,176 @@
 				)
 			)
 		)
+		(symbol "Device:R_US"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R_US"
+				(at -2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 1.016 -0.254 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor, US symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_US_0_1"
+				(polyline
+					(pts
+						(xy 0 -2.286) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_US_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "MCU_Intel:8088"
 			(pin_names
 				(offset 1.016)
@@ -1853,6 +2023,16 @@
 	)
 	(wire
 		(pts
+			(xy 93.98 185.42) (xy 93.98 193.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "08b01d8a-9009-4fd2-8f2b-b83d491406ff")
+	)
+	(wire
+		(pts
 			(xy 24.13 135.255) (xy 30.48 135.255)
 		)
 		(stroke
@@ -2143,16 +2323,6 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 38.735) (xy 86.36 38.735)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "206ec22f-ffc0-4bb4-964f-259484bce2d5")
-	)
-	(wire
-		(pts
 			(xy 162.56 100.33) (xy 173.99 100.33)
 		)
 		(stroke
@@ -2253,7 +2423,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 33.02) (xy 74.93 33.02)
+			(xy 62.23 33.02) (xy 74.93 33.02)
 		)
 		(stroke
 			(width 0)
@@ -2383,7 +2553,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 34.29) (xy 86.36 38.735)
+			(xy 86.36 34.29) (xy 86.36 39.37)
 		)
 		(stroke
 			(width 0)
@@ -2530,6 +2700,16 @@
 			(type default)
 		)
 		(uuid "44b62f56-9d53-464f-a117-f7ec9cfbbb44")
+	)
+	(wire
+		(pts
+			(xy 93.98 175.26) (xy 93.98 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45e300f6-c1f1-4cd5-aec7-da7c33965f04")
 	)
 	(wire
 		(pts
@@ -3270,6 +3450,16 @@
 			(type default)
 		)
 		(uuid "902607ff-f3d3-40ef-87ef-6fe06149b8d9")
+	)
+	(wire
+		(pts
+			(xy 82.55 39.37) (xy 86.36 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9188c360-b2fa-4c47-9827-0a642dea5a6a")
 	)
 	(wire
 		(pts
@@ -4331,6 +4521,38 @@
 		)
 		(uuid "ff43c7fb-58e2-41cf-8b77-8ecab3d0ba28")
 	)
+	(text "Make sure ~{INTA} can never float"
+		(exclude_from_sim no)
+		(at 93.726 195.834 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a4765397-d5ad-4a4a-95ae-1747c9575b52")
+	)
+	(text "A1"
+		(exclude_from_sim no)
+		(at 268.478 193.294 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "adb92117-cc95-4944-8ef3-bb23dbb17a10")
+	)
+	(text "8088 Single-Board Computer"
+		(exclude_from_sim no)
+		(at 186.182 189.738 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d46e552a-02ea-4078-9c89-dc885d4254d9")
+	)
 	(text "Minimum mode only"
 		(exclude_from_sim no)
 		(at 143.51 193.04 0)
@@ -4341,6 +4563,27 @@
 			(justify left bottom)
 		)
 		(uuid "db32643f-6fa3-4f61-a95f-7b825555306b")
+	)
+	(text "TODO: Add DS1687-5+ for RTC\nTODO: Add something for RS323 and/or FTDI serial"
+		(exclude_from_sim no)
+		(at 128.016 155.448 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ef043f4c-1e89-4dff-b2b4-547115029fd7")
+	)
+	(text "Give KBC A2 instead of A0\nI/O ports 0x60, 0x64"
+		(exclude_from_sim no)
+		(at 87.122 39.116 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "feaa6977-7b77-46f7-a46f-4f0d045075aa")
 	)
 	(label "8088_A12"
 		(at 165.1 97.79 0)
@@ -5233,8 +5476,8 @@
 		)
 		(uuid "7fc4be1d-ad81-429e-a4b1-7f194c59f74a")
 	)
-	(label "8088_CLK"
-		(at 64.77 33.02 0)
+	(label "8284_PCLK"
+		(at 62.23 33.02 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5519,6 +5762,17 @@
 		)
 		(uuid "9e4cb738-ff59-45d4-a24a-91e728eb786b")
 	)
+	(label "8088_INTA#"
+		(at 93.98 193.04 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9f6fd099-b748-4494-81c7-051955b836c8")
+	)
 	(label "KBC_CS#"
 		(at 64.77 20.32 0)
 		(fields_autoplaced yes)
@@ -5783,8 +6037,8 @@
 		)
 		(uuid "c7c4bb6d-0667-4f32-b8be-8c24b358ea8f")
 	)
-	(label "A0"
-		(at 82.55 38.735 0)
+	(label "A2"
+		(at 82.55 39.37 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6277,7 +6531,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "03ef7258-cb84-49ea-955c-266d4090d748")
-		(property "Reference" "C1"
+		(property "Reference" "C19"
 			(at 154.94 35.56 90)
 			(effects
 				(font
@@ -6329,7 +6583,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
-					(reference "C1")
+					(reference "C19")
 					(unit 1)
 				)
 			)
@@ -6530,6 +6784,76 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
 					(reference "#PWR023")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 93.98 181.61 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "126d4755-e945-47ea-b0d0-759b65893aa5")
+		(property "Reference" "R4"
+			(at 96.52 180.3399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 96.52 182.8799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 94.996 181.864 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 93.98 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 93.98 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "4c298b7a-1322-40d1-a0a0-778fe883d267")
+		)
+		(pin "1"
+			(uuid "7d6153c0-8003-4ef4-bd5e-de6be1dc8825")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
+					(reference "R4")
 					(unit 1)
 				)
 			)
@@ -8124,6 +8448,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 93.98 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a42bc966-dfb1-42ec-b0e3-876a494ccbaa")
+		(property "Reference" "#PWR0223"
+			(at 93.98 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 93.98 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 93.98 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 93.98 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 93.98 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e8225b80-f1cf-4bbc-846e-7bba3b021226")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
+					(reference "#PWR0223")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 24.13 135.255 270)
 		(unit 1)
@@ -9127,7 +9517,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ffc33ea1-bf78-44ef-9e8d-1eabb26b9e84")
-		(property "Reference" "U1"
+		(property "Reference" "U6"
 			(at 146.9741 45.72 0)
 			(effects
 				(font
@@ -9296,7 +9686,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
-					(reference "U1")
+					(reference "U6")
 					(unit 1)
 				)
 			)
@@ -9412,16 +9802,6 @@
 			)
 			(uuid "a98746cf-e31d-4630-b65f-7a2580303342")
 		)
-		(pin "8MHz" input
-			(at 74.93 33.02 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "1b1a4f50-0480-40ab-9777-f4125d9331f3")
-		)
 		(pin "GND" output
 			(at 97.79 30.48 0)
 			(effects
@@ -9441,6 +9821,16 @@
 				(justify right)
 			)
 			(uuid "202a18a9-8f33-4f38-a89e-d5d7fb8490c9")
+		)
+		(pin "KBC_CLK" input
+			(at 74.93 33.02 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "303a1f57-95c3-408b-a892-8ea427bf5f5c")
 		)
 		(instances
 			(project "sbc_8088"
@@ -10397,6 +10787,44 @@
 		)
 	)
 	(sheet
+		(at 167.64 142.24)
+		(size 29.21 13.97)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "8085a0d1-9965-4888-bd84-2a1d8cfa798e")
+		(property "Sheetname" "Serial Port"
+			(at 167.64 141.5284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "serial_port.kicad_sch"
+			(at 167.64 156.7946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
+					(page "22")
+				)
+			)
+		)
+	)
+	(sheet
 		(at 185.42 17.78)
 		(size 33.02 36.83)
 		(fields_autoplaced yes)
@@ -11144,6 +11572,44 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
 					(page "11")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 93.98 129.54)
+		(size 27.94 12.7)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "ca236587-a638-477e-9670-baa491a9fd61")
+		(property "Sheetname" "Real Time Clock"
+			(at 93.98 128.8284 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "RTC.kicad_sch"
+			(at 93.98 142.8246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
+					(page "21")
 				)
 			)
 		)

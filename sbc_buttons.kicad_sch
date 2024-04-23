@@ -1505,7 +1505,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "149bfca6-9688-43de-a17f-0447dfc6b818")
-		(property "Reference" "H1"
+		(property "Reference" "H2"
 			(at 35.56 63.5 90)
 			(effects
 				(font
@@ -1554,7 +1554,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "H1")
+					(reference "H2")
 					(unit 1)
 				)
 			)
@@ -1636,7 +1636,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "221bd122-886b-474c-bce1-87e4029e5c21")
-		(property "Reference" "H6"
+		(property "Reference" "H5"
 			(at 35.56 118.745 90)
 			(effects
 				(font
@@ -1685,7 +1685,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "H6")
+					(reference "H5")
 					(unit 1)
 				)
 			)
@@ -1701,7 +1701,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3a816e6c-2ada-4268-b03b-636e3bcd8fd1")
-		(property "Reference" "D1"
+		(property "Reference" "D3"
 			(at 219.6465 34.925 0)
 			(effects
 				(font
@@ -1753,7 +1753,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "D1")
+					(reference "D3")
 					(unit 1)
 				)
 			)
@@ -1769,7 +1769,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3b5f4d8d-ee96-4eb2-a4ba-7168d6e03a42")
-		(property "Reference" "H5"
+		(property "Reference" "H1"
 			(at 35.56 107.95 90)
 			(effects
 				(font
@@ -1818,7 +1818,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "H5")
+					(reference "H1")
 					(unit 1)
 				)
 			)
@@ -1900,7 +1900,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4137eced-c6bb-4ec9-9fa1-aa7f395723ee")
-		(property "Reference" "H2"
+		(property "Reference" "H9"
 			(at 35.56 74.295 90)
 			(effects
 				(font
@@ -1949,7 +1949,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "H2")
+					(reference "H9")
 					(unit 1)
 				)
 			)
@@ -1965,7 +1965,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "45c9e341-8708-4dc7-b665-fc80d9f7429c")
-		(property "Reference" "R6"
+		(property "Reference" "R9"
 			(at 211.455 59.055 90)
 			(effects
 				(font
@@ -2017,7 +2017,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "R6")
+					(reference "R9")
 					(unit 1)
 				)
 			)
@@ -2099,7 +2099,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5e1ae25a-4509-4686-9972-30e1e7eb82e2")
-		(property "Reference" "H4"
+		(property "Reference" "H3"
 			(at 35.56 96.52 90)
 			(effects
 				(font
@@ -2148,7 +2148,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "H4")
+					(reference "H3")
 					(unit 1)
 				)
 			)
@@ -2164,7 +2164,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5e857694-5e75-4f53-a51b-ef911dd2ba64")
-		(property "Reference" "C16"
+		(property "Reference" "C14"
 			(at 137.16 66.04 0)
 			(effects
 				(font
@@ -2219,7 +2219,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "C16")
+					(reference "C14")
 					(unit 1)
 				)
 			)
@@ -2235,7 +2235,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "668c496b-e0d2-46c6-a842-18cea55e7045")
-		(property "Reference" "R5"
+		(property "Reference" "R10"
 			(at 210.185 34.29 90)
 			(effects
 				(font
@@ -2287,7 +2287,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "R5")
+					(reference "R10")
 					(unit 1)
 				)
 			)
@@ -2303,7 +2303,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "73650e6a-307a-43d6-8ad9-b7afa628ae62")
-		(property "Reference" "H3"
+		(property "Reference" "H8"
 			(at 35.56 85.09 90)
 			(effects
 				(font
@@ -2352,7 +2352,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "H3")
+					(reference "H8")
 					(unit 1)
 				)
 			)
@@ -2634,7 +2634,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ba702380-beb3-4438-acce-06f8f7fd06fc")
-		(property "Reference" "R7"
+		(property "Reference" "R2"
 			(at 148.59 82.55 0)
 			(effects
 				(font
@@ -2688,7 +2688,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "R7")
+					(reference "R2")
 					(unit 1)
 				)
 			)
@@ -2771,7 +2771,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "df2ce1d8-da88-4f93-8576-3f1aab6f264d")
-		(property "Reference" "H7"
+		(property "Reference" "H4"
 			(at 35.56 129.54 90)
 			(effects
 				(font
@@ -2820,7 +2820,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "H7")
+					(reference "H4")
 					(unit 1)
 				)
 			)
@@ -2836,7 +2836,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e1d22780-ba2c-4e53-8b05-762f23fa22f1")
-		(property "Reference" "H9"
+		(property "Reference" "H7"
 			(at 35.56 151.765 90)
 			(effects
 				(font
@@ -2885,7 +2885,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "H9")
+					(reference "H7")
 					(unit 1)
 				)
 			)
@@ -2901,7 +2901,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ec4275bd-eb97-4199-bc6a-93db2ec16e73")
-		(property "Reference" "H8"
+		(property "Reference" "H6"
 			(at 35.56 140.97 90)
 			(effects
 				(font
@@ -2950,7 +2950,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "H8")
+					(reference "H6")
 					(unit 1)
 				)
 			)

@@ -11,6 +11,7 @@ extern load_ivt
 extern configure_pic
 extern configure_pic_bochs
 extern configure_pit
+extern configure_kbc
 
 cli
 
@@ -78,11 +79,18 @@ call configure_pit
 mov al, 0x05
 out 0xF0, al
 
+; set up keyboard controller
+call configure_kbc
+
+; POST #6 - KBD is set up
+mov al, 0x06
+out 0xF0, al
+
 ; interrupts are safe now
 sti
 
-; POST #6 - system is ready
-mov al, 0x06
+; POST #7 - system is ready
+mov al, 0x07
 out 0xF0, al
 
 ; call call_option_roms

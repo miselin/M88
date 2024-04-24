@@ -9662,7 +9662,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5af941cc-e352-46aa-a36f-3a070647f29d")
-		(property "Reference" "C29"
+		(property "Reference" "C34"
 			(at 104.14 174.8282 0)
 			(effects
 				(font
@@ -9717,7 +9717,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "C29")
+					(reference "C34")
 					(unit 1)
 				)
 			)
@@ -10878,7 +10878,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d6ebe26d-25ef-4bb7-8139-689e191e16ee")
-		(property "Reference" "J5"
+		(property "Reference" "J6"
 			(at 69.85 61.595 0)
 			(effects
 				(font
@@ -11110,7 +11110,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "J5")
+					(reference "J6")
 					(unit 1)
 				)
 			)
@@ -11264,7 +11264,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dca8cc63-17b1-4a75-bac5-175cac672fd0")
-		(property "Reference" "J4"
+		(property "Reference" "J5"
 			(at 157.48 61.595 0)
 			(effects
 				(font
@@ -11496,7 +11496,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "J4")
+					(reference "J5")
 					(unit 1)
 				)
 			)
@@ -11646,7 +11646,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ece06777-379d-4b29-9de2-470a309152e6")
-		(property "Reference" "C27"
+		(property "Reference" "C32"
 			(at 66.04 174.8282 0)
 			(effects
 				(font
@@ -11701,7 +11701,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "C27")
+					(reference "C32")
 					(unit 1)
 				)
 			)
@@ -11787,7 +11787,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f6acd07c-0df5-4fd9-9c7d-ef7f5a15219d")
-		(property "Reference" "J3"
+		(property "Reference" "J4"
 			(at 243.84 61.595 0)
 			(effects
 				(font
@@ -12019,7 +12019,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7e9ec34b-a562-42ca-aed5-ced2fee0dbf0"
-					(reference "J3")
+					(reference "J4")
 					(unit 1)
 				)
 			)

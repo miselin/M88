@@ -2637,7 +2637,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "091ca3a1-3942-4758-9d79-cdd180e1f5ba")
-		(property "Reference" "C51"
+		(property "Reference" "C56"
 			(at 178.435 100.33 0)
 			(effects
 				(font
@@ -2692,7 +2692,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
-					(reference "C51")
+					(reference "C56")
 					(unit 1)
 				)
 			)
@@ -2708,7 +2708,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0ea574b9-18d6-4af2-9e25-ce086be6b50c")
-		(property "Reference" "C52"
+		(property "Reference" "C57"
 			(at 257.81 20.955 90)
 			(effects
 				(font
@@ -2760,7 +2760,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
-					(reference "C52")
+					(reference "C57")
 					(unit 1)
 				)
 			)
@@ -2776,7 +2776,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "25cf234d-6910-4a46-b9ce-4827b218ff88")
-		(property "Reference" "U33"
+		(property "Reference" "U37"
 			(at 259.08 41.275 0)
 			(effects
 				(font
@@ -2866,7 +2866,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
-					(reference "U33")
+					(reference "U37")
 					(unit 3)
 				)
 			)
@@ -3216,7 +3216,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5e38165d-eb62-4392-b02d-2d07b92331d9")
-		(property "Reference" "U33"
+		(property "Reference" "U37"
 			(at 217.4591 47.625 0)
 			(effects
 				(font
@@ -3306,7 +3306,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
-					(reference "U33")
+					(reference "U37")
 					(unit 1)
 				)
 			)
@@ -3652,7 +3652,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a8a07a41-61e6-4849-b5b2-6c984f710e6a")
-		(property "Reference" "C50"
+		(property "Reference" "C55"
 			(at 154.305 64.77 90)
 			(effects
 				(font
@@ -3704,7 +3704,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
-					(reference "C50")
+					(reference "C55")
 					(unit 1)
 				)
 			)
@@ -3918,7 +3918,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bc5697bf-2558-4523-b659-1124bf7a8bec")
-		(property "Reference" "U33"
+		(property "Reference" "U37"
 			(at 255.5591 73.025 0)
 			(effects
 				(font
@@ -4008,7 +4008,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
-					(reference "U33")
+					(reference "U37")
 					(unit 2)
 				)
 			)
@@ -4024,7 +4024,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e702982f-c672-4cf6-a4e0-7d745c220bdf")
-		(property "Reference" "R6"
+		(property "Reference" "R24"
 			(at 188.595 100.33 90)
 			(effects
 				(font
@@ -4076,7 +4076,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
-					(reference "R6")
+					(reference "R24")
 					(unit 1)
 				)
 			)
@@ -4092,7 +4092,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f1335139-c76e-4da9-ab57-04983974e4a6")
-		(property "Reference" "R7"
+		(property "Reference" "R25"
 			(at 188.595 120.015 90)
 			(effects
 				(font
@@ -4144,7 +4144,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
-					(reference "R7")
+					(reference "R25")
 					(unit 1)
 				)
 			)
@@ -4160,7 +4160,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f423fd24-ac93-4332-a838-fe6a55bdd46d")
-		(property "Reference" "R8"
+		(property "Reference" "R26"
 			(at 118.11 85.09 90)
 			(effects
 				(font
@@ -4212,7 +4212,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
-					(reference "R8")
+					(reference "R26")
 					(unit 1)
 				)
 			)
@@ -4228,7 +4228,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fad8c604-bf20-4040-a777-fa425af174a9")
-		(property "Reference" "U28"
+		(property "Reference" "U32"
 			(at 147.6091 78.74 0)
 			(effects
 				(font
@@ -4331,7 +4331,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
-					(reference "U28")
+					(reference "U32")
 					(unit 1)
 				)
 			)

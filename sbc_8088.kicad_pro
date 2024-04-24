@@ -430,7 +430,7 @@
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
       "pin_not_driven": "error",
-      "pin_to_pin": "warning",
+      "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "similar_labels": "warning",
       "simulation_model_issue": "ignore",
@@ -578,11 +578,11 @@
       "+12V": "12V_1A",
       "+3.3V": "Power",
       "+5V": "5V_2A",
+      "+5VSB": "Power",
       "-12V": "Power",
       "/+5VSB": "Power",
       "/KB Controller/5V_PS2": "5V_1A",
       "/Power Management/+12V_IN": "12V_1A",
-      "/Power Management/+5VSB": "Power",
       "/Power Management/+5V_IN": "5V_2A",
       "/Power Management/-12V_IN": "12V_1A",
       "GND": "Power",
@@ -873,12 +873,12 @@
       "POST 7-Segment"
     ],
     [
-      "ca236587-a638-477e-9670-baa491a9fd61",
-      "Real Time Clock"
+      "f89b8ff6-5088-4953-9834-8161ac771756",
+      "System Management Controller"
     ],
     [
-      "8085a0d1-9965-4888-bd84-2a1d8cfa798e",
-      "Serial Port"
+      "0e663061-fd9f-4de5-946e-4939a5fe656c",
+      "Intel PPI (Emulation)"
     ]
   ],
   "text_variables": {}

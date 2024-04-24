@@ -2176,7 +2176,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "65778622-45dd-4b4d-b445-5e307786e730")
-		(property "Reference" "C53"
+		(property "Reference" "C58"
 			(at 163.8363 52.07 90)
 			(effects
 				(font
@@ -2228,7 +2228,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7c2a67e3-de61-4656-9956-d7abc8589104"
-					(reference "C53")
+					(reference "C58")
 					(unit 1)
 				)
 			)
@@ -2310,7 +2310,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7b10c51f-08bc-4d53-819b-60bcbf5978fe")
-		(property "Reference" "U34"
+		(property "Reference" "U38"
 			(at 158.4041 64.77 0)
 			(effects
 				(font
@@ -2441,7 +2441,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/7c2a67e3-de61-4656-9956-d7abc8589104"
-					(reference "U34")
+					(reference "U38")
 					(unit 1)
 				)
 			)

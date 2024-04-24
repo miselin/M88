@@ -5,6 +5,145 @@
 	(uuid "ed590157-7686-4133-94e5-4b4a748bc5bd")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Connector_Generic:Conn_01x02"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x02"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x02_1_1"
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 1.27)
+					(end 1.27 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Device:C"
 			(pin_numbers hide)
 			(pin_names
@@ -943,6 +1082,126 @@
 				)
 			)
 		)
+		(symbol "power:VCC"
+			(power)
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "VCC"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"VCC\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "VCC_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "VCC_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 	)
 	(junction
 		(at 146.05 76.2)
@@ -955,6 +1214,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1155bf37-6997-4f66-939d-45ebedecf4d7")
+	)
+	(junction
+		(at 133.35 130.81)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3700b495-5c96-4ee0-a52f-6911222fbd0f")
 	)
 	(junction
 		(at 51.435 147.32)
@@ -1078,6 +1343,16 @@
 	)
 	(wire
 		(pts
+			(xy 133.35 127) (xy 133.35 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21a3e3dd-db71-42ec-bbd4-89f1a488110a")
+	)
+	(wire
+		(pts
 			(xy 51.435 102.87) (xy 51.435 91.44)
 		)
 		(stroke
@@ -1105,6 +1380,16 @@
 			(type default)
 		)
 		(uuid "2cba2dff-eec4-4d1f-988f-8591ec252977")
+	)
+	(wire
+		(pts
+			(xy 133.35 142.24) (xy 133.35 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d1fcaa8-06d5-4b35-a02f-6ad819b5f93c")
 	)
 	(wire
 		(pts
@@ -1168,6 +1453,16 @@
 	)
 	(wire
 		(pts
+			(xy 208.28 93.98) (xy 208.28 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b3b53b4-1402-4c6a-ba32-c9567487609a")
+	)
+	(wire
+		(pts
 			(xy 133.35 60.96) (xy 146.05 60.96)
 		)
 		(stroke
@@ -1188,6 +1483,16 @@
 	)
 	(wire
 		(pts
+			(xy 140.97 127) (xy 133.35 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ebd8759-8b7e-422c-8321-f3e3ea358379")
+	)
+	(wire
+		(pts
 			(xy 146.05 55.88) (xy 146.05 60.96)
 		)
 		(stroke
@@ -1195,6 +1500,16 @@
 			(type default)
 		)
 		(uuid "58ae16e0-8d30-4b1e-a084-41ff765d3228")
+	)
+	(wire
+		(pts
+			(xy 133.35 124.46) (xy 140.97 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5eca049c-7cb6-4990-ac91-ffabe947f9f8")
 	)
 	(wire
 		(pts
@@ -1225,6 +1540,16 @@
 			(type default)
 		)
 		(uuid "8071195c-254e-410b-a197-478103e27bc9")
+	)
+	(wire
+		(pts
+			(xy 205.74 93.98) (xy 208.28 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "847db673-ff25-415a-8007-829aa57ab9bf")
 	)
 	(wire
 		(pts
@@ -1265,6 +1590,16 @@
 			(type default)
 		)
 		(uuid "8b33a325-c271-4477-b48e-4a0de8839c9a")
+	)
+	(wire
+		(pts
+			(xy 119.38 130.81) (xy 133.35 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9305c15b-8f25-40ee-bcf3-bc418595ee35")
 	)
 	(wire
 		(pts
@@ -1378,6 +1713,16 @@
 	)
 	(wire
 		(pts
+			(xy 133.35 130.81) (xy 133.35 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d0e3536e-0b1e-4afb-9507-76245742a3ba")
+	)
+	(wire
+		(pts
 			(xy 51.435 91.44) (xy 51.435 80.645)
 		)
 		(stroke
@@ -1428,6 +1773,16 @@
 	)
 	(wire
 		(pts
+			(xy 133.35 118.11) (xy 133.35 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff00c657-5234-4365-8892-0086fd1f867f")
+	)
+	(wire
+		(pts
 			(xy 39.37 91.44) (xy 51.435 91.44)
 		)
 		(stroke
@@ -1449,6 +1804,18 @@
 	)
 	(hierarchical_label "+5VSB"
 		(shape input)
+		(at 205.74 93.98 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2811dbbd-6d6a-449d-b6e1-3b4e99904ff0")
+	)
+	(hierarchical_label "+5VSB"
+		(shape input)
 		(at 201.295 40.64 180)
 		(fields_autoplaced yes)
 		(effects
@@ -1458,6 +1825,18 @@
 			(justify right)
 		)
 		(uuid "49a48379-25e6-44a6-a090-71593ea32912")
+	)
+	(hierarchical_label "FP_PWR_SWITCH"
+		(shape output)
+		(at 119.38 130.81 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "61aca738-111c-4921-bc00-81c5c13603ce")
 	)
 	(hierarchical_label "GND"
 		(shape input)
@@ -1494,6 +1873,72 @@
 			(justify right)
 		)
 		(uuid "cae6ca56-d31c-40e1-bf0f-5ef1e182d126")
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 133.35 118.11 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0e56ac7d-2889-4a3b-afa8-8b771bb3d5a3")
+		(property "Reference" "#PWR0147"
+			(at 133.35 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5VSB"
+			(at 133.35 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 133.35 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 133.35 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "decaeda2-1227-466d-a296-a5a19d24bdc3")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
+					(reference "#PWR0147")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
@@ -1627,6 +2072,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_US")
+		(at 133.35 138.43 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2018d6b7-5c3c-44e3-99f8-b3d553bcec30")
+		(property "Reference" "R32"
+			(at 135.89 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 135.89 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 134.366 138.684 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 133.35 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "8f96f425-8734-48b5-a366-be7827c41427")
+		)
+		(pin "1"
+			(uuid "9f2e9305-048e-4d09-82b3-e9f2525aca3d")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
+					(reference "R32")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
 		(at 36.83 125.095 90)
 		(unit 1)
@@ -1701,7 +2216,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3a816e6c-2ada-4268-b03b-636e3bcd8fd1")
-		(property "Reference" "D3"
+		(property "Reference" "D2"
 			(at 219.6465 34.925 0)
 			(effects
 				(font
@@ -1753,7 +2268,73 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "D3")
+					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 133.35 144.78 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3ae2b06b-8748-4e51-a31c-a69e0a054119")
+		(property "Reference" "#PWR0320"
+			(at 133.35 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 133.35 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 133.35 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a7065b0e-37cc-4904-a752-f21d21ebddb2")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
+					(reference "#PWR0320")
 					(unit 1)
 				)
 			)
@@ -1965,7 +2546,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "45c9e341-8708-4dc7-b665-fc80d9f7429c")
-		(property "Reference" "R9"
+		(property "Reference" "R33"
 			(at 211.455 59.055 90)
 			(effects
 				(font
@@ -2017,7 +2598,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "R9")
+					(reference "R33")
 					(unit 1)
 				)
 			)
@@ -2084,6 +2665,76 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
 					(reference "#PWR094")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 146.05 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5a5a69d6-06a9-4d14-85ab-251790ae4ddc")
+		(property "Reference" "J8"
+			(at 148.59 124.4599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "FP Power Switch"
+			(at 148.59 126.9999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+			(at 146.05 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 146.05 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 146.05 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "407f3e5c-21df-4e9f-9397-f135bfe2f996")
+		)
+		(pin "1"
+			(uuid "a1375316-9397-49ab-bb37-ce281549cc6a")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
+					(reference "J8")
 					(unit 1)
 				)
 			)
@@ -2235,7 +2886,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "668c496b-e0d2-46c6-a842-18cea55e7045")
-		(property "Reference" "R10"
+		(property "Reference" "R31"
 			(at 210.185 34.29 90)
 			(effects
 				(font
@@ -2287,7 +2938,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "R10")
+					(reference "R31")
 					(unit 1)
 				)
 			)
@@ -2566,7 +3217,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b26a9715-f09e-473a-a544-e7542d8a271d")
-		(property "Reference" "D2"
+		(property "Reference" "D3"
 			(at 220.2815 59.69 0)
 			(effects
 				(font
@@ -2618,7 +3269,7 @@
 		(instances
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
-					(reference "D2")
+					(reference "D3")
 					(unit 1)
 				)
 			)
@@ -2756,6 +3407,72 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
 					(reference "#PWR091")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 208.28 91.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d680edcd-f9ec-4e3e-b6de-32b21ce34938")
+		(property "Reference" "#PWR0148"
+			(at 208.28 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5VSB"
+			(at 208.28 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 208.28 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 208.28 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 208.28 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "24b4a333-b45a-49a2-af6a-afbfb6c24170")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/4898bb81-eb43-46b2-921b-826de7c22e53"
+					(reference "#PWR0148")
 					(unit 1)
 				)
 			)

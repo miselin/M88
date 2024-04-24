@@ -23,3 +23,18 @@ todo:
 - [ ] Condense all the memory chip selects into one DMUX
 - [ ] Fix BIOS ROM chip select after ^ happens
 - [ ] Consider adding 128K of RAM at 0x80000
+
+
+2024-04-23: PCB routing is done on the main board
+
+Considering doing a run with DNP on most of the ancillary stuff (PS/2, ISA bus, etc) to test DMA
+
+Realized that I/O port 0x60 is a combo of Intel PPI and the KB controller!
+- 0x60, 0x64 (A0, A2) select the KBC
+- 0x61, 0x62, 0x63 select the 3x PPI outputs
+- 0x61 is where the speaker gate comes from!
+
+IBM PC AT used a PROM with A0, A4, to do chip select for RTC (0x70) and KBC (0x60/0x64), and to
+generate RTC RD/~WR signal from IOW/IOR. (PROM also got the 0x60-0x80 I/O CS~)
+
+In the PC/AT, they removed the PPI and kept only "Port B" functions on port 0x61 e.g. PC speaker gate

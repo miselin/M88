@@ -1,7 +1,7 @@
 bits 16
 cpu 8086
 
-segment code public align=16 use16 class=code
+segment _TEXT public align=16 use16 class=CODE
 
 global _call_option_roms
 
@@ -75,9 +75,3 @@ pop cx
 pop bx
 pop ax
 ret
-
-segment data public align=4 use16 class=data
-
-segment rdata public align=4 use16 class=data
-
-group dgroup data rdata

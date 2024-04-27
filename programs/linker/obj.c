@@ -145,6 +145,18 @@ struct obj {
   uint32_t total_size;
 };
 
+struct grpiter {
+  struct grpdef *grp;
+};
+
+struct segiter {
+  struct segdef *seg;
+};
+
+struct symiter {
+  struct pubdef *pub;
+};
+
 // if index == 0x80, it's two bytes (byte_a & 0x7F << 8 + byte_b)
 
 static uint16_t index2offset(uint8_t a, uint8_t b) {
@@ -247,6 +259,18 @@ struct obj *obj_open(const char *path) {
   return o;
 }
 
+uint32_t obj_get_num_symbols(struct obj *o) {
+  uint32_t count = 0;
+
+  struct pubdef *pub = o->pubdefs;
+  while (pub) {
+    ++count;
+    pub = pub->next;
+  }
+
+  return count;
+}
+
 uint32_t obj_get_size(struct obj *o) { return o->total_size; }
 
 uint32_t obj_set_location(struct obj *o, int sort_class, uint32_t base) {
@@ -339,6 +363,31 @@ uint32_t obj_set_location(struct obj *o, int sort_class, uint32_t base) {
   */
 
   return base;
+}
+
+void obj_clear_location(struct obj *o) {
+  struct segdef *seg = o->segdefs;
+  while (seg) {
+    seg->final_offset = ~0U;
+    seg->total_size = 0;
+    seg->group_offset = 0;
+
+    seg = seg->next;
+  }
+
+  struct grpdef *grp = o->grpdefs;
+  while (grp) {
+    grp->final_offset = ~0U;
+
+    grp = grp->next;
+  }
+
+  struct ledata *le = o->ledata;
+  while (le) {
+    le->final_offset = ~0U;
+
+    le = le->next;
+  }
 }
 
 void obj_load_to(struct obj *o, void *dest) {
@@ -1315,4 +1364,185 @@ static const char *type2name(struct rechdr *hdr) {
     default:
       return "<unknown>";
   }
+}
+
+struct grpiter *obj_get_grpiter(struct obj *o) {
+  struct grpiter *gi = (struct grpiter *)calloc(1, sizeof(struct grpiter));
+  gi->grp = o->grpdefs;
+  return gi;
+}
+
+const char *obj_grp_get_name(struct grpiter *gi) {
+  if (!gi->grp) {
+    return NULL;
+  }
+
+  return gi->grp->name;
+}
+
+uint32_t obj_grp_get_type(struct grpiter *gi) {
+  if (!gi->grp) {
+    return OBJ_GRP_UNKNOWN;
+  }
+
+  return OBJ_GRP_TEXT;
+}
+
+uint32_t obj_grp_get_size(struct grpiter *gi) {
+  if (!gi->grp) {
+    return 0;
+  }
+
+  // todo
+  return 0;
+}
+
+uint32_t obj_grp_get_base(struct grpiter *gi) {
+  if (!gi->grp) {
+    return 0;
+  }
+
+  return gi->grp->final_offset;
+}
+
+void obj_grp_set_base(struct grpiter *gi, uint32_t base) {
+  if (!gi->grp) {
+    return;
+  }
+
+  // todo
+  gi->grp->final_offset = base;
+}
+
+int obj_grp_next(struct grpiter *gi) {
+  if (!gi->grp) {
+    return 0;
+  }
+
+  gi->grp = gi->grp->next;
+
+  if (!gi->grp) {
+    free(gi);
+    return 0;
+  }
+
+  return 1;
+}
+
+struct segiter *obj_get_segiter(struct obj *o) {
+  struct segiter *si = (struct segiter *)calloc(1, sizeof(struct segiter));
+  si->seg = o->segdefs;
+  return si;
+}
+
+const char *obj_seg_get_name(struct segiter *si) {
+  if (!si->seg) {
+    return NULL;
+  }
+
+  return si->seg->name;
+}
+
+uint32_t obj_seg_get_type(struct segiter *si) {
+  if (!si->seg) {
+    return OBJ_SEG_UNKNOWN;
+  }
+
+  if (is_code(si->seg->name, si->seg->class_name)) {
+    return OBJ_SEG_TEXT;
+  }
+
+  return OBJ_SEG_DATA;
+}
+
+uint32_t obj_seg_get_size(struct segiter *si) {
+  if (!si->seg) {
+    return 0;
+  }
+
+  return si->seg->total_size;
+}
+
+uint32_t obj_seg_get_base(struct segiter *si) {
+  if (!si->seg) {
+    return 0;
+  }
+
+  return si->seg->final_offset;
+}
+
+void obj_seg_set_base(struct segiter *si, uint32_t base) {
+  if (!si->seg) {
+    return;
+  }
+
+  si->seg->final_offset = base;
+}
+
+int obj_seg_next(struct segiter *si) {
+  if (!si->seg) {
+    return 0;
+  }
+
+  si->seg = si->seg->next;
+
+  if (!si->seg) {
+    free(si);
+    return 0;
+  }
+
+  return 1;
+}
+
+struct symiter *obj_get_symiter(struct obj *o) {
+  if (!o->pubdefs) {
+    return NULL;
+  }
+
+  struct symiter *si = (struct symiter *)calloc(1, sizeof(struct symiter));
+  si->pub = o->pubdefs;
+  return si;
+}
+
+const char *obj_sym_get_name(struct symiter *si) {
+  if (!si->pub) {
+    return NULL;
+  }
+
+  return si->pub->name;
+}
+
+uint32_t obj_sym_get_offset(struct symiter *si) {
+  if (!si->pub) {
+    return 0;
+  }
+
+  return si->pub->seg->final_offset + si->pub->offset;
+}
+
+uint32_t obj_sym_get_type(struct symiter *si) {
+  if (!si->pub) {
+    return 0;
+  }
+
+  if (is_code(si->pub->seg->name, si->pub->seg->class_name)) {
+    return OBJ_SYM_TEXT;
+  }
+
+  return OBJ_SYM_DATA;
+}
+
+int obj_sym_next(struct symiter *si) {
+  if (!si->pub) {
+    return 0;
+  }
+
+  si->pub = si->pub->next;
+
+  if (!si->pub) {
+    free(si);
+    return 0;
+  }
+
+  return 1;
 }

@@ -1,9 +1,9 @@
 bits 16
 cpu 8086
 
-segment code public align=16 use16 class=code
+segment _TEXT public align=16 use16 class=CODE
 
-..start:
+global start
 
 extern _rommain
 extern _call_option_roms
@@ -18,6 +18,9 @@ extern fdc_read_drive0
 extern delay_ticks
 extern puts
 extern putnum
+
+..start:
+start:
 
 cli
 
@@ -145,10 +148,6 @@ mov al, 0x09
 out 0xF0, al
 
 .boot_ok:
-mov ax, 0xF000
-mov es, ax
-mov di, hello
-call puts
 jmp forever
 jmp 0x0000:0x7C00
 
@@ -156,11 +155,3 @@ forever:
 sti
 hlt
 jmp forever
-
-segment data public align=4 use16 class=data
-
-segment rdata public align=4 use16 class=data
-
-group dgroup data rdata
-
-hello db "Hello, world", 0

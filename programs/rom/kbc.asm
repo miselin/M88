@@ -1,7 +1,7 @@
 bits 16
 cpu 8086
 
-segment code public align=16 use16 class=code
+segment _TEXT public align=16 use16 class=CODE
 
 global configure_kbc
 

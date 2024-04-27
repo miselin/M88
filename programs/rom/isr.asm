@@ -1,7 +1,7 @@
 bits 16
 cpu 8086
 
-segment code public align=16 use16 class=code
+segment _TEXT public align=16 use16 class=CODE
 
 global isr
 global _isr_array
@@ -21,7 +21,14 @@ isr:
     push bp
 
     push ax
+
+    ; make sure we're in the BIOS data segment
+    mov ax, 0xF000
+    mov ds, ax
+    mov es, ax
+
     call _isrhandler
+
     pop ax
 
     pop bp
@@ -75,15 +82,11 @@ _load_ivt:
   %assign i i+1
 %endrep
 
-segment data public align=4 use16 class=data
+; segment rdata public align=4 use16 class=data
 
-segment rdata public align=4 use16 class=data
-
-group dgroup data rdata
-
-_isr_array:
-  %assign i 0
-  %rep 256
-    dw isr %+ i
-    %assign i i+1
-  %endrep
+; _isr_array:
+;   %assign i 0
+;   %rep 256
+;     dw isr %+ i
+;     %assign i i+1
+;   %endrep

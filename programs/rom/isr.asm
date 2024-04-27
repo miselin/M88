@@ -4,25 +4,41 @@ cpu 8086
 segment code public align=16 use16 class=code
 
 global isr
-extern irqhandler
+global _isr_array
+
+extern _irqhandler
+extern _isrhandler
 
 ; AL = interrupt number
 isr:
-    cmp al, 0x08
-    jl .notirq
+    push bx
+    push cx
+    push dx
+    push ds
+    push es
+    push di
+    push si
+    push bp
 
-    cmp al, 0x0F
-    jg .notirq
+    push ax
+    call _isrhandler
+    pop ax
 
-    jmp irqhandler
+    pop bp
+    pop si
+    pop di
+    pop es
+    pop ds
+    pop dx
+    pop cx
+    pop bx
+    pop ax
 
-    .notirq:
-    ret
+    iret
 
-global load_ivt
-extern isr0
+global _load_ivt
 
-load_ivt:
+_load_ivt:
     ; zero out the IVT area to start with
     mov cx, 512
     cld
@@ -40,8 +56,34 @@ load_ivt:
     mov word [es:di], bx
     mov word [es:di + 2], 0xF000
     add di, 4
-    add bx, 8  ; 8 bytes of instructions per ISR
+    add bx, 6  ; 8 bytes of instructions per ISR
     sub cx, 1
     jnz .loop
 
     ret
+
+%macro ISR 1
+  isr%1:
+    push ax
+    mov ax, %1
+    jmp isr
+%endmacro
+
+%assign i 0
+%rep 256
+  ISR i
+  %assign i i+1
+%endrep
+
+segment data public align=4 use16 class=data
+
+segment rdata public align=4 use16 class=data
+
+group dgroup data rdata
+
+_isr_array:
+  %assign i 0
+  %rep 256
+    dw isr %+ i
+    %assign i i+1
+  %endrep

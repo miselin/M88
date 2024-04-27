@@ -9,10 +9,10 @@ C_OBJS := build/linker/main.o build/linker/obj.o
 C_DEPENDS := ${C_OBJS:.o=.d}
 
 C16 := bcc
-C16_OBJS := build/rom/main.o16
+C16_OBJS := build/rom/main.o16 build/rom/vsprintf.o16 build/rom/string.o16
 C16_FLAGS := -0 -ansi -S
 
-ROM_OBJS := build/rom/rom.obj build/rom/optionrom.obj build/rom/isrs.obj build/rom/isr.obj build/rom/pic.obj build/rom/pit.obj build/rom/kbc.obj
+ROM_OBJS := build/rom/rom.obj build/rom/optionrom.obj build/rom/isr.obj build/rom/pic.obj build/rom/pit.obj build/rom/kbc.obj build/rom/dma.obj build/rom/fdc.obj build/rom/strio.obj
 
 all: mkdirs build/rom.bin build/rom.ith
 

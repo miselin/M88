@@ -288,7 +288,7 @@ uint32_t obj_set_location(struct obj *o, int sort_class, uint32_t base) {
       seg->final_offset = base;
     }
 
-    fprintf(stderr, "seg %s at %04X\n", seg->name, base);
+    // fprintf(stderr, "seg %s at %04X\n", seg->name, base);
 
     if (seg->grp) {
       if (base < seg->grp->final_offset) {
@@ -390,8 +390,8 @@ static int do_fixup(struct fixup *fix, struct pubdef *external, void *dest) {
     }
 
     target = external->seg->final_offset + external->offset;
-    fprintf(stderr, "external fixup %s -> %04X\n", fix->target_ext->name,
-            target);
+    // fprintf(stderr, "external fixup %s -> %04X\n", fix->target_ext->name,
+    //         target);
   }
 
   target += fix->displacement;

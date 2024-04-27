@@ -8,6 +8,7 @@ global configure_pic_bochs
 global irqhandler
 
 extern timer_handler
+extern fdc_irq
 
 configure_pic:
     ; ICW1
@@ -59,11 +60,14 @@ configure_pic_bochs:
 
 irqhandler:
     cmp al, 0x08
-    jne .done
-
+    jne .not_pit
     call timer_handler
+    .not_pit:
 
-    .done:
+    cmp al, 0x0E
+    jne .not_fdc
+    call fdc_irq
+    .not_fdc:
 
     ; EOI
     mov al, 0x20

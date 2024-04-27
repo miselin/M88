@@ -3,9 +3,18 @@ cpu 8086
 
 segment code public align=16 use16 class=code
 
-global call_option_roms
+global _call_option_roms
 
-call_option_roms:
+_call_option_roms:
+; save all registers, as option ROMs may clobber them
+push ax
+push bx
+push cx
+push dx
+push es
+push ds
+push di
+push si
 
 ; load option ROMs if present, including VGABIOS which typically sits at 0xC0000
 ; they start at 0xC0000 and end at 0xF0000
@@ -57,6 +66,14 @@ jmp .optionroms
 
 .optionroms_done:
 
+pop si
+pop di
+pop ds
+pop es
+pop dx
+pop cx
+pop bx
+pop ax
 ret
 
 segment data public align=4 use16 class=data

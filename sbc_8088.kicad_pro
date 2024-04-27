@@ -580,7 +580,6 @@
       "+5V": "5V_2A",
       "+5VSB": "Power",
       "-12V": "Power",
-      "/+5VSB": "Power",
       "/KB Controller/5V_PS2": "5V_1A",
       "/Power Management/+12V_IN": "12V_1A",
       "/Power Management/+5V_IN": "5V_2A",

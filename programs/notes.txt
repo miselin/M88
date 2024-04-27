@@ -25,7 +25,7 @@ todo:
 - [ ] Consider adding 128K of RAM at 0x80000
 
 
-2024-04-23: PCB routing is done on the main board
+2024-04-22: PCB routing is done on the main board
 
 Considering doing a run with DNP on most of the ancillary stuff (PS/2, ISA bus, etc) to test DMA
 
@@ -38,3 +38,15 @@ IBM PC AT used a PROM with A0, A4, to do chip select for RTC (0x70) and KBC (0x6
 generate RTC RD/~WR signal from IOW/IOR. (PROM also got the 0x60-0x80 I/O CS~)
 
 In the PC/AT, they removed the PPI and kept only "Port B" functions on port 0x61 e.g. PC speaker gate
+
+2024-04-23: decided to do a fab run without assembly, I'll just have to solder the SMT stuff
+
+- Added an SMC using an ATtiny, this looks after the ATX power signal and resets
+- Added a PC speaker
+
+2024-04-24: PS/2 controller design tested with breadboard, confirmed working
+
+2024-04-25:
+
+- When preparing a Mouser shopping cart, I notice I forgot the pull-ups on the 7406 outputs for PS/2!
+  - gonna have to bodge these in - keyboad/mouse won't work without it

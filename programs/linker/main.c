@@ -38,8 +38,8 @@ int main(int argc, const char *argv[]) {
       return 1;
     }
 
-    printf("Object %s:\n", argv[i]);
-    obj_dump(o);
+    // printf("Object %s:\n", argv[i]);
+    // obj_dump(o);
 
     fflush(stdout);
 

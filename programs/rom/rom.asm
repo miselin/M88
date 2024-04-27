@@ -6,12 +6,18 @@ segment code public align=16 use16 class=code
 ..start:
 
 extern _rommain
-extern call_option_roms
-extern load_ivt
+extern _call_option_roms
+extern _load_ivt
 extern configure_pic
 extern configure_pic_bochs
 extern configure_pit
 extern configure_kbc
+extern configure_dma
+extern configure_fdc
+extern fdc_read_drive0
+extern delay_ticks
+extern puts
+extern putnum
 
 cli
 
@@ -28,9 +34,12 @@ mov ss, ax
 mov sp, 0xFF
 mov bp, sp
 
-; POST #1 - we're alive, poke the 7-seg
+; POST #1 - we're alive, about to check memory
 mov al, 0x01
 out 0xF0, al
+
+; do any DMA controller config before touching memory
+call configure_dma
 
 ; does memory work?
 mov ax, 0x55AA
@@ -57,16 +66,27 @@ pop ax
 
 out 0xF0, al
 
+; before we jump to C, make sure CS=DS=ES
+mov ax, 0xF000
+mov ds, ax
+mov es, ax
+
+; it's now safe to go to C code as we have memory up and running
+call _rommain
+
+cli
+hlt
+
 ; set up the IVT with our interrupt handlers
-call load_ivt
+call _load_ivt
 
 ; POST #3 - IVT is set up
 mov al, 0x03
 out 0xF0, al
 
 ; set up interrupt controller
-call configure_pic
-; call configure_pic_bochs
+; call configure_pic
+call configure_pic_bochs
 
 ; POST #4 - PIC is set up
 mov al, 0x04
@@ -89,27 +109,48 @@ out 0xF0, al
 ; interrupts are safe now
 sti
 
-; POST #7 - system is ready
+; POST #7 - about to call Option ROMs
 mov al, 0x07
 out 0xF0, al
 
-; call call_option_roms
+call _call_option_roms
 
-; mov ax, 0xb800
-; mov ds, ax
-; mov al, 'A'
-; mov ah, 0x07 ; gray on black
-; mov bx, 0
-; mov word [ds:bx], ax
-
-; 7-seg display
-; mov al, 0x01
-; out 0xF0, al
-
+mov ax, 0xb800
+mov ds, ax
 mov al, 'A'
-out 0xE9, al
+mov ah, 0x07 ; gray on black
+mov bx, 0
+mov word [ds:bx], ax
 
-; call _rommain
+; configure FDC
+call configure_fdc
+
+; POST #8 - system is ready, attempting to boot application code
+mov al, 0x08
+out 0xF0, al
+
+; attempt to load the boot sector from floppy
+mov ax, 0x0000
+mov es, ax
+mov dx, 0x7C00
+mov cx, 0x200           ; 512 bytes
+mov bx, 0x0000          ; cylinder
+call fdc_read_drive0
+
+cmp ax, 0
+je .boot_ok
+
+; POST #9 - boot failed, can't read from FDC
+mov al, 0x09
+out 0xF0, al
+
+.boot_ok:
+mov ax, 0xF000
+mov es, ax
+mov di, hello
+call puts
+jmp forever
+jmp 0x0000:0x7C00
 
 forever:
 sti
@@ -121,3 +162,5 @@ segment data public align=4 use16 class=data
 segment rdata public align=4 use16 class=data
 
 group dgroup data rdata
+
+hello db "Hello, world", 0

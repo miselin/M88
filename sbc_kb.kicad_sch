@@ -2095,6 +2095,176 @@
 				)
 			)
 		)
+		(symbol "Device:R_US"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R_US"
+				(at -2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 1.016 -0.254 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor, US symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_US_0_1"
+				(polyline
+					(pts
+						(xy 0 -2.286) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_US_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Diode:1N4001"
 			(pin_numbers hide)
 			(pin_names hide)
@@ -2481,6 +2651,12 @@
 		(uuid "0befb7f2-ad91-42b3-b131-383519c58473")
 	)
 	(junction
+		(at 217.17 148.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "128b94be-92c1-4edc-8988-bf5c586806c0")
+	)
+	(junction
 		(at 219.075 25.4)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2493,6 +2669,12 @@
 		(uuid "1cb8634f-f775-451b-8480-46a468569d8f")
 	)
 	(junction
+		(at 226.06 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2973820e-7a6f-45ef-abe5-f4e0b4ebae0d")
+	)
+	(junction
 		(at 69.85 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2503,6 +2685,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6911984f-1db2-4fee-8dbc-28e2f3653e3d")
+	)
+	(junction
+		(at 252.73 120.65)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8cfdea72-cdc8-4977-9f36-47dd71615647")
 	)
 	(junction
 		(at 106.68 181.61)
@@ -2527,6 +2715,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d5c695c7-af9c-4d5c-832a-0c308cb24484")
+	)
+	(junction
+		(at 261.62 81.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f9d6cd67-b005-4cf1-9a95-d98d4881a71c")
 	)
 	(no_connect
 		(at 129.54 27.94)
@@ -2682,7 +2876,7 @@
 	)
 	(wire
 		(pts
-			(xy 261.62 120.65) (xy 269.24 120.65)
+			(xy 270.51 120.65) (xy 284.48 120.65)
 		)
 		(stroke
 			(width 0)
@@ -2782,6 +2976,16 @@
 	)
 	(wire
 		(pts
+			(xy 261.62 81.28) (xy 265.43 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27675d72-0525-4073-bdff-7efbd9276fcf")
+	)
+	(wire
+		(pts
 			(xy 76.2 124.46) (xy 76.2 140.97)
 		)
 		(stroke
@@ -2832,7 +3036,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 120.65) (xy 254 120.65)
+			(xy 248.92 120.65) (xy 252.73 120.65)
 		)
 		(stroke
 			(width 0)
@@ -3092,7 +3296,7 @@
 	)
 	(wire
 		(pts
-			(xy 223.52 148.59) (xy 228.6 148.59)
+			(xy 231.14 148.59) (xy 246.38 148.59)
 		)
 		(stroke
 			(width 0)
@@ -3152,7 +3356,7 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 81.28) (xy 259.08 81.28)
+			(xy 256.54 81.28) (xy 261.62 81.28)
 		)
 		(stroke
 			(width 0)
@@ -3232,7 +3436,7 @@
 	)
 	(wire
 		(pts
-			(xy 210.82 148.59) (xy 215.9 148.59)
+			(xy 210.82 148.59) (xy 217.17 148.59)
 		)
 		(stroke
 			(width 0)
@@ -3249,6 +3453,16 @@
 			(type default)
 		)
 		(uuid "7682c6b4-9803-4197-99c2-794abef6cbe3")
+	)
+	(wire
+		(pts
+			(xy 226.06 60.96) (xy 236.22 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78bd2ae7-773d-4fb9-b6d0-12dea475cee9")
 	)
 	(bus
 		(pts
@@ -3432,7 +3646,7 @@
 	)
 	(wire
 		(pts
-			(xy 232.41 60.96) (xy 238.76 60.96)
+			(xy 243.84 60.96) (xy 255.27 60.96)
 		)
 		(stroke
 			(width 0)
@@ -3442,7 +3656,7 @@
 	)
 	(wire
 		(pts
-			(xy 266.7 81.28) (xy 269.24 81.28)
+			(xy 273.05 81.28) (xy 284.48 81.28)
 		)
 		(stroke
 			(width 0)
@@ -3732,6 +3946,16 @@
 	)
 	(wire
 		(pts
+			(xy 217.17 148.59) (xy 223.52 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "decd636c-97fd-4826-bd2e-7322c4648a81")
+	)
+	(wire
+		(pts
 			(xy 148.59 72.39) (xy 153.67 72.39)
 		)
 		(stroke
@@ -3749,6 +3973,16 @@
 			(type default)
 		)
 		(uuid "e0c2cfc0-2143-4334-9e72-9de20341b322")
+	)
+	(wire
+		(pts
+			(xy 252.73 120.65) (xy 262.89 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2978ea7-09a8-4ac7-b199-39f6bc07298f")
 	)
 	(wire
 		(pts
@@ -3802,7 +4036,7 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 60.96) (xy 224.79 60.96)
+			(xy 218.44 60.96) (xy 226.06 60.96)
 		)
 		(stroke
 			(width 0)
@@ -3866,13 +4100,13 @@
 		(uuid "11c1fde9-97a1-4444-9856-c6ed5376154b")
 	)
 	(label "KB_CLOCK"
-		(at 269.24 81.28 0)
+		(at 284.48 81.28 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "15a99c4a-867d-47b5-93ac-6c98beed070e")
 	)
@@ -3965,13 +4199,13 @@
 		(uuid "59fcf286-798d-4d90-88fd-c770d12f0fb6")
 	)
 	(label "MOUSE_DATA"
-		(at 228.6 148.59 0)
+		(at 246.38 148.59 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "621612bc-479f-4e37-bf8c-95355580876b")
 	)
@@ -4163,13 +4397,13 @@
 		(uuid "97cfd251-fe2c-4a84-b2ef-d09d24750815")
 	)
 	(label "KB_DATA"
-		(at 238.76 60.96 0)
+		(at 255.27 60.96 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "a3bba2d1-3e0f-4f3a-b850-e0699271a352")
 	)
@@ -4196,13 +4430,13 @@
 		(uuid "b2a77d2a-a16f-4069-b23e-1f51ac9e9cf9")
 	)
 	(label "MOUSE_CLOCK"
-		(at 269.24 120.65 0)
+		(at 284.48 120.65 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "c4df850e-1e5b-4a28-8790-64816b0c647a")
 	)
@@ -5006,6 +5240,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 226.06 53.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1589f3e6-db48-4d08-b95c-52e9af585805")
+		(property "Reference" "#PWR0209"
+			(at 226.06 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 226.06 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 226.06 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 226.06 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 226.06 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b1196c97-e08a-4e56-a0e4-043e1c356be0")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
+					(reference "#PWR0209")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 198.12 160.02 0)
 		(unit 1)
@@ -5066,6 +5366,76 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
 					(reference "#PWR0137")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 261.62 77.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1fd3a149-9264-4fb0-9897-f296b4a808a8")
+		(property "Reference" "R36"
+			(at 264.16 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 264.16 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 262.636 77.724 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 261.62 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 261.62 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "2d66e93c-0186-4fcd-8df7-8bb21c28f5f4")
+		)
+		(pin "1"
+			(uuid "6c8df88f-7441-41b2-9cac-4b877c8f0120")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
+					(reference "R36")
 					(unit 1)
 				)
 			)
@@ -5414,6 +5784,72 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
 					(reference "#PWR0125")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 252.73 113.03 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2d8ee307-3fe1-494a-aee6-5c1773e949f8")
+		(property "Reference" "#PWR0325"
+			(at 252.73 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 252.73 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 252.73 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 252.73 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 252.73 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "19dd51b5-7e62-4f81-a138-077ff9f07cc4")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
+					(reference "#PWR0325")
 					(unit 1)
 				)
 			)
@@ -5884,6 +6320,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_US")
+		(at 252.73 116.84 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5116ac19-f3c8-4b5e-b069-b63f681c380e")
+		(property "Reference" "R37"
+			(at 255.27 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 255.27 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 253.746 117.094 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 252.73 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 252.73 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "4a5a01aa-fb3e-4967-ae55-735e6b849b5e")
+		)
+		(pin "1"
+			(uuid "204231fd-01b9-450c-bc54-b7eb3b0a9ff1")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
+					(reference "R37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 44.45 138.43 0)
 		(mirror y)
@@ -5944,6 +6450,76 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
 					(reference "#PWR0135")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 226.06 57.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "589541c1-ff04-4278-a7d5-f7c27097f7b0")
+		(property "Reference" "R35"
+			(at 228.6 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 228.6 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 227.076 57.404 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 226.06 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 226.06 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "12d6d3e0-d1f4-4f17-9003-e9fc2b1e57ec")
+		)
+		(pin "1"
+			(uuid "6ce15cad-df65-4f33-96ed-1c3ac895c5bf")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
+					(reference "R35")
 					(unit 1)
 				)
 			)
@@ -7041,7 +7617,7 @@
 	)
 	(symbol
 		(lib_id "Device:FerriteBead")
-		(at 228.6 60.96 90)
+		(at 240.03 60.96 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7050,7 +7626,7 @@
 		(fields_autoplaced yes)
 		(uuid "a38365b7-304e-4263-a1d9-4180cf4bb104")
 		(property "Reference" "FB3"
-			(at 228.5492 53.34 90)
+			(at 239.9792 53.34 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7058,7 +7634,7 @@
 			)
 		)
 		(property "Value" "FerriteBead"
-			(at 228.5492 55.88 90)
+			(at 239.9792 55.88 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7066,7 +7642,7 @@
 			)
 		)
 		(property "Footprint" "Inductor_THT:L_Axial_L9.5mm_D4.0mm_P2.54mm_Vertical_Fastron_SMCC"
-			(at 228.6 62.738 90)
+			(at 240.03 62.738 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7075,7 +7651,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 228.6 60.96 0)
+			(at 240.03 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7084,7 +7660,7 @@
 			)
 		)
 		(property "Description" "Laird 28L0138-80R-10"
-			(at 228.6 60.96 0)
+			(at 240.03 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7300,6 +7876,72 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
 					(reference "#PWR0122")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 217.17 140.97 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b456eae9-2c07-47c2-91dd-07dff16ec852")
+		(property "Reference" "#PWR0326"
+			(at 217.17 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 217.17 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 217.17 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 217.17 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 217.17 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "13c5e692-8154-4377-813d-a78181eb87b2")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
+					(reference "#PWR0326")
 					(unit 1)
 				)
 			)
@@ -7563,16 +8205,15 @@
 	)
 	(symbol
 		(lib_id "Device:FerriteBead")
-		(at 262.89 81.28 90)
+		(at 269.24 81.28 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "c66223e7-102b-40e2-814e-bda82386a124")
 		(property "Reference" "FB2"
-			(at 262.8392 73.66 90)
+			(at 269.1892 73.66 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7580,7 +8221,7 @@
 			)
 		)
 		(property "Value" "FerriteBead"
-			(at 262.8392 76.2 90)
+			(at 269.1892 76.2 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7588,7 +8229,7 @@
 			)
 		)
 		(property "Footprint" "Inductor_THT:L_Axial_L9.5mm_D4.0mm_P2.54mm_Vertical_Fastron_SMCC"
-			(at 262.89 83.058 90)
+			(at 269.24 83.058 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7597,7 +8238,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 262.89 81.28 0)
+			(at 269.24 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7606,7 +8247,7 @@
 			)
 		)
 		(property "Description" "Laird 28L0138-80R-10"
-			(at 262.89 81.28 0)
+			(at 269.24 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7800,6 +8441,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 261.62 73.66 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d5c1b9bf-2a7f-4629-8aa4-d086fa35b066")
+		(property "Reference" "#PWR0314"
+			(at 261.62 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 261.62 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 261.62 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 261.62 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 261.62 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6791cb4d-5fe9-4a0f-b73c-8c9113a164f3")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
+					(reference "#PWR0314")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 158.115 27.94 0)
 		(mirror y)
@@ -7937,7 +8644,7 @@
 	)
 	(symbol
 		(lib_id "Device:FerriteBead")
-		(at 257.81 120.65 90)
+		(at 266.7 120.65 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7946,7 +8653,7 @@
 		(fields_autoplaced yes)
 		(uuid "df1b56e5-b285-4751-a3b1-d65aab8ed9af")
 		(property "Reference" "FB5"
-			(at 257.7592 113.03 90)
+			(at 266.6492 113.03 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7954,7 +8661,7 @@
 			)
 		)
 		(property "Value" "FerriteBead"
-			(at 257.7592 115.57 90)
+			(at 266.6492 115.57 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7962,7 +8669,7 @@
 			)
 		)
 		(property "Footprint" "Inductor_THT:L_Axial_L9.5mm_D4.0mm_P2.54mm_Vertical_Fastron_SMCC"
-			(at 257.81 122.428 90)
+			(at 266.7 122.428 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7971,7 +8678,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 257.81 120.65 0)
+			(at 266.7 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7980,7 +8687,7 @@
 			)
 		)
 		(property "Description" "Laird 28L0138-80R-10"
-			(at 257.81 120.65 0)
+			(at 266.7 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8005,7 +8712,7 @@
 	)
 	(symbol
 		(lib_id "Device:FerriteBead")
-		(at 219.71 148.59 90)
+		(at 227.33 148.59 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8014,7 +8721,7 @@
 		(fields_autoplaced yes)
 		(uuid "fc993ab0-2cb4-4563-a427-2a087055cbdc")
 		(property "Reference" "FB4"
-			(at 219.6592 140.97 90)
+			(at 227.2792 140.97 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8022,7 +8729,7 @@
 			)
 		)
 		(property "Value" "FerriteBead"
-			(at 219.6592 143.51 90)
+			(at 227.2792 143.51 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8030,7 +8737,7 @@
 			)
 		)
 		(property "Footprint" "Inductor_THT:L_Axial_L9.5mm_D4.0mm_P2.54mm_Vertical_Fastron_SMCC"
-			(at 219.71 150.368 90)
+			(at 227.33 150.368 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8039,7 +8746,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 219.71 148.59 0)
+			(at 227.33 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8048,7 +8755,7 @@
 			)
 		)
 		(property "Description" "Laird 28L0138-80R-10"
-			(at 219.71 148.59 0)
+			(at 227.33 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8066,6 +8773,76 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
 					(reference "FB4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 217.17 144.78 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fe7a603b-6d7f-4032-b763-dcee9b4c1e5b")
+		(property "Reference" "R38"
+			(at 219.71 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 219.71 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 218.186 145.034 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 217.17 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 217.17 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "0cc42752-8f82-4add-a245-e26458764e29")
+		)
+		(pin "1"
+			(uuid "8bdb5d67-9b75-4ef9-a5af-fee1ff2a869f")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/30aa0322-7a3d-4768-9a29-7962d184fe9a"
+					(reference "R38")
 					(unit 1)
 				)
 			)

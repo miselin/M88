@@ -2005,6 +2005,16 @@
 	)
 	(wire
 		(pts
+			(xy 87.63 59.69) (xy 87.63 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a567bf9-94f2-4e9c-8260-5bdc5d4abf2e")
+	)
+	(wire
+		(pts
 			(xy 83.82 160.02) (xy 92.71 160.02)
 		)
 		(stroke
@@ -2235,16 +2245,6 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 50.8) (xy 80.01 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4c146f78-2b0e-446a-b47e-dc765ac2043f")
-	)
-	(wire
-		(pts
 			(xy 198.755 50.165) (xy 201.93 50.165)
 		)
 		(stroke
@@ -2295,7 +2295,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 46.99) (xy 87.63 50.8)
+			(xy 87.63 46.99) (xy 87.63 54.61)
 		)
 		(stroke
 			(width 0)
@@ -2885,7 +2885,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 46.99) (xy 77.47 50.8)
+			(xy 77.47 46.99) (xy 77.47 54.61)
 		)
 		(stroke
 			(width 0)
@@ -2965,13 +2965,13 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 50.8) (xy 87.63 50.8)
+			(xy 77.47 59.69) (xy 77.47 62.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e2d5b32f-78ff-48eb-9b1a-86e2104dc9ff")
+		(uuid "dfa1d45f-f384-48b0-8939-97900a64d106")
 	)
 	(wire
 		(pts
@@ -3509,6 +3509,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 87.63 62.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "06eb292a-5160-4c28-8062-b2f287c3e2b6")
+		(property "Reference" "#PWR0329"
+			(at 87.63 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 87.63 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 87.63 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 87.63 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 87.63 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7935ae70-5b6a-436e-844f-bf3618c43f47")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "#PWR0329")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:PWR_FLAG")
 		(at 154.94 38.1 0)
 		(unit 1)
@@ -3705,6 +3771,72 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
 					(reference "C67")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 77.47 62.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "118a4953-28c5-47ff-a718-26410a7622fc")
+		(property "Reference" "#PWR0330"
+			(at 77.47 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 77.47 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 77.47 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 77.47 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 77.47 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b878a35e-c10b-4c78-9d98-10fed5297f4f")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "#PWR0330")
 					(unit 1)
 				)
 			)
@@ -5758,6 +5890,77 @@
 	)
 	(symbol
 		(lib_id "Device:C_Polarized_Small_US")
+		(at 87.63 57.15 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b766dc84-dc6d-4c5e-b9cd-31bdda49ceac")
+		(property "Reference" "C68"
+			(at 90.17 57.5817 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "470 uF 20% 35V Electrolytic"
+			(at 85.09 56.3118 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
+			(at 87.63 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 87.63 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "UWT1E101MCL1GS -- Aluminum Electrolytic Capacitors - SMD 25volts 100uF AEC-Q200  "
+			(at 87.63 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "520c2f47-12f5-49c5-accc-509c4f4708ab")
+		)
+		(pin "2"
+			(uuid "24638ff5-687b-4f0f-b6f6-04f566d8a676")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C68")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
 		(at 270.51 146.05 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5829,7 +6032,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Polarized_Small_US")
-		(at 82.55 50.8 90)
+		(at 77.47 57.15 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5838,15 +6041,16 @@
 		(fields_autoplaced yes)
 		(uuid "c398401d-911d-44f9-9693-2edbf1d3ac6a")
 		(property "Reference" "C65"
-			(at 82.1182 46.99 90)
+			(at 80.01 56.7181 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Value" "470 uF 20% 35V Electrolytic"
-			(at 83.3882 48.26 0)
+			(at 80.01 57.9882 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5856,7 +6060,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
-			(at 82.55 50.8 0)
+			(at 77.47 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5865,7 +6069,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 82.55 50.8 0)
+			(at 77.47 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5874,7 +6078,7 @@
 			)
 		)
 		(property "Description" "UWT1E101MCL1GS -- Aluminum Electrolytic Capacitors - SMD 25volts 100uF AEC-Q200  "
-			(at 82.55 50.8 0)
+			(at 77.47 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)

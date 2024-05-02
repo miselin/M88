@@ -3263,6 +3263,16 @@
 	)
 	(wire
 		(pts
+			(xy 227.33 243.84) (xy 227.33 259.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63bf5671-a764-48b0-9eee-2c5f7bb34618")
+	)
+	(wire
+		(pts
 			(xy 53.34 87.63) (xy 57.15 87.63)
 		)
 		(stroke
@@ -4400,6 +4410,16 @@
 			(type default)
 		)
 		(uuid "c34571dd-b976-4468-91ec-0f9a0c24fa2c")
+	)
+	(wire
+		(pts
+			(xy 227.33 266.7) (xy 227.33 274.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6039447-f1d6-48c2-a761-73373297ff4e")
 	)
 	(wire
 		(pts
@@ -6510,6 +6530,17 @@
 		)
 		(uuid "b4248b0d-d651-4819-b82e-52716b814e1e")
 	)
+	(label "8088_HLDA"
+		(at 227.33 243.84 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b4fd94f5-bc91-43a4-b6e9-0d81f19f21e5")
+	)
 	(label "SPKR_GATE"
 		(at 116.84 215.9 0)
 		(fields_autoplaced yes)
@@ -7334,6 +7365,76 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
 					(reference "#PWR033")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 227.33 262.89 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "11af2a78-522f-4aca-b3a8-72159f9b1e96")
+		(property "Reference" "R39"
+			(at 229.87 261.6199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 229.87 264.1599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 228.346 263.144 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 227.33 262.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 227.33 262.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "8a5da667-a073-435f-9ec5-ef3cf0d408e6")
+		)
+		(pin "1"
+			(uuid "b19d91b2-e14b-4dff-94a7-53ae2f54bc45")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
+					(reference "R39")
 					(unit 1)
 				)
 			)
@@ -9059,6 +9160,72 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
 					(reference "#PWR039")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 227.33 274.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9a7c6bdc-320d-4a00-8f3c-8915e62dfb2e")
+		(property "Reference" "#PWR0327"
+			(at 227.33 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 227.33 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 227.33 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 227.33 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 227.33 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "304035b3-7b2d-4172-a289-9b6e84940837")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
+					(reference "#PWR0327")
 					(unit 1)
 				)
 			)

@@ -50,3 +50,63 @@ In the PC/AT, they removed the PPI and kept only "Port B" functions on port 0x61
 
 - When preparing a Mouser shopping cart, I notice I forgot the pull-ups on the 7406 outputs for PS/2!
   - gonna have to bodge these in - keyboad/mouse won't work without it
+
+2024-05-03:
+
+- First board is fully soldered and populated
+- U1 (74LS74 for DMA HRQ) seems to be incorrect, removing it for now and bodging pin 5 to pin 7
+  - otherwise the CPU stays in permanent HOLD
+- gate logic for 74LS138 demuxes is inverted
+  - IS_IO# sould be the NAND of MEMW# and MEMR#
+  - passing both MEMW# and MEMR# to the memory demux means it never activates
+
+2024-05-04:
+
+- Thinking for DMA HRQ, lift pin 5 and bridge 5/6 with solder jumper - use Q# output instead of Q output (inverted)
+- Bodged the 74LS138s as needed to create the right signals
+- Multi-function serial ISA card works!
+- VGA card ALMOST works
+  - it looks like it is pulling I/O CH RDY low to extend memory access duration for VRAM
+  - my circuit is not responding in turn, so READY stays HIGH and we get glitchy rendering
+
+For 8284 fix...
+- may need to make RDY2 (pin 6) GND and AEN2 (pin 7) 5V (i.e. swap their values)
+- this makes RDY1/AEN1 the only ready pair that matters?
+
+Look at the datasheet block diagram, it makes sense:
+
+RDY1 = 1
+AEN1 = 0
+RDY2 = 1
+AEN2 = 0
+
+
+(RDY1 && !AEN1) | (RDY2 && !AEN2)
+(1 && !0) | (1 && !0) = 1 | 1 = 1
+
+--
+
+RDY1 = 0
+AEN1 = 0
+RDY2 = 1
+AEN2 = 0
+
+(0 && !0) | (1 && !0) = 0 | 1 = 1
+
+--
+
+RDY1 = 0
+AEN1 = 0
+RDY2 = 0
+AEN2 = 1
+
+(0 && !0) | (0 && !1) = 0 | 0 = 0
+
+--
+
+RDY1 = 1
+AEN1 = 0
+RDY2 = 0
+AEN2 = 1
+
+(1 && !0) | (0 && !1) = 1 | 0 = 1

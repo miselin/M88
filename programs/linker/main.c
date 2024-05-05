@@ -7,7 +7,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
+#include "font.h"
 #include "obj.h"
 
 struct linker_object {
@@ -28,27 +30,9 @@ struct aout_hdr {
   uint32_t entry;
   uint32_t textreloc_size;
   uint32_t datareloc_size;
-
-  /*
-  // uint16_t datasize;
-  // uint16_t bsssize;
-  uint16_t symsize;
-  // uint16_t entry;
-  // uint16_t rsvd;
-  // uint16_t relocs;
-  uint16_t relocsize;
-  uint16_t datasize;
-  uint16_t rsvd;
-  */
 };
 
 struct aout_sym {
-  /*
-  char name[8];
-  uint16_t type;
-  uint16_t value;
-  */
-
   uint32_t name;
   unsigned char type;
   char other;
@@ -125,6 +109,28 @@ int main(int argc, const char *argv[]) {
   return 0;
 }
 
+int find_symbol(const char *name, struct linker_object *objects,
+                uint16_t *offset) {
+  struct linker_object *lo = objects;
+  while (lo) {
+    struct symiter *si = obj_get_symiter(lo->o);
+    if (si) {
+      do {
+        if (strcmp(obj_sym_get_name(si), name) == 0) {
+          *offset = obj_sym_get_offset(si);
+          while (obj_sym_next(si))
+            ;
+          return 0;
+        }
+      } while (obj_sym_next(si));
+    }
+
+    lo = lo->next;
+  }
+
+  return -1;
+}
+
 static int emit_binary(const char *filename, struct linker_object *objects) {
   // first pass, just put everything in memory
   // code first, data second
@@ -136,11 +142,21 @@ static int emit_binary(const char *filename, struct linker_object *objects) {
     lo = lo->next;
   }
 
+  // align code to 512 bytes
+  if (base & 0x1ff) {
+    base = (base + 0x200) & ~0x1ff;
+  }
+
   lo = objects;
   while (lo) {
     lo->base = base;
     base = obj_set_location(lo->o, 1, base);
     lo = lo->next;
+  }
+
+  // align data to 512 bytes
+  if (base & 0x1ff) {
+    base = (base + 0x200) & ~0x1ff;
   }
 
   // create the binary image, and fill it with nops
@@ -220,10 +236,73 @@ static int emit_binary(const char *filename, struct linker_object *objects) {
 
   emit_pad(fp, 0x10 - 5);
 
+  // fill in remaining fixed address content in the ROM image
+
+  // POST entry point
+  fseek(fp, 0xE05B, SEEK_SET);
+  uint16_t postentry[2] = {0x0000, 0xF000};
+  fwrite(postentry, sizeof(uint16_t), 2, fp);
+
+  // INT 10h entry point
+  fseek(fp, 0xF065, SEEK_SET);
+  uint8_t int10h = 0xCF;  // IRET
+  fwrite(&int10h, 1, 1, fp);
+
+  // Low 128 characters of graphic video font
+  fseek(fp, 0xFA6E, SEEK_SET);
+  fwrite(vgafont8, 1, 128 * 8, fp);
+
+  // dummy interrupt handler
+  fseek(fp, 0xFF53, SEEK_SET);
+  uint8_t dummyint = 0xCF;  // IRET
+  fwrite(&dummyint, 1, 1, fp);
+
+  // ROM date
+  time_t now = time(NULL);
+  struct tm *tm_info = localtime(&now);  // Convert to local time
+
+  fseek(fp, 0xFFF5, SEEK_SET);
+  char romdate[9];
+  strftime(romdate, 9, "%m/%d/%y", tm_info);
+  fwrite(romdate, 1, 8, fp);
+
+  // System model
+  fseek(fp, 0xFFFE, SEEK_SET);
+  char model = 0xFE;
+  fwrite(&model, 1, 1, fp);
+
   fclose(fp);
 
   return 0;
 }
+
+/*
+; F000:E05B POST Entry Point
+; F000:E2C3 NMI Entry Point
+; F000:E6F2 INT 19 Entry Point
+; F000:E6F5 Configuration Data Table
+; F000:E729 Baut Rate Generator Table
+; F000:E739 INT 14 Entry Point
+; F000:E82E INT 16 Entry Point
+; F000:E987 INT 09 Entry Point
+; F000:EC59 INT 13 (Floppy) Entry Point
+; F000:EF57 INT 0E Entry Point
+; F000:EFC7 Floppy Disk Controller Parameter Table
+; F000:EFD2 INT 17
+; F000:F065 INT 10 (Video) Entry Point
+; F000:F0A4 INT 1D MDA and CGA Video Parameter Table
+; F000:F841 INT 12 Entry Point
+; F000:F84D INT 11 Entry Point
+; F000:F859 INT 15 Entry Point
+; F000:FA6E Low 128 Characters of Graphic Video Font
+; F000:FE6E INT 1A Entry Point
+; F000:FEA5 INT 08 Entry Point
+; F000:FF53 Dummy Interrupt Handler (IRET)
+; F000:FF54 INT 05 (Print Screen) Entry Point
+; F000:FFF0 Power-On Entry Point
+; F000:FFF5 ROM Date in ASCII "MM/DD/YY" Format (8 Characters)
+; F000:FFFE System Model (0xFC - AT, 0xFE - XT)
+*/
 
 static int emit_aout(const char *filename, struct linker_object *objects) {
   uint32_t base = 0;
@@ -313,9 +392,6 @@ static int emit_aout(const char *filename, struct linker_object *objects) {
 
     return 1;
   }
-
-  fprintf(stderr, "textsize=%d/%x, datasize=%d/%x\n", textsize, textsize,
-          datasize, datasize);
 
   struct aout_hdr hdr;
   memset(&hdr, 0, sizeof(struct aout_hdr));

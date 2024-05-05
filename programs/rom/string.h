@@ -1,13 +1,18 @@
 #ifndef _STRING_H
 #define _STRING_H
 
-int strlen(const char *s);
-int printf(const char *fmt, ...);
-int snprintf(char __ss *s, int n, const char *fmt, ...);
-int sprintf(char __ss *s, const char *fmt, ...);
+#include <stdint.h>
 
-void write_bochs_char(char c);
-void write_bochs(const char *s);
-void write_bochs_ss(const char __ss *s);
+void putchar(char c);
+void puts(const char *s);
+void puthex(uint16_t n);
+void putnum(uint16_t n);
+
+int strlen(const char *s);
+
+void serial_putchar(char c);
+void serial_puts(const char *s);
+void serial_putnum(uint16_t n);
+void serial_puthex(uint16_t n);
 
 #endif

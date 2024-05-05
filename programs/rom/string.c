@@ -2,8 +2,52 @@
 
 #include <dos.h>
 #include <stdarg.h>
+#include <stdint.h>
 
-extern int vsprintf(char __ss *buf, const char *fmt, va_list args);
+#include "io.h"
+
+static char hexchars[] = "0123456789ABCDEF";
+
+void putchar(char c) {
+  asm {
+    mov ah, 0x0E
+    mov al, c
+    mov bh, 0x00
+    mov bl, 0x07
+    int 0x10
+  }
+}
+
+void putnum(uint16_t n) {
+  char buf[5];
+  int i = 0;
+  do {
+    buf[i++] = '0' + (n % 10);
+    n /= 10;
+  } while (n);
+  while (i--) {
+    putchar(buf[i]);
+  }
+}
+
+void puthex(uint16_t n) {
+  char buf[4];
+  int i = 0;
+  do {
+    buf[i++] = hexchars[n % 16];
+    n /= 16;
+  } while (n);
+  while (i--) {
+    putchar(buf[i]);
+  }
+}
+
+void puts(const char *s) {
+  while (*s) {
+    putchar(*s);
+    ++s;
+  }
+}
 
 int strlen(const char *s) {
   int len = 0;
@@ -13,28 +57,40 @@ int strlen(const char *s) {
   return len;
 }
 
-int printf(const char *fmt, ...) {
-  char print_temp[256];
-  va_list argptr;
-  va_start(argptr, fmt);
-  int ret = vsprintf(print_temp, fmt, argptr);
-  write_bochs_ss(print_temp);
-  va_end(argptr);
-  return ret;
+void serial_putchar(char c) {
+  while ((inportb(0x3F8 + 5) & 0x20) == 0)
+    ;
+
+  outportb(0x3F8, c);
 }
 
-int snprintf(char __ss *s, int n, const char *fmt, ...) {
-  va_list argptr;
-  va_start(argptr, fmt);
-  int ret = vsprintf(s, fmt, argptr);
-  va_end(argptr);
-  return ret;
+void serial_puts(const char *s) {
+  while (*s) {
+    serial_putchar(*s);
+    ++s;
+  }
 }
 
-int sprintf(char __ss *s, const char *fmt, ...) {
-  va_list argptr;
-  va_start(argptr, fmt);
-  int ret = vsprintf(s, fmt, argptr);
-  va_end(argptr);
-  return ret;
+void serial_putnum(uint16_t n) {
+  char buf[5];
+  int i = 0;
+  do {
+    buf[i++] = '0' + (n % 10);
+    n /= 10;
+  } while (n);
+  while (i--) {
+    serial_putchar(buf[i]);
+  }
+}
+
+void serial_puthex(uint16_t n) {
+  char buf[4];
+  int i = 0;
+  do {
+    buf[i++] = hexchars[n % 16];
+    n /= 16;
+  } while (n);
+  while (i--) {
+    serial_putchar(buf[i]);
+  }
 }

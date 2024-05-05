@@ -21,6 +21,7 @@ isr:
     push bp
 
     push ax
+    push sp
 
     ; make sure we're in the BIOS data segment
     mov ax, 0xF000
@@ -29,7 +30,7 @@ isr:
 
     call _isrhandler
 
-    pop ax
+    add sp, 4 ; remove the pushed AX, SP
 
     pop bp
     pop si
@@ -43,33 +44,8 @@ isr:
 
     iret
 
-global _load_ivt
-
-_load_ivt:
-    ; zero out the IVT area to start with
-    mov cx, 512
-    cld
-    xor ax, ax
-    mov es, ax
-    mov di, ax
-    rep stosw
-
-    ; now load the ISR addresses
-
-    xor di, di
-    mov bx, isr0
-    mov cx, 256
-.loop:
-    mov word [es:di], bx
-    mov word [es:di + 2], 0xF000
-    add di, 4
-    add bx, 6  ; 8 bytes of instructions per ISR
-    sub cx, 1
-    jnz .loop
-
-    ret
-
 %macro ISR 1
+  global isr%1
   isr%1:
     push ax
     mov ax, %1
@@ -82,11 +58,11 @@ _load_ivt:
   %assign i i+1
 %endrep
 
-; segment rdata public align=4 use16 class=data
+segment rdata public align=4 use16 class=data
 
-; _isr_array:
-;   %assign i 0
-;   %rep 256
-;     dw isr %+ i
-;     %assign i i+1
-;   %endrep
+_isr_array:
+  %assign i 0
+  %rep 256
+    dw isr %+ i
+    %assign i i+1
+  %endrep

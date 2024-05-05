@@ -3,7 +3,7 @@ cpu 8086
 
 segment _TEXT public align=16 use16 class=CODE
 
-global configure_fdc
+global _configure_fdc
 global fdc_irq
 global fdc_read_drive0
 global fdc_motor_off
@@ -216,7 +216,7 @@ fdc_read_fifo:
     pop dx
     ret
 
-configure_fdc:
+_configure_fdc:
     push ax
 
     ; unmask IRQ6

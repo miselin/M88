@@ -388,6 +388,13 @@ void obj_clear_location(struct obj *o) {
 
     le = le->next;
   }
+
+  struct fixup *fix = o->fixups;
+  while (fix) {
+    fix->completed = 0;
+
+    fix = fix->next;
+  }
 }
 
 void obj_load_to(struct obj *o, void *dest) {

@@ -4685,16 +4685,6 @@
 		)
 		(uuid "624d4694-023d-40f2-8c6c-441ce16f07de")
 	)
-	(wire
-		(pts
-			(xy 187.96 69.85) (xy 198.12 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6346acad-5b62-4438-a76f-a80c72935cd2")
-	)
 	(bus
 		(pts
 			(xy 100.33 148.59) (xy 110.49 148.59)
@@ -5147,7 +5137,7 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 69.85) (xy 198.12 74.93)
+			(xy 198.12 72.39) (xy 198.12 74.93)
 		)
 		(stroke
 			(width 0)
@@ -5567,16 +5557,6 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 69.85) (xy 187.96 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c634e34b-7d5b-4e9e-9e39-809cf4aeb8ce")
-	)
-	(wire
-		(pts
 			(xy 149.86 138.43) (xy 149.86 143.51)
 		)
 		(stroke
@@ -5764,6 +5744,16 @@
 			(type default)
 		)
 		(uuid "d98d8889-a88c-4e7d-9670-4d94aefce865")
+	)
+	(wire
+		(pts
+			(xy 127 21.59) (xy 138.43 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d9a80964-55e1-408b-8c03-1ae2a68f08c1")
 	)
 	(bus
 		(pts
@@ -6709,6 +6699,17 @@
 		)
 		(uuid "a522de04-9260-4d06-9cc6-b7116a9b96a5")
 	)
+	(label "~{DMA_AEN}"
+		(at 127 21.59 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a545785a-94be-4a08-92b9-d212240c41ef")
+	)
 	(label "DREQ1"
 		(at 123.825 97.79 0)
 		(fields_autoplaced yes)
@@ -7244,6 +7245,18 @@
 		)
 		(uuid "81d4f6f5-9d81-4065-b5dd-7847c79e7c13")
 	)
+	(hierarchical_label "~{DMA_AEN}"
+		(shape input)
+		(at 138.43 21.59 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8476c4e4-98a2-4c99-bd73-50481a5ead23")
+	)
 	(hierarchical_label "DREQ[0..3]"
 		(shape input)
 		(at 112.395 92.71 180)
@@ -7388,7 +7401,7 @@
 		)
 		(uuid "e0d08088-d3e7-486d-9d70-98790332f606")
 	)
-	(hierarchical_label "RESET"
+	(hierarchical_label "~{RESET}"
 		(shape input)
 		(at 194.31 92.71 180)
 		(fields_autoplaced yes)
@@ -8335,72 +8348,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 187.96 71.12 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "34305975-c970-4533-a983-d1c7985fb63e")
-		(property "Reference" "#PWR0215"
-			(at 187.96 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 187.96 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 187.96 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 187.96 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 187.96 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "00a87c12-042b-42d8-9bf3-20f036f33046")
-		)
-		(instances
-			(project "sbc_8088"
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/b83b9fc0-04c9-48b0-9c67-1dac6abe53f7"
-					(reference "#PWR0215")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 156.21 52.07 90)
 		(unit 1)
@@ -9270,6 +9217,72 @@
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/b83b9fc0-04c9-48b0-9c67-1dac6abe53f7"
 					(reference "U18")
 					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 198.12 72.39 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7c7d8657-f1ef-43fa-9ab9-db0e47d2536c")
+		(property "Reference" "#PWR0215"
+			(at 198.12 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 198.12 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 198.12 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 198.12 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 198.12 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cafc7526-b616-48ca-80a2-90c713f8b7ee")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/b83b9fc0-04c9-48b0-9c67-1dac6abe53f7"
+					(reference "#PWR0215")
+					(unit 1)
 				)
 			)
 		)

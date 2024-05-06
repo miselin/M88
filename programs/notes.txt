@@ -110,3 +110,31 @@ RDY2 = 0
 AEN2 = 1
 
 (1 && !0) | (0 && !1) = 1 | 0 = 1
+
+2024-05-05:
+
+- Tested 8284 fix with jumper wires (no soldering) - VGA no longer has corrupted visuals!
+  - means the READY generator was indeed held wrong in the schematic
+- All that remains is figuring out DMA HRQ - currently holds 8088 HOLD line HIGH permanently
+  - PRE# and CLR# are both LOW (PRE# = GND, CLR# = RESET which is active-high) - this is an invalid state for the 74LS74!
+  - PRE# should be 5V. CLR# can be the RESET# signal instead of the DMA's active-high RESET
+  - That should fix the circuit and stop the accidentally permanent HOLD
+  - 5150 and other schematics use an inverter on HRQ. Why? It's active-high on the DMA controller too?
+    - HRQ -> pull-up -> LS04 (inverter) -> HRQ_DMA#
+    - HRQ_DMA# goes into a NAND with a 5V pull-up (?)
+    - this inverter + NAND means it is back to active high?
+    - this goes into a mega-NAND + inverter + flip-flop to generate HOLDA (maximum mode 8088)
+    - HOLDA is cleared by the inverted HRQ_DMA# signal (i.e. HRQ), so when HRQ goes LOW this should clear HOLDA (makes sense)
+    - this is decoding S0#, S1#, S2#, LOCK# - all 1 = "passive" i.e. the CPU released the bus (in MAXIMUM mode)
+    - DMA_WAIT# is generated from HOLDA (HOLDA -> flip-flop D0 -> Q0 -> flip-flop D1 -> Q1# -> DMA_WAIT#)
+    - DMA_WAIT# is used in addition to the RDY#/WAIT signal (generated from either ISA I/O CH RDY or a few other signals)
+    - that means that READY will correlate to DMA state and hold the CPU passive until the DMA completes
+    - READY goes low, HLDA will go high once status bits indicate passive, READY goes high (DMA done, ISA stops stretching memory access time), HLDA returns to normal state
+    - tl;dr it's because maximum mode.
+  - so... in my design, with a single 8088, HRQ can just go straight to the CPU
+    - jump pins 2 and 5.
+    - OR, fix PRE# and CLR# to both point at 5V. this will push HRQ through the flip-flop which might help with buffering
+- One small bug - I/O select on the board doesn't account for DMA active cycle lowering IOR and MEMW simultaneously
+  - need to probably use DMA_AEN# to check (attached to active-high)
+  - i.e. do NOT chip-select onboard I/O if DMA is active - could we use HOLDA in min mode instead?
+  - schematic fixed accordingly

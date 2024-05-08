@@ -40,6 +40,7 @@ struct lname {
 };
 
 struct segdef {
+  struct record *rec;
   // bytes of alignment needed, 0 = absolute segment
   uint16_t align;
   // 0 = private, 2/4 = public, 5 = stack, 6 = common
@@ -66,6 +67,7 @@ struct segdef {
 };
 
 struct grpdef {
+  struct record *rec;
   char name[256];
   struct segdef *segments[32];
   struct grpdef *next;
@@ -75,6 +77,7 @@ struct grpdef {
 };
 
 struct extdef {
+  struct record *rec;
   char name[256];
   uint16_t type_index;
   struct extdef *next;
@@ -101,6 +104,7 @@ struct ledata {
 };
 
 struct fixup {
+  struct record *rec;
   struct ledata *ledata;
   struct fixup *next;
 
@@ -662,6 +666,8 @@ void obj_close(struct obj *o) {
 static void load_lnames(struct obj *o) {
   int recnum = 0;
 
+  struct lname *prev = NULL;
+
   struct record *rec = o->recs;
   while (rec) {
     if (rec->hdr.type == 0x96) {
@@ -673,8 +679,6 @@ static void load_lnames(struct obj *o) {
           break;
         }
       }
-
-      struct lname *prev = NULL;
 
       for (int i = 0; i < rec->hdr.len - 1;) {
         struct lname *ln = (struct lname *)calloc(1, sizeof(struct lname));
@@ -723,6 +727,7 @@ static void load_segdefs(struct obj *o) {
       seg->combo = (attrs >> 2) & 7;
       seg->final_offset = ~0U;
       seg->total_size = 0;
+      seg->rec = rec;
 
       int alignment = 1;
       switch (align) {
@@ -808,6 +813,7 @@ static void load_grpdefs(struct obj *o) {
 
       struct grpdef *grp = (struct grpdef *)calloc(1, sizeof(struct grpdef));
       grp->final_offset = ~0U;
+      grp->rec = rec;
 
       int offset = 0;
 
@@ -874,6 +880,7 @@ static void load_extdefs(struct obj *o) {
       int offset = 0;
       while (offset < (rec->hdr.len - 1)) {
         struct extdef *ext = (struct extdef *)calloc(1, sizeof(struct extdef));
+        ext->rec = rec;
 
         int len = data[offset];
         strncpy(ext->name, (const char *)&data[offset + 1], len);

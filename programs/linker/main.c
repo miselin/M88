@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
 #include "font.h"
 #include "obj.h"
@@ -42,35 +43,92 @@ struct aout_sym {
 
 #pragma pack()
 
-static int emit_binary(const char *filename, struct linker_object *objects);
+struct options {
+  const char *outfile;
+  int debug;
+  int aout;
+  int optionrom;
+  int validate;
+};
+
+static int emit_binary(const char *filename, struct linker_object *objects,
+                       struct options *opts);
 static int emit_aout(const char *filename, struct linker_object *objects);
 
 static void emit_pad(FILE *fp, uint32_t count) {
   for (uint32_t i = 0; i < count; ++i) {
-    fputc(0x90, fp);
+    fputc(0, fp);
   }
 }
 
-int main(int argc, const char *argv[]) {
-  if (argc < 2) {
-    fprintf(stderr, "Usage: %s inputs... output\n", argv[0]);
+static void usage() {
+  fprintf(stderr, "Usage: link [-a] [-d] [-v] [-t] [-h] -o output inputs...\n");
+}
+
+int main(int argc, char *const *argv) {
+  struct options opts;
+  memset(&opts, 0, sizeof(opts));
+
+  int c = 0;
+  while ((c = getopt(argc, argv, "vdatho:")) != -1) {
+    switch (c) {
+      case 'a':
+        // output a.out format
+        opts.aout = 1;
+        break;
+      case 'd':
+        // debug mode
+        opts.debug = 1;
+        break;
+      case 'h':
+        usage();
+        return 1;
+      case 'o':
+        opts.outfile = optarg;
+        break;
+      case 't':
+        // output option ROM format
+        opts.optionrom = 1;
+        break;
+      case 'v':
+        // validate checksum on written option ROM after writing
+        opts.validate = 1;
+        break;
+    }
+  }
+
+  if (opts.validate && !opts.optionrom) {
+    fprintf(stderr, "Checksum validation only supported for option ROMs\n");
+    return 1;
+  }
+
+  if ((argc - optind) < 1) {
+    usage();
     return 1;
   }
 
   struct linker_object *objects = NULL;
   struct linker_object *prev = NULL;
 
-  for (int i = 1; i < argc - 1; ++i) {
+  if (opts.debug) {
+    printf("output: %s\n", opts.outfile);
+    printf("aout: %s\n", opts.aout ? "yes" : "no");
+    printf("optionrom: %s\n", opts.optionrom ? "yes" : "no");
+  }
+
+  for (int i = optind; i < argc; ++i) {
     struct obj *o = obj_open(argv[i]);
     if (!o) {
       fprintf(stderr, "Failed to open %s\n", argv[i]);
       return 1;
     }
 
-    // printf("Object %s:\n", argv[i]);
-    // obj_dump(o);
+    if (opts.debug) {
+      printf("Object %s:\n", argv[i]);
+      obj_dump(o);
 
-    fflush(stdout);
+      fflush(stdout);
+    }
 
     struct linker_object *lo = malloc(sizeof(struct linker_object));
     lo->o = o;
@@ -87,18 +145,14 @@ int main(int argc, const char *argv[]) {
     prev = lo;
   }
 
-  emit_binary(argv[argc - 1], objects);
-
-  struct linker_object *lo = objects;
-  while (lo) {
-    obj_clear_location(lo->o);
-    lo = lo->next;
+  if (opts.aout) {
+    emit_aout(opts.outfile, objects);
+  } else {
+    emit_binary(opts.outfile, objects, &opts);
   }
 
-  emit_aout("rom.aout", objects);
-
   // all done, clean up
-  lo = objects;
+  struct linker_object *lo = objects;
   while (lo) {
     struct linker_object *next = lo->next;
     obj_close(lo->o);
@@ -131,10 +185,13 @@ int find_symbol(const char *name, struct linker_object *objects,
   return -1;
 }
 
-static int emit_binary(const char *filename, struct linker_object *objects) {
+static int emit_binary(const char *filename, struct linker_object *objects,
+                       struct options *opts) {
   // first pass, just put everything in memory
   // code first, data second
-  uint32_t base = 0;
+  // Option ROMs have a 3-byte "header" - signature + size in 512-byte chunks,
+  // then we align code to 16-byte boundary
+  uint32_t base = opts->optionrom ? 16 : 0;
   struct linker_object *lo = objects;
   while (lo) {
     lo->base = base;
@@ -159,9 +216,8 @@ static int emit_binary(const char *filename, struct linker_object *objects) {
     base = (base + 0x200) & ~0x1ff;
   }
 
-  // create the binary image, and fill it with nops
-  uint8_t *mem = (uint8_t *)malloc(base);
-  memset(mem, 0x90, base);
+  // create the binary image
+  uint8_t *mem = (uint8_t *)calloc(1, base);
 
   lo = objects;
   while (lo) {
@@ -225,53 +281,92 @@ static int emit_binary(const char *filename, struct linker_object *objects) {
     return 1;
   }
 
+  if (opts->optionrom) {
+    // pad the ROM image to a 512-byte boundary
+    uint32_t pad = 512 - (base % 512);
+    emit_pad(fp, pad);
+
+    // write the Option ROM header
+    // first instrutions of the ROM are a jump to the code (which is padded due
+    // to the option rom header)
+    uint8_t header[5] = {0x55, 0xAA, (base + pad) / 512, 0xEB, 0x10 - 3};
+    fseek(fp, 0, SEEK_SET);
+    fwrite(header, 1, sizeof(header), fp);
+
+    uint8_t checksum = 0;
+    for (size_t i = 0; i < sizeof(header); ++i) {
+      checksum += header[i];
+    }
+    for (uint32_t i = 0; i < base; ++i) {
+      checksum += mem[i];
+    }
+
+    // write checksum at the end of the ROM image
+    fseek(fp, -1, SEEK_END);
+    fputc((~checksum) + 1, fp);
+  } else {
+    // pad the ROM image to add the reset vector at 0xFFF0
+    uint32_t pad = 0xFFF0 - base;
+    emit_pad(fp, pad);
+
+    uint8_t reset_jump[5] = {0xEA, 0x00, 0x00, 0x00, 0xF0};
+    fwrite(reset_jump, 1, 5, fp);
+
+    emit_pad(fp, 0x10 - 5);
+
+    // fill in remaining fixed address content in the ROM image
+
+    // POST entry point
+    fseek(fp, 0xE05B, SEEK_SET);
+    uint16_t postentry[2] = {0x0000, 0xF000};
+    fwrite(postentry, sizeof(uint16_t), 2, fp);
+
+    // INT 10h entry point
+    fseek(fp, 0xF065, SEEK_SET);
+    uint8_t int10h = 0xCF;  // IRET
+    fwrite(&int10h, 1, 1, fp);
+
+    // Low 128 characters of graphic video font
+    fseek(fp, 0xFA6E, SEEK_SET);
+    fwrite(vgafont8, 1, 128 * 8, fp);
+
+    // dummy interrupt handler
+    fseek(fp, 0xFF53, SEEK_SET);
+    uint8_t dummyint = 0xCF;  // IRET
+    fwrite(&dummyint, 1, 1, fp);
+
+    // ROM date
+    time_t now = time(NULL);
+    struct tm *tm_info = localtime(&now);  // Convert to local time
+
+    fseek(fp, 0xFFF5, SEEK_SET);
+    char romdate[9];
+    strftime(romdate, 9, "%m/%d/%y", tm_info);
+    fwrite(romdate, 1, 8, fp);
+
+    // System model
+    fseek(fp, 0xFFFE, SEEK_SET);
+    char model = 0xFE;
+    fwrite(&model, 1, 1, fp);
+  }
+
   free(mem);
 
-  // pad the ROM image to add the reset vector at 0xFFF0
-  uint32_t pad = 0xFFF0 - base;
-  emit_pad(fp, pad);
-
-  uint8_t reset_jump[5] = {0xEA, 0x00, 0x00, 0x00, 0xF0};
-  fwrite(reset_jump, 1, 5, fp);
-
-  emit_pad(fp, 0x10 - 5);
-
-  // fill in remaining fixed address content in the ROM image
-
-  // POST entry point
-  fseek(fp, 0xE05B, SEEK_SET);
-  uint16_t postentry[2] = {0x0000, 0xF000};
-  fwrite(postentry, sizeof(uint16_t), 2, fp);
-
-  // INT 10h entry point
-  fseek(fp, 0xF065, SEEK_SET);
-  uint8_t int10h = 0xCF;  // IRET
-  fwrite(&int10h, 1, 1, fp);
-
-  // Low 128 characters of graphic video font
-  fseek(fp, 0xFA6E, SEEK_SET);
-  fwrite(vgafont8, 1, 128 * 8, fp);
-
-  // dummy interrupt handler
-  fseek(fp, 0xFF53, SEEK_SET);
-  uint8_t dummyint = 0xCF;  // IRET
-  fwrite(&dummyint, 1, 1, fp);
-
-  // ROM date
-  time_t now = time(NULL);
-  struct tm *tm_info = localtime(&now);  // Convert to local time
-
-  fseek(fp, 0xFFF5, SEEK_SET);
-  char romdate[9];
-  strftime(romdate, 9, "%m/%d/%y", tm_info);
-  fwrite(romdate, 1, 8, fp);
-
-  // System model
-  fseek(fp, 0xFFFE, SEEK_SET);
-  char model = 0xFE;
-  fwrite(&model, 1, 1, fp);
-
   fclose(fp);
+
+  if (opts->validate && opts->optionrom) {
+    FILE *fp = fopen(opts->outfile, "rb");
+    uint8_t checksum = 1;
+    while (!feof(fp)) {
+      checksum += fgetc(fp);
+    }
+    fclose(fp);
+
+    if (checksum != 0) {
+      fprintf(stderr, "Checksum validation failed (%d != 0)\n", checksum);
+      return 1;
+    }
+  }
 
   return 0;
 }

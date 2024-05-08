@@ -24,7 +24,54 @@ global _jump_bootloader
 ..start:
 start:
 
+jmp next
+next:
+
 cli
+
+; are we an option ROM?
+mov ax, 0xAA55
+mov di, 0x0000
+cmp [cs:di], ax
+jne .not_option_rom
+
+sti
+
+push ax
+push bx
+push cx
+push dx
+push si
+push di
+push bp
+push ds
+push es
+
+mov ax, cs
+mov ds, ax
+mov es, ax
+
+; we are an option ROM
+push cs
+call _rommain
+add sp, 2
+
+pop es
+pop ds
+pop bp
+pop di
+pop si
+pop dx
+pop cx
+pop bx
+pop ax
+
+retf
+
+.not_option_rom:
+
+cli
+hlt
 
 mov al, 0x00
 out 0xE0, al
@@ -77,6 +124,8 @@ mov ds, ax
 mov es, ax
 
 ; it's now safe to go to C code as we have memory up and running
+xor ax, ax
+push ax
 call _rommain
 
 cli

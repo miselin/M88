@@ -24,7 +24,7 @@ isr:
     push sp
 
     ; make sure we're in the BIOS data segment
-    mov ax, 0xF000
+    mov ax, cs
     mov ds, ax
     mov es, ax
 

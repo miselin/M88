@@ -3,66 +3,59 @@ cpu 8086
 
 segment _TEXT public align=16 use16 class=CODE
 
-global isr
-global _isr_array
+global load_ivt
 
-extern _irqhandler
-extern _isrhandler
+extern int11
+extern int12
+extern int14
+extern int15
+extern int16
+extern int17
+extern int19
+extern int1a
 
-; AL = interrupt number
-isr:
-    push bx
-    push cx
-    push dx
-    push ds
-    push es
-    push di
-    push si
-    push bp
+extern timerirq
+extern kbirq
 
-    push ax
-    push sp
+load_ivt:
+  mov ax, 0
+  mov ds, ax
 
-    ; make sure we're in the BIOS data segment
-    mov ax, cs
-    mov ds, ax
-    mov es, ax
+  mov ax, cs
 
-    call _isrhandler
+  mov word [ds:0x11 * 4], int11
+  mov word [ds:0x11 * 4 + 2], ax
 
-    add sp, 4 ; remove the pushed AX, SP
+  mov word [ds:0x12 * 4], int12
+  mov word [ds:0x12 * 4 + 2], ax
 
-    pop bp
-    pop si
-    pop di
-    pop es
-    pop ds
-    pop dx
-    pop cx
-    pop bx
-    pop ax
+  mov word [ds:0x14 * 4], int14
+  mov word [ds:0x14 * 4 + 2], ax
 
-    iret
+  mov word [ds:0x15 * 4], int15
+  mov word [ds:0x15 * 4 + 2], ax
 
-%macro ISR 1
-  global isr%1
-  isr%1:
-    push ax
-    mov ax, %1
-    jmp isr
-%endmacro
+  mov word [ds:0x16 * 4], int16
+  mov word [ds:0x16 * 4 + 2], ax
 
-%assign i 0
-%rep 256
-  ISR i
-  %assign i i+1
-%endrep
+  mov word [ds:0x17 * 4], int17
+  mov word [ds:0x17 * 4 + 2], ax
 
-segment rdata public align=4 use16 class=data
+  cmp ax, 0xF000                    ; don't hook ROMBIOS interrupts if we're loaded as an option rom
+  jne .not_biosrom
 
-_isr_array:
-  %assign i 0
-  %rep 256
-    dw isr %+ i
-    %assign i i+1
-  %endrep
+  mov word [ds:0x8 * 4], timerirq   ; IRQ0
+  mov word [ds:0x8 * 4 + 2], ax
+
+  mov word [ds:0x9 * 4], kbirq      ; IRQ1
+  mov word [ds:0x9 * 4 + 2], ax
+
+  mov word [ds:0x19 * 4], int19
+  mov word [ds:0x19 * 4 + 2], ax
+
+  .not_biosrom:
+
+  mov word [ds:0x1a * 4], int1a
+  mov word [ds:0x1a * 4 + 2], ax
+
+  ret

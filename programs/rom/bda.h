@@ -16,8 +16,14 @@ struct ivt_entry {
 };
 
 struct bda_t {
-  struct ivt_entry ivt[256];
-  uint8_t poststack[256];
+  // the last 256 bytes of the IVT are used for the POST stack
+  union {
+    struct ivt_entry ivt[256];
+    struct {
+      uint8_t ignore[0x300];
+      uint8_t poststack[256];
+    };
+  };
   uint16_t comport[4];
   uint16_t lptport[3];
   uint16_t ebda;  // segment for EBDA

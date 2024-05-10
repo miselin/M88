@@ -81,7 +81,7 @@ int handle_bios_interrupt(struct isrstack __ss *stack, unsigned short isrnum) {
       return 0;
     case 0x12:
       // INT 12 - Memory Size Determination
-      stack->regs.ax = 256;  // bda->memsize;
+      stack->regs.ax = bda->memsize;
       return 0;
     case 0x13:
       disk_bios(stack);

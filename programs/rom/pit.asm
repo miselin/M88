@@ -4,7 +4,7 @@ cpu 8086
 segment _TEXT public align=16 use16 class=CODE
 
 global configure_pit
-global timer_handler
+global timerirq
 global delay_ticks
 global delay_s
 global set_fdc_shutoff_counter
@@ -41,56 +41,31 @@ configure_pit:
 
     ret
 
-timer_handler:
+timerirq:
     push ax
-    push es
+    push ds
 
     mov ax, 0x40
-    mov es, ax
+    mov ds, ax
 
-    inc word [es:0x6C]
+    inc word [ds:0x6C]              ; increment daily tick counter
     jno .continue
-
-    ; overflow, increment upper half
-    inc word [es:0x6E]
-
+    inc word [ds:0x6E]              ; overflowed, increment upper half
     .continue:
 
-    ; DX:AX = total tick count
-    mov dx, [es:0x6E]
-    mov ax, [es:0x6C]
-
-    ; did a ms pass?
-    mov cx, TICKS_PER_S
-    div cx
-
-    ; if AX < TICKS_PER_S, no ms passed
-    cmp dx, 0
-    jne .done
-
-    mov al, 'T'
-    out 0xE9, al
-
-    .done:
-
-    ; decrement shutoff counter if needed
-    mov ax, [es:0x40]
-    or ax, ax
+    cmp byte [ds:0x40], 0           ; decrement shutoff counter if it is non-zero
     jz .no_shutoff
-
-    dec ax
-    mov [es:0x40], ax
-
-    or ax, ax
-    jnz .no_shutoff
-
-    call fdc_motor_off              ; ticked down to zero, turn off FDC motor
-
+    dec byte [ds:0x40]
+    jnz .no_shutoff                 ; if the decrement hit zero, we'll turn off FDC motor
+    call fdc_motor_off
     .no_shutoff:
 
-    pop es
+    mov al, 0x20                    ; EOI
+    out 0x20, al
+
+    pop ds
     pop ax
-    ret
+    iret
 
 ; Read the current counter value from the PIT (channel 0)
 ; Returns the counter value in AX

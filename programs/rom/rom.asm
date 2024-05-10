@@ -5,9 +5,8 @@ segment _TEXT public align=16 use16 class=CODE
 
 global start
 
-extern _rommain
-extern _call_option_roms
-extern _load_ivt
+extern call_option_roms
+extern load_ivt
 extern configure_pic
 extern configure_pic_bochs
 extern configure_pit
@@ -18,236 +17,153 @@ extern fdc_read_drive0
 extern delay_ticks
 extern puts
 extern putnum
-
-global _jump_bootloader
+extern call_video_bios
 
 ..start:
 start:
+    jmp next
+    next:
 
-jmp next
-next:
+    cli
 
-cli
+    ; are we an option ROM?
+    ; skip some early init if so
+    mov ax, 0xAA55
+    mov di, 0x0000
+    cmp [cs:di], ax
+    je .option_rom
 
-; are we an option ROM?
-mov ax, 0xAA55
-mov di, 0x0000
-cmp [cs:di], ax
-jne .not_option_rom
+    ; POST #0 - we're alive
+    mov al, 0x00
+    out 0xE0, al
+    out 0x80, al
 
-sti
+    ; CPU test
+    mov ax, 0b1010101010101010
+    mov ds, ax
+    mov bx, ds
+    mov es, bx
+    mov cx, es
+    mov ss, cx
+    mov dx, ss
+    mov bp, dx
+    mov sp, bp
+    mov si, bp
+    mov di, si
+    cmp di, 0b1010101010101010
+    je .cpu_ok
 
-push ax
-push bx
-push cx
-push dx
-push si
-push di
-push bp
-push ds
-push es
+    hlt
 
-mov ax, cs
-mov ds, ax
-mov es, ax
+    .cpu_ok:
 
-; we are an option ROM
-push cs
-call _rommain
-add sp, 2
+    ; POST #1 - CPU is OK
+    mov al, 0x01
+    out 0xE0, al
+    out 0x80, al
 
-pop es
-pop ds
-pop bp
-pop di
-pop si
-pop dx
-pop cx
-pop bx
-pop ax
+    ; default data segment at start of memory
+    xor ax, ax
+    mov ds, ax
 
-retf
+    ; set up BIOS stack at 30:FF (256 bytes) to bootstrap until we know how much memory is present
+    mov ax, 0x30
+    mov ss, ax
+    mov sp, 0xFF
+    mov bp, sp
 
-.not_option_rom:
+    ; does the first 64K of memory work?
+    mov ax, 0x55AA
+    mov di, 0xFFFE
+    mov [ds:di], ax
+    cmp [ds:di], ax
+    je .memory_ok
 
-cli
-hlt
+    hlt
 
-mov al, 0x00
-out 0xE0, al
+    .memory_ok:
 
-; default data segment at start of memory
-mov ax, 0x50
-mov ds, ax
+    ; POST #2 - first 64K of memory is OK
+    mov al, 0x02
+    out 0xE0, al
+    out 0x80, al
 
-; set up BIOS stack at 30:FF (256 bytes) to bootstrap until we know how much memory is present
-mov ax, 0x30
-mov ss, ax
-mov sp, 0xFF
-mov bp, sp
+    ; do DMA controller config now that memory works
+    call configure_dma
 
-; POST #1 - we're alive, about to check memory
-mov al, 0x01
-out 0xE0, al
+    ; set up the IVT with our interrupt handlers
+    call load_ivt
 
-; does memory work?
-mov ax, 0x55AA
-mov di, 0x0000
-mov [ds:di], ax
-cmp [ds:di], ax
-je .memory_ok
+    ; ; POST #3 - IVT is set up
+    mov al, 0x03
+    out 0xE0, al
+    out 0x80, al
 
-hlt
+    ; ; set up interrupt controller
+    call configure_pic
 
-.memory_ok:
+    ; ; POST #4 - PIC is set up
+    mov al, 0x04
+    out 0xE0, al
+    out 0x80, al
 
-; cheat: we know we have 64K (due to a demux schematic bug, instead of 128K)
-; put the stack right at the top of that (0x0FFFF)
-mov ax, 0x0000
-mov ss, ax
-mov sp, 0xFFFF
-mov bp, sp
+    ; set up timer controller
+    call configure_pit
 
-; POST #2 - memory is OK
-mov dx, 2
-push dx
-pop ax
+    ; POST #5 - PIT is set up
+    mov al, 0x05
+    out 0xE0, al
 
-out 0xE0, al
+    ; interrupts are safe now
+    sti
 
-; do DMA controller config now that memory works
-call configure_dma
+    ; call VIDEO BIOS if present
+    call call_video_bios
 
-; before we jump to C, make sure CS=DS=ES
-mov ax, 0xF000
-mov ds, ax
-mov es, ax
+    ; POST #6 - Video BIOS has been called
+    mov al, 0x06
+    out 0xE0, al
+    out 0x80, al
 
-; it's now safe to go to C code as we have memory up and running
-xor ax, ax
-push ax
-call _rommain
+    ; set up keyboard controller
+    call configure_kbc
 
-cli
-hlt
+    ; POST #7 - KBD is set up
+    mov al, 0x07
+    out 0xE0, al
+    out 0x80, al
 
-; ; set up the IVT with our interrupt handlers
-; call _load_ivt
+    ; call other expansion ROMs
+    call call_option_roms
 
-; ; POST #3 - IVT is set up
-; mov al, 0x03
-; out 0xE0, al
+    ; POST #8 - option ROMs have been called
+    mov al, 0x08
+    out 0xE0, al
 
-; ; set up interrupt controller
-; ; call configure_pic
-; call configure_pic_bochs
+    jmp .not_option_rom
 
-; ; POST #4 - PIC is set up
-; mov al, 0x04
-; out 0xE0, al
+    .option_rom:
 
-; ; set up timer controller
-; call configure_pit
+    mov si, mattbios
+    call puts
 
-; ; POST #5 - PIT is set up
-; mov al, 0x05
-; out 0xE0, al
+    call load_ivt
 
-; ; set up keyboard controller
-; call configure_kbc
+    mov ax, 0xAA55
+    mov di, 0x0000
+    cmp [cs:di], ax
+    jne .not_option_rom
 
-; ; POST #6 - KBD is set up
-; mov al, 0x06
-; out 0xE0, al
+    retf
 
-; ; interrupts are safe now
-; sti
+    .not_option_rom:
 
-; ; POST #7 - about to call Option ROMs
-; mov al, 0x07
-; out 0xE0, al
+    ; run the bootloader
+    int 0x19
 
-; call _call_option_roms
+    cli
+    hlt
 
-; mov ax, 0xb800
-; mov ds, ax
-; mov al, 'A'
-; mov ah, 0x07 ; gray on black
-; mov bx, 0
-; mov word [ds:bx], ax
+segment _DATA public align=16 use16 class=DATA
 
-; ; configure FDC
-; call configure_fdc
-
-; ; POST #8 - system is ready, attempting to boot application code
-; mov al, 0x08
-; out 0xE0, al
-
-; ; attempt to load the boot sector from floppy
-; mov ax, 0x0000
-; mov es, ax
-; mov dx, 0x7C00
-; mov cx, 0x200           ; 512 bytes
-; mov bx, 0x0000          ; cylinder
-; call fdc_read_drive0
-
-; cmp ax, 0
-; je .boot_ok
-
-; ; POST #9 - boot failed, can't read from FDC
-; mov al, 0x09
-; out 0xE0, al
-
-.boot_ok:
-jmp forever
-jmp 0x0000:0x7C00
-
-forever:
-sti
-hlt
-jmp forever
-
-_jump_bootloader:
-    jmp 0x0000:0x7C00
-
-; _relocate_stack:
-;     push ax
-;     push cx
-;     push si
-;     push di
-;     push es
-
-;     ; get memory size
-;     mov ax, 0x40
-;     mov es, ax
-;     mov ax, word [es:0x13]
-;     ; we'll take 4x 1K blocks for stack (4K bytes)
-;     sub ax, 4
-;     ; convert to segment
-;     mov cx, 6
-;     shl ax, cl
-
-;     ; save new stack
-;     mov ss, ax
-
-;     ; copy!
-;     xor ax, ax
-;     mov es, ax
-;     mov si, 0xF000
-;     mov di, 0x0000
-
-;     mov cx, 0x500
-;     .loop:
-;     mov ax, word [es:si]
-;     mov word [ss:di], ax
-;     add si, 2
-;     add di, 2
-;     sub cx, 1
-;     jnz .loop
-
-;     pop es
-;     pop di
-;     pop si
-;     pop cx
-;     pop ax
-;     ret
+mattbios db "Matt BIOS - Option ROM mode...", 13, 10, 0

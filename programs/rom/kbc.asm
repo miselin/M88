@@ -3,7 +3,12 @@ cpu 8086
 
 segment _TEXT public align=16 use16 class=CODE
 
+extern unmask_irq
+extern puts
+extern delay_ticks
+
 global configure_kbc
+global kbirq
 
 ; PS2_CMD = 0x64  (system A2 -> KBC A0 pin)
 ; PS2_DATA = 0x60
@@ -50,6 +55,21 @@ kbc_read_dev0:
     call kbc_wait_read
 
     in al, 0x60
+    ret
+
+; read a byte from the first device, without blocking
+; sets CF if no byte is available
+kbc_read_dev0_nb:
+    in al, 0x64
+    test al, 1
+    jz .no_byte
+
+    in al, 0x60
+    clc
+    ret
+
+    .no_byte:
+    stc
     ret
 
 configure_kbc:
@@ -109,8 +129,55 @@ configure_kbc:
     ; consume the ACK to ensure the buffer is clear
     call kbc_read_dev0
 
+    mov ax, 2                       ; hold for a bit to let things settle before
+    call delay_ticks                ; we clear the buffer and enable IRQs
+
+    .clearbuf:                      ; clear the KB buffer to avoid stray IRQs
+    clc                             ; sometimes we get multiple ACKs and those would
+    call kbc_read_dev0_nb           ; fire an unwanted IRQ when we enable it below
+    jnc .clearbuf
+
+    mov ax, 1                       ; unmask IRQ1
+    call unmask_irq
+
+    mov al, 0x20                    ; enable KB IRQs
+    call kbc_write_cmd
+    call kbc_read_dev0
+    or al, 3
+    mov bx, ax
+    mov al, 0x60
+    call kbc_write_cmd
+    mov al, bl
+    call kbc_write_dev0
+
     ret
 
     .fail:
+    mov si, kbfail
+    call puts
+
     cli
     hlt
+
+kbirq:
+    push ax
+    push si
+    mov si, kbstr
+    call puts
+
+    call kbc_read_dev0
+
+    ; TODO...
+
+    mov al, 0x20                    ; EOI
+    out 0x20, al
+
+    pop si
+    pop ax
+    iret
+
+segment _DATA public align=16 use16 class=DATA
+
+kbstr db "Keyboard IRQ", 13, 10, 0
+
+kbfail db "Keyboard initialization failed", 13, 10, 0

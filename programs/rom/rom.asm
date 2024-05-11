@@ -187,7 +187,7 @@ start:
     out 0x80, al
 
     ; set up keyboard controller
-    ; call configure_kbc
+    call configure_kbc
 
     ; POST #11 - KBC configured
     mov al, 0x11

@@ -16,6 +16,8 @@ extern _kbascii_shift
 extern _kbascii_ctrl
 extern _kbascii_alt
 
+; TODO: this file needs timeouts!
+
 ; PS2_CMD = 0x64  (system A2 -> KBC A0 pin)
 ; PS2_DATA = 0x60
 

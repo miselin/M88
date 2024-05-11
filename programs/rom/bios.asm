@@ -3,8 +3,10 @@ cpu 8086
 
 segment _TEXT public align=16 use16 class=CODE
 
+global int10
 global int11
 global int12
+global int13
 global int14
 global int15
 global int16
@@ -14,6 +16,11 @@ global int1a
 
 extern puts
 extern delay_ticks
+
+int10:
+    ; Some Option ROMs call INT 10h
+    ; Make sure that works.
+    iret
 
 int11:
     ; INT 11 - BIOS Equipment Determination
@@ -31,6 +38,10 @@ int12:
     mov ds, ax
     mov ax, [ds:0x13]   ; Memory size in KB
     pop ds
+    iret
+
+int13:
+    ; Dummy INT 13h just in case
     iret
 
 int14:
@@ -208,10 +219,13 @@ int15:
     cmp ah, 0xC0
     je int15_c0
 
-    cmp ah, 0x41
+    cmp ah, 0x41                ; Wait On External Event
     je .unimpl
 
-    cmp ah, 0x88
+    cmp ah, 0x88                ; Extended Memory Size Determination
+    je .unimpl
+
+    cmp ah, 0xC1                ; Return Extended BIOS Data Area Segment
     je .unimpl
 
     cli

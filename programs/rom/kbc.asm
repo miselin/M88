@@ -6,9 +6,15 @@ segment _TEXT public align=16 use16 class=CODE
 extern unmask_irq
 extern puts
 extern delay_ticks
+extern _handle_scancode
 
 global configure_kbc
 global kbirq
+
+extern _kbascii
+extern _kbascii_shift
+extern _kbascii_ctrl
+extern _kbascii_alt
 
 ; PS2_CMD = 0x64  (system A2 -> KBC A0 pin)
 ; PS2_DATA = 0x60
@@ -150,31 +156,228 @@ configure_kbc:
     mov al, bl
     call kbc_write_dev0
 
+    ; reset BDA keyboard areas
+    mov ax, 0x40
+    mov es, ax
+    xor di, di
+
+    mov byte [es:0x17], 0           ; kb flag byte 0
+    mov byte [es:0x18], 0           ; kb flag byte 1
+    mov byte [es:0x1A], 0x1E        ; kb buffer head
+    mov byte [es:0x1C], 0x1E        ; kb buffer tail
+    mov byte [es:0x96], 0b00010000  ; kb mode/type (101/102 enhanced)
+    mov byte [es:0x97], 0           ; kb led flags
+
     ret
 
     .fail:
     mov si, kbfail
     call puts
 
-    cli
-    hlt
+    ret
 
 kbirq:
+    cli
+
     push ax
+    push bx
+    push cx
+    push dx
     push si
-    mov si, kbstr
-    call puts
+    push di
+    push bp
+    push ds
+    push es
 
-    call kbc_read_dev0
+    ; C code expects DS=ES and data segment is the ROM segment
+    mov ax, 0x40
+    mov ds, ax
 
-    ; TODO...
+    mov ax, cs
+    mov es, ax
+
+    call kbc_read_dev0              ; scancode in AL
+
+    mov ah, al                      ; raw scancode in AH
+
+    cmp al, 0xE0                    ; extended scancode?
+    jne .not_extended
+
+    or byte [ds:0x96], 2            ; set "last key E0" flag
+    jmp .done
+
+    .not_extended:
+    test byte [ds:0x96], 2          ; was the last key an extended key?
+    jnz .extended
+
+    push ax
+    call check_special
+    pop ax
+    jc .done                        ; sets carry flag if special key was handled
+
+    test al, 0x80                   ; key up?
+    jnz .done                       ; ignore key up events (special key handler uses them though)
+
+    and al, 0x7F                    ; clear key up bit
+    cmp al, 0x46                    ; ESC-ScrollLock
+    jae .done                       ; ignore keys outside the range for now
+
+    mov ah, al                      ; preserve raw scancode
+
+    test byte [ds:0x17], 0x3        ; either shift key down?
+    jz .noshift
+    mov bx, _kbascii_shift
+    jmp .lookup
+    .noshift:
+
+    test byte [ds:0x18], 0x4        ; either control key down?
+    jz .noctrl
+    mov bx, _kbascii_ctrl
+    jmp .lookup
+    .noctrl:
+
+    test byte [ds:0x18], 0x8        ; either alt key down?
+    jz .noalt
+    mov bx, _kbascii_alt
+    jmp .lookup
+    .noalt:
+
+    mov bx, _kbascii
+
+    .lookup:
+    es xlat                         ; translate scancode to ASCII (use ES segment which is ROM data)
+    call kb_put_buffer              ; put into kb circular buffer
+
+    jmp .done
+
+    .extended:                      ; do nothing for extended keys for now
+
+    and byte [ds:0x96], ~2          ; remove "last key E0" flag
+
+    .done:
 
     mov al, 0x20                    ; EOI
     out 0x20, al
 
+    pop es
+    pop ds
+    pop bp
+    pop di
     pop si
+    pop dx
+    pop cx
+    pop bx
     pop ax
+
     iret
+
+; AH = scancode, AL = ASCII
+; DS assumed to be 0x40
+kb_put_buffer:
+    mov si, [ds:0x1C]               ; buffer tail
+    mov [ds:si], ax                 ; put key in buffer
+    add si, 2
+    cmp si, 0x3E                    ; buffer end?
+    jb .finish
+    mov si, 0x1E                    ; wrap around
+    .finish:
+    mov [ds:0x1C], si               ; update buffer tail
+    ret
+
+check_special:
+    and al, 0x7F                    ; clear key up bit
+
+    .lctrl:
+    cmp al, 0x1D                    ; Left Ctrl
+    jne .lshift
+
+    test ah, 0x80
+    jnz .lctrl_up
+    or byte [ds:0x18], 1            ; set Left Ctrl flag
+    jmp .done
+    .lctrl_up:
+    and byte [ds:0x18], ~1          ; clear Left Ctrl flag
+    jmp .done
+
+    .lshift:
+    cmp al, 0x2A
+    jne .rshift
+
+    test ah, 0x80
+    jnz .lshift_up
+    or byte [ds:0x17], 2            ; set Left Shift flag
+    jmp .done
+    .lshift_up:
+    and byte [ds:0x17], ~2          ; clear Left Shift flag
+    jmp .done
+
+    .rshift:
+    cmp al, 0x36
+    jne .lalt
+
+    test ah, 0x80
+    jnz .rshift_up
+    or byte [ds:0x17], 1            ; set Right Shift flag
+    jmp .done
+    .rshift_up:
+    and byte [ds:0x17], ~1          ; clear Right Shift flag
+    jmp .done
+
+    .lalt:
+    cmp al, 0x38
+    jne .capslock
+
+    test ah, 0x80
+    jnz .lalt_up
+    or byte [ds:0x18], 1            ; set Left Alt flag
+    jmp .done
+    .lalt_up:
+    and byte [ds:0x18], ~1          ; clear Left Ctrl flag
+    jmp .done
+
+    .capslock:
+    cmp al, 0x3A
+    jne .numlock
+    test ah, 0x80                   ; only handle lock keys on keyup
+    jz .done
+    xor byte [ds:0x97], 4           ; toggle caps lock bit
+    jmp .done
+
+    .numlock:
+    cmp al, 0x45
+    jne .scrolllock
+    test ah, 0x80                   ; only handle lock keys on keyup
+    jz .done
+    xor byte [ds:0x97], 2           ; toggle num lock bit
+    jmp .done
+
+    .scrolllock:
+    cmp al, 0x46
+    jne .not_special
+    test ah, 0x80                   ; only handle lock keys on keyup
+    jz .done
+    xor byte [ds:0x97], 1           ; toggle scroll lock bit
+
+    .done:
+
+    and byte [ds:0x17], ~0xC        ; mask out CTRL/ALT flags
+    mov al, [ds:0x96]               ; grab RCTRL/RALT flags
+    and al, 0x0C
+    or byte [ds:0x17], al           ; store into CTRL/ALT flags
+    mov al, [ds:0x18]               ; grab LCTRL/LALT flags
+    and al, 0x3
+    shl al, 1                       ; bits 0/1 -> bits 2/3
+    shl al, 1
+    or byte [ds:0x17], al           ; merge into CTRL/ALT flags
+
+    stc
+    ret
+
+    .not_special:
+    clc
+    ret
+
+
 
 segment _DATA public align=16 use16 class=DATA
 

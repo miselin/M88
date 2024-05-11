@@ -129,6 +129,7 @@ struct bda_t {
   uint8_t crtmode;
   uint8_t palettemask;
   uint32_t daycounter;
+  uint8_t empty;
   uint32_t timer;         // 0 at midnight
   uint8_t clockrollover;  // 1 if timer >24hrs
   uint8_t biosbreak;      // 1 if Ctrl-Break hit
@@ -137,8 +138,8 @@ struct bda_t {
   uint8_t hdcount;
   uint8_t xthdctl;
   uint8_t fixeddisk_port;
-  uint32_t lpttimeout;
-  uint32_t comtimeout;
+  uint8_t lpttimeout[4];
+  uint8_t comtimeout[4];
   uint16_t kbbufstart;  // seg=40h
   uint16_t kbbufend;    // seg=40h
   uint8_t screenrows;
@@ -175,8 +176,8 @@ struct bda_t {
   uint8_t hderror;
   uint8_t hdintctl;
   uint8_t hdcombo;
-  struct {
-    union {
+  union {
+    struct {
       uint8_t state : 3;
       uint8_t rsvd : 1;
       uint8_t media : 1;

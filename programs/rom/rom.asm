@@ -83,6 +83,18 @@ start:
 
     .memory_ok:
 
+    ; zero the BDA
+    xor ax, ax
+    mov es, ax
+    mov di, 0x400
+    mov cx, 0x80
+    rep stosw
+
+    ; set initial BDA variables
+    mov word [0x410], 0b0000000100110000    ; equipment flags
+                                            ; 1 DMA, 80x25 16 color, no FPU, no other flags
+    mov word [0x413], 64                    ; 64K of memory currently, we'll count more later
+
     ; POST #2 - first 64K of memory is OK
     mov al, 0x02
     out 0xE0, al
@@ -113,32 +125,31 @@ start:
     ; POST #5 - PIT is set up
     mov al, 0x05
     out 0xE0, al
+    out 0x80, al
 
     ; interrupts are safe now
     sti
 
-    ; call VIDEO BIOS if present
-    call call_video_bios
-
-    ; POST #6 - Video BIOS has been called
+    ; POST #6 - interrupts are enabled
     mov al, 0x06
     out 0xE0, al
     out 0x80, al
 
+    ; call VIDEO BIOS and other Option ROMs if present
+    call call_option_roms
+
+    ; POST #7 - ROMs have been called
+    mov al, 0x07
+    out 0xE0, al
+    out 0x80, al
+
     ; set up keyboard controller
-    call configure_kbc
+    ; call configure_kbc
 
     ; POST #7 - KBD is set up
     mov al, 0x07
     out 0xE0, al
     out 0x80, al
-
-    ; call other expansion ROMs
-    call call_option_roms
-
-    ; POST #8 - option ROMs have been called
-    mov al, 0x08
-    out 0xE0, al
 
     jmp .not_option_rom
 

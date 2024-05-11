@@ -27,7 +27,7 @@ configure_pic:
     mov al, 2 ; IRQ2 is connected to the master
     out 0xA1, al
     ; ICW4
-    mov al, 0b10000001 ; 8086 mode, normal EOI
+    mov al, 0b00000001 ; 8086 mode, normal EOI
     out 0x21, al
     out 0xA1, al
 
@@ -53,20 +53,3 @@ unmask_irq:
     pop cx
     pop bx
     ret
-
-; irqhandler:
-;     cmp al, 0x08
-;     jne .not_pit
-;     call timer_handler
-;     .not_pit:
-;
-;     cmp al, 0x0E
-;     jne .not_fdc
-;     call fdc_irq
-;     .not_fdc:
-;
-;     ; EOI
-;     mov al, 0x20
-;     out 0x20, al
-;
-;     ret

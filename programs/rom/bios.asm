@@ -15,6 +15,8 @@ global int19
 global int1a
 
 extern puts
+extern puthex
+extern puthex8
 extern delay_ticks
 
 int10:
@@ -42,6 +44,14 @@ int12:
 
 int13:
     ; Dummy INT 13h just in case
+
+    ; set carry flag, unimplemented function
+    mov ah, 0x86
+    push bp
+    mov bp, sp
+    or byte [bp + 6], 1  ; skip bp, ip, cs in stack to get to flags
+    pop bp
+
     iret
 
 int14:
@@ -213,6 +223,9 @@ int15:
     cmp ah, 0x4F
     je int15_4f
 
+    cmp ah, 0x90
+    je int15_noop
+
     cmp ah, 0x91
     je int15_noop
 
@@ -222,11 +235,20 @@ int15:
     cmp ah, 0x41                ; Wait On External Event
     je .unimpl
 
+    cmp ah, 0x86                ; Elapsed Time Wait
+    je .unimpl
+
     cmp ah, 0x88                ; Extended Memory Size Determination
     je .unimpl
 
     cmp ah, 0xC1                ; Return Extended BIOS Data Area Segment
-    jmp int15_c1
+    je int15_c1
+
+    mov si, unimpl15
+    call puts
+
+    mov al, ah
+    call puthex8
 
     cli
     hlt
@@ -482,6 +504,12 @@ int1a:
     cmp ah, 0x00
     je int1a_00
 
+    mov si, unimpl1a
+    call puts
+
+    mov al, ah
+    call puthex8
+
     ; set CF, unimplemented
     push bp
     mov bp, sp
@@ -502,6 +530,9 @@ int1a_00:
     iret
 
 segment _DATA public align=16 use16 class=DATA
+
+unimpl15 db "Unimplemented INT 15h function", 13, 10, 0
+unimpl1a db "Unimplemented INT 1Ah function", 13, 10, 0
 
 noint19 db "No INT 19 handler, install an Option ROM", 13, 10, 0
 

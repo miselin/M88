@@ -82,6 +82,9 @@ load_ivt:
   mov word [ds:0x13 * 4], int13
   mov word [ds:0x13 * 4 + 2], ax
 
+  mov word [ds:0x40 * 4], int13     ; INT 40h will point at ROMBIOS INT 13h handler (which is a dummy handler)
+  mov word [ds:0x40 * 4 + 2], ax
+
   mov word [ds:0x19 * 4], int19
   mov word [ds:0x19 * 4 + 2], ax
 

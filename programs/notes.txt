@@ -138,3 +138,8 @@ AEN2 = 1
   - need to probably use DMA_AEN# to check (attached to active-high)
   - i.e. do NOT chip-select onboard I/O if DMA is active - could we use HOLDA in min mode instead?
   - schematic fixed accordingly
+
+2024-05-11:
+
+- XT-IDE is soldered and its ROM is running
+- found out that the PIC is dead, swapped in a known good chip, much better

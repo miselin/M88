@@ -53,10 +53,6 @@ timerirq:
     inc word [ds:0x6E]              ; overflowed, increment upper half
     .continue:
 
-    mov ax, word [ds:0x6C]
-    out 0xE0, al
-    out 0x80, al
-
     cmp byte [ds:0x40], 0           ; decrement shutoff counter if it is non-zero
     jz .no_shutoff
     dec byte [ds:0x40]

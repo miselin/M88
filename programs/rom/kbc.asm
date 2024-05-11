@@ -18,10 +18,8 @@ extern _kbascii_alt
 
 ; TODO: this file needs timeouts!
 
-; PS2_CMD = 0x64  (system A2 -> KBC A0 pin)
-; PS2_DATA = 0x60
-
 kbc_wait_write:
+    out 0xE0, al
     in al, 0x64
     test al, 2
     jnz kbc_wait_write
@@ -80,13 +78,33 @@ kbc_read_dev0_nb:
     stc
     ret
 
+; flush the KBC's output buffer
+kbc_flush_obf:
+    in al, 0x64
+    out 0xE0, al
+    test al, 1
+    jz .done
+    in al, 0x00
+    jmp kbc_flush_obf
+    .done:
+    ret
+
 configure_kbc:
+    mov al, 0x22
+    out 0xE0, al
+
     ; disable all devices
     mov al, 0xAD
     call kbc_write_cmd
 
+    mov al, 0x33
+    out 0xE0, al
+
     mov al, 0xA7
     call kbc_write_cmd
+
+    mov al, 0x44
+    out 0xE0, al
 
     ; disable IRQs
     mov al, 0x20
@@ -100,6 +118,9 @@ configure_kbc:
     call kbc_write_cmd
     mov al, bl
     call kbc_write_dev0
+
+    mov al, 0x55
+    out 0xE0, al
 
     ; self-test the PS/2 controller
     mov al, 0xAA

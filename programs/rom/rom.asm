@@ -18,6 +18,7 @@ extern delay_ticks
 extern puts
 extern putnum
 extern call_video_bios
+extern count_memory
 
 ..start:
 start:
@@ -135,19 +136,68 @@ start:
     out 0xE0, al
     out 0x80, al
 
-    ; call VIDEO BIOS and other Option ROMs if present
-    call call_option_roms
+    ; call VIDEO BIOS
+    call call_video_bios
 
-    ; POST #7 - ROMs have been called
+    ; POST #7 - VIDEO BIOS has been called
     mov al, 0x07
+    out 0xE0, al
+    out 0x80, al
+
+    ; count memory before running Option ROMs (as they may need to know)
+    call count_memory
+
+    ; POST #8 - memory count complete
+    mov al, 0x08
+    out 0xE0, al
+    out 0x80, al
+
+    ; swap stack to top of memory now that we know where that is
+    mov ax, 0x40
+    mov ds, ax
+    mov ax, [ds:0x13]               ; memory size in KB, minus 4K
+    add ax, 1                       ; skip 1K area for EBDA
+    mov cx, 6                       ; left shift 6 places to turn into segment (1 KB >> 4)
+    shl ax, cl
+    mov ss, ax
+    mov sp, 0xBFF                   ; 3K stack
+
+    ; POST #9 - stack moved
+    mov al, 0x09
+    out 0xE0, al
+    out 0x80, al
+
+    ; set EBDA at top of memory
+    mov ax, [ds:0x13]               ; memory size in KB, minus 4K
+    shl ax, cl                      ; create segment from it
+    mov ds, ax
+    mov es, ax
+    mov word [ds:0], 1              ; 1KB allocated to EBDA
+    xor di, di                      ; zero out the rest of the EBDA
+    xor ax, ax
+    mov cx, 0x200
+    rep stosw
+    mov ax, 0x40                    ; store EBDA segment in BDA
+    mov ds, ax
+    mov [ds:0x0E], es
+
+    ; POST #10 - EBDA in place
+    mov al, 0x10
     out 0xE0, al
     out 0x80, al
 
     ; set up keyboard controller
     ; call configure_kbc
 
-    ; POST #7 - KBD is set up
-    mov al, 0x07
+    ; POST #11 - KBC configured
+    mov al, 0x11
+    out 0xE0, al
+    out 0x80, al
+
+    call call_option_roms
+
+    ; POST #12 - Option ROMs called
+    mov al, 0x12
     out 0xE0, al
     out 0x80, al
 
@@ -168,6 +218,9 @@ start:
     retf
 
     .not_option_rom:
+
+    mov ah, 0xC1
+    int 0x15
 
     ; run the bootloader
     int 0x19

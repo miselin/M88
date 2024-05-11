@@ -226,7 +226,7 @@ int15:
     je .unimpl
 
     cmp ah, 0xC1                ; Return Extended BIOS Data Area Segment
-    je .unimpl
+    jmp int15_c1
 
     cli
     hlt
@@ -257,6 +257,22 @@ int15_c0:
     mov es, ax
     mov bx, sysconfig
     iret
+
+int15_c1:
+    ; AH = 0xC1 - Return Extended BIOS Data Area Segment
+    push ax
+    push cx
+    push ds
+    mov ax, 0x40                    ; BDA segment
+    mov ds, ax
+    mov ax, [ds:0x13]               ; memory size in KB, minus 4K
+    mov cx, 6
+    shl ax, cl                      ; turn KB count into a segment
+    mov es, ax
+    pop ds
+    pop cx
+    pop ax
+    ret
 
 int16:
     ; INT 16 - Keyboard Services

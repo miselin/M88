@@ -23,8 +23,8 @@ call_video_bios:
 
 call_option_roms:
     ; load option ROMs if present
-    ; they start at 0xC0000 and end at 0xF0000
-    mov ax, 0xC000
+    ; they start at 0xC8000 (after VIDEO BIOS) and end at 0xF0000
+    mov ax, 0xC800
     mov es, ax
     mov di, 0x0000
 

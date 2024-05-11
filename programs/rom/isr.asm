@@ -105,7 +105,11 @@ irq0to7:
   pop ax
   iret
 
+extern putnum
+
 unhandled:
+  push ax
+
   ; unhandled ISR, oh no!
   add al, 0x40
   out 0xE0, al
@@ -113,6 +117,10 @@ unhandled:
 
   mov si, unhandledstr
   call puts
+
+  pop ax
+
+  call putnum
 
   cli
   hlt

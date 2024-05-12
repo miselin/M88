@@ -7,6 +7,8 @@ global _kbascii
 global _kbascii_shift
 global _kbascii_ctrl
 global _kbascii_alt
+global kbnumpad
+global kbnumpad_numlock
 
 _kbascii:
     db 0x00     ; 0x00
@@ -299,3 +301,33 @@ _kbascii_alt:
     db 0x00  ; F10
     db 0x00  ; NumLock
     db 0x00  ; ScrollLock
+
+kbnumpad:
+    db 0x00     ; NP 7
+    db 0x00     ; NP 8
+    db 0x00     ; NP 9
+    db '-'      ; NP -
+    db 0x00     ; NP 4
+    db 0xFF     ; NP 5
+    db 0x00     ; NP 6
+    db '+'      ; NP +
+    db 0x00     ; NP 1
+    db 0x00     ; NP 2
+    db 0x00     ; NP 3
+    db 0x00     ; NP 0
+    db 0x00     ; NP .
+
+kbnumpad_numlock:
+    db '7'      ; NP 7
+    db '8'      ; NP 8
+    db '9'      ; NP 9
+    db '-'      ; NP -
+    db '4'      ; NP 4
+    db '5'      ; NP 5
+    db '6'      ; NP 6
+    db '+'      ; NP +
+    db '1'      ; NP 1
+    db '2'      ; NP 2
+    db '3'      ; NP 3
+    db '0'      ; NP 0
+    db '.'      ; NP .

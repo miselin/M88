@@ -15,7 +15,9 @@ C16_OBJS := build/rom/main.o16 build/rom/string.o16 build/rom/fdc.o16 build/rom/
 C16_FLAGS := -0 -ansi -S
 C16_DEPENDS := ${C16_OBJS:.o16=.d}
 
-ROM_OBJS := build/rom/rom.obj build/rom/optionrom.obj build/rom/isr.obj build/rom/kbc.obj build/rom/dma.obj build/rom/pic.obj build/rom/pit.obj build/rom/bios.obj build/rom/fdc.obj build/rom/strio.obj build/rom/tables.obj build/rom/mem.obj
+ROM_OBJS := build/rom/rom.obj build/rom/optionrom.obj build/rom/isr.obj build/rom/kbc.obj build/rom/dma.obj build/rom/pic.obj
+ROM_OBJS += build/rom/pit.obj build/rom/bios.obj build/rom/fdc.obj build/rom/strio.obj build/rom/tables.obj build/rom/mem.obj
+ROM_OBJS += build/rom/string.obj
 
 OBJDUMP := ~/local/bin/objdump
 OBJCOPY := ~/local/bin/objcopy

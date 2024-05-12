@@ -7,6 +7,7 @@ extern unmask_irq
 extern puts
 extern delay_ticks
 extern _handle_scancode
+extern toupper
 
 global configure_kbc
 global kbirq
@@ -15,6 +16,8 @@ extern _kbascii
 extern _kbascii_shift
 extern _kbascii_ctrl
 extern _kbascii_alt
+extern kbnumpad
+extern kbnumpad_numlock
 
 ; TODO: this file needs timeouts!
 
@@ -255,8 +258,9 @@ kbirq:
     jnz .done                       ; ignore key up events (special key handler uses them though)
 
     and al, 0x7F                    ; clear key up bit
+
     cmp al, 0x46                    ; ESC-ScrollLock
-    jae .done                       ; ignore keys outside the range for now
+    jae .numpad                     ; ignore keys outside the range for now
 
     mov ah, al                      ; preserve raw scancode
 
@@ -282,6 +286,12 @@ kbirq:
 
     .lookup:
     es xlat                         ; translate scancode to ASCII (use ES segment which is ROM data)
+
+    test byte [ds:0x97], 4          ; caps lock?
+    jz .nocaps
+    call toupper                    ; yes, convert to uppercase
+    .nocaps:
+
     call kb_put_buffer              ; put into kb circular buffer
 
     jmp .done
@@ -289,6 +299,22 @@ kbirq:
     .extended:                      ; do nothing for extended keys for now
 
     and byte [ds:0x96], ~2          ; remove "last key E0" flag
+
+    jmp .done
+
+    .numpad:
+
+    mov ah, al                      ; preserve raw scancode
+    sub al, 0x47                    ; prepare for numpad lookup
+
+    mov bx, kbnumpad                ; load default numpad table
+    test byte [ds:0x97], 2          ; num lock?
+    jz .nonumlock
+    mov bx, kbnumpad_numlock        ; load num-locked numpad table
+    .nonumlock:                     ; TODO: CTRL-, SHIFT-, ALT- tables
+
+    es xlat
+    call kb_put_buffer
 
     .done:
 
@@ -365,10 +391,10 @@ check_special:
 
     test ah, 0x80
     jnz .lalt_up
-    or byte [ds:0x18], 1            ; set Left Alt flag
+    or byte [ds:0x18], 2            ; set Left Alt flag
     jmp .done
     .lalt_up:
-    and byte [ds:0x18], ~1          ; clear Left Ctrl flag
+    and byte [ds:0x18], ~2          ; clear Left Alt flag
     jmp .done
 
     .capslock:
@@ -405,6 +431,21 @@ check_special:
     shl al, 1                       ; bits 0/1 -> bits 2/3
     shl al, 1
     or byte [ds:0x17], al           ; merge into CTRL/ALT flags
+
+    mov bl, byte [ds:0x97]          ; update LEDs on keyboard
+    mov al, 0xED                    ; set LEDs command
+    call kbc_write_dev0
+    mov al, bl
+    and al, 7                       ; only low 3 bits are for LEDs
+    call kbc_write_dev0             ; send LED state
+
+    call kbc_read_dev0              ; consume the ACK
+
+    mov bl, byte [ds:0x97]          ; update LEDs in lower keyboard flags byte
+    mov cx, 4
+    and bl, 7
+    shl bl, cl
+    or byte [ds:0x17], bl           ; bits 4-6 are the LED state
 
     stc
     ret

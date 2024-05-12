@@ -510,6 +510,8 @@ int1a:
     mov al, ah
     call puthex8
 
+    mov ah, 86h
+
     ; set CF, unimplemented
     push bp
     mov bp, sp

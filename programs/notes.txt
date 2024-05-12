@@ -143,3 +143,7 @@ AEN2 = 1
 
 - XT-IDE is soldered and its ROM is running
 - found out that the PIC is dead, swapped in a known good chip, much better
+- KBC CS# is getting activated too often (on CMOS port 0x70, ports 0x61, 0x62, 0x63) and causing problems!
+  - biggest problem is that its buffer is filling up due to this, so BIOS can't send any commands
+- bodged the KBC issues with an FPGA to generate the right CS# from A0-A4 and the original CS#
+- DOS runs. CIV runs. lack of arrow key / num pad support on the keyboard is a problem...

@@ -147,3 +147,9 @@ AEN2 = 1
   - biggest problem is that its buffer is filling up due to this, so BIOS can't send any commands
 - bodged the KBC issues with an FPGA to generate the right CS# from A0-A4 and the original CS#
 - DOS runs. CIV runs. lack of arrow key / num pad support on the keyboard is a problem...
+
+bugs found from a real use session:
+- modifier keys (alt, ctrl, shift) seem to behave oddly esp. in EDIT, games
+- if the KB buffer overruns, it can't be emptied (because head == tail)
+- "mem" sometimes just hangs
+- "edit" doesn't exit cleanly, maybe related to modifier keys issues

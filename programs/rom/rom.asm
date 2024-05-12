@@ -228,6 +228,7 @@ start:
     out 0x80, al
 
     ; run the bootloader
+    mov dl, 0x80                ; prefer HDD
     int 0x19
 
     cli

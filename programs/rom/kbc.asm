@@ -89,22 +89,24 @@ kbc_flush_obf:
     .done:
     ret
 
+kbc_clearbuf_dev0:
+    clc
+    call kbc_read_dev0_nb
+    jnc kbc_clearbuf_dev0
+    ret
+
+extern putc
+extern puthex8
+
 configure_kbc:
-    mov al, 0x22
-    out 0xE0, al
+    cli
 
     ; disable all devices
     mov al, 0xAD
     call kbc_write_cmd
 
-    mov al, 0x33
-    out 0xE0, al
-
     mov al, 0xA7
     call kbc_write_cmd
-
-    mov al, 0x44
-    out 0xE0, al
 
     ; disable IRQs
     mov al, 0x20
@@ -119,9 +121,6 @@ configure_kbc:
     mov al, bl
     call kbc_write_dev0
 
-    mov al, 0x55
-    out 0xE0, al
-
     ; self-test the PS/2 controller
     mov al, 0xAA
     call kbc_write_cmd
@@ -132,19 +131,31 @@ configure_kbc:
     ; enable first port
     mov al, 0xAE
     call kbc_write_cmd
-    mov al, 0xA8
-    call kbc_write_cmd
+
+    call kbc_clearbuf_dev0          ; clear out any leftover data from init
 
     ; reset devices
     .resend:
+    mov al, 'G'
+    call putc
     mov al, 0xFF
     call kbc_write_dev0
-    call kbc_read_dev0 ; ack, TODO: check for 0xFE (resend)
+    call kbc_read_dev0              ; ack
     cmp al, 0xFE
     je .resend
 
+    call puthex8
+
+    cmp al, 0xAA                    ; did we have a leftover BAT from powerup?
+    jne .nobat
+
+    call kbc_read_dev0              ; now read next which should be ACK from reset
+
+    .nobat:
+
     cmp al, 0xFA
     jne .fail
+
     call kbc_read_dev0 ; self-test result
     cmp al, 0xAA
     jne .fail
@@ -191,12 +202,14 @@ configure_kbc:
     mov byte [es:0x96], 0b00010000  ; kb mode/type (101/102 enhanced)
     mov byte [es:0x97], 0           ; kb led flags
 
+    sti
     ret
 
     .fail:
     mov si, kbfail
     call puts
 
+    sti
     ret
 
 kbirq:

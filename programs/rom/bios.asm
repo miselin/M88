@@ -18,6 +18,21 @@ extern puts
 extern puthex
 extern puthex8
 extern delay_ticks
+extern read_pit_counter
+extern kbc_sync_flags_leds
+
+F_CF        equ 1 << 0
+F_PF        equ 1 << 2
+F_AF        equ 1 << 4
+F_ZF        equ 1 << 6
+F_SF        equ 1 << 7
+F_TF        equ 1 << 8
+F_IF        equ 1 << 9
+F_DF        equ 1 << 10
+F_OF        equ 1 << 11
+F_IOPL      equ 3 << 12
+F_NT        equ 1 << 14
+F_RF        equ 1 << 15
 
 int10:
     ; Some Option ROMs call INT 10h
@@ -239,21 +254,18 @@ int15:
     je .unimpl
 
     cmp ah, 0x88                ; Extended Memory Size Determination
-    je .unimpl
+    je int15_88
 
     cmp ah, 0xC1                ; Return Extended BIOS Data Area Segment
     je int15_c1
 
-    mov si, unimpl15
+    mov si, unimpl15            ; uintentionally unimplemented functions will print a message
     call puts
 
     mov al, ah
     call puthex8
 
-    cli
-    hlt
-
-    .unimpl:
+    .unimpl:                    ; intentionally unimplemented function
 
     ; set carry flag, unimplemented function
     mov ah, 0x86
@@ -266,11 +278,23 @@ int15:
 
 int15_4f:
     ; AH = 0x4F - Keyboard Intercept
-    ; no-op
+    ; default is no-op, user code can hook to perform custom interception
     iret
 
 int15_noop:
     mov ah, 0x00
+    iret
+
+int15_88:
+    ; AH = 0x88 - Extended Memory Size Determination
+    ; No EMS.
+    xor ax, ax
+
+    push bp
+    mov bp, sp
+    and byte [bp + 6], ~F_CF  ; clear CF
+    pop bp
+
     iret
 
 int15_c0:
@@ -294,10 +318,12 @@ int15_c1:
     pop ds
     pop cx
     pop ax
-    ret
+    iret
 
 int16:
     ; INT 16 - Keyboard Services
+
+    call kbc_sync_flags_leds        ; sync keyboard flags and LEDs on entry to int16
 
     cmp ah, 0x00
     je int16_00
@@ -315,19 +341,40 @@ int16:
     je int16_01
 
     cmp ah, 0x12
-    je int16_02
+    je int16_12
+
+    cmp ah, 0x55
+    je .unimpl
+
+    push ax
+    push si
+
+    mov si, unimpl16            ; uintentionally unimplemented functions will print a message
+    call puts
+
+    mov al, ah
+    call puthex8
+
+    pop si
+    pop ax
+
+    cli
+    hlt
+
+    .unimpl:                    ; intentionally unimplemented function
 
     iret
 
 int16_00:
     ; AH = 0x00 - Read Next Character
     ; blocks until the character is read
-    sti
     push ds
     push si
 
     mov ax, 0x40
     mov ds, ax
+
+    sti
 
     .loop:
     mov si, [ds:0x1A]           ; head
@@ -361,6 +408,8 @@ int16_01:
     mov ax, 0x40
     mov ds, ax
 
+    sti
+
     mov si, [ds:0x1A]           ; head
     cmp si, [ds:0x1C]           ; tail
     jz .no_key
@@ -368,7 +417,7 @@ int16_01:
     ; SI = offset from 40:00 to head of buffer (FIFO)
     mov ax, word [ds:si]
 
-    and word [bp + 6], ~(1 << 6) ; clear ZF, character ready - skip bp, ip, cs in stack to get to flags
+    and word [bp + 6], ~F_ZF ; clear ZF, character ready - skip bp, ip, cs in stack to get to flags
 
     jmp .done
 
@@ -376,7 +425,7 @@ int16_01:
 
     xor ax, ax
 
-    or word [bp + 6], (1 << 6) ; set ZF, character not ready - skip bp, ip, cs in stack to get to flags
+    or word [bp + 6], F_ZF ; set ZF, character not ready - skip bp, ip, cs in stack to get to flags
 
     .done:
     pop si
@@ -390,6 +439,16 @@ int16_02:
     mov ax, 0x40
     mov es, ax
     mov al, byte [es:0x17]   ; Keyboard Status flags
+    pop es
+    iret
+
+int16_12:
+    ; AH = 0x12 - Extended Get Keyboard Status
+    push ds
+    mov ax, 0x40
+    mov es, ax
+    mov al, byte [es:0x17]
+    mov ah, byte [es:0x18]
     pop es
     iret
 
@@ -504,24 +563,19 @@ int1a:
     cmp ah, 0x00
     je int1a_00
 
-    mov si, unimpl1a
-    call puts
-
-    mov al, ah
-    call puthex8
-
-    mov ah, 86h
+    cmp ah, 0x01
+    je int1a_01
 
     ; set CF, unimplemented
     push bp
     mov bp, sp
-    or word [bp + 6], 1 ; set CF, unimplemented - skip bp, ip, cs in stack to get to flags
+    or word [bp + 6], F_CF ; set CF, unimplemented - skip bp, ip, cs in stack to get to flags
     pop bp
 
     iret
 
 int1a_00:
-    ; AH = 0x00 - Get System Time
+    ; AH = 0x00 - Get System Clock Counter
     push ds
     mov ax, 0x40
     mov ds, ax
@@ -531,9 +585,20 @@ int1a_00:
     pop ds
     iret
 
+int1a_01:
+    ; AH = 0x01 - Set System Clock Counter
+    push ds
+    mov ax, 0x40
+    mov ds, ax
+    mov [ds:0x6C], dx       ; ticks since midnight, low word
+    mov [ds:0x6E], cx       ; ticks since midnight, high word
+    pop ds
+    ret
+
 segment _DATA public align=16 use16 class=DATA
 
 unimpl15 db "Unimplemented INT 15h function", 13, 10, 0
+unimpl16 db "Unimplemented INT 16h function", 13, 10, 0
 unimpl1a db "Unimplemented INT 1Ah function", 13, 10, 0
 
 noint19 db "No INT 19 handler, install an Option ROM", 13, 10, 0
@@ -545,7 +610,7 @@ sysconfig:
     db 0xFE         ; model
     db 0x00         ; submodel
     db 0x00         ; BIOS revision
-    db (1 << 6)     ; feature byte - two PICs
+    db (1 << 6) | (1 << 2)     ; feature byte - EBDA, two PICs
     dd 0            ; reserved
 
 parallelports:

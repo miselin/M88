@@ -52,6 +52,9 @@ load_ivt:
 
   .after_default:
 
+  mov word [ds:0x9 * 4], kbirq      ; IRQ1
+  mov word [ds:0x9 * 4 + 2], ax
+
   mov word [ds:0x11 * 4], int11
   mov word [ds:0x11 * 4 + 2], ax
 
@@ -69,6 +72,9 @@ load_ivt:
 
   mov word [ds:0x17 * 4], int17
   mov word [ds:0x17 * 4 + 2], ax
+
+  mov word [ds:0x1a * 4], int1a
+  mov word [ds:0x1a * 4 + 2], ax
 
   cmp ax, 0xF000                    ; don't hook ROMBIOS / VGA interrupts if we're loaded as an option rom
   jne .not_biosrom
@@ -88,15 +94,12 @@ load_ivt:
   mov word [ds:0x19 * 4], int19
   mov word [ds:0x19 * 4 + 2], ax
 
-  .not_biosrom:
-
-  mov word [ds:0x9 * 4], kbirq      ; IRQ1
-  mov word [ds:0x9 * 4 + 2], ax
-
-  mov word [ds:0x1a * 4], int1a
-  mov word [ds:0x1a * 4 + 2], ax
+  mov word [ds:0x1C * 4], 0xFF53    ; INT 1C defaults to an empty ISR (it's "System Timer Tick" and user-hookable)
+  mov word [ds:0x1C * 4 + 2], 0xF000
 
   mov word [ds:0x44 * 4], 0xFA6E    ; VGA font
+
+  .not_biosrom:
 
   ret
 
@@ -124,9 +127,6 @@ unhandled:
   pop ax
 
   call putnum
-
-  cli
-  hlt
 
   iret
 

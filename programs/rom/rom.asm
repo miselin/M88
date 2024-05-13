@@ -19,6 +19,7 @@ extern puts
 extern putnum
 extern call_video_bios
 extern count_memory
+extern beep
 
 ..start:
 start:
@@ -127,6 +128,9 @@ start:
     mov al, 0x05
     out 0xE0, al
     out 0x80, al
+
+    ; emit POST beep now that PIT is ready
+    call beep
 
     ; interrupts are safe now
     sti

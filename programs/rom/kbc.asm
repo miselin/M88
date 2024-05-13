@@ -11,6 +11,7 @@ extern toupper
 
 global configure_kbc
 global kbirq
+global kbc_sync_flags_leds
 
 extern _kbascii
 extern _kbascii_shift
@@ -22,7 +23,6 @@ extern kbnumpad_numlock
 ; TODO: this file needs timeouts!
 
 kbc_wait_write:
-    out 0xE0, al
     in al, 0x64
     test al, 2
     jnz kbc_wait_write
@@ -139,15 +139,11 @@ configure_kbc:
 
     ; reset devices
     .resend:
-    mov al, 'G'
-    call putc
     mov al, 0xFF
     call kbc_write_dev0
     call kbc_read_dev0              ; ack
     cmp al, 0xFE
     je .resend
-
-    call puthex8
 
     cmp al, 0xAA                    ; did we have a leftover BAT from powerup?
     jne .nobat
@@ -217,8 +213,17 @@ configure_kbc:
 
 kbirq:
     cli
-
     push ax
+
+    mov ax, 0xAD
+    call kbc_write_cmd              ; disable keyboard while we process the scancode
+
+    mov al, 0x0B                    ; check ISR status in case another handler processed the IRQ already
+    out 0x20, al
+    in al, 0x20
+    and al, 0x02                    ; IRQ1 in ISR?
+    jz .reenable                    ; no IRQ1, bail out
+
     push bx
     push cx
     push dx
@@ -235,7 +240,14 @@ kbirq:
     mov ax, cs
     mov es, ax
 
-    call kbc_read_dev0              ; scancode in AL
+    in al, 0x60                     ; scancode in AL
+
+    sti
+
+    mov ah, 0x4F
+    stc
+    int 0x15                        ; call INT15,4F - Keyboard Intercept - in case user code has hooked it
+    jnc .done                       ; if CF is clear, we are to ignore the keystroke
 
     mov ah, al                      ; raw scancode in AH
 
@@ -270,13 +282,13 @@ kbirq:
     jmp .lookup
     .noshift:
 
-    test byte [ds:0x18], 0x4        ; either control key down?
+    test byte [ds:0x17], 0x4        ; either control key down?
     jz .noctrl
     mov bx, _kbascii_ctrl
     jmp .lookup
     .noctrl:
 
-    test byte [ds:0x18], 0x8        ; either alt key down?
+    test byte [ds:0x17], 0x8        ; either alt key down?
     jz .noalt
     mov bx, _kbascii_alt
     jmp .lookup
@@ -287,7 +299,7 @@ kbirq:
     .lookup:
     es xlat                         ; translate scancode to ASCII (use ES segment which is ROM data)
 
-    test byte [ds:0x97], 4          ; caps lock?
+    test byte [ds:0x17], (1 << 6)   ; caps lock?
     jz .nocaps
     call toupper                    ; yes, convert to uppercase
     .nocaps:
@@ -308,7 +320,7 @@ kbirq:
     sub al, 0x47                    ; prepare for numpad lookup
 
     mov bx, kbnumpad                ; load default numpad table
-    test byte [ds:0x97], 2          ; num lock?
+    test byte [ds:0x17], (1 << 5)   ; num lock?
     jz .nonumlock
     mov bx, kbnumpad_numlock        ; load num-locked numpad table
     .nonumlock:                     ; TODO: CTRL-, SHIFT-, ALT- tables
@@ -317,6 +329,8 @@ kbirq:
     call kb_put_buffer
 
     .done:
+
+    cli
 
     mov al, 0x20                    ; EOI
     out 0x20, al
@@ -329,21 +343,42 @@ kbirq:
     pop dx
     pop cx
     pop bx
-    pop ax
 
+    mov ah, 0x91                    ; run Interrupt Complete in case hooked by user code
+    mov al, 0x02                    ; keyboard
+    int 0x15
+
+    .reenable:
+
+    mov ax, 0xAE
+    call kbc_write_cmd              ; re-enable keyboard after processing the scancode
+
+    pop ax
     iret
+
+extern beep
 
 ; AH = scancode, AL = ASCII
 ; DS assumed to be 0x40
 kb_put_buffer:
     mov si, [ds:0x1C]               ; buffer tail
-    mov [ds:si], ax                 ; put key in buffer
+    mov di, si                      ; DI = location to put scancode in buffer
     add si, 2
     cmp si, 0x3E                    ; buffer end?
-    jb .finish
+    jb .check_overrun
     mov si, 0x1E                    ; wrap around
-    .finish:
+    .check_overrun:
+    cmp si, [ds:0x1A]               ; overrun? (head == tail)
+    je .overrun
+    mov [ds:di], ax                 ; put key in buffer
     mov [ds:0x1C], si               ; update buffer tail
+
+    ret
+
+    .overrun:                       ; on overrun, beep and drop the key
+    call beep
+    mov al, '!'
+    out 0xE9, al
     ret
 
 check_special:
@@ -402,7 +437,7 @@ check_special:
     jne .numlock
     test ah, 0x80                   ; only handle lock keys on keyup
     jz .done
-    xor byte [ds:0x97], 4           ; toggle caps lock bit
+    xor byte [ds:0x17], (1 << 6)    ; toggle caps lock bit
     jmp .done
 
     .numlock:
@@ -410,7 +445,7 @@ check_special:
     jne .scrolllock
     test ah, 0x80                   ; only handle lock keys on keyup
     jz .done
-    xor byte [ds:0x97], 2           ; toggle num lock bit
+    xor byte [ds:0x17], (1 << 5)    ; toggle num lock bit
     jmp .done
 
     .scrolllock:
@@ -418,34 +453,21 @@ check_special:
     jne .not_special
     test ah, 0x80                   ; only handle lock keys on keyup
     jz .done
-    xor byte [ds:0x97], 1           ; toggle scroll lock bit
+    xor byte [ds:0x17], (1 << 4)    ; toggle scroll lock bit
 
     .done:
 
-    and byte [ds:0x17], ~0xC        ; mask out CTRL/ALT flags
-    mov al, [ds:0x96]               ; grab RCTRL/RALT flags
-    and al, 0x0C
-    or byte [ds:0x17], al           ; store into CTRL/ALT flags
-    mov al, [ds:0x18]               ; grab LCTRL/LALT flags
-    and al, 0x3
-    shl al, 1                       ; bits 0/1 -> bits 2/3
-    shl al, 1
-    or byte [ds:0x17], al           ; merge into CTRL/ALT flags
-
-    mov bl, byte [ds:0x97]          ; update LEDs on keyboard
-    mov al, 0xED                    ; set LEDs command
-    call kbc_write_dev0
-    mov al, bl
-    and al, 7                       ; only low 3 bits are for LEDs
-    call kbc_write_dev0             ; send LED state
-
-    call kbc_read_dev0              ; consume the ACK
-
-    mov bl, byte [ds:0x97]          ; update LEDs in lower keyboard flags byte
-    mov cx, 4
-    and bl, 7
-    shl bl, cl
-    or byte [ds:0x17], bl           ; bits 4-6 are the LED state
+    mov al, byte [ds:0x17]          ; get first keyboard flags byte
+    and al, 0xF3                    ; clear existing state bits for ALTs, CTRLs (keep SHIFT, INS)
+    mov bl, byte [ds:0x96]          ; grab RCTRL/RALT flags
+    and bl, 0x0C
+    or al, bl                       ; merge into state byte
+    mov bl, byte [ds:0x18]          ; grab LCTRL/LALT flags
+    and bl, 0x3
+    shl bl, 1                       ; bits 0/1 -> bits 2/3 of state byte
+    shl bl, 1
+    or al, bl
+    mov byte [ds:0x17], al          ; store flags byte
 
     stc
     ret
@@ -454,7 +476,61 @@ check_special:
     clc
     ret
 
+kbc_sync_flags_leds:
+    push ax
+    push bx
+    push cx
+    push ds
 
+    mov ax, 0x40
+    mov ds, ax
+
+    mov al, byte [ds:0x17]          ; get BIOS view of LED state
+    mov cx, 4
+    shr al, cl
+    and al, 7
+    mov bl, byte [ds:0x97]          ; get LED state
+    and bl, 7
+    xor bl, al                      ; XOR != 0 -> update LED bits
+    jz .done                        ; no change needed
+
+    cli
+
+    mov bl, byte [ds:0x97]
+    and bl, 0xF8                    ; clear LED bits
+    or bl, al                       ; set new LED bits
+
+    push bx
+    mov bl, al                      ; preserve LED bits
+
+    mov al, 0xED                    ; set LEDs command
+    call kbc_write_dev0
+    call kbc_read_dev0              ; ACK
+    cmp al, 0xFA                    ; ACK?
+    jne .noack
+
+    mov al, bl                      ; send LED state
+    call kbc_write_dev0
+    call kbc_read_dev0              ; ACK
+
+    sti
+
+    pop bx
+    mov byte [ds:0x97], bl          ; store new LED state
+    jmp .done
+
+    .noack:
+    pop bx
+
+    sti
+
+    .done:
+
+    pop ds
+    pop cx
+    pop bx
+    pop ax
+    ret
 
 segment _DATA public align=16 use16 class=DATA
 

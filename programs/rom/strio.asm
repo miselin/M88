@@ -105,11 +105,11 @@ puthex8:
 
     mov cx, 4
 
+    mov ah, al
+    shr al, cl
     call putnib             ; print each nibble, unrolled loop
-    shr ax, cl
-
+    mov al, ah
     call putnib
-    shr ax, cl
 
     pop cx
     pop ax

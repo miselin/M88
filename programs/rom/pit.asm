@@ -8,21 +8,19 @@ global timerirq
 global delay_ticks
 global delay_s
 global set_fdc_shutoff_counter
+global beep
 extern fdc_motor_off
 
 ; Bochs/standard PC with 14.31818 MHz crystal
 TICKS_PER_S equ 18
 
-; Custom PC with 24 MHz crystal
-; TICKS_PER_S equ 30
-
 configure_pit:
-    mov al, 0b00110110 ; counter 0, lo/hi byte, rate generator, not BCD
+    mov al, 0b00110100 ; counter 0, lo/hi byte, mode 2, not BCD
     out 0x43, al
 
-    ; set counter to 0xFFFF
+    ; set counter to zero, 65535 + 1
     ; this is ~18.2 Hz (1.193182 MHz / 65536)
-    mov al, 0xFF
+    mov al, 0x00
     out 0x40, al
     out 0x40, al
 
@@ -60,6 +58,8 @@ timerirq:
     call fdc_motor_off
     .no_shutoff:
 
+    int 0x1C                        ; call any present user tick hook
+
     mov al, 0x20                    ; EOI
     out 0x20, al
 
@@ -70,7 +70,6 @@ timerirq:
 ; Read the current counter value from the PIT (channel 0)
 ; Returns the counter value in AX
 read_pit_counter:
-    cli
     mov al, 0x00
     out 0x43, al            ; latch current counter value
 
@@ -78,7 +77,6 @@ read_pit_counter:
     mov ah, al
     in al, 0x40
     xchg al, ah
-    sti
     ret
 
 ; Delay for the specified number of ticks passed in AX
@@ -93,11 +91,9 @@ delay_ticks:
     xchg ax, bx                 ; BX = target value
 
     .loop:
-    sti
-    hlt                         ; wait for IRQ before checking for updated value
     call read_pit_counter       ; get counter
     cmp ax, bx
-    jbe .loop
+    jge .loop
 
     pop bx
     pop ax
@@ -123,4 +119,30 @@ set_fdc_shutoff_counter:
     pop ax
     mov [es:0x40], ax
     pop es
+    ret
+
+; Play a short beep
+beep:
+    push ax
+
+    mov al, 0xB6                ; configure counter 2
+    out 0x43, al
+
+    mov al, 0x8D                ; 0x48D for a 1KHz beep
+    out 0x42, al
+    mov al, 0x04
+    out 0x42, al
+
+    in al, 0x61                 ; turn on speaker
+    or al, 0x03
+    out 0x61, al
+
+    mov ax, 9                   ; play for ~500ms
+    call delay_ticks
+
+    in al, 0x61                 ; turn off speaker
+    and al, ~0x03
+    out 0x61, al
+
+    pop ax
     ret

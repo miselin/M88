@@ -60,6 +60,11 @@ int12:
 int13:
     ; Dummy INT 13h just in case
 
+    push si
+    mov si, unimpl13
+    call puts
+    pop si
+
     ; set carry flag, unimplemented function
     mov ah, 0x86
     push bp
@@ -83,6 +88,11 @@ int14:
 
     cmp ah, 0x03
     je int14_03
+
+    push si
+    mov si, unimpl14
+    call puts
+    pop si
 
     iret
 
@@ -259,11 +269,15 @@ int15:
     cmp ah, 0xC1                ; Return Extended BIOS Data Area Segment
     je int15_c1
 
+    push si
+    push ax
     mov si, unimpl15            ; uintentionally unimplemented functions will print a message
     call puts
 
     mov al, ah
     call puthex8
+    pop ax
+    pop si
 
     .unimpl:                    ; intentionally unimplemented function
 
@@ -272,7 +286,7 @@ int15:
 
     push bp
     mov bp, sp
-    or byte [bp + 6], 1  ; skip bp, ip, cs in stack to get to flags
+    or byte [bp + 6], F_CF  ; skip bp, ip, cs in stack to get to flags
     pop bp
     iret
 
@@ -282,7 +296,11 @@ int15_4f:
     iret
 
 int15_noop:
-    mov ah, 0x00
+    push bp
+    mov bp, sp
+    and byte [bp + 6], ~F_CF  ; clear CF
+    pop bp
+
     iret
 
 int15_88:
@@ -437,19 +455,19 @@ int16_02:
     ; AH = 0x02 - Get Shift Status
     push ds
     mov ax, 0x40
-    mov es, ax
-    mov al, byte [es:0x17]   ; Keyboard Status flags
-    pop es
+    mov ds, ax
+    mov al, byte [ds:0x17]   ; Keyboard Status flags
+    pop ds
     iret
 
 int16_12:
     ; AH = 0x12 - Extended Get Keyboard Status
     push ds
     mov ax, 0x40
-    mov es, ax
-    mov al, byte [es:0x17]
-    mov ah, byte [es:0x18]
-    pop es
+    mov ds, ax
+    mov al, byte [ds:0x17]
+    mov ah, byte [ds:0x18]
+    pop ds
     iret
 
 int17:
@@ -463,6 +481,11 @@ int17:
 
     cmp ah, 0x02
     je int17_02
+
+    push si
+    mov si, unimpl17
+    call puts
+    pop si
 
     iret
 
@@ -597,9 +620,11 @@ int1a_01:
 
 segment _DATA public align=16 use16 class=DATA
 
+unimpl13 db "Dummy INT 13h called for some reason", 13, 10, 0
+unimpl14 db "Unimplemented INT 14h function", 13, 10, 0
 unimpl15 db "Unimplemented INT 15h function", 13, 10, 0
 unimpl16 db "Unimplemented INT 16h function", 13, 10, 0
-unimpl1a db "Unimplemented INT 1Ah function", 13, 10, 0
+unimpl17 db "Unimplemented INT 17h function", 13, 10, 0
 
 noint19 db "No INT 19 handler, install an Option ROM", 13, 10, 0
 

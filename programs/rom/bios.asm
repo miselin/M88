@@ -112,6 +112,8 @@ int14_00:
     mov cx, ax
     and cx, 0x1F
 
+    push cx
+
     ; baud rate divisor
     and ax, 0xFF
     mov cx, 4 ; two bytes per divisor
@@ -119,6 +121,8 @@ int14_00:
     mov si, serialdivisors
     add si, ax
     mov bx, [cs:si]
+
+    pop cx
 
     xor ax, ax
     add dx, 1

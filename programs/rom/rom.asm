@@ -20,6 +20,8 @@ extern putnum
 extern call_video_bios
 extern count_memory
 extern beep
+extern configure_serial
+extern configure_parallel
 
 ..start:
 start:
@@ -198,10 +200,18 @@ start:
     out 0xE0, al
     out 0x80, al
 
+    call configure_serial
+    call configure_parallel
+
+    ; POST #12 - serial/parallel ports configured
+    mov al, 0x12
+    out 0xE0, al
+    out 0x80, al
+
     call call_option_roms
 
-    ; POST #12 - Option ROMs called
-    mov al, 0x12
+    ; POST #88 - Option ROMs called, about to call INT19
+    mov al, 0x88
     out 0xE0, al
     out 0x80, al
 

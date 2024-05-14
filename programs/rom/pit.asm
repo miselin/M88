@@ -86,14 +86,20 @@ delay_ticks:
     push bx
 
     mov bx, ax
-    call read_pit_counter       ; get current counter value
-    sub ax, bx                  ; calculate target value (overflow is OK)
-    xchg ax, bx                 ; BX = target value
 
+    mov ax, 0x40
+    mov es, ax
+
+    mov ax, bx
+
+    mov bx, [es:0x6C]           ; daily tick counter
+    add bx, ax                  ; BX = target tick
+
+    sti
     .loop:
-    call read_pit_counter       ; get counter
+    mov ax, [es:0x6C]
     cmp ax, bx
-    jge .loop
+    jbe .loop
 
     pop bx
     pop ax
@@ -128,9 +134,9 @@ beep:
     mov al, 0xB6                ; configure counter 2
     out 0x43, al
 
-    mov al, 0x8D                ; 0x48D for a 1KHz beep
+    mov al, 0x1A                ; 500 Hz
     out 0x42, al
-    mov al, 0x04
+    mov al, 0x09
     out 0x42, al
 
     in al, 0x61                 ; turn on speaker

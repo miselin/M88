@@ -159,15 +159,6 @@ configure_kbc:
     cmp al, 0xAA
     jne .fail
 
-    ; turn on num lock
-    mov al, 0xED
-    call kbc_write_dev0
-    mov al, 0x02
-    call kbc_write_dev0
-
-    ; consume the ACK to ensure the buffer is clear
-    call kbc_read_dev0
-
     mov ax, 2                       ; hold for a bit to let things settle before
     call delay_ticks                ; we clear the buffer and enable IRQs
 

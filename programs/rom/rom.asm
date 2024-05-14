@@ -236,11 +236,6 @@ start:
     ; make sure interrupts are on again in case an option ROM turned them off
     sti
 
-    ; POST #13 - Ready, about to call INT19
-    mov al, 0x12
-    out 0xE0, al
-    out 0x80, al
-
     ; run the bootloader
     mov dl, 0x80                ; prefer HDD
     int 0x19

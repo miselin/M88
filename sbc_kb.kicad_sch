@@ -2944,7 +2944,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 82.55) (xy 123.19 82.55)
+			(xy 101.6 82.55) (xy 123.19 82.55)
 		)
 		(stroke
 			(width 0)
@@ -3694,7 +3694,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 77.47) (xy 123.19 77.47)
+			(xy 101.6 77.47) (xy 123.19 77.47)
 		)
 		(stroke
 			(width 0)
@@ -4313,7 +4313,7 @@
 		(uuid "d65e7ed9-a9eb-45ad-81e6-5e129b2bf2c3")
 	)
 	(label "TL_EA"
-		(at 115.57 82.55 0)
+		(at 101.6 82.55 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4346,7 +4346,7 @@
 		(uuid "e804ffa4-fd1a-4741-adda-dd9717bd636e")
 	)
 	(label "TH_SS"
-		(at 115.57 77.47 0)
+		(at 101.6 77.47 0)
 		(fields_autoplaced yes)
 		(effects
 			(font

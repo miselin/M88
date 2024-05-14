@@ -60,11 +60,6 @@ int12:
 int13:
     ; Dummy INT 13h just in case
 
-    push si
-    mov si, unimpl13
-    call puts
-    pop si
-
     ; set carry flag, unimplemented function
     mov ah, 0x86
     push bp
@@ -630,7 +625,6 @@ int1a_01:
 
 segment _DATA public align=16 use16 class=DATA
 
-unimpl13 db "Dummy INT 13h called for some reason", 13, 10, 0
 unimpl14 db "Unimplemented INT 14h function", 13, 10, 0
 unimpl15 db "Unimplemented INT 15h function", 13, 10, 0
 unimpl16 db "Unimplemented INT 16h function", 13, 10, 0

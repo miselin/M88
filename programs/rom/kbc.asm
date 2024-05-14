@@ -259,7 +259,7 @@ kbirq:
 
     .not_extended:
     test byte [ds:0x96], 2          ; was the last key an extended key?
-    jnz .extended
+    jnz .extended                   ; yep, interpret as such
 
     push ax
     call check_special
@@ -308,9 +308,20 @@ kbirq:
 
     jmp .done
 
-    .extended:                      ; do nothing for extended keys for now
-
+    .extended:
     and byte [ds:0x96], ~2          ; remove "last key E0" flag
+
+    push ax
+    call check_special_extended
+    pop ax
+    jc .done                        ; sets carry flag if special key was handled
+
+    test al, 0x80                   ; key up?
+    jnz .done                       ; ignore key up events (special key handler uses them though)
+
+    mov ah, al                      ; these are E0,<scancode> and have no ASCII represenation
+    xor al, al
+    call kb_put_buffer
 
     jmp .done
 
@@ -379,6 +390,44 @@ kb_put_buffer:
     call beep
     mov al, '!'
     out 0xE9, al
+    ret
+
+check_special_extended:
+    and al, 0x7F                    ; clear key up bit
+
+    .rctrl:
+    cmp al, 0x1D                    ; Right Ctrl
+    jne .ralt
+
+    test ah, 0x80
+    jnz .rctrl_up
+    or byte [ds:0x96], 4            ; set Right Ctrl flag
+    jmp .done
+    .rctrl_up:
+    and byte [ds:0x96], ~4          ; clear Right Ctrl flag
+    jmp .done
+
+    .ralt:
+    cmp al, 0x38
+    jne .not_special
+
+    test ah, 0x80
+    jnz .ralt_up
+    or byte [ds:0x96], 8            ; set Right Alt flag
+    jmp .done
+    .ralt_up:
+    and byte [ds:0x96], ~8          ; clear Right Alt flag
+    jmp .done
+
+    .done:
+
+    call sync_key_state_flags
+
+    stc
+    ret
+
+    .not_special:
+    clc
     ret
 
 check_special:
@@ -457,6 +506,16 @@ check_special:
 
     .done:
 
+    call sync_key_state_flags
+
+    stc
+    ret
+
+    .not_special:
+    clc
+    ret
+
+sync_key_state_flags:
     mov al, byte [ds:0x17]          ; get first keyboard flags byte
     and al, 0xF3                    ; clear existing state bits for ALTs, CTRLs (keep SHIFT, INS)
     mov bl, byte [ds:0x96]          ; grab RCTRL/RALT flags
@@ -468,12 +527,6 @@ check_special:
     shl bl, 1
     or al, bl
     mov byte [ds:0x17], al          ; store flags byte
-
-    stc
-    ret
-
-    .not_special:
-    clc
     ret
 
 kbc_sync_flags_leds:

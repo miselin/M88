@@ -462,12 +462,18 @@ int16_02:
 
 int16_12:
     ; AH = 0x12 - Extended Get Keyboard Status
+    push bx
     push ds
     mov ax, 0x40
     mov ds, ax
     mov al, byte [ds:0x17]
     mov ah, byte [ds:0x18]
+    and ah, 0x73                        ; keep LCTRL, LALT, state bits
+    mov bl, byte [ds:0x96]              ; grab extended bits for RCTRL/RALT
+    and bl, 0x0C                        ; keep only RCTRL, RALT
+    or ah, bl
     pop ds
+    pop bx
     iret
 
 int17:

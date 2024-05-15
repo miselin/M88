@@ -1,7 +1,7 @@
 bits 16
 cpu 8086
 
-segment _TEXT public align=16 use16 class=CODE
+section .text
 
 global _configure_fdc
 global fdc_irq
@@ -290,7 +290,7 @@ fdc_irq:
 
     pop es
     pop ax
-    ret
+    iret
 
 ; ES:DX = buffer to read into
 ; CX = number of bytes to read
@@ -399,3 +399,7 @@ fdc_motor_on:
     pop dx
     pop ax
     ret
+
+section .fdctab
+
+    ; TODO - floppy disk controller parameter table

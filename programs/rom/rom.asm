@@ -1,12 +1,9 @@
 bits 16
 cpu 8086
 
-segment _TEXT public align=16 use16 class=CODE
-
-global start
-
 extern call_option_roms
 extern load_ivt
+extern load_ivt_128
 extern configure_pic
 extern configure_pic_bochs
 extern configure_pit
@@ -23,19 +20,13 @@ extern beep
 extern configure_serial
 extern configure_parallel
 
-..start:
+section .entry
+
+global start
+
+; basic POST test before jumping to main BIOS code
 start:
-    jmp next
-    next:
-
     cli
-
-    ; are we an option ROM?
-    ; skip some early init if so
-    mov ax, 0xAA55
-    mov di, 0x0000
-    cmp [cs:di], ax
-    je .option_rom
 
     ; POST #0 - we're alive
     mov al, 0x00
@@ -66,6 +57,10 @@ start:
     out 0xE0, al
     out 0x80, al
 
+    jmp entry
+
+section .text
+entry:
     ; default data segment at start of memory
     xor ax, ax
     mov ds, ax
@@ -168,6 +163,8 @@ start:
     mov ss, ax
     mov sp, 0xBFF                   ; 3K stack
 
+    call load_ivt_128
+
     ; POST #9 - stack moved
     mov al, 0x09
     out 0xE0, al
@@ -215,24 +212,6 @@ start:
     out 0xE0, al
     out 0x80, al
 
-    jmp .not_option_rom
-
-    .option_rom:
-
-    mov si, mattbios
-    call puts
-
-    call load_ivt
-
-    mov ax, 0xAA55
-    mov di, 0x0000
-    cmp [cs:di], ax
-    jne .not_option_rom
-
-    retf
-
-    .not_option_rom:
-
     ; make sure interrupts are on again in case an option ROM turned them off
     sti
 
@@ -243,6 +222,32 @@ start:
     cli
     hlt
 
-segment _DATA public align=16 use16 class=DATA
+option_rom:
+    mov ax, 0xAA55              ; verify we're running as an Option ROM
+    mov di, 0x0000
+    cmp [cs:di], ax
+    jne start
+
+    mov si, mattbios
+    call puts
+
+    call load_ivt               ; replace relevant IVT entries for this ROM
+
+    retf
+
+section .rdata
 
 mattbios db "Matt BIOS - Option ROM mode...", 13, 10, 0
+
+section .poweron
+jmp 0xF000:start
+
+section .optionrom_short
+; short jump past description strings
+; only used when running as an Option ROM
+jmp short optionrom_short
+
+section .optionrom_long
+; long jump to actual entry point
+optionrom_short:
+jmp option_rom

@@ -1,7 +1,7 @@
 bits 16
 cpu 8086
 
-segment _TEXT public align=16 use16 class=CODE
+section .text
 
 global call_option_roms
 global call_video_bios

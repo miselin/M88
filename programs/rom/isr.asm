@@ -1,9 +1,10 @@
 bits 16
 cpu 8086
 
-segment _TEXT public align=16 use16 class=CODE
+section .text
 
 global load_ivt
+global load_ivt_128
 
 extern int10
 extern int11
@@ -18,6 +19,7 @@ extern int1a
 
 extern timerirq
 extern kbirq
+extern fdc_irq
 
 extern puts
 
@@ -31,13 +33,10 @@ load_ivt:
   jne .after_default
 
   mov di, 0
-  mov si, _isr_array
   mov cx, 128
 
   .set_defaults:
-  mov bx, word [cs:si]
-  add si, 2
-  mov word [ds:di], bx
+  mov word [ds:di], 0xFF53          ; default handler (just an IRET)
   add di, 2
   mov word [ds:di], ax
   add di, 2
@@ -52,49 +51,49 @@ load_ivt:
 
   .after_default:
 
-  mov word [ds:0x9 * 4], kbirq      ; IRQ1
+  mov word [ds:0x9 * 4], fixedaddr_int9
   mov word [ds:0x9 * 4 + 2], ax
 
-  mov word [ds:0x11 * 4], int11
+  mov word [ds:0x11 * 4], fixedaddr_int11
   mov word [ds:0x11 * 4 + 2], ax
 
-  mov word [ds:0x12 * 4], int12
+  mov word [ds:0x12 * 4], fixedaddr_int12
   mov word [ds:0x12 * 4 + 2], ax
 
-  mov word [ds:0x14 * 4], int14
+  mov word [ds:0x14 * 4], fixedaddr_int14
   mov word [ds:0x14 * 4 + 2], ax
 
-  mov word [ds:0x15 * 4], int15
+  mov word [ds:0x15 * 4], fixedaddr_int15
   mov word [ds:0x15 * 4 + 2], ax
 
-  mov word [ds:0x16 * 4], int16
+  mov word [ds:0x16 * 4], fixedaddr_int16
   mov word [ds:0x16 * 4 + 2], ax
 
-  mov word [ds:0x17 * 4], int17
+  mov word [ds:0x17 * 4], fixedaddr_int17
   mov word [ds:0x17 * 4 + 2], ax
 
-  mov word [ds:0x1a * 4], int1a
+  mov word [ds:0x1a * 4], fixedaddr_int1a
   mov word [ds:0x1a * 4 + 2], ax
 
-  cmp ax, 0xF000                    ; don't hook ROMBIOS / VGA interrupts if we're loaded as an option rom
+  cmp ax, 0xF000                                ; don't hook ROMBIOS / VGA interrupts if we're loaded as an option rom
   jne .not_biosrom
 
-  mov word [ds:0x8 * 4], timerirq   ; IRQ0
+  mov word [ds:0x8 * 4], fixedaddr_int8         ; IRQ0
   mov word [ds:0x8 * 4 + 2], ax
 
-  mov word [ds:0x10 * 4], int10
+  mov word [ds:0x10 * 4], fixedaddr_int10
   mov word [ds:0x10 * 4 + 2], ax
 
-  mov word [ds:0x13 * 4], int13
+  mov word [ds:0x13 * 4], fixedaddr_int13
   mov word [ds:0x13 * 4 + 2], ax
 
-  mov word [ds:0x40 * 4], int13     ; INT 40h will point at ROMBIOS INT 13h handler (which is a dummy handler)
+  mov word [ds:0x40 * 4], fixedaddr_int13       ; INT 40h will point at ROMBIOS INT 13h handler (which is a dummy handler)
   mov word [ds:0x40 * 4 + 2], ax
 
-  mov word [ds:0x19 * 4], int19
+  mov word [ds:0x19 * 4], fixedaddr_int19
   mov word [ds:0x19 * 4 + 2], ax
 
-  mov word [ds:0x1C * 4], 0xFF53    ; INT 1C defaults to an empty ISR (it's "System Timer Tick" and user-hookable)
+  mov word [ds:0x1C * 4], fixedaddr_emptyint    ; INT 1C defaults to an empty ISR (it's "System Timer Tick" and user-hookable)
   mov word [ds:0x1C * 4 + 2], 0xF000
 
   mov word [ds:0x44 * 4], 0xFA6E    ; VGA font
@@ -102,6 +101,21 @@ load_ivt:
   .not_biosrom:
 
   ret
+
+; load a default handler for remaining interrupts
+; called after the POST stack is moved out of the way
+load_ivt_128:
+  mov ax, cs
+
+  mov di, 128 * 4
+  mov cx, 128
+
+  .set_defaults:
+  mov word [ds:di], fixedaddr_emptyint          ; default handler (just an IRET)
+  add di, 2
+  mov word [ds:di], ax
+  add di, 2
+  loop .set_defaults
 
 ; default handlers for IRQ0-7
 irq0to7:
@@ -111,47 +125,66 @@ irq0to7:
   pop ax
   iret
 
-extern putnum
-
-unhandled:
-  push ax
-
-  ; unhandled ISR, oh no!
-  add al, 0x40
-  out 0xE0, al
-  out 0x80, al
-
-  mov si, unhandledstr
-  call puts
-
-  pop ax
-
-  call putnum
-
-  iret
-
-%macro ISR 1
-  isr%1:
-    push ax
-    mov ax, %1
-    jmp unhandled
-%endmacro
-
-%assign i 0
-%rep 256
-  ISR i
-  %assign i i+1
-%endrep
-
-segment rdata public align=4 use16 class=data
-
-_isr_array:
-  %assign i 0
-  %rep 256
-    dw isr %+ i
-    %assign i i+1
-  %endrep
-
-segment _DATA public align=16 use16 class=DATA
+section .rdata
 
 unhandledstr db "Unhandled Interrupt", 13, 10, 0
+
+section .emptyint
+fixedaddr_emptyint:
+iret
+
+section .int5
+fixedaddr_int5:
+iret
+
+section .int8
+fixedaddr_int8:
+jmp timerirq
+
+section .int9
+fixedaddr_int9:
+jmp kbirq
+
+section .int0e
+fixedaddr_int0e:
+jmp fdc_irq
+
+section .int10
+fixedaddr_int10:
+jmp int10
+
+section .int11
+fixedaddr_int11:
+jmp int11
+
+section .int12
+fixedaddr_int12:
+jmp int12
+
+section .int13
+fixedaddr_int13:
+jmp int13
+
+section .int14
+fixedaddr_int14:
+jmp int14
+
+section .int15
+fixedaddr_int15:
+jmp int15
+
+section .int16
+fixedaddr_int16:
+jmp int16
+
+section .int17
+fixedaddr_int17:
+jmp int17
+
+section .int19
+fixedaddr_int19:
+jmp int19
+
+section .int1a
+fixedaddr_int1a:
+jmp int1a

@@ -1,7 +1,7 @@
 bits 16
 cpu 8086
 
-segment _TEXT public align=16 use16 class=CODE
+section .text
 
 extern unmask_irq
 extern puts
@@ -262,6 +262,9 @@ kbirq:
 
     and al, 0x7F                    ; clear key up bit
 
+    cmp al, 0x54                    ; F11-F12
+    jae .f11_f12
+
     cmp al, 0x46                    ; ESC-ScrollLock
     jae .numpad                     ; ignore keys outside the range for now
 
@@ -310,8 +313,10 @@ kbirq:
     test al, 0x80                   ; key up?
     jnz .done                       ; ignore key up events (special key handler uses them though)
 
+    call check_ctrl_alt_del         ; check for CTRL-ALT-DEL only on keyup
+
     mov ah, al                      ; these are E0,<scancode> and have no ASCII represenation
-    xor al, al
+    xor al, al                      ; TODO: CTRL-, SHIFT-, ALT- conversion
     call kb_put_buffer
 
     jmp .done
@@ -325,9 +330,38 @@ kbirq:
     test byte [ds:0x17], (1 << 5)   ; num lock?
     jz .nonumlock
     mov bx, kbnumpad_numlock        ; load num-locked numpad table
+    jmp .numpad_put
     .nonumlock:                     ; TODO: CTRL-, SHIFT-, ALT- tables
 
+    call check_ctrl_alt_del         ; check for CTRL-ALT-DEL (numlock is off)
+
+    .numpad_put:
     es xlat
+    call kb_put_buffer
+
+    .f11_f12:
+
+    mov ah, al
+    xor al, al
+    add ah, 0x2E                    ; conversion to F11/F12 scancodes, no ASCII representation
+
+    test byte [ds:0x17], 0x3        ; either shift key down?
+    jz .f11_f12_noshift
+    add ah, 0x02                    ; scancodes increase by 2 for each modifier
+    jmp .f11_f12_put
+
+    .f11_f12_noshift:
+    test byte [ds:0x17], 0x4        ; either control key down?
+    jz .f11_f12_noctrl
+    add ah, 0x04
+    jmp .f11_f12_put
+
+    .f11_f12_noctrl:
+    test byte [ds:0x17], 0x8        ; either alt key down?
+    jz .f11_f12_put
+    add ah, 0x06
+
+    .f11_f12_put:
     call kb_put_buffer
 
     .done:
@@ -381,6 +415,27 @@ kb_put_buffer:
     call beep
     mov al, '!'
     out 0xE9, al
+    ret
+
+; Only call for extended keys + numpad if num lock is off
+; Does not return if the key chord is handled (jumps to POST init)
+check_ctrl_alt_del:
+    push ax
+    and al, 0x7F
+    cmp al, 0x53                    ; DEL
+    jne .ok
+
+    mov al, [ds:0x17]
+    and al, 0x0C
+    cmp al, 0x0C
+    jne .ok
+
+    cli
+    mov word [ds:0x72], 0x1234      ; skip memory tests
+    jmp 0xF000:0xE05B               ; warm reboot
+
+    .ok:
+    pop ax
     ret
 
 check_special_extended:
@@ -576,7 +631,7 @@ kbc_sync_flags_leds:
     pop ax
     ret
 
-segment _DATA public align=16 use16 class=DATA
+section .data
 
 kbstr db "Keyboard IRQ", 13, 10, 0
 

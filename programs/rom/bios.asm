@@ -1,7 +1,7 @@
 bits 16
 cpu 8086
 
-segment _TEXT public align=16 use16 class=CODE
+section .text
 
 global int10
 global int11
@@ -623,7 +623,7 @@ int1a_01:
     pop ds
     ret
 
-segment _DATA public align=16 use16 class=DATA
+section .data
 
 unimpl14 db "Unimplemented INT 14h function", 13, 10, 0
 unimpl15 db "Unimplemented INT 15h function", 13, 10, 0
@@ -634,6 +634,8 @@ noint19 db "No INT 19 handler, install an Option ROM", 13, 10, 0
 
 serialbios db "Serial Port BIOS Services", 13, 10, 0
 
+section .cfgtable
+
 sysconfig:
     dw 0x08         ; length
     db 0xFE         ; model
@@ -641,6 +643,8 @@ sysconfig:
     db 0x00         ; BIOS revision
     db (1 << 6) | (1 << 2)     ; feature byte - EBDA, two PICs
     dd 0            ; reserved
+
+section .data
 
 parallelports:
     dw 0x0378       ; LPT1
@@ -652,6 +656,8 @@ serialports:
     dw 0x02F8       ; COM2
     dw 0x03E8       ; COM3
     dw 0x02E8       ; COM4
+
+section .baudtable
 
 serialdivisors:
     db 23, 4       ; 110 baud (divisor = 1047)

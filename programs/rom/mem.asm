@@ -1,7 +1,7 @@
 bits 16
 cpu 8086
 
-segment _TEXT public align=16 use16 class=CODE
+section .text
 
 global count_memory
 
@@ -44,7 +44,7 @@ count_memory:
 
     ret
 
-segment _DATA public align=16 use16 class=DATA
+section .data
 
 memcount db "Memory check...", 13, 10, 0
 kb db "K", 13, 0

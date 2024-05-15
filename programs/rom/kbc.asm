@@ -84,7 +84,6 @@ kbc_read_dev0_nb:
 ; flush the KBC's output buffer
 kbc_flush_obf:
     in al, 0x64
-    out 0xE0, al
     test al, 1
     jz .done
     in al, 0x00

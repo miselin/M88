@@ -117,6 +117,8 @@ load_ivt_128:
   add di, 2
   loop .set_defaults
 
+  ret
+
 ; default handlers for IRQ0-7
 irq0to7:
   push ax

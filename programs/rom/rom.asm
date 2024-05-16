@@ -14,11 +14,13 @@ extern fdc_read_drive0
 extern delay_ticks
 extern puts
 extern putnum
+extern puthex
 extern call_video_bios
 extern count_memory
 extern beep
 extern configure_serial
 extern configure_parallel
+extern test_dma
 
 section .entry
 
@@ -183,6 +185,8 @@ entry:
     mov ax, 0x40                    ; store EBDA segment in BDA
     mov ds, ax
     mov [ds:0x0E], es
+
+    call test_dma
 
     ; POST #10 - EBDA in place
     mov al, 0x10

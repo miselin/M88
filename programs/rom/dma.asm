@@ -6,6 +6,10 @@ section .text
 global configure_dma
 global prepare_dma2_write
 global prepare_dma2_read
+global test_dma
+
+extern puts
+extern puthex
 
 DMA_START_ADDR_REG_0  equ 0x00      ; Start address register for channel 0
 DMA_WORD_COUNT_REG_0  equ 0x01      ; Word count register for channel 0
@@ -121,3 +125,90 @@ prepare_dma2_read:
     out DMA_MASK_REG, al            ; Unmask channel 2
     pop ax
     ret
+
+; Use a channel 1 memory-to-memory transfer to test the DMA signals
+; Should set 1024 bytes at 60:00 to 0xFFFF if successful.
+test_dma:
+    mov ax, 0x40
+    mov ds, ax
+
+    mov ax, 0x60
+    mov es, ax
+    mov cx, 1024
+    xor di, di
+    mov ax, 0x55AA
+    rep stosw                   ; clear 1K of memory at 60:00
+
+    xor al, al
+    out 0x81, al                ; zero out page register
+
+    mov al, 0x01                ; unmask channel 1
+    out DMA_MASK_REG, al
+    mov al, 0b10000101          ; block DMA transfer, channel 1
+    out DMA_MODE_REG, al
+    mov al, 0xFF                ; reset flip-flop
+    out DMA_CLEAR_FF_REG, al
+    mov al, 0x00                ; low byte of address
+    out DMA_START_ADDR_REG_1, al
+    mov al, 0x06                ; high byte of address
+    out DMA_START_ADDR_REG_1, al
+    mov al, 0xFF                ; reset flip-flop
+    out DMA_CLEAR_FF_REG, al
+    mov ax, 1024                ; low byte of count
+    out DMA_WORD_COUNT_REG_1, al
+    mov al, ah                  ; high byte of count
+    out DMA_WORD_COUNT_REG_1, al
+
+    mov al, 0b101               ; set DMA request for channel 1
+    out DMA_REQUEST_REG, al
+
+    mov bx, [ds:0x6C]           ; prepare timeout
+    add bx, 9                   ; 500ms
+
+    .loop:
+    cmp bx, [ds:0x6C]
+    jae .timeout
+    in al, DMA_STATUS_CMD_REG   ; read status register
+    test al, 0x02               ; check for TC on DMA1
+    jz .loop
+
+    mov cx, 0
+    mov si, 0
+
+    .check:
+    cmp word [es:si], 0x55AA
+    je .fail
+    add si, 2
+    cmp si, 1024
+    jl .check
+
+    jmp .ok
+
+    .fail:
+    mov ax, si
+    mov si, dmafail
+    call puts
+
+    call puthex
+    mov si, crnl
+    call puts
+    jmp .done
+
+    .timeout:
+    mov si, timeout
+    call puts
+    jmp .done
+
+    .ok:
+    mov si, dmaok
+    call puts
+
+    .done:
+    ret
+
+section .rdata
+
+dmafail db "DMA test failed at ", 0
+dmaok db "DMA test passed", 13, 10, 0
+crnl db 13, 10, 0
+timeout db "DMA test timed out", 13, 10, 0

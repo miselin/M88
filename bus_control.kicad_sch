@@ -6284,6 +6284,7 @@
 	)
 	(label "~{IO_DMUX_CS_60}"
 		(at 378.46 60.96 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

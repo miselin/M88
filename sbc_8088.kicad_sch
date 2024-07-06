@@ -1816,24 +1816,6 @@
 		(members "IR[0..15]")
 	)
 	(junction
-		(at 25.4 264.16)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "057b02e3-6af5-4013-99e6-31f12c64896a")
-	)
-	(junction
-		(at 25.4 260.35)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0c9f7871-1270-4af2-8803-9991cba49eac")
-	)
-	(junction
-		(at 25.4 261.62)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "11d9b0ab-05cf-486f-8ba5-02cc7fa77b41")
-	)
-	(junction
 		(at 144.78 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1844,12 +1826,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "88eecacf-f460-42b1-9a03-cb2c5676ff66")
-	)
-	(junction
-		(at 22.86 260.35)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9cb6edff-e38d-4ca4-ad4f-6e15fe018927")
 	)
 	(junction
 		(at 57.15 87.63)
@@ -2479,16 +2455,6 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 261.62) (xy 25.4 261.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2356b012-983f-40f7-8b11-4dc9af4f2aaf")
-	)
-	(wire
-		(pts
 			(xy 144.78 40.64) (xy 144.78 43.18)
 		)
 		(stroke
@@ -3086,16 +3052,6 @@
 			(type default)
 		)
 		(uuid "56ca9d79-e97e-4130-aa83-f7e0d9609908")
-	)
-	(wire
-		(pts
-			(xy 25.4 261.62) (xy 29.21 261.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "58c1df22-7ae8-4cec-9c8d-0fa2594da7f5")
 	)
 	(wire
 		(pts
@@ -3749,16 +3705,6 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 264.16) (xy 25.4 264.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "902607ff-f3d3-40ef-87ef-6fe06149b8d9")
-	)
-	(wire
-		(pts
 			(xy 281.94 227.33) (xy 285.75 227.33)
 		)
 		(stroke
@@ -4159,16 +4105,6 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 260.35) (xy 22.86 261.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b2543084-0cb6-40d1-8529-bffa745fd7a0")
-	)
-	(wire
-		(pts
 			(xy 170.18 214.63) (xy 170.18 217.17)
 		)
 		(stroke
@@ -4246,16 +4182,6 @@
 			(type default)
 		)
 		(uuid "b85d5fdb-1024-470e-b725-fd36727c738d")
-	)
-	(wire
-		(pts
-			(xy 25.4 260.35) (xy 25.4 261.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b8b83db1-2b84-4d4a-a7f9-17835279b7ea")
 	)
 	(bus
 		(pts

@@ -13,6 +13,7 @@ extern configure_fdc
 extern fdc_read_drive0
 extern delay_ticks
 extern puts
+extern puts_ext
 extern putnum
 extern puthex
 extern call_video_bios
@@ -21,6 +22,8 @@ extern beep
 extern configure_serial
 extern configure_parallel
 extern test_dma
+extern logo
+extern end_logo
 
 section .entry
 
@@ -219,6 +222,8 @@ entry:
     ; make sure interrupts are on again in case an option ROM turned them off
     sti
 
+    call write_logo
+
     ; run the bootloader
     mov dl, 0x80                ; prefer HDD
     int 0x19
@@ -232,12 +237,54 @@ option_rom:
     cmp [cs:di], ax
     jne start
 
-    mov si, mattbios
-    call puts
+    mov ax, 0x03                ; set video mode to 3, which will clear screen
+    int 0x10
+
+    ;mov si, mattbios
+    ;call puts
+
+    call write_logo
 
     call load_ivt               ; replace relevant IVT entries for this ROM
 
     retf
+
+write_logo:
+    push ax
+    push dx
+    push si
+    push es
+    push bp
+
+    mov ax, cs
+    mov es, ax
+
+    xor dh, dh                  ; row 0
+
+    mov si, logo
+    .outer:
+    cmp si, end_logo
+    jge .done
+
+    xor dl, dl                  ; column 0
+
+    mov cx, 80
+    xor bh, bh
+    mov bl, 0x1F
+    mov bp, si
+    call puts_ext
+
+    add si, 81
+    inc dh
+    jmp .outer
+    .done:
+
+    pop bp
+    pop es
+    pop si
+    pop dx
+    pop ax
+    ret
 
 section .rdata
 

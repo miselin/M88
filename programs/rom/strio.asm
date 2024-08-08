@@ -5,6 +5,7 @@ section .text
 
 global putc
 global puts
+global puts_ext
 global puthex
 global puthex8
 global putnum
@@ -47,6 +48,20 @@ puts:
     .done:
     pop cx
     pop bx
+    pop ax
+    ret
+
+; CS:SI = pointer to null-terminated string in ROM
+; CX = length
+; BH = page
+; BL = attribute
+; DL = column
+; DH = row
+puts_ext:
+    push ax
+    mov ah, 0x13
+    mov al, 0x01                ; move cursor
+    int 0x10
     pop ax
     ret
 

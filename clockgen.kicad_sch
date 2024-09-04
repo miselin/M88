@@ -1660,7 +1660,7 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 115.57) (xy 59.69 115.57)
+			(xy 53.34 115.57) (xy 63.5 115.57)
 		)
 		(stroke
 			(width 0)
@@ -1830,16 +1830,6 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 101.6) (xy 158.75 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "28c5b826-43f9-4d66-8d31-09d8794dc5fa")
-	)
-	(wire
-		(pts
 			(xy 58.42 120.65) (xy 72.39 120.65)
 		)
 		(stroke
@@ -1937,6 +1927,16 @@
 			(type default)
 		)
 		(uuid "3c7d9af9-84a2-4d53-8c3b-5cd591c28725")
+	)
+	(wire
+		(pts
+			(xy 156.21 101.6) (xy 158.75 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f75995d-0dcb-4bc1-b300-58f46cb5255c")
 	)
 	(wire
 		(pts
@@ -2922,8 +2922,8 @@
 		)
 		(uuid "f77eee71-f9ba-49b0-8a09-4900d41585b9")
 	)
-	(label "PCLK"
-		(at 59.69 115.57 180)
+	(label "PIT_CLK"
+		(at 63.5 115.57 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2933,7 +2933,7 @@
 		)
 		(uuid "1bb3be6e-2869-4600-b825-ca341ea3d6c7")
 	)
-	(label "PCLK"
+	(label "PIT_CLK"
 		(at 194.31 57.15 0)
 		(fields_autoplaced yes)
 		(effects
@@ -2942,7 +2942,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c0821fe5-bb69-41db-96d2-4bb95877c941")
+		(uuid "37ce42df-edda-4933-b5bb-037a11fc6ad7")
 	)
 	(hierarchical_label "+5V"
 		(shape input)
@@ -3028,6 +3028,18 @@
 		)
 		(uuid "9d822302-c97f-492c-af39-a792812a5d99")
 	)
+	(hierarchical_label "PCLK"
+		(shape output)
+		(at 158.75 101.6 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9e6355c8-e880-40b4-829e-b8109e904cc3")
+	)
 	(hierarchical_label "~{RESET}"
 		(shape input)
 		(at 133.35 86.36 180)
@@ -3039,18 +3051,6 @@
 			(justify right)
 		)
 		(uuid "a2fb97d9-efd9-40ca-81c8-87d0e86d7578")
-	)
-	(hierarchical_label "PCLK"
-		(shape output)
-		(at 158.75 101.6 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "ac7a6d7b-647f-4601-bce7-b3ba5a764b80")
 	)
 	(hierarchical_label "ISA_RDY"
 		(shape input)

@@ -584,6 +584,7 @@
       "/Power Management/+12V_IN": "12V_1A",
       "/Power Management/+5V_IN": "5V_2A",
       "/Power Management/-12V_IN": "12V_1A",
+      "/Power Management/FAN_12V": "12V_1A",
       "GND": "Power",
       "Net-(F1-Pad1)": "5V_1A"
     },
@@ -740,7 +741,7 @@
           "group_by": false,
           "label": "LCSC Part #",
           "name": "LCSC Part #",
-          "show": false
+          "show": true
         }
       ],
       "filter_string": "",

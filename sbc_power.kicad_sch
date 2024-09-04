@@ -2007,6 +2007,12 @@
 		(uuid "a2f93c7e-a450-4b3b-80f9-da46aaed8764")
 	)
 	(junction
+		(at 179.07 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a63bda21-35a8-44de-b9f4-649078c7773f")
+	)
+	(junction
 		(at 270.51 138.43)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2017,6 +2023,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b73a9753-04e3-476b-a4ac-edc43b3bbb30")
+	)
+	(junction
+		(at 179.07 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bd23cf94-e0d6-4a8d-814a-fe6f6413af93")
+	)
+	(junction
+		(at 226.06 36.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "be487056-cf5f-4972-acc1-02912b196947")
 	)
 	(junction
 		(at 223.52 138.43)
@@ -2091,16 +2109,34 @@
 		(uuid "d7fed2f7-2273-4241-9d26-2e035372549c")
 	)
 	(junction
+		(at 187.96 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d922bb52-22d9-4fb3-8610-b90fd2a78b4d")
+	)
+	(junction
 		(at 120.65 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "da3f6b19-0d90-4e75-b4c2-8d56fedbab5c")
 	)
 	(junction
+		(at 187.96 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ddba9cbb-7b5e-4772-84d5-a23023fcc58b")
+	)
+	(junction
 		(at 77.47 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e4d1e881-cc8b-4536-9865-c357e93b82f8")
+	)
+	(junction
+		(at 226.06 50.8)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e9737cbf-e5fb-4334-916e-b4c9965a149b")
 	)
 	(junction
 		(at 92.71 160.02)
@@ -2155,6 +2191,16 @@
 	(no_connect
 		(at 260.35 52.07)
 		(uuid "dc8b6c81-474f-4f5d-90c2-b5fcb93f73a6")
+	)
+	(wire
+		(pts
+			(xy 170.18 138.43) (xy 170.18 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "01a9a937-b471-4567-849c-052ac7f752f2")
 	)
 	(wire
 		(pts
@@ -2218,16 +2264,6 @@
 	)
 	(wire
 		(pts
-			(xy 247.65 36.83) (xy 250.19 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "13a6cb35-d24c-4e74-b16a-fa3e4868061e")
-	)
-	(wire
-		(pts
 			(xy 270.51 152.4) (xy 279.4 152.4)
 		)
 		(stroke
@@ -2265,6 +2301,16 @@
 			(type default)
 		)
 		(uuid "172c2a52-ba8f-491b-9193-144f340f0e59")
+	)
+	(wire
+		(pts
+			(xy 226.06 36.83) (xy 226.06 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "18d40f49-d217-4a38-a2f1-58a2a92213e0")
 	)
 	(wire
 		(pts
@@ -2428,6 +2474,26 @@
 	)
 	(wire
 		(pts
+			(xy 179.07 138.43) (xy 179.07 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "393a62bd-dae4-4310-a743-fd76f08c7707")
+	)
+	(wire
+		(pts
+			(xy 179.07 148.59) (xy 179.07 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39c464df-031e-47b6-a9fc-b46b299951ae")
+	)
+	(wire
+		(pts
 			(xy 279.4 138.43) (xy 279.4 143.51)
 		)
 		(stroke
@@ -2505,6 +2571,16 @@
 			(type default)
 		)
 		(uuid "3fc3ab69-43ea-41df-a938-06340c153bad")
+	)
+	(wire
+		(pts
+			(xy 170.18 138.43) (xy 179.07 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "40a6199b-c1f1-4da2-bb30-32f25eee2821")
 	)
 	(wire
 		(pts
@@ -2618,6 +2694,16 @@
 	)
 	(wire
 		(pts
+			(xy 226.06 64.77) (xy 226.06 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "522868a9-66b7-4aba-9ac9-4cb9dbeb8327")
+	)
+	(wire
+		(pts
 			(xy 59.69 60.96) (xy 77.47 60.96)
 		)
 		(stroke
@@ -2635,6 +2721,26 @@
 			(type default)
 		)
 		(uuid "57b5c38d-4b6d-4fdb-b1f5-d093f9fe5f9b")
+	)
+	(wire
+		(pts
+			(xy 179.07 152.4) (xy 187.96 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "585a0af1-13b1-4e02-ba7e-5cb55342903b")
+	)
+	(wire
+		(pts
+			(xy 179.07 138.43) (xy 187.96 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "58e5963a-72e0-4d32-8554-5ea761685d29")
 	)
 	(wire
 		(pts
@@ -2755,16 +2861,6 @@
 			(type default)
 		)
 		(uuid "6a0e3cfb-45bf-4b3a-9f8c-1761b9ea4d02")
-	)
-	(wire
-		(pts
-			(xy 247.65 50.8) (xy 250.19 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6b61a86d-e9b5-46b5-81e9-4aa9f8e2ebeb")
 	)
 	(wire
 		(pts
@@ -3178,6 +3274,16 @@
 	)
 	(wire
 		(pts
+			(xy 226.06 50.8) (xy 250.19 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d4c9d7f-7530-47e8-bdca-2d6735eed864")
+	)
+	(wire
+		(pts
 			(xy 260.35 152.4) (xy 270.51 152.4)
 		)
 		(stroke
@@ -3335,6 +3441,16 @@
 			(type default)
 		)
 		(uuid "b156e4bf-b751-4ca6-aae8-bb875723dfa5")
+	)
+	(wire
+		(pts
+			(xy 170.18 148.59) (xy 170.18 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b363da80-39a0-4d6a-8646-bc260334487c")
 	)
 	(wire
 		(pts
@@ -3498,6 +3614,16 @@
 	)
 	(wire
 		(pts
+			(xy 170.18 152.4) (xy 179.07 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4938cdd-09c2-44ca-93ec-dff9c1c6d5d1")
+	)
+	(wire
+		(pts
 			(xy 198.755 38.1) (xy 201.93 38.1)
 		)
 		(stroke
@@ -3505,6 +3631,16 @@
 			(type default)
 		)
 		(uuid "da5558a5-0b31-414b-8a73-a9dc0d24e5a0")
+	)
+	(wire
+		(pts
+			(xy 226.06 36.83) (xy 250.19 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db337e31-c372-4234-b0c8-6d27488cac45")
 	)
 	(wire
 		(pts
@@ -3548,6 +3684,16 @@
 	)
 	(wire
 		(pts
+			(xy 226.06 29.21) (xy 226.06 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e118c0b1-e9a6-409c-9e40-c08e7c3c311d")
+	)
+	(wire
+		(pts
 			(xy 205.74 138.43) (xy 205.74 143.51)
 		)
 		(stroke
@@ -3588,13 +3734,13 @@
 	)
 	(wire
 		(pts
-			(xy 247.65 64.77) (xy 250.19 64.77)
+			(xy 226.06 64.77) (xy 250.19 64.77)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ea481735-1740-430a-a1d3-29be8fe93630")
+		(uuid "e95fcc21-5d79-492a-bf04-14e3d7416d6d")
 	)
 	(wire
 		(pts
@@ -3705,6 +3851,17 @@
 			)
 		)
 		(uuid "e3ba8651-45c9-47d6-b30f-7fed20754e34")
+	)
+	(label "FAN_12V"
+		(at 228.6 36.83 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "19f0ad75-dde6-471f-81fa-504d2be4c3c4")
 	)
 	(label "+5VSB"
 		(at 164.465 38.1 180)
@@ -3973,6 +4130,29 @@
 	(netclass_flag ""
 		(length 2.54)
 		(shape round)
+		(at 228.6 50.8 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5dc76d28-f350-46e5-ba82-a9e782aa9a62")
+		(property "Netclass" "12V_1A"
+			(at 229.2985 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
 		(at 145.415 38.1 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4192,6 +4372,130 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
 					(reference "#PWR0329")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Fuse")
+		(at 226.06 25.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0d2f72a2-f51d-48f0-a7fc-71a0a9fad7cf")
+		(property "Reference" "F5"
+			(at 228.6 24.1299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Bourns MF-RHT100 1A hold"
+			(at 228.6 26.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_Bourns_MF-RHT100"
+			(at 224.282 25.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 226.06 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LCSC #C92887"
+			(at 226.06 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" ""
+			(at 226.06 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" ""
+			(at 226.06 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" ""
+			(at 226.06 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 226.06 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 226.06 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C92887"
+			(at 226.06 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "b7a9fae5-01ef-4be9-8d58-2c9a6c107d82")
+		)
+		(pin "1"
+			(uuid "fbf2c93d-c844-48f9-9924-f41de406b1ed")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "F5")
 					(unit 1)
 				)
 			)
@@ -5014,73 +5318,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+12V")
-		(at 247.65 64.77 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "22882882-0593-4339-84e9-31c9b7261846")
-		(property "Reference" "#PWR0210"
-			(at 251.46 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+12V"
-			(at 243.84 64.7699 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 247.65 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 247.65 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 247.65 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6635398a-109b-47ad-9b87-48c464a36688")
-		)
-		(instances
-			(project "sbc_8088"
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "#PWR0210")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 247.65 58.42 270)
 		(unit 1)
@@ -5266,6 +5503,131 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
 					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 170.18 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "27952131-1d45-48d3-b9b2-7fbb5b8f890d")
+		(property "Reference" "C74"
+			(at 172.72 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 172.72 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 170.18 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 170.18 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LCSC #C371122"
+			(at 170.18 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" ""
+			(at 170.18 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" ""
+			(at 170.18 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" ""
+			(at 170.18 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 170.18 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 170.18 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C371122"
+			(at 170.18 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5359b4da-447e-4db7-8b25-05a4468942e1")
+		)
+		(pin "2"
+			(uuid "3779921d-b43b-4d4a-97d5-bf5c9be888e7")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C74")
 					(unit 1)
 				)
 			)
@@ -7069,6 +7431,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+12V")
+		(at 226.06 21.59 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "641d1988-6e74-4cdd-895c-1d7a16308ac1")
+		(property "Reference" "#PWR0158"
+			(at 226.06 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+12V"
+			(at 226.06 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 226.06 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 226.06 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 226.06 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1579c2cf-1964-4a99-bacc-7565e781beab")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "#PWR0158")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 175.26 87.63 0)
 		(unit 1)
@@ -8200,6 +8628,131 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Polarized_Small_US")
+		(at 179.07 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9710acb7-d59a-48ba-9b75-8c5c1fe41725")
+		(property "Reference" "C75"
+			(at 181.61 144.3482 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7UF 16V 20%"
+			(at 181.61 146.8882 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_4x4.5"
+			(at 179.07 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 179.07 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LCSC #C371122"
+			(at 179.07 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" ""
+			(at 179.07 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" ""
+			(at 179.07 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" ""
+			(at 179.07 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 179.07 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 179.07 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C371122"
+			(at 179.07 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "69ed4387-0b41-4bd8-858d-e40b224c4ea0")
+		)
+		(pin "2"
+			(uuid "349bf590-20e9-4dc2-909a-58fcf4890a33")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
+					(reference "C75")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+12V")
 		(at 63.5 33.02 0)
 		(unit 1)
@@ -8327,73 +8880,6 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
 					(reference "#PWR0146")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+12V")
-		(at 247.65 50.8 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a7707370-4f14-4764-a61d-471094b7af83")
-		(property "Reference" "#PWR0160"
-			(at 251.46 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+12V"
-			(at 243.84 50.7999 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 247.65 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 247.65 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 247.65 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "561ca260-c37b-40b0-8bdf-24514305fae2")
-		)
-		(instances
-			(project "sbc_8088"
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "#PWR0160")
 					(unit 1)
 				)
 			)
@@ -8895,73 +9381,6 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
 					(reference "C68")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+12V")
-		(at 247.65 36.83 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b985f211-f99f-40ed-a6f5-8d2fb0929ebf")
-		(property "Reference" "#PWR0158"
-			(at 251.46 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+12V"
-			(at 243.84 36.8299 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 247.65 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 247.65 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 247.65 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b5aaeb35-44ba-45d0-8b67-0286cf84e3a5")
-		)
-		(instances
-			(project "sbc_8088"
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/358c98de-0d7c-4d65-8641-e21576518f6e"
-					(reference "#PWR0158")
 					(unit 1)
 				)
 			)

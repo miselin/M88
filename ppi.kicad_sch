@@ -7075,7 +7075,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C706316 "
+		(property "Description" "LCSC #C706383"
 			(at 251.46 55.88 0)
 			(effects
 				(font
@@ -7129,7 +7129,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C706316 "
+		(property "LCSC Part #" "C706383"
 			(at 251.46 55.88 0)
 			(effects
 				(font

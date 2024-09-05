@@ -4423,7 +4423,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C92887"
+		(property "Description" "LCSC #C3760254"
 			(at 226.06 25.4 0)
 			(effects
 				(font
@@ -4441,7 +4441,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
+		(property "Manufacturer_Name" "Bourns"
 			(at 226.06 25.4 0)
 			(effects
 				(font
@@ -4450,7 +4450,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" ""
+		(property "Manufacturer_Part_Number" "MF-RHT100-0"
 			(at 226.06 25.4 0)
 			(effects
 				(font
@@ -4477,7 +4477,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C92887"
+		(property "LCSC Part #" "C3760254"
 			(at 226.06 25.4 0)
 			(effects
 				(font
@@ -5155,7 +5155,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_1210_3225Metric"
 			(at 60.706 56.134 90)
 			(effects
 				(font
@@ -5173,7 +5173,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C723424 "
+		(property "Description" "LCSC #C620660"
 			(at 59.69 55.88 0)
 			(effects
 				(font
@@ -5227,7 +5227,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C723424 "
+		(property "LCSC Part #" "C620660"
 			(at 59.69 55.88 0)
 			(effects
 				(font
@@ -6157,7 +6157,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_1210_3225Metric"
 			(at 112.776 165.354 90)
 			(effects
 				(font
@@ -6175,7 +6175,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C723424 "
+		(property "Description" "LCSC #C620660"
 			(at 111.76 165.1 0)
 			(effects
 				(font
@@ -6229,7 +6229,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C723424 "
+		(property "LCSC Part #" "C620660"
 			(at 111.76 165.1 0)
 			(effects
 				(font
@@ -6783,7 +6783,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_1210_3225Metric"
 			(at 125.476 43.434 90)
 			(effects
 				(font
@@ -6801,7 +6801,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C723424 "
+		(property "Description" "LCSC #C620660"
 			(at 124.46 43.18 0)
 			(effects
 				(font
@@ -6855,7 +6855,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C723424 "
+		(property "LCSC Part #" "C620660"
 			(at 124.46 43.18 0)
 			(effects
 				(font
@@ -6923,7 +6923,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C7541562"
+		(property "Description" "LCSC #C587701"
 			(at 146.05 97.79 0)
 			(effects
 				(font
@@ -6941,7 +6941,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
+		(property "Manufacturer_Name" "Molex"
 			(at 146.05 97.79 0)
 			(effects
 				(font
@@ -6950,7 +6950,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" ""
+		(property "Manufacturer_Part_Number" "44206-0007"
 			(at 146.05 97.79 0)
 			(effects
 				(font
@@ -6977,7 +6977,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C7541562"
+		(property "LCSC Part #" "C587701"
 			(at 146.05 97.79 0)
 			(effects
 				(font
@@ -8086,7 +8086,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_1210_3225Metric"
 			(at 98.806 56.134 90)
 			(effects
 				(font
@@ -8104,7 +8104,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C723424 "
+		(property "Description" "LCSC #C620660"
 			(at 97.79 55.88 0)
 			(effects
 				(font
@@ -8158,7 +8158,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C723424 "
+		(property "LCSC Part #" "C620660"
 			(at 97.79 55.88 0)
 			(effects
 				(font
@@ -8425,7 +8425,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C2687079"
+		(property "Description" "LCSC #C3761895"
 			(at 83.82 153.67 0)
 			(effects
 				(font
@@ -8443,7 +8443,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
+		(property "Manufacturer_Name" "Bourns"
 			(at 83.82 153.67 0)
 			(effects
 				(font
@@ -8452,7 +8452,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" ""
+		(property "Manufacturer_Part_Number" "MF-RHT200-0"
 			(at 83.82 153.67 0)
 			(effects
 				(font
@@ -8479,7 +8479,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C2687079"
+		(property "LCSC Part #" "C3761895"
 			(at 83.82 153.67 0)
 			(effects
 				(font
@@ -8549,7 +8549,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C92887"
+		(property "Description" "LCSC #C3760254"
 			(at 77.47 40.64 0)
 			(effects
 				(font
@@ -8567,7 +8567,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
+		(property "Manufacturer_Name" "Bourns"
 			(at 77.47 40.64 0)
 			(effects
 				(font
@@ -8576,7 +8576,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" ""
+		(property "Manufacturer_Part_Number" "MF-RHT100-0"
 			(at 77.47 40.64 0)
 			(effects
 				(font
@@ -8603,7 +8603,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C92887"
+		(property "LCSC Part #" "C3760254"
 			(at 77.47 40.64 0)
 			(effects
 				(font
@@ -10254,7 +10254,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C92887"
+		(property "Description" "LCSC #C3760254"
 			(at 87.63 40.64 0)
 			(effects
 				(font
@@ -10272,7 +10272,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
+		(property "Manufacturer_Name" "Bourns"
 			(at 87.63 40.64 0)
 			(effects
 				(font
@@ -10281,7 +10281,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" ""
+		(property "Manufacturer_Part_Number" "MF-RHT100-0"
 			(at 87.63 40.64 0)
 			(effects
 				(font
@@ -10308,7 +10308,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C92887"
+		(property "LCSC Part #" "C3760254"
 			(at 87.63 40.64 0)
 			(effects
 				(font

@@ -2966,7 +2966,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C114529 "
+		(property "Description" "LCSC #C114529"
 			(at 212.09 66.04 0)
 			(effects
 				(font
@@ -3522,7 +3522,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C114529 "
+		(property "Description" "LCSC #C114529"
 			(at 210.82 40.64 0)
 			(effects
 				(font
@@ -4821,7 +4821,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C114529 "
+		(property "Description" "LCSC #C114529"
 			(at 212.09 76.2 0)
 			(effects
 				(font

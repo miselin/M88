@@ -4712,7 +4712,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C114563 "
+		(property "Description" "LCSC #C309660"
 			(at 86.36 120.65 0)
 			(effects
 				(font
@@ -4766,7 +4766,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C114563 "
+		(property "LCSC Part #" "C309660"
 			(at 86.36 120.65 0)
 			(effects
 				(font
@@ -5352,7 +5352,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C114563 "
+		(property "Description" "LCSC #C309660"
 			(at 86.36 140.97 0)
 			(effects
 				(font
@@ -5406,7 +5406,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C114563 "
+		(property "LCSC Part #" "C309660"
 			(at 86.36 140.97 0)
 			(effects
 				(font
@@ -5898,7 +5898,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C114563 "
+		(property "Description" "LCSC #C309660"
 			(at 189.23 106.68 0)
 			(effects
 				(font
@@ -5952,7 +5952,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C114563 "
+		(property "LCSC Part #" "C309660"
 			(at 189.23 106.68 0)
 			(effects
 				(font
@@ -6144,7 +6144,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C114563 "
+		(property "Description" "LCSC #C309660"
 			(at 189.23 127 0)
 			(effects
 				(font
@@ -6198,7 +6198,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C114563 "
+		(property "LCSC Part #" "C309660"
 			(at 189.23 127 0)
 			(effects
 				(font

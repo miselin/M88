@@ -4904,7 +4904,7 @@
 				)
 			)
 		)
-		(property "Value" "1A PTC fuse"
+		(property "Value" "Bourns MF-RHT100 1A hold"
 			(at 60.96 26.67 90)
 			(effects
 				(font
@@ -4930,7 +4930,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C92887"
+		(property "Description" "LCSC #C3760254"
 			(at 60.96 30.48 0)
 			(effects
 				(font
@@ -4948,7 +4948,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
+		(property "Manufacturer_Name" "Bourns"
 			(at 60.96 30.48 0)
 			(effects
 				(font
@@ -4957,7 +4957,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" ""
+		(property "Manufacturer_Part_Number" "MF-RHT100-0"
 			(at 60.96 30.48 0)
 			(effects
 				(font
@@ -4984,7 +4984,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C92887"
+		(property "LCSC Part #" "C3760254"
 			(at 60.96 30.48 0)
 			(effects
 				(font

@@ -4930,7 +4930,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C3760254"
+		(property "Description" "LCSC #C3760254 (Bourns) or LCSC #C2687078"
 			(at 60.96 30.48 0)
 			(effects
 				(font
@@ -4984,7 +4984,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C3760254"
+		(property "LCSC Part #" "C2687078"
 			(at 60.96 30.48 0)
 			(effects
 				(font

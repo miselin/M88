@@ -1,4 +1,4 @@
-# Single-Board 8088 Computer - ROMs / Programs
+# The M88 Computer - ROMs / Programs
 
 Run `make` to build.
 

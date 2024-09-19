@@ -25,6 +25,8 @@ on other systems, at this stage.
 
 ## Licensing
 
-The computer design and schematics are licensed as CC BY-SA 4.0.
+The computer design and schematics are licensed under the terms of the CERN Open Hardware Licence
+Version 2 - Permissive license, which can be found in `LICENSE.txt`.
 
-The software under the `programs` directory is licensed under the MIT license.
+The software under the `programs` directory is licensed under the MIT license, which can be found
+in `programs/LICENSE.txt`.

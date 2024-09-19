@@ -1,0 +1,216 @@
+
+(rules PCB sbc_8088
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 75)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 41311)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 5.0)
+    )
+    (layer_rule In1.Cu
+      (active off)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+    (layer_rule In2.Cu
+      (active off)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 5.0)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clearance 200.0)
+    (clearance 125.0 (type smd_to_turn_gap))
+    (clearance 50.0 (type smd))
+    (clearance 200.0 (type "kicad_default"))
+    (clearance 200.0 (type "12V_1A"))
+    (clearance 200.0 (type "5V_2A"))
+    (clearance 150.0 (type "Addr Bus"))
+    (clearance 150.0 (type "Data Bus"))
+    (clearance 200.0 (type Power))
+  )
+  (padstack "Via[0-3]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle In2.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-3]_800:400_um" "Via[0-3]_800:400_um" default
+  )
+  (via 
+    "Via[0-3]_800:400_um-kicad_default" "Via[0-3]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-3]_800:400_um-12V_1A" "Via[0-3]_800:400_um" "12V_1A"
+  )
+  (via 
+    "Via[0-3]_800:400_um-5V_2A" "Via[0-3]_800:400_um" "5V_2A"
+  )
+  (via 
+    "Via[0-3]_800:400_um-Addr Bus" "Via[0-3]_800:400_um" "Addr Bus"
+  )
+  (via 
+    "Via[0-3]_800:400_um-Data Bus" "Via[0-3]_800:400_um" "Data Bus"
+  )
+  (via 
+    "Via[0-3]_800:400_um-Power" "Via[0-3]_800:400_um" Power
+  )
+  (via_rule
+    default "Via[0-3]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-3]_800:400_um-kicad_default"
+  )
+  (via_rule
+    "12V_1A" "Via[0-3]_800:400_um-12V_1A"
+  )
+  (via_rule
+    "5V_2A" "Via[0-3]_800:400_um-5V_2A"
+  )
+  (via_rule
+    "Addr Bus" "Via[0-3]_800:400_um-Addr Bus"
+  )
+  (via_rule
+    "Data Bus" "Via[0-3]_800:400_um-Data Bus"
+  )
+  (via_rule
+    Power "Via[0-3]_800:400_um-Power"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "/8088_NMI" /RESET /IRQ2 "/8088_INTR" "/8088_INTA#" "/8088_TEST#" "/8088_CLK" "/8088_RESET"
+    "/8088_READY" "/8088_ALE" "/8088_DEN#" "/8088_DT{slash}R#" "/8088_IO{slash}M#" "/8088_WR#" "/8088_HLDA" "/8088_HOLD"
+    "/8088_RD#" "/RAM_CS#" "/8284_PCLK" "/8284_OSC" "unconnected-(U5-Q7-Pad12)" "unconnected-(U5-Q6-Pad13)" "unconnected-(U5-Q5-Pad14)" "unconnected-(U5-Q4-Pad15)"
+    "/BIOS_ROM_CS#" "/Bus Controller/IO#{slash}M" /IR15 /IR14 /IR13 /IR12 /IR11 /IR10
+    /IR9 /IR8 /IR7 /IR6 /IR5 /IR4 /IR3 /IR1
+    /IR0 "/Programmable Interval Timer/G0" "/Programmable Interval Timer/G1" "/PIC_M_CS#" "/Interrupt Controller/CAS0" "/Interrupt Controller/CAS1" "/Interrupt Controller/CAS2" /IR2
+    "/PIC_S_CS#" "/CLK_1.19MHz" "/Programmable Interval Timer/OUT1" "/Programmable Interval Timer/OUT2" "/PIT_CS#" "/KB Controller/KB_DATA" "/KB Controller/KB_CLOCK" "/KB Controller/MOUSE_DATA"
+    "/KB Controller/MOUSE_CLOCK" "/KB Controller/TL_EA" "/KB Controller/TH_SS" "/KB Controller/TH_PROG" "/KB Controller/TH_SSPP" "/KB Controller/XTAL1" "/KBC_CS#" "unconnected-(J4--5V-Pad5)"
+    "/KB Controller/MOUSE_DATA_A" "/KB Controller/MOUSE_CLOCK_A" "/KB Controller/KB_CLOCK_A" "/KB Controller/KB_DATA_A" "Net-(J3-PS_ON#)" +3.3V "-12V" "unconnected-(J3-NC-Pad20)"
+    "/DMA Controller/EOP#" /~{MEMR} /~{MEMW} /BUSEN# "/DMA_AEN" /~{IOW} /~{IOR} "/DMA Controller/READY"
+    "/DMA Controller/ADSTB" "/DMA_CS#" "unconnected-(J4-UNUSED-Pad8)" /IRQ7 /IRQ6 /IRQ5 /IRQ4 /IRQ3
+    "/ISA_RDY" "unconnected-(J5--5V-Pad5)" "unconnected-(J5-UNUSED-Pad8)" "unconnected-(J6--5V-Pad5)" "unconnected-(J6-UNUSED-Pad8)" "/8088_MN{slash}~{MX}" /DACK2 /DACK3
+    /DREQ3 /DREQ2 /DREQ1 /DREQ0 /DACK1 /DACK0 "Net-(D1-A)" "Net-(D2-A)"
+    /+5VSB "/Bus Controller/IO_0x00_CS#" "Net-(U8-Pad3)" "/Bus Controller/IO_0x10_CS#" "Net-(U8-Pad10)" "/Bus Controller/~{MEM_ENABLE}" "/Bus Controller/~{A8..15_ZERO}" "/ISA_TC"
+    "/SPKR_GATE" "unconnected-(U19-Pad10)" "unconnected-(U19-Pad11)" "unconnected-(J1-Pad2)" "unconnected-(J1-Pad6)" "Net-(U27-X1)" "unconnected-(J2-Pad2)" "unconnected-(J2-Pad6)"
+    "Net-(U17-~{SP}{slash}~{EN})" "Net-(U16-~{SP}{slash}~{EN})" "Net-(U27-X2)" "Net-(U14-Pad3)" "Net-(U10-Pad6)" "unconnected-(U10-Pad8)" "unconnected-(U10-Pad9)" "unconnected-(U10-Pad10)"
+    "unconnected-(U10-Pad12)" "unconnected-(U10-Pad13)" "unconnected-(U11-Pad1)" "unconnected-(U11-Pad2)" "unconnected-(U11-Pad3)" "Net-(U11-Pad4)" "unconnected-(U11-Pad11)" "unconnected-(U11-Pad12)"
+    "unconnected-(U11-Pad13)" "/Bus Controller/~{IS_IO}" "unconnected-(U13-~{S3}-Pad4)" "unconnected-(U13-~{S5}-Pad6)" "unconnected-(U13-~{S7}-Pad8)" "unconnected-(U13-~{S9}-Pad10)" "unconnected-(U13-~{S11}-Pad13)" "unconnected-(U13-~{S12}-Pad14)"
+    "unconnected-(U13-~{S13}-Pad15)" "unconnected-(U13-~{S14}-Pad16)" "unconnected-(U14-Pad4)" "unconnected-(U14-Pad5)" "unconnected-(U14-Pad6)" "Net-(U14-Pad8)" "unconnected-(U19-Pad12)" "unconnected-(U19-Pad13)"
+    "unconnected-(U20-SYNC-Pad11)" "unconnected-(U20-P20-Pad21)" "unconnected-(U20-P21-Pad22)" "unconnected-(U20-P12-Pad29)" "unconnected-(U20-P13-Pad30)" "unconnected-(U20-P14-Pad31)" "unconnected-(U20-P15-Pad32)" "unconnected-(U20-P16-Pad33)"
+    "unconnected-(U20-P17-Pad34)" "Net-(U22-CLK)" "unconnected-(U21-Pad8)" "unconnected-(U21-Pad9)" "unconnected-(U21-Pad10)" "unconnected-(U21-Pad11)" "Net-(U24-Pad3)" "Net-(U24-Pad6)"
+    "Net-(U24-Pad8)" "Net-(U24-Pad11)" "Net-(U26A-D)" "unconnected-(U26B-~{Q}-Pad8)" "unconnected-(U26B-Q-Pad9)" "unconnected-(U27-EFI-Pad14)" "/Bus Controller/A12+A13" "/Bus Controller/A14+A15"
+    "/Bus Controller/A8+A9" "/Bus Controller/A12+A13+A14+A15" "/Bus Controller/A10+A11" "/Bus Controller/A8+A19+A10+A11" "Net-(U30-CS2)" "Net-(U31-CS2)" "Net-(U32-CS2)" "Net-(U33-CS2)"
+    "/RAM/~{RAM_B_CS}" "/RAM/~{RAM_C_CS}" "/RAM/~{RAM_D_CS}" "/RAM/~{RAM_A_CS}" "unconnected-(U30-NC-Pad1)" "unconnected-(U31-NC-Pad1)" "unconnected-(U32-NC-Pad1)" "unconnected-(U33-NC-Pad1)"
+    "unconnected-(U28B-O1-Pad11)" "unconnected-(U28B-O3-Pad9)" "unconnected-(U28B-O2-Pad10)" "unconnected-(U28B-O0-Pad12)" "/DMA_PAGE_CS#" "/DMA Controller/~{DMA_AEN}" "Net-(R61-Pad1)" "Net-(R62-Pad1)"
+    "/7SEG_CS#" "Net-(U21-Pad5)" "/POST 7-Segment/LATCH_EN" "Net-(U35-D)" "Net-(U35-f)" "Net-(U35-c)" "Net-(U35-e)" "Net-(U35-g)"
+    "Net-(U35-b)" "Net-(U35-a)" "unconnected-(U35-Rbo-Pad4)" "Net-(U35-A)" "Net-(U35-d)" "Net-(U35-B)" "Net-(U35-C)" "unconnected-(U37-~{Q2}-Pad11)"
+    "unconnected-(U37-~{Q3}-Pad8)" "unconnected-(U37-~{Q1}-Pad14)" "unconnected-(U37-~{Q0}-Pad1)"
+    (clearance_class "kicad_default")
+    (via_rule "kicad_default")
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "12V_1A"
+    +12V
+    (clearance_class "12V_1A")
+    (via_rule "12V_1A")
+    (rule
+      (width 300.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "5V_2A"
+    +5V
+    (clearance_class "5V_2A")
+    (via_rule "5V_2A")
+    (rule
+      (width 800.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "Addr Bus"
+    "/8088_A14" "/8088_A13" "/8088_A12" "/8088_A11" "/8088_A10" "/8088_A9" "/8088_A8" "/8088_A19"
+    "/8088_A18" "/8088_A17" "/8088_A16" "/8088_A15" /A14 /A12 /A7 /A6
+    /A5 /A4 /A3 /A2 /A1 /A0 /A10 /A11
+    /A9 /A8 /A13 /A15 /A16 /A17 /A18 /A19
+    (clearance_class "Addr Bus")
+    (via_rule "Addr Bus")
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "Data Bus"
+    "/8088_AD7" "/8088_AD6" "/8088_AD5" "/8088_AD4" "/8088_AD3" "/8088_AD2" "/8088_AD1" "/8088_AD0"
+    /D0 /D1 /D2 /D3 /D4 /D5 /D6 /D7
+    (clearance_class "Data Bus")
+    (via_rule "Data Bus")
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class Power
+    GND
+    (clearance_class Power)
+    (via_rule Power)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

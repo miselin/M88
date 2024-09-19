@@ -30,3 +30,6 @@ fp-info-cache
 
 # Production directories with BOMs/gerbers
 production/
+
+# Datasheets (not licensed for redistribution)
+datasheets/

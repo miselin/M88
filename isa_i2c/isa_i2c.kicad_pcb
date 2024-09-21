@@ -4531,7 +4531,9 @@
 			)
 		)
 		(path "/3aa9d33e-bdb7-41fb-8a53-0d3fa2a5990e")
-		(attr exclude_from_pos_files exclude_from_bom)
+		(sheetname "Root")
+		(sheetfile "isa_i2c.kicad_sch")
+		(attr exclude_from_pos_files)
 		(fp_line
 			(start -78.8 -5.08)
 			(end -78.8 3.85)

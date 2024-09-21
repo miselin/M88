@@ -5,12 +5,16 @@
 \usepackage{makeidx}
 \usepackage[T1]{fontenc}
 \usepackage{tgpagella}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
 
 \usepackage{fontspec}
 \setmonofont{Courier Prime}
 
 \newfontfamily\codefamily{BigBlue}
 \DeclareTextFontCommand{\codefont}{\codefamily}
+
+\newcommand{\forceindent}[1][3em]{\leavevmode{\parindent=#1\indent}}
 
 % facilitates the creation of memory maps. Start address at the bottom, end address at the top.
 % syntax: \memsection{end address}{start address}{height in lines}{text in box}
@@ -25,10 +29,22 @@
     \bitbox{16}{#4} % print box with caption
 }
 
+\ExplSyntaxOn
+\cs_new:Npn \m88 {
+    {\codefamily M88}
+}
+\ExplSyntaxOff
+\newcommand{\itwoc}{I\textsuperscript{2}C}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, text width=3cm, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, text width=3cm, draw=black]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, text width=3cm, draw=black]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, text width=3cm, aspect=3, draw=black]
+\tikzstyle{arrow} = [thick,->,>=stealth]
 
 \makeindex
 
-\title{The {\codefamily M88} Computer Manual}
+\title{The \m88 Computer Manual}
 \author{Matthew Iselin}
 \date{}
 
@@ -44,10 +60,10 @@
 
 \newpage
 
-\part{The {\codefamily M88} Computer}
+\part{The \m88 Computer}
 
-\section{What is the {\codefamily M88} Computer?}
-The {\codefamily M88} Computer is a computer designed around the Intel 8088 processor.
+\section{What is the \m88 Computer?}
+The \m88 Computer is a computer designed around the Intel 8088 processor.
 It is loosely based on the IBM PC, but with a few modern touches and simplifications
 to make it easier to build and understand.
 
@@ -55,7 +71,7 @@ The computer was designed with a single goal in mind: to run Sid Meier's Civiliz
 I achieved that goal, and now I'm sharing the design with the world.
 
 \section{Getting Started}
-The {\codefamily M88} Computer is optimized for production using \href{https://jlcpcb.com}{JLCPCB's}
+The \m88 Computer is optimized for production using \href{https://jlcpcb.com}{JLCPCB's}
 PCB Assembly services and \href{https://lcsc.com}{LCSC's} component sourcing. For this reason,
 many of the passive components are surface-mount rather than through-hole. Even so, it is
 possible to hand-solder the motherboard if you are so inclined.
@@ -71,7 +87,7 @@ required ICs. A system ROM is required and can be downloaded from the same GitHu
 The ATTiny system management controller will also need to be programmed.
 
 \section{Required ICs}
-The {\codefamily M88} Computer requires the following ICs:
+The \m88 Computer requires the following ICs:
 \begin{itemize}
     \item 2x Intel 8284 clock generator
     \item 3x 74LS573 or equivalent
@@ -105,8 +121,19 @@ also need one 24 MHz crystal and one 14.31818 MHz crystal. You may experiment wi
 value of the 24 MHz crystal. The system may not operate correctly if the 14.31818 MHz
 crystal value is changed, as this drives time-keeping and the ISA bus clock.
 
+\subsubsection{Crystal Selection}
+The default crystals of 24 MHz and 14.31818 MHz provide a CPU clock of 8 MHZ and an ISA
+bus clock of 14.31818 MHz.
+
+Generally, it is not recommended to change the 14.31818 MHz crystal, as this drives the
+ISA bus and Programmable Interval Timer. Changing its frequency may require software changes
+to handle the different clock.
+
+The 24 MHz crystal can be changed to provide a different CPU clock. The CPU operates at
+1/3 the crystal frequency.
+
 \section{Required Peripherals}
-To use the {\codefamily M88} Computer, you will need the following:
+To use the \m88 Computer, you will need the following:
 \begin{itemize}
     \item A Micro-ATX case is \emph{strongly} recommended for grounding
     \item An ATX power supply
@@ -129,14 +156,14 @@ To use the {\codefamily M88} Computer, you will need the following:
 \end{itemize}
 
 \section{Differences from the IBM PC}
-The {\codefamily M88} Computer is not a 100\% clone of the IBM PC. It is missing a
+The \m88 Computer is not a 100\% clone of the IBM PC. It is missing a
 DMA controller, which limits the ability to use certain peripherals. The lack of a
 DMA controller is an intentional simplification.
 
-The {\codefamily M88} Computer uses SRAM instead of DRAM for the main memory. This
+The \m88 Computer uses SRAM instead of DRAM for the main memory. This
 further simplifies the design, but also makes it more expensive.
 
-The {\codefamily M88} Computer adds the second 8259 interrupt controller, which was
+The \m88 Computer adds the second 8259 interrupt controller, which was
 not present in the original IBM PC. This allows for more interrupts to be used,
 in particular IRQ \#12 which is used by PS/2 mice.
 
@@ -163,7 +190,7 @@ in particular IRQ \#12 which is used by PS/2 mice.
 
 \section{Memory Map}
 
-The {\codefamily M88} Computer has a maximum of 640 KiB of conventional memory. At
+The \m88 Computer has a maximum of 640 KiB of conventional memory. At
 least one SRAM chip is required in Slot \#1 to provide the first 64 KiB of memory.
 SRAM should be loaded in sequential slots. "Skipping" a slot will result in the system
 reporting less available memory than is actually installed.
@@ -171,7 +198,7 @@ reporting less available memory than is actually installed.
 The recommended SRAM chip is the \texttt{AS6C1008-55PCN}, but any pin-compatible 128 KiB SRAM
 chips can be used.
 
-The memory map for the {\codefamily M88} Computer is as follows:
+The memory map for the \m88 Computer is as follows:
 
 \begin{center}
 \begin{bytefield}{24}
@@ -233,15 +260,146 @@ should be investigated.
 \end{tabular}
 \end{center}
 
+\section{INT 88H: \m88 BIOS Services} \label{bios}
+The \m88 BIOS provides a number of services to the system. These services are accessed through the \texttt{INT 88H}
+software interrupt. This section outlines the services provided by the \m88 BIOS.
+
+\subsection{Function 24H: Write \itwoc{} Byte}
+\textbf{To call:}
+
+\forceindent \texttt{AH} = \texttt{24H} \\
+\forceindent \texttt{AL} = \itwoc{} device address
+\forceindent \texttt{BL} = \itwoc{} data byte
+
+\forceindent \textit{\textbf{Note:}} This service will block until the \itwoc{} bus is idle.
+
+\textbf{Returns:}
+
+\forceindent Nothing
+
+\subsection{Function 25H: Read \itwoc{} Byte}
+\textbf{To call:}
+
+\forceindent \texttt{AH} = \texttt{25H} \\
+\forceindent \texttt{AL} = \itwoc{} device address
+
+\forceindent \textit{\textbf{Note:}} This service will block until the \itwoc{} bus is idle.
+
+\textbf{Returns:}
+
+\forceindent \texttt{AL} = \itwoc{} data byte
+
 \newpage
 
 \part{Peripherals}
 
-\section{ISA-to-I2C Bridge}
+\section{ISA-to-\itwoc{} Bridge}
 
 \subsection{Introduction}
-The ISA-to-I2C bridge is a simple device that allows the {\codefamily M88} Computer to communicate
-with I2C devices.
+The ISA-to-\itwoc{} bridge is a simple device that allows the \m88 Computer to communicate
+with \itwoc{} devices.
+
+\subsection{Configuration}
+The ISA-to-\itwoc{} bridge card includes a DIP switch to configure the I/O port address. This provides
+Ports in the range \texttt{0x00} to \texttt{0x3FF} can be configured. Your configuration needs may
+vary depending on other peripherals installed on the system, but generally port \texttt{0x3A0} should
+work.
+
+Note that the DIP switch controls address bits 2 through 9, requiring the address to be aligned to
+a 4-byte boundary.
+
+The DIP switch positions for port \texttt{0x3A0} are as follows:
+
+\begin{center}
+    \begin{tabular}{ c|c|c|c|c|c|c|c|c }
+        \textbf{DIP Switch} & A9 & A8 & A7 & A6 & A5 & A4 & A3 & A2 \\
+        \hline
+        \textbf{Position} & 1 & 1 & 1 & 0 & 1 & 0 & 0 & 0
+    \end{tabular}
+\end{center}
+
+\subsection{Easy Mode}
+The \m88 System BIOS offers a simple interface for easy \itwoc{} communication. See Section \ref{bios} for details.
+This interface is recommended for most users rather than directly managing the PCF8584 IC on the card.
+
+\subsection{Low-Level Operation}
+The ISA-to-\itwoc{} bridge card is based around the PCF8584 IC, and is intended to be operated as the \itwoc
+master in the system. The card provides several 3-pin headers for easy access to the \texttt{SDA}, \texttt{SCL},
+and \texttt{GND} lines for multiple peripherals. A 5V power line is also provided for convenience.
+
+Throughout this section, the I/O port address is assumed to be \texttt{0x3A0}.
+
+You should insert a short delay between I/O operations to allow the PCF8584 to complete its operation. A single
+\texttt{IN} or \texttt{OUT} instruction is sufficient, as these both consume 8-10 clock cycles on the \m88's 8088
+CPU.
+
+\subsubsection{Initialization}
+Generally, the \m88 System BIOS will perform necessary initialization of the card during startup.
+However, you may still wish to perform your own initialization. Complete the following sequence of I/O writes
+to initialize the card:
+
+\begin{center}
+    \begin{tabular}{ c|c|c|c|c }
+        \textbf{Port} & \textbf{Value} & \textbf{Description} \\
+        \hline
+        \texttt{0x3A1} & \texttt{0x80} & Select register S1 and disable the serial interface. \\
+        \texttt{0x3A0} & \texttt{0x55} & Set the card's \itwoc{} address to \texttt{0xAA}. \\
+        \texttt{0x3A1} & \texttt{0xA0} & Select register S2. \\
+        \texttt{0x3A0} & \texttt{0x18} & Configure for a system clock of 8 MHz\footnotemark, \texttt{SCL} at 90 kHz. \\
+        \texttt{0x3A1} & \texttt{0xC1} & Enable the serial interface, shift the \itwoc{} bus to idle. \\
+    \end{tabular}
+\end{center}
+
+\footnotetext{If you have chosen a different crystal for the CPU clock, consult the \texttt{PCF8584} datasheet for the correct value for your resulting clock frequency.}
+
+\subsubsection{Checking Bus State} \label{i2cbridge:busstate}
+The PCF8584 provides a status register that can be read to determine the current state of the \itwoc{} bus.
+To check that the bus is idle, and therefore ready for communication, read port \texttt{0x3A1} and check
+the lowest bit. If the bit is clear, the bus is busy and you should wait before attempting to communicate.
+
+\begin{center}
+\begin{tikzpicture}[node distance=2cm]
+\node (start) [startstop] {Start};
+\node (read) [process, below of=start] {Read I/O Port \texttt{0x3A1}};
+\node (check) [decision, below of=read] {Is the bus busy?
+(Bit \#0 is zero?)};
+\node (stop) [startstop, below of=check] {Bus is Idle};
+
+\draw [arrow] (start) -- (read);
+\draw [arrow] (read) -- (check);
+\draw [arrow] (check) -- node[near start, anchor=west] {No} (stop);
+\draw [arrow] (check) -- ++(-4cm,0) |- node[near start, anchor=west] {Yes} (read);
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Transmitting Data}
+To transmit data to an \itwoc{} device, complete the following sequence of operations:
+
+\begin{center}
+\begin{tikzpicture}[node distance=2cm]
+\node (start) [startstop] {Start};
+\node (waitidle1) [process, below of=start] {Poll the bus state until it is idle, as described in Section \ref{i2cbridge:busstate}.};
+\node (add1) [process, below of=waitidle1] {Write the slave address to I/O Port \texttt{0x3A0}.};
+
+\node (stop) [startstop, below of=add1] {End};
+
+\draw [arrow] (start) -- (waitidle1);
+\draw [arrow] (waitidle1) -- (add1);
+% \draw [arrow] (check) -- node[near start, anchor=west] {No} (stop);
+% \draw [arrow] (check) -- ++(-4cm,0) |- node[near start, anchor=west] {Yes} (read);
+\end{tikzpicture}
+\end{center}
+
+
+\begin{center}
+    \begin{tabular}{ c|c|c|c|c }
+        \textbf{Port} & \textbf{Direction} & \textbf{Value} & \textbf{Description} \\
+        \hline
+        & & & \textit{Poll the bus state until it is idle, as described in Section \ref{i2cbridge:busstate}.} \\
+        \texttt{0x3A0} & W & \textit{slave address} & Set the destination slave address. \\
+        \texttt{0x3A1} & W & \texttt{0xC5} & Generate the \itwoc{} "START" condition and clock the slave address on the \itwoc{} bus. \\
+    \end{tabular}
+\end{center}
 
 \newpage
 

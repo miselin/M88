@@ -4,7 +4,7 @@
 \usepackage{bytefield}
 \usepackage{makeidx}
 \usepackage[T1]{fontenc}
-\usepackage{tgpagella}
+\usepackage[lining]{ebgaramond}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
 
@@ -262,32 +262,68 @@ should be investigated.
 
 \section{INT 88H: \m88 BIOS Services} \label{bios}
 The \m88 BIOS provides a number of services to the system. These services are accessed through the \texttt{INT 88H}
-software interrupt. This section outlines the services provided by the \m88 BIOS.
+software interrupt.
+
+The value of the AX register, and any input registers, will not be preserved across \m88 BIOS calls. All other registers
+will be preserved.
 
 \subsection{Function 24H: Write \itwoc{} Byte}
 \textbf{To call:}
 
-\forceindent \texttt{AH} = \texttt{24H} \\
-\forceindent \texttt{AL} = \itwoc{} device address
-\forceindent \texttt{BL} = \itwoc{} data byte
-
-\forceindent \textit{\textbf{Note:}} This service will block until the \itwoc{} bus is idle.
+\begin{tabular}{@{\hspace{2em}}l@{}l@{\hspace{2em}}l}
+{} & AH & = 24H \\
+{} & AL & = \itwoc{} device address \\
+{} & BL & = \itwoc{} data byte \\[\parskip]
+{} & \multicolumn{2}{@{}l}{\textit{\textbf{Note:}} This service will block until the \itwoc{} bus is idle.}
+\end{tabular}
 
 \textbf{Returns:}
 
-\forceindent Nothing
+\begin{tabular}{@{\hspace{2em}}l@{}l@{\hspace{2em}}l}
+{} & \multicolumn{2}{@{}l}{Nothing}
+\end{tabular}
 
 \subsection{Function 25H: Read \itwoc{} Byte}
 \textbf{To call:}
 
-\forceindent \texttt{AH} = \texttt{25H} \\
-\forceindent \texttt{AL} = \itwoc{} device address
-
-\forceindent \textit{\textbf{Note:}} This service will block until the \itwoc{} bus is idle.
+\begin{tabular}{@{\hspace{2em}}l@{}l@{\hspace{2em}}l}
+{} & AH & = 54H \\
+{} & AL & = \itwoc{} device address \\[\parskip]
+{} & \multicolumn{2}{@{}l}{\textit{\textbf{Note:}} This service will block until the \itwoc{} bus is idle.}
+\end{tabular}
 
 \textbf{Returns:}
 
-\forceindent \texttt{AL} = \itwoc{} data byte
+\begin{tabular}{@{\hspace{2em}}l@{}l@{\hspace{2em}}l}
+{} & AL & = \itwoc{} data byte
+\end{tabular}
+
+\subsection{Function 26H: Check \itwoc{} Bus State}
+\textbf{To call:}
+
+\begin{tabular}{@{\hspace{2em}}l@{}l@{\hspace{2em}}l}
+{} & AH & = 26H
+\end{tabular}
+
+\textbf{Returns:}
+
+\begin{tabular}{@{\hspace{2em}}l@{}l@{\hspace{2em}}l}
+{} & AL & = Zero if the \itwoc{} bus is idle, non-zero if busy.
+\end{tabular}
+
+\subsection{Function 27H: Set \itwoc{} Device Address}
+\textbf{To call:}
+
+\begin{tabular}{@{\hspace{2em}}l@{}l@{\hspace{2em}}l}
+{} & AH & = 27H \\
+{} & BL & = New \itwoc{} device address for the controller
+\end{tabular}
+
+\textbf{Returns:}
+
+\begin{tabular}{@{\hspace{2em}}l@{}l@{\hspace{2em}}l}
+{} & \multicolumn{2}{@{}l}{Nothing}
+\end{tabular}
 
 \newpage
 
@@ -300,7 +336,7 @@ The ISA-to-\itwoc{} bridge is a simple device that allows the \m88 Computer to c
 with \itwoc{} devices.
 
 \subsection{Configuration}
-The ISA-to-\itwoc{} bridge card includes a DIP switch to configure the I/O port address. This provides
+The ISA-to-\itwoc{} bridge card includes a DIP switch to configure the I/O port address.
 Ports in the range \texttt{0x00} to \texttt{0x3FF} can be configured. Your configuration needs may
 vary depending on other peripherals installed on the system, but generally port \texttt{0x3A0} should
 work.
@@ -323,8 +359,8 @@ The \m88 System BIOS offers a simple interface for easy \itwoc{} communication. 
 This interface is recommended for most users rather than directly managing the PCF8584 IC on the card.
 
 \subsection{Low-Level Operation}
-The ISA-to-\itwoc{} bridge card is based around the PCF8584 IC, and is intended to be operated as the \itwoc
-master in the system. The card provides several 3-pin headers for easy access to the \texttt{SDA}, \texttt{SCL},
+The ISA-to-\itwoc{} bridge card is based around the PCF8584 IC, and is designed to be operated as the \itwoc
+controller in the system. The card provides several 3-pin headers for easy access to the \texttt{SDA}, \texttt{SCL},
 and \texttt{GND} lines for multiple peripherals. A 5V power line is also provided for convenience.
 
 Throughout this section, the I/O port address is assumed to be \texttt{0x3A0}.
@@ -379,7 +415,7 @@ To transmit data to an \itwoc{} device, complete the following sequence of opera
 \begin{tikzpicture}[node distance=2cm]
 \node (start) [startstop] {Start};
 \node (waitidle1) [process, below of=start] {Poll the bus state until it is idle, as described in Section \ref{i2cbridge:busstate}.};
-\node (add1) [process, below of=waitidle1] {Write the slave address to I/O Port \texttt{0x3A0}.};
+\node (add1) [process, below of=waitidle1] {Write the target address to I/O Port \texttt{0x3A0}.};
 
 \node (stop) [startstop, below of=add1] {End};
 
@@ -396,8 +432,8 @@ To transmit data to an \itwoc{} device, complete the following sequence of opera
         \textbf{Port} & \textbf{Direction} & \textbf{Value} & \textbf{Description} \\
         \hline
         & & & \textit{Poll the bus state until it is idle, as described in Section \ref{i2cbridge:busstate}.} \\
-        \texttt{0x3A0} & W & \textit{slave address} & Set the destination slave address. \\
-        \texttt{0x3A1} & W & \texttt{0xC5} & Generate the \itwoc{} "START" condition and clock the slave address on the \itwoc{} bus. \\
+        \texttt{0x3A0} & W & \textit{target address} & Set the target device address. \\
+        \texttt{0x3A1} & W & \texttt{0xC5} & Generate the \itwoc{} "START" condition and clock the target address on the \itwoc{} bus. \\
     \end{tabular}
 \end{center}
 

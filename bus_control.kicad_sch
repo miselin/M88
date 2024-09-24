@@ -3260,10 +3260,6 @@
 		(uuid "9a90f6f9-370e-42f8-af66-fa834bde5120")
 	)
 	(no_connect
-		(at 151.13 90.17)
-		(uuid "a48193f8-7347-4255-9295-3e5d93f31d6c")
-	)
-	(no_connect
 		(at 378.46 78.74)
 		(uuid "b1ba9b8f-94f4-4e73-917a-9f8b6aa132a6")
 	)
@@ -6219,6 +6215,18 @@
 			(justify left)
 		)
 		(uuid "dbfeedba-ef0a-4961-a2a2-2c36ea38e9b2")
+	)
+	(hierarchical_label "I2C_CS#"
+		(shape output)
+		(at 151.13 90.17 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "de29b9fc-b153-484c-a4c1-fc80fb58a0e6")
 	)
 	(hierarchical_label "IO{slash}M#"
 		(shape input)

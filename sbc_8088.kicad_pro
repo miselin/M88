@@ -584,7 +584,6 @@
       "/Power Management/+12V_IN": "12V_1A",
       "/Power Management/+5V_IN": "5V_2A",
       "/Power Management/-12V_IN": "12V_1A",
-      "/Power Management/FAN_12V": "12V_1A",
       "GND": "Power",
       "Net-(F1-Pad1)": "5V_1A"
     },
@@ -885,6 +884,10 @@
     [
       "0e663061-fd9f-4de5-946e-4939a5fe656c",
       "Intel PPI (Emulation)"
+    ],
+    [
+      "92985909-edd1-4e84-8730-7207eccde18e",
+      "I2C Bus"
     ]
   ],
   "text_variables": {}

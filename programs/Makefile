@@ -15,7 +15,7 @@ ELF2BIN_DEPENDS := ${ELF2BIN_OBJS:.o=.d}
 
 ROM_OBJS := build/rom/rom.obj build/rom/optionrom.obj build/rom/isr.obj build/rom/kbc.obj build/rom/dma.obj build/rom/pic.obj
 ROM_OBJS += build/rom/pit.obj build/rom/bios.obj build/rom/fdc.obj build/rom/strio.obj build/rom/tables.obj build/rom/mem.obj
-ROM_OBJS += build/rom/string.obj build/rom/serial.obj build/rom/parallel.obj build/rom/logo.obj
+ROM_OBJS += build/rom/string.obj build/rom/serial.obj build/rom/parallel.obj build/rom/logo.obj build/rom/i2c.obj build/rom/exc.obj
 
 LD := ld
 OBJDUMP := objdump

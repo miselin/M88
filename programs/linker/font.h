@@ -3,6 +3,6 @@
 
 #include <stdint.h>
 
-uint8_t vgafont8[128 * 8];
+extern uint8_t vgafont8[128 * 8];
 
 #endif

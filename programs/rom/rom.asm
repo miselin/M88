@@ -24,6 +24,7 @@ extern configure_parallel
 extern test_dma
 extern logo
 extern end_logo
+extern configure_i2c
 
 section .entry
 
@@ -214,7 +215,14 @@ entry:
 
     call call_option_roms
 
-    ; POST #88 - Option ROMs called, about to call INT19
+    ; POST #13 - Option ROMs called, configuring I2C if present
+    mov al, 0x13
+    out 0xE0, al
+    out 0x80, al
+
+    call configure_i2c
+
+    ; POST #88 - about to call INT19
     mov al, 0x88
     out 0xE0, al
     out 0x80, al

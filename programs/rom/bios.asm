@@ -13,6 +13,7 @@ global int16
 global int17
 global int19
 global int1a
+global int88
 
 extern puts
 extern puthex
@@ -20,6 +21,8 @@ extern puthex8
 extern delay_ticks
 extern read_pit_counter
 extern kbc_sync_flags_leds
+extern i2c_send_byte
+extern i2c_send_str
 
 F_CF        equ 1 << 0
 F_PF        equ 1 << 2
@@ -621,7 +624,29 @@ int1a_01:
     mov [ds:0x6C], dx       ; ticks since midnight, low word
     mov [ds:0x6E], cx       ; ticks since midnight, high word
     pop ds
-    ret
+    iret
+
+int88:
+    ; INT 88 - M88 System Services
+
+    ; I2C send byte
+    cmp ah, 0x00
+    je int88_00
+
+    ; I2C send string
+    cmp ah, 0x01
+    je int88_01
+
+    iret
+
+int88_00:
+    call i2c_send_byte
+    iret
+
+int88_01:
+    call i2c_send_str
+    iret
+
 
 section .data
 

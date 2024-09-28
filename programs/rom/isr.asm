@@ -6,6 +6,11 @@ section .text
 global load_ivt
 global load_ivt_128
 
+extern int0
+extern int1
+extern int2
+extern int3
+extern int4
 extern int10
 extern int11
 extern int12
@@ -16,6 +21,7 @@ extern int16
 extern int17
 extern int19
 extern int1a
+extern int88
 
 extern timerirq
 extern kbirq
@@ -51,6 +57,21 @@ load_ivt:
 
   .after_default:
 
+  mov word [ds:0x0 * 4], int0
+  mov word [ds:0x0 * 4 + 2], ax
+
+  mov word [ds:0x1 * 4], int1
+  mov word [ds:0x1 * 4 + 2], ax
+
+  mov word [ds:0x2 * 4], int2
+  mov word [ds:0x2 * 4 + 2], ax
+
+  mov word [ds:0x3 * 4], int3
+  mov word [ds:0x3 * 4 + 2], ax
+
+  mov word [ds:0x4 * 4], int4
+  mov word [ds:0x4 * 4 + 2], ax
+
   mov word [ds:0x9 * 4], fixedaddr_int9
   mov word [ds:0x9 * 4 + 2], ax
 
@@ -74,6 +95,9 @@ load_ivt:
 
   mov word [ds:0x1a * 4], fixedaddr_int1a
   mov word [ds:0x1a * 4 + 2], ax
+
+  mov word [ds:0x88 * 4], int88
+  mov word [ds:0x88 * 4 + 2], ax
 
   cmp ax, 0xF000                                ; don't hook ROMBIOS / VGA interrupts if we're loaded as an option rom
   jne .not_biosrom
@@ -136,6 +160,7 @@ fixedaddr_emptyint:
 iret
 
 section .int5
+; print screen
 fixedaddr_int5:
 iret
 

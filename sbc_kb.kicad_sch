@@ -2374,6 +2374,12 @@
 		(uuid "39ffbffe-39dd-457e-b912-448b11690f05")
 	)
 	(junction
+		(at 260.35 81.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "63b750bc-49aa-4b5c-b3ff-5a403098c8d2")
+	)
+	(junction
 		(at 119.38 25.4)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2408,12 +2414,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d5c695c7-af9c-4d5c-832a-0c308cb24484")
-	)
-	(junction
-		(at 261.62 81.28)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f9d6cd67-b005-4cf1-9a95-d98d4881a71c")
 	)
 	(no_connect
 		(at 129.54 27.94)
@@ -2589,7 +2589,7 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 30.48) (xy 45.72 30.48)
+			(xy 25.4 30.48) (xy 36.83 30.48)
 		)
 		(stroke
 			(width 0)
@@ -2659,23 +2659,13 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 30.48) (xy 54.61 30.48)
+			(xy 44.45 30.48) (xy 54.61 30.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "1f68fd1d-8a6c-4b8d-8840-1194a5d6cc9b")
-	)
-	(wire
-		(pts
-			(xy 261.62 81.28) (xy 265.43 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "27675d72-0525-4073-bdff-7efbd9276fcf")
 	)
 	(wire
 		(pts
@@ -2959,6 +2949,16 @@
 	)
 	(wire
 		(pts
+			(xy 260.35 81.28) (xy 266.7 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6646044e-b394-4cab-8a9e-de22fb21cfc0")
+	)
+	(wire
+		(pts
 			(xy 231.14 148.59) (xy 246.38 148.59)
 		)
 		(stroke
@@ -3019,7 +3019,7 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 81.28) (xy 261.62 81.28)
+			(xy 256.54 81.28) (xy 260.35 81.28)
 		)
 		(stroke
 			(width 0)
@@ -3056,6 +3056,16 @@
 			(type default)
 		)
 		(uuid "7016787d-a7b1-4400-b896-18cc774902a6")
+	)
+	(wire
+		(pts
+			(xy 260.35 73.66) (xy 260.35 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "726c07ec-ac7d-46cf-bcd6-fb90a410195c")
 	)
 	(wire
 		(pts
@@ -3299,7 +3309,7 @@
 	)
 	(wire
 		(pts
-			(xy 273.05 81.28) (xy 284.48 81.28)
+			(xy 274.32 81.28) (xy 285.75 81.28)
 		)
 		(stroke
 			(width 0)
@@ -3723,7 +3733,7 @@
 		(uuid "11c1fde9-97a1-4444-9856-c6ed5376154b")
 	)
 	(label "KB_CLOCK"
-		(at 284.48 81.28 180)
+		(at 285.75 81.28 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3976,13 +3986,13 @@
 		(uuid "840592a6-7b67-4416-a2c3-6738adbb66fd")
 	)
 	(label "KB_CLOCK_L"
-		(at 259.08 81.28 90)
+		(at 259.08 81.28 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "884706c4-7278-43ab-8614-35bfabae33e7")
 	)
@@ -4342,7 +4352,7 @@
 	)
 	(symbol
 		(lib_id "Device:FerriteBead")
-		(at 49.53 30.48 90)
+		(at 40.64 30.48 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4351,7 +4361,7 @@
 		(fields_autoplaced yes)
 		(uuid "024ba6be-2df1-4ab3-a8ba-82c35c31f074")
 		(property "Reference" "FB1"
-			(at 49.4792 22.86 90)
+			(at 40.5892 22.86 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4359,7 +4369,7 @@
 			)
 		)
 		(property "Value" "FerriteBead"
-			(at 49.4792 25.4 90)
+			(at 40.5892 25.4 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4367,7 +4377,7 @@
 			)
 		)
 		(property "Footprint" "Inductor_SMD:L_1206_3216Metric"
-			(at 49.53 32.258 90)
+			(at 40.64 32.258 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4376,7 +4386,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 49.53 30.48 0)
+			(at 40.64 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4385,7 +4395,7 @@
 			)
 		)
 		(property "Description" "LCSC #C92887"
-			(at 49.53 30.48 0)
+			(at 40.64 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4394,7 +4404,7 @@
 			)
 		)
 		(property "Height" ""
-			(at 49.53 30.48 0)
+			(at 40.64 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4403,7 +4413,7 @@
 			)
 		)
 		(property "Manufacturer_Name" ""
-			(at 49.53 30.48 0)
+			(at 40.64 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4412,7 +4422,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" ""
-			(at 49.53 30.48 0)
+			(at 40.64 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4421,7 +4431,7 @@
 			)
 		)
 		(property "Mouser Part Number" ""
-			(at 49.53 30.48 0)
+			(at 40.64 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4430,7 +4440,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" ""
-			(at 49.53 30.48 0)
+			(at 40.64 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4439,7 +4449,7 @@
 			)
 		)
 		(property "LCSC Part #" "C92887"
-			(at 49.53 30.48 0)
+			(at 40.64 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5142,7 +5152,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 261.62 77.47 0)
+		(at 260.35 77.47 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5151,7 +5161,7 @@
 		(fields_autoplaced yes)
 		(uuid "1fd3a149-9264-4fb0-9897-f296b4a808a8")
 		(property "Reference" "R36"
-			(at 264.16 76.2 0)
+			(at 262.89 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5160,7 +5170,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 264.16 78.74 0)
+			(at 262.89 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5169,7 +5179,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 262.636 77.724 90)
+			(at 261.366 77.724 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5178,7 +5188,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 261.62 77.47 0)
+			(at 260.35 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5187,7 +5197,7 @@
 			)
 		)
 		(property "Description" "LCSC #C84376 "
-			(at 261.62 77.47 0)
+			(at 260.35 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5196,7 +5206,7 @@
 			)
 		)
 		(property "Height" ""
-			(at 261.62 77.47 0)
+			(at 260.35 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5205,7 +5215,7 @@
 			)
 		)
 		(property "Manufacturer_Name" ""
-			(at 261.62 77.47 0)
+			(at 260.35 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5214,7 +5224,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" ""
-			(at 261.62 77.47 0)
+			(at 260.35 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5223,7 +5233,7 @@
 			)
 		)
 		(property "Mouser Part Number" ""
-			(at 261.62 77.47 0)
+			(at 260.35 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5232,7 +5242,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" ""
-			(at 261.62 77.47 0)
+			(at 260.35 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5241,7 +5251,7 @@
 			)
 		)
 		(property "LCSC Part #" "C84376 "
-			(at 261.62 77.47 0)
+			(at 260.35 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8590,7 +8600,8 @@
 	)
 	(symbol
 		(lib_id "Device:FerriteBead")
-		(at 269.24 81.28 90)
+		(at 270.51 81.28 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8598,7 +8609,7 @@
 		(dnp no)
 		(uuid "c66223e7-102b-40e2-814e-bda82386a124")
 		(property "Reference" "FB2"
-			(at 269.1892 73.66 90)
+			(at 270.4592 88.9 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8606,7 +8617,7 @@
 			)
 		)
 		(property "Value" "FerriteBead"
-			(at 269.1892 76.2 90)
+			(at 270.4592 86.36 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8614,7 +8625,7 @@
 			)
 		)
 		(property "Footprint" "Inductor_SMD:L_1206_3216Metric"
-			(at 269.24 83.058 90)
+			(at 270.51 79.502 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8623,7 +8634,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 269.24 81.28 0)
+			(at 270.51 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8632,7 +8643,7 @@
 			)
 		)
 		(property "Description" "LCSC #C92887"
-			(at 269.24 81.28 0)
+			(at 270.51 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8641,7 +8652,7 @@
 			)
 		)
 		(property "Height" ""
-			(at 269.24 81.28 0)
+			(at 270.51 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8650,7 +8661,7 @@
 			)
 		)
 		(property "Manufacturer_Name" ""
-			(at 269.24 81.28 0)
+			(at 270.51 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8659,7 +8670,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" ""
-			(at 269.24 81.28 0)
+			(at 270.51 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8668,7 +8679,7 @@
 			)
 		)
 		(property "Mouser Part Number" ""
-			(at 269.24 81.28 0)
+			(at 270.51 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8677,7 +8688,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" ""
-			(at 269.24 81.28 0)
+			(at 270.51 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8686,7 +8697,7 @@
 			)
 		)
 		(property "LCSC Part #" "C92887"
-			(at 269.24 81.28 0)
+			(at 270.51 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8935,7 +8946,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 261.62 73.66 0)
+		(at 260.35 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8944,7 +8955,7 @@
 		(fields_autoplaced yes)
 		(uuid "d5c1b9bf-2a7f-4629-8aa4-d086fa35b066")
 		(property "Reference" "#PWR0314"
-			(at 261.62 77.47 0)
+			(at 260.35 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8953,7 +8964,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 261.62 68.58 0)
+			(at 260.35 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8961,7 +8972,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 261.62 73.66 0)
+			(at 260.35 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8970,7 +8981,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 261.62 73.66 0)
+			(at 260.35 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8979,7 +8990,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 261.62 73.66 0)
+			(at 260.35 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)

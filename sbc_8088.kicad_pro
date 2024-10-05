@@ -619,6 +619,10 @@
       {
         "netclass": "12V_1A",
         "pattern": "-12V"
+      },
+      {
+        "netclass": "12V_1A",
+        "pattern": "12V_FANS"
       }
     ]
   },
@@ -836,6 +840,10 @@
     [
       "358c98de-0d7c-4d65-8641-e21576518f6e",
       "Power Management"
+    ],
+    [
+      "efb6cba0-5032-4bc5-b666-40ce2e18a9bb",
+      "Single SRAM5"
     ],
     [
       "93dfc828-b49f-4967-b4e5-8966b969d123",

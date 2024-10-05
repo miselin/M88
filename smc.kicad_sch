@@ -1223,7 +1223,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 93.98) (xy 86.36 93.98)
+			(xy 55.88 93.98) (xy 71.12 93.98)
 		)
 		(stroke
 			(width 0)
@@ -1243,7 +1243,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 81.28) (xy 86.36 81.28)
+			(xy 55.88 81.28) (xy 71.12 81.28)
 		)
 		(stroke
 			(width 0)
@@ -1303,7 +1303,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 67.31) (xy 142.24 67.31)
+			(xy 138.43 67.31) (xy 147.32 67.31)
 		)
 		(stroke
 			(width 0)
@@ -1313,7 +1313,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 81.28) (xy 86.36 87.63)
+			(xy 71.12 81.28) (xy 71.12 86.36)
 		)
 		(stroke
 			(width 0)
@@ -1343,7 +1343,7 @@
 	)
 	(wire
 		(pts
-			(xy 153.035 67.31) (xy 153.035 68.58)
+			(xy 158.75 67.31) (xy 158.75 72.39)
 		)
 		(stroke
 			(width 0)
@@ -1403,7 +1403,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 93.98) (xy 86.36 90.17)
+			(xy 71.12 93.98) (xy 71.12 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1473,7 +1473,7 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 67.31) (xy 153.035 67.31)
+			(xy 152.4 67.31) (xy 158.75 67.31)
 		)
 		(stroke
 			(width 0)
@@ -1756,7 +1756,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 153.035 68.58 0)
+		(at 158.75 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1765,7 +1765,7 @@
 		(fields_autoplaced yes)
 		(uuid "058a4696-ac13-4512-889b-ccaeedfbf7d9")
 		(property "Reference" "#PWR0279"
-			(at 153.035 74.93 0)
+			(at 158.75 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1774,7 +1774,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 153.035 73.66 0)
+			(at 158.75 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1782,7 +1782,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 153.035 68.58 0)
+			(at 158.75 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1791,7 +1791,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 153.035 68.58 0)
+			(at 158.75 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1800,7 +1800,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 153.035 68.58 0)
+			(at 158.75 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1955,7 +1955,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 144.78 67.31 90)
+		(at 149.86 67.31 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1964,7 +1964,7 @@
 		(fields_autoplaced yes)
 		(uuid "1c44fc19-27ee-43fa-a105-9c30d4f07c20")
 		(property "Reference" "C59"
-			(at 144.7863 60.96 90)
+			(at 149.8663 60.96 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1972,7 +1972,7 @@
 			)
 		)
 		(property "Value" "0.1uF 20% Ceramic"
-			(at 144.7863 63.5 90)
+			(at 149.8663 63.5 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1980,7 +1980,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 144.78 67.31 0)
+			(at 149.86 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1989,7 +1989,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 144.78 67.31 0)
+			(at 149.86 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1998,7 +1998,7 @@
 			)
 		)
 		(property "Description" "LCSC #C1853649"
-			(at 144.78 67.31 0)
+			(at 149.86 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2007,7 +2007,7 @@
 			)
 		)
 		(property "Height" ""
-			(at 144.78 67.31 0)
+			(at 149.86 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2016,7 +2016,7 @@
 			)
 		)
 		(property "Manufacturer_Name" ""
-			(at 144.78 67.31 0)
+			(at 149.86 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2025,7 +2025,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" ""
-			(at 144.78 67.31 0)
+			(at 149.86 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2034,7 +2034,7 @@
 			)
 		)
 		(property "Mouser Part Number" ""
-			(at 144.78 67.31 0)
+			(at 149.86 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2043,7 +2043,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" ""
-			(at 144.78 67.31 0)
+			(at 149.86 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2052,7 +2052,7 @@
 			)
 		)
 		(property "LCSC Part #" "C1853649"
-			(at 144.78 67.31 0)
+			(at 149.86 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2143,7 +2143,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 91.44 87.63 0)
+		(at 76.2 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2152,7 +2152,7 @@
 		(fields_autoplaced yes)
 		(uuid "2f6db180-de73-4ce9-a2e3-b7be86814793")
 		(property "Reference" "J13"
-			(at 93.98 87.6299 0)
+			(at 78.74 86.3599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2161,7 +2161,7 @@
 			)
 		)
 		(property "Value" "FP Reset Switch"
-			(at 93.98 90.1699 0)
+			(at 78.74 88.8999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2170,7 +2170,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 91.44 87.63 0)
+			(at 76.2 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2179,7 +2179,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 91.44 87.63 0)
+			(at 76.2 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2188,7 +2188,7 @@
 			)
 		)
 		(property "Description" "LCSC #C124375"
-			(at 91.44 87.63 0)
+			(at 76.2 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2197,7 +2197,7 @@
 			)
 		)
 		(property "Height" ""
-			(at 91.44 87.63 0)
+			(at 76.2 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2206,7 +2206,7 @@
 			)
 		)
 		(property "Manufacturer_Name" ""
-			(at 91.44 87.63 0)
+			(at 76.2 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2215,7 +2215,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" ""
-			(at 91.44 87.63 0)
+			(at 76.2 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2224,7 +2224,7 @@
 			)
 		)
 		(property "Mouser Part Number" ""
-			(at 91.44 87.63 0)
+			(at 76.2 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2233,7 +2233,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" ""
-			(at 91.44 87.63 0)
+			(at 76.2 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2242,7 +2242,7 @@
 			)
 		)
 		(property "LCSC Part #" "C124375"
-			(at 91.44 87.63 0)
+			(at 76.2 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)

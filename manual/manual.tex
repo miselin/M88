@@ -11,7 +11,7 @@
 \usepackage{fontspec}
 \setmonofont{Courier Prime}
 
-\newfontfamily\codefamily{BigBlue}
+\newfontfamily\codefamily{Sixtyfour}
 \DeclareTextFontCommand{\codefont}{\codefamily}
 
 \newcommand{\forceindent}[1][3em]{\leavevmode{\parindent=#1\indent}}
@@ -55,6 +55,8 @@
 \maketitle
 \raggedright
 \footnotesize
+
+NOTE: This document is a work in progress. It is not yet complete, and some sections may be missing, incomplete, or outright inaccurate.
 
 \tableofcontents
 
@@ -101,7 +103,7 @@ The \m88 Computer requires the following ICs:
     \item 1x 74HC245
     \item 1x 74LS175
     \item 1x 74LS04
-    \item 2x Intel 8259 Programmable Interrupt Controller
+    \item 1x Intel 8259 Programmable Interrupt Controller
     \item 2x 74LS247
     \item 1x Intel 8254 Programmable Interval Timer
     \item 3x 72LS138
@@ -135,7 +137,7 @@ The 24 MHz crystal can be changed to provide a different CPU clock. The CPU oper
 \section{Required Peripherals}
 To use the \m88 Computer, you will need the following:
 \begin{itemize}
-    \item A Micro-ATX case is \emph{strongly} recommended for grounding
+    \item A Micro-ATX case is \emph{strongly} recommended for mechanical stability, and to appropriately ground the motherboard
     \item An ATX power supply
     \item An 8-bit ISA VGA card. The computer has been extensively tested with a Trident TVGA8900C.
     \item An 8-bit ISA storage controller. The computer has been tested with an XT-IDE.
@@ -163,9 +165,9 @@ DMA controller is an intentional simplification.
 The \m88 Computer uses SRAM instead of DRAM for the main memory. This
 further simplifies the design, but also makes it more expensive.
 
-The \m88 Computer adds the second 8259 interrupt controller, which was
-not present in the original IBM PC. This allows for more interrupts to be used,
-in particular IRQ \#12 which is used by PS/2 mice.
+The \m88 Computer uses a VIA VT82C42 PS/2 controller instead of the original
+AT keyboard interface. The mouse IRQ is also connected to IRQ2, instead of
+the more conventional IRQ12, as the \m88 only has one 8259 interrupt controller.
 
 \newpage
 
@@ -375,7 +377,7 @@ However, you may still wish to perform your own initialization. Complete the fol
 to initialize the card:
 
 \begin{center}
-    \begin{tabular}{ c|c|c|c|c }
+    \begin{tabular}{ c|c|l }
         \textbf{Port} & \textbf{Value} & \textbf{Description} \\
         \hline
         \texttt{0x3A1} & \texttt{0x80} & Select register S1 and disable the serial interface. \\

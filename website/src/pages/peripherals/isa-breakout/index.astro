@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "../../../layouts/Layout.astro";
+
+import IsaBreakoutImage from "../../../images/isa_breakout.jpg";
+---
+
+<Layout title="ISA Breakout Card">
+  <main>
+    <h1>ISA Breakout Card</h1>
+    <div class="hero">
+      <Image
+        src={IsaBreakoutImage}
+        width="400"
+        alt="A photo of the ISA Breakout Card"
+      />
+    </div>
+    <p>
+      The ISA Breakout card simply offers headers for each signal on the 8-bit
+      ISA bus. This can be useful for connecting a logic analyzer, or for
+      experimenting with a breadboard.
+    </p>
+    <h2>Purchase</h2>
+    <p>
+      You can now purchase these (PCB only!) at <a
+        href="https://www.tindie.com/stores/m88/"
+        >the <span class="scanlines">M88</span> Tindie store</a
+      >.
+    </p>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

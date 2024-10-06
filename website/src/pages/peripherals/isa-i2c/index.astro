@@ -1,0 +1,136 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "../../../layouts/Layout.astro";
+
+import IsaI2cImage from "../../../images/isa_i2c.jpg";
+---
+
+<Layout title="ISA-to-I2C Interface">
+  <main>
+    <h1>ISA-to-I2C Interface</h1>
+    <div class="hero">
+      <Image
+        src={IsaI2cImage}
+        width="400"
+        alt="A 3D model of the ISA-to-I2C Interface Card"
+      />
+    </div>
+    <p>
+      The ISA-to-I2C Interface Card allows systems to access peripherals on an
+      I2C bus. The card is based around the
+      <a
+        href='https://www.nxp.com/products/interfaces/ic-spi-i3c-interface-devices/ic-bus-controller-and-bridge-ics/ic-bus-controller:PCF8584"'
+        target="_blank">PCF8584</a
+      >
+      IC, and can operate at a frequency of up to 90 kHz when operating as the I2C
+      bus controller. While the PCF8584 is an older part, it integrates better with
+      the 5V-centric ISA bus. To support complete hand-soldering, the card is designed
+      for a DIP-20 variant of the PCF8584 which is no longer manufactured (but readily
+      available from eBay and other sources). A custom adapter will be made available
+      that converts a modern surface-mount PCF8584 to the DIP-20 footprint.
+    </p>
+    <p>
+      The card can be used to add additional functionality to a system without
+      consuming ISA card slots. For example, you could add a real-time clock,
+      temperature sensor, and EEPROM, all for the cost of a single ISA card
+      slot.
+    </p>
+    <p>
+      To simplify connectivity to external I2C devices, <a
+        href="https://learn.adafruit.com/introducing-adafruit-stemma-qt/what-is-stemma"
+        target="_blank">STEMMA connectors</a
+      > are used. These provide +5V and GND, in addition to the I2C <code
+        >SDA</code
+      > and <code>SCL</code> signals. A great deal of <a
+        href="https://www.adafruit.com/category/1005"
+        target="_blank">external modules</a
+      >
+      are available that can be connected through these connectors.
+    </p>
+    <h2>Purchase</h2>
+    <p>
+      These cards are going through final testing and will be available for
+      purchase soon at <a href="https://www.tindie.com/stores/m88/"
+        >the <span class="scanlines">M88</span> Tindie store</a
+      >.
+    </p>
+    <h2>Programming Examples</h2>
+    <p>
+      The I/O port address for programming is configured with a DIP-Switch on
+      the card. This allows you to set the base address of the card to avoid
+      conflicts with other peripherals that you may have installed in your
+      system.
+    </p>
+    <h3>Initialization</h3>
+    <p>
+      <ol>
+        <li>
+          Write <code>80h</code> to <code>PORT+1</code>. This disables the I2C
+          bus, and selects register S1 for writing.
+        </li>
+        <li>
+          Write <code>55h</code> to <code>PORT</code>. This writes the
+          controller's own address (<code>AAh</code>) to the S1 register. You
+          can choose the I2C address by modifying this value; it is the address
+          shifted right one bit.
+        </li>
+        <li>
+          Write <code>A0h</code> to <code>PORT+1</code>. This selects register
+          S2 for writing.
+        </li>
+        <li>
+          Write <code>10h</code> to <code>PORT</code>. This configures the S2
+          clock register for 90 kHz operation with a system clock of 4.43 MHz.
+          Refer to the PCF8584 datasheet for other values to use for faster
+          system clocks.
+        </li>
+        <li>
+          Write <code>C1h</code> to <code>PORT+1</code>. This enables the I2C
+          bus and shifts it into an idle state.
+        </li>
+      </ol>
+    </p>
+    <h3>Sending Data</h3>
+    <p>
+      <ol>
+        <li>
+          Wait for the bus to become idle by polling <code>PORT+1</code> until bit
+          1 (bus busy, active low) is set.
+        </li>
+        <li>
+          Write the target address to <code>PORT</code>, shifted right by one
+          bit. Set bit 8 to 0 ("write").
+        </li>
+        <li>
+          Write <code>C5h</code> to <code>PORT+1</code>, which generates the I2C <code
+            >START</code
+          > and emits the target address.
+        </li>
+        <li>
+          Poll the S1 register by reading <code>PORT+1</code> until bit 8 (status)
+          is clear.
+        </li>
+        <li>
+          Check that bit 4 (LRB) is clear - if it is not, the target did not
+          acknowledge, and further transmission should be skipped, so jump to 8.
+        </li>
+        <li>If all data bytes have been sent, jump to 8.</li>
+        <li>Write a data byte to <code>PORT</code>. Loop back to 4.</li>
+        <li>
+          Write <code>C3h</code> to <code>PORT+1</code>. This transmits the I2C <code
+            >STOP</code
+          > and ends the transaction.
+        </li>
+      </ol>
+    </p>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

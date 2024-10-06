@@ -1,6 +1,6 @@
 # The M88 Computer - ROMs / Programs
 
-Run `make` to build.
+Run `make` to build. You'll need `nasm` and a working `gcc`/`ld`.
 
 ## `elf2bin`
 

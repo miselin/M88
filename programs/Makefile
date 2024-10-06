@@ -54,7 +54,7 @@ build/rom.bin: build/rom.elf build/elf2bin/elf2bin
 	./build/elf2bin/elf2bin build/rom.elf $@
 
 # Option ROM version (just BIOS interrupts) - includes requisite checksum
-build/rom-opt.bin: build/rom.elf build/romlink
+build/rom-opt.bin: build/rom.elf build/elf2bin/elf2bin
 	./build/elf2bin/elf2bin -c build/rom.elf $@
 
 # Main ROM disassembly

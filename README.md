@@ -1,7 +1,7 @@
 # The M88 Computer
 
 This repository contains the KiCad project(s) and ROM source code for the M88 computer project.
-Learn more about the project at [https://m88.computer](https://m88.computer)
+Learn more about the project at [https://m88.computer](https://m88.computer).
 
 ## M88
 

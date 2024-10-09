@@ -12019,7 +12019,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "LCSC #C2889599"
 			(at 104.14 24.13 0)
 			(effects
 				(font
@@ -12073,7 +12073,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" ""
+		(property "LCSC Part #" "C2889599"
 			(at 104.14 24.13 0)
 			(effects
 				(font
@@ -13383,7 +13383,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "LCSC #C2933536"
 			(at 104.14 36.83 0)
 			(effects
 				(font
@@ -13437,7 +13437,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" ""
+		(property "LCSC Part #" "C2933536"
 			(at 104.14 36.83 0)
 			(effects
 				(font

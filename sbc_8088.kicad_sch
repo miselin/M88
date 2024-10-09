@@ -2371,16 +2371,6 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 242.57) (xy 154.94 256.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "18eee4e1-054f-4092-a83b-bdea8bf49078")
-	)
-	(wire
-		(pts
 			(xy 283.21 43.18) (xy 270.51 43.18)
 		)
 		(stroke
@@ -2608,16 +2598,6 @@
 			(type default)
 		)
 		(uuid "2ae4addf-bfd7-4eec-bdbb-d6cafafa2c50")
-	)
-	(wire
-		(pts
-			(xy 154.94 264.16) (xy 154.94 267.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2b6dd7bd-fc25-47d8-ab2d-fc184bbb18b3")
 	)
 	(wire
 		(pts
@@ -3638,6 +3618,16 @@
 			(type default)
 		)
 		(uuid "8bad785f-45c2-4b2d-9eea-859629813516")
+	)
+	(wire
+		(pts
+			(xy 154.94 242.57) (xy 154.94 267.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8c3d8123-d6fb-4266-8fbc-57912171a459")
 	)
 	(bus
 		(pts
@@ -4841,7 +4831,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 256.54) (xy 189.23 262.89)
+			(xy 189.23 256.54) (xy 189.23 273.05)
 		)
 		(stroke
 			(width 0)
@@ -4888,16 +4878,6 @@
 			(type default)
 		)
 		(uuid "fb72dbbc-710b-41f3-8a62-d0b8762e7342")
-	)
-	(wire
-		(pts
-			(xy 189.23 270.51) (xy 189.23 273.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fcca2b6a-007a-475f-a74d-1567977ad7aa")
 	)
 	(wire
 		(pts
@@ -7453,130 +7433,6 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
 					(reference "#PWR033")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 154.94 260.35 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "119d7eee-77db-4b34-ae47-dc2cbc964cfd")
-		(property "Reference" "R45"
-			(at 157.48 259.0799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 157.48 261.6199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 155.956 260.604 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 154.94 260.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "LCSC #C84376 "
-			(at 154.94 260.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" ""
-			(at 154.94 260.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" ""
-			(at 154.94 260.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
-			(at 154.94 260.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 154.94 260.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 154.94 260.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC Part #" "C84376 "
-			(at 154.94 260.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "ea6ad322-d459-4b1a-818f-fe9091eb48a8")
-		)
-		(pin "1"
-			(uuid "d9e7505a-7edf-457d-85de-14403f8f59a9")
-		)
-		(instances
-			(project "sbc_8088"
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
-					(reference "R45")
 					(unit 1)
 				)
 			)
@@ -10445,130 +10301,6 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
 					(reference "#PWR040")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 189.23 266.7 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d482e40d-c3e9-4289-8688-4854da553f69")
-		(property "Reference" "R48"
-			(at 191.77 265.4299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 191.77 267.9699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 190.246 266.954 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 189.23 266.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "LCSC #C84376 "
-			(at 189.23 266.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" ""
-			(at 189.23 266.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" ""
-			(at 189.23 266.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
-			(at 189.23 266.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 189.23 266.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 189.23 266.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC Part #" "C84376 "
-			(at 189.23 266.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "a6b22dcc-f971-4f03-b82c-9a4a877ad731")
-		)
-		(pin "1"
-			(uuid "8712ef04-c740-4e92-bf51-1f79d52ba2df")
-		)
-		(instances
-			(project "sbc_8088"
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13"
-					(reference "R48")
 					(unit 1)
 				)
 			)

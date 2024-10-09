@@ -8058,6 +8058,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC Part #" "C240840"
+			(at 44.45 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "a2f2e670-0220-4722-b0c7-515a7ac9f003")
 		)
@@ -9249,6 +9258,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C240840"
+			(at 44.45 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)

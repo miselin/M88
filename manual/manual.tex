@@ -66,8 +66,8 @@ NOTE: This document is a work in progress. It is not yet complete, and some sect
 
 \section{What is the \m88 Computer?}
 The \m88 Computer is a computer designed around the Intel 8088 processor.
-It is loosely based on the IBM PC, but with a few modern touches and simplifications
-to make it easier to build and understand.
+It is loosely based on the original IBM PC AT, but with a few modern touches and
+simplifications to make it easier to build and understand.
 
 The computer was designed with a single goal in mind: to run Sid Meier's Civilization.
 I achieved that goal, and now I'm sharing the design with the world.
@@ -76,7 +76,8 @@ I achieved that goal, and now I'm sharing the design with the world.
 The \m88 Computer is optimized for production using \href{https://jlcpcb.com}{JLCPCB's}
 PCB Assembly services and \href{https://lcsc.com}{LCSC's} component sourcing. For this reason,
 many of the passive components are surface-mount rather than through-hole. Even so, it is
-possible to hand-solder the motherboard if you are so inclined.
+possible to hand-solder the motherboard if you are so inclined, and I have indeed done just that
+in past revisions.
 
 Because the design is optimized for PCB assembly, values are not annotated on the silkscreen.
 It is recommended to keep the motherboard's KiCad project close by to verify values and connections.
@@ -91,6 +92,7 @@ The ATTiny system management controller will also need to be programmed.
 \section{Required ICs}
 The \m88 Computer requires the following ICs:
 \begin{itemize}
+    \item (todo: this is inaccurate now)
     \item 2x Intel 8284 clock generator
     \item 3x 74LS573 or equivalent
     \item 1x 74LS688 or 74F521
@@ -119,9 +121,13 @@ The \m88 Computer requires the following ICs:
 
 You may use HCT or ACT series chips instead of LS series chips, but the design has not
 been tested with them. If the motherboard was not pre-populated with crystals, you will
-also need one 24 MHz crystal and one 14.31818 MHz crystal. You may experiment with the
+also need one 24 MHz crystal and one 14.31818 MHz oscillator. You may experiment with the
 value of the 24 MHz crystal. The system may not operate correctly if the 14.31818 MHz
-crystal value is changed, as this drives time-keeping and the ISA bus clock.
+oscillator value is changed, as this drives time-keeping and the ISA bus clock.
+
+The 14.31818 MHz clock source has been chosen as an oscillator to greatly simplify the
+logic needed to generate the clocks for the ISA bus and Programmable Interval Timer. The
+oscillator and supporting resistors and capacitors are SMD parts.
 
 \subsubsection{Crystal Selection}
 The default crystals of 24 MHz and 14.31818 MHz provide a CPU clock of 8 MHZ and an ISA
@@ -132,7 +138,9 @@ ISA bus and Programmable Interval Timer. Changing its frequency may require soft
 to handle the different clock.
 
 The 24 MHz crystal can be changed to provide a different CPU clock. The CPU operates at
-1/3 the crystal frequency.
+1/3 the crystal frequency. Check the version of your 8088 CPU, however, as some versions
+cannot operate at too-high frequencies. Others have a minimum frequency under which they
+will cease to operate correctly.
 
 \section{Required Peripherals}
 To use the \m88 Computer, you will need the following:
@@ -148,6 +156,7 @@ To use the \m88 Computer, you will need the following:
 \begin{itemize}
     \item Built around the Intel 8088 processor, clocked at 8 MHz
     \item Up to 640 KiB of conventional RAM, using SRAM instead of traditional DRAM
+    \item An optional 64K window of upper memory to support DOS UMB
     \item Four 8-bit ISA slots
     \item 2 PS/2 ports
     \item PC Speaker socket
@@ -155,6 +164,7 @@ To use the \m88 Computer, you will need the following:
     \item A Micro-ATX form factor motherboard for easy integration into modern cases
     \item ATTiny-based system manager to handle reset and ATX power supply control
     \item ATX fan headers for cooling
+    \item STEMMA connectors to connect I2C devices and communicate with them from the system
 \end{itemize}
 
 \section{Differences from the IBM PC}
@@ -176,9 +186,8 @@ the more conventional IRQ12, as the \m88 only has one 8259 interrupt controller.
 \begin{center}
 \begin{bytefield}{24}
     \memsection{FFFF}{0100}{6}{Available for Peripherals}\\
-    \memsection{00FF}{00B0}{4}{Reserved}\\
-    \memsection{00AF}{00A0}{3}{8259 Interrupt Controller (Secondary)}\\
-    \memsection{009F}{0090}{3}{Reserved}\\
+    \memsection{00FF}{00E0}{3}{I2C Controller (PCF8584)}\\
+    \memsection{00DF}{0090}{3}{Reserved}\\
     \memsection{008F}{0080}{3}{POST Codes}\\
     \memsection{007F}{0050}{4}{Reserved}\\
 	\memsection{004F}{0040}{3}{8254 Programmable Interval Controller}\\
@@ -192,10 +201,10 @@ the more conventional IRQ12, as the \m88 only has one 8259 interrupt controller.
 
 \section{Memory Map}
 
-The \m88 Computer has a maximum of 640 KiB of conventional memory. At
-least one SRAM chip is required in Slot \#1 to provide the first 64 KiB of memory.
-SRAM should be loaded in sequential slots. "Skipping" a slot will result in the system
-reporting less available memory than is actually installed.
+The \m88 Computer supports a full 640 KiB of conventional memory. At least one SRAM chip
+is required in Slot \#1 to provide the first 64 KiB of memory. SRAM should be loaded in
+sequential slots. "Skipping" a slot will result in the system reporting less available
+memory than is actually installed.
 
 The recommended SRAM chip is the \texttt{AS6C1008-55PCN}, but any pin-compatible 128 KiB SRAM
 chips can be used.
@@ -205,7 +214,8 @@ The memory map for the \m88 Computer is as follows:
 \begin{center}
 \begin{bytefield}{24}
     \memsection{FFFF:FFFF}{F000:0000}{3}{System BIOS}\\
-    \memsection{EFFF:FFFF}{A000:0000}{6}{Available for Option ROMs and Peripheral Memory}\\
+    \memsection{EFFF:FFFF}{E000:0000}{3}{Optionally, 64K Upper Memory (RAM)}\\
+    \memsection{DFFF:FFFF}{A000:0000}{6}{Available for Option ROMs and Peripheral Memory}\\
     \begin{rightwordgroup}{Conventional Memory}
     \memsection{9FFF:FFFF}{8000:0000}{3}{System RAM Slot \#5}\\
     \memsection{7FFF:FFFF}{6000:0000}{3}{System RAM Slot \#4}\\
@@ -215,6 +225,11 @@ The memory map for the \m88 Computer is as follows:
     \end{rightwordgroup}\\
 \end{bytefield}
 \end{center}
+
+The 64K segment at \texttt{E000:0000} can be configured as memory by installing an SRAM
+chip and setting jumper J20 to the \texttt{ON} state. This will enable the memory decode.
+This memory is equally as fast as the main system memory and does not suffer ISA bus
+performance penalties, making it a convenient choice for DOS UMB areas.
 
 \newpage
 
@@ -238,6 +253,7 @@ See below for a list of POST codes and what they mean.
  \texttt{10} & Extended BIOS data area installed \\\hline
  \texttt{11} & PS/2 controller configured \\\hline
  \texttt{12} & Serial and Parallel ports configured (if present) \\\hline
+ \texttt{13} & I2C Controller configured (if present) \\\hline
  \texttt{88} & All Option ROMs successfully called, about to call INT19 \\
 \end{tabular}
 \end{center}
@@ -250,7 +266,7 @@ The system should be powered off until the fuse has cooled and reset, and the ca
 should be investigated.
 
 \begin{center}
-\begin{tabular}{ c|c|c  }
+\begin{tabular}{ l|l|l  }
  \hline
  \textbf{Voltage Rail}   & \textbf{Max Current}    & \textbf{Purpose} \\
  \hline
@@ -258,6 +274,7 @@ should be investigated.
  +5V PS/2 & 1A & PS/2 power, derived from +5V with its own fuse. \\
  +5V SB & 0.5A & Always-on standby power (for ATX power signaling). \\
  +12V & 1A & ISA bus power rail. \\
+ +12V ATX & 1A & ATX fan power, derived from +12V with its own fuse. \\
  -12V & 1A & ISA bus power rail. \\
 \end{tabular}
 \end{center}
@@ -269,12 +286,12 @@ software interrupt.
 The value of the AX register, and any input registers, will not be preserved across \m88 BIOS calls. All other registers
 will be preserved.
 
-\subsection{Function 24H: Write \itwoc{} Byte}
+\subsection{Function 00H: Write \itwoc{} Byte}
 \textbf{To call:}
 
 \begin{tabular}{@{\hspace{2em}}l@{}l@{\hspace{2em}}l}
-{} & AH & = 24H \\
-{} & AL & = \itwoc{} device address \\
+{} & AH & = 00H \\
+{} & AL & = \itwoc{} target address \\
 {} & BL & = \itwoc{} data byte \\[\parskip]
 {} & \multicolumn{2}{@{}l}{\textit{\textbf{Note:}} This service will block until the \itwoc{} bus is idle.}
 \end{tabular}
@@ -282,22 +299,24 @@ will be preserved.
 \textbf{Returns:}
 
 \begin{tabular}{@{\hspace{2em}}l@{}l@{\hspace{2em}}l}
-{} & \multicolumn{2}{@{}l}{Nothing}
+{} & AH & = 00H on success, a non-zero value on failure
 \end{tabular}
 
-\subsection{Function 25H: Read \itwoc{} Byte}
+\subsection{Function 00H: Write \itwoc{} String}
 \textbf{To call:}
 
 \begin{tabular}{@{\hspace{2em}}l@{}l@{\hspace{2em}}l}
-{} & AH & = 54H \\
-{} & AL & = \itwoc{} device address \\[\parskip]
+{} & AH & = 01H \\
+{} & AL & = \itwoc{} target address \\
+{} & BX & = Number of bytes to transmit \\
+{} & DS:SI & = Buffer of bytes to transmit \\[\parskip]
 {} & \multicolumn{2}{@{}l}{\textit{\textbf{Note:}} This service will block until the \itwoc{} bus is idle.}
 \end{tabular}
 
 \textbf{Returns:}
 
 \begin{tabular}{@{\hspace{2em}}l@{}l@{\hspace{2em}}l}
-{} & AL & = \itwoc{} data byte
+{} & AH & = 00H on success, a non-zero value on failure
 \end{tabular}
 
 \subsection{Function 26H: Check \itwoc{} Bus State}
@@ -339,9 +358,9 @@ with \itwoc{} devices.
 
 \subsection{Configuration}
 The ISA-to-\itwoc{} bridge card includes a DIP switch to configure the I/O port address.
-Ports in the range \texttt{0x00} to \texttt{0x3FF} can be configured. Your configuration needs may
-vary depending on other peripherals installed on the system, but generally port \texttt{0x3A0} should
-work.
+Ports in the range \texttt{0x00} to \texttt{0x3FF} can be configured. Your configuration needs
+may vary depending on other peripherals installed on the system, but generally port \texttt{0x3A0}
+should work.
 
 Note that the DIP switch controls address bits 2 through 9, requiring the address to be aligned to
 a 4-byte boundary.
@@ -357,8 +376,8 @@ The DIP switch positions for port \texttt{0x3A0} are as follows:
 \end{center}
 
 \subsection{Easy Mode}
-The \m88 System BIOS offers a simple interface for easy \itwoc{} communication. See Section \ref{bios} for details.
-This interface is recommended for most users rather than directly managing the PCF8584 IC on the card.
+The \m88 System BIOS offers a simple interface for easy \itwoc{} communication, described in Section \ref{bios}.
+This interface is recommended for most users rather than directly interfacing with the PCF8584 IC on the card.
 
 \subsection{Low-Level Operation}
 The ISA-to-\itwoc{} bridge card is based around the PCF8584 IC, and is designed to be operated as the \itwoc
@@ -372,7 +391,7 @@ You should insert a short delay between I/O operations to allow the PCF8584 to c
 CPU.
 
 \subsubsection{Initialization}
-Generally, the \m88 System BIOS will perform necessary initialization of the card during startup.
+The \m88 System BIOS will perform necessary initialization of the card during startup.
 However, you may still wish to perform your own initialization. Complete the following sequence of I/O writes
 to initialize the card:
 
@@ -440,10 +459,5 @@ To transmit data to an \itwoc{} device, complete the following sequence of opera
 \end{center}
 
 \newpage
-
-\section{ISA Break-out}
-
-\subsection{Introduction}
-blah
 
 \end{document}

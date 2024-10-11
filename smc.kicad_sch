@@ -2311,7 +2311,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376 "
+		(property "Description" "LCSC #C84376"
 			(at 176.53 137.16 0)
 			(effects
 				(font
@@ -2501,7 +2501,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376 "
+		(property "Description" "LCSC #C84376"
 			(at 154.94 135.89 0)
 			(effects
 				(font
@@ -2889,7 +2889,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376 "
+		(property "Description" "LCSC #C84376"
 			(at 205.74 130.81 0)
 			(effects
 				(font
@@ -3013,7 +3013,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376 "
+		(property "Description" "LCSC #C84376"
 			(at 55.88 71.12 0)
 			(effects
 				(font
@@ -3395,7 +3395,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C72124 "
+		(property "Description" "LCSC #C72124"
 			(at 138.43 92.71 0)
 			(effects
 				(font

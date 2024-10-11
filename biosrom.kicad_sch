@@ -2399,7 +2399,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C72121 "
+		(property "Description" "LCSC #C72121"
 			(at 156.21 88.9 0)
 			(effects
 				(font

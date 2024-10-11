@@ -583,12 +583,15 @@
 				)
 			)
 		)
-		(symbol "Oscillator:ASCO"
+		(symbol "Oscillator:CXO_DIP8"
+			(pin_names
+				(offset 0.254)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "X"
-				(at -7.62 6.35 0)
+				(at -5.08 6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -596,7 +599,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "ASCO"
+			(property "Value" "CXO_DIP8"
 				(at 1.27 -6.35 0)
 				(effects
 					(font
@@ -605,8 +608,8 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Oscillator:Oscillator_SMD_Abracon_ASCO-4Pin_1.6x1.2mm"
-				(at 2.54 -8.89 0)
+			(property "Footprint" "Oscillator:Oscillator_DIP-8"
+				(at 11.43 -8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -614,8 +617,8 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://abracon.com/Oscillators/ASCO.pdf"
-				(at -5.715 3.175 0)
+			(property "Datasheet" "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf"
+				(at -2.54 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -623,7 +626,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Crystal Clock Oscillator, Abracon ASCO"
+			(property "Description" "Crystal Clock Oscillator, DIP8-style metal package"
 				(at 0 0 0)
 				(effects
 					(font
@@ -641,7 +644,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "Oscillator*Abracon*ASCO*1.6x1.2mm*"
+			(property "ki_fp_filters" "Oscillator*DIP*8*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -650,10 +653,10 @@
 					(hide yes)
 				)
 			)
-			(symbol "ASCO_0_1"
+			(symbol "CXO_DIP8_0_1"
 				(rectangle
-					(start -7.62 5.08)
-					(end 7.62 -5.08)
+					(start -5.08 5.08)
+					(end 5.08 -5.08)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -664,8 +667,8 @@
 				)
 				(polyline
 					(pts
-						(xy -5.715 2.54) (xy -5.08 2.54) (xy -5.08 3.81) (xy -4.445 3.81) (xy -4.445 2.54) (xy -3.81 2.54)
-						(xy -3.81 3.81) (xy -3.175 3.81) (xy -3.175 2.54)
+						(xy -1.905 -0.635) (xy -1.27 -0.635) (xy -1.27 0.635) (xy -0.635 0.635) (xy -0.635 -0.635) (xy 0 -0.635)
+						(xy 0 0.635) (xy 0.635 0.635) (xy 0.635 -0.635)
 					)
 					(stroke
 						(width 0)
@@ -676,11 +679,11 @@
 					)
 				)
 			)
-			(symbol "ASCO_1_1"
+			(symbol "CXO_DIP8_1_1"
 				(pin input line
-					(at -10.16 0 0)
+					(at -7.62 0 0)
 					(length 2.54)
-					(name "Tri-State"
+					(name "EN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -705,7 +708,7 @@
 							)
 						)
 					)
-					(number "2"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -714,7 +717,7 @@
 					)
 				)
 				(pin output line
-					(at 10.16 0 180)
+					(at 7.62 0 180)
 					(length 2.54)
 					(name "OUT"
 						(effects
@@ -723,7 +726,7 @@
 							)
 						)
 					)
-					(number "3"
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -734,14 +737,14 @@
 				(pin power_in line
 					(at 0 7.62 270)
 					(length 2.54)
-					(name "VDD"
+					(name "Vcc"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "4"
+					(number "8"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1593,12 +1596,16 @@
 		(uuid "eb214fe5-3974-4d4e-85d0-1feea85866e7")
 	)
 	(no_connect
-		(at 62.23 163.83)
-		(uuid "4fcbc451-3c21-4fed-8489-0cb7b6522559")
+		(at 86.36 161.29)
+		(uuid "6f604ce0-a257-4b8b-9b7e-df65a51f1b31")
 	)
 	(no_connect
-		(at 21.59 109.22)
+		(at 24.13 109.22)
 		(uuid "7d4762d6-eff4-4d0a-a73d-3b2729ac778d")
+	)
+	(no_connect
+		(at 86.36 163.83)
+		(uuid "de52522d-fce4-4a9b-92d3-fc5897363613")
 	)
 	(no_connect
 		(at 135.89 116.84)
@@ -1683,6 +1690,16 @@
 			(type default)
 		)
 		(uuid "19a2046c-02b9-4eeb-874d-58b10a1317d3")
+	)
+	(wire
+		(pts
+			(xy 62.23 161.29) (xy 86.36 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1aa8721c-6167-4629-9cc2-d752d8cc3791")
 	)
 	(wire
 		(pts
@@ -2156,16 +2173,6 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 109.22) (xy 45.72 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bbd2aec8-d8f0-48fa-96ef-2aa20590256a")
-	)
-	(wire
-		(pts
 			(xy 31.75 92.71) (xy 38.1 92.71)
 		)
 		(stroke
@@ -2226,6 +2233,16 @@
 	)
 	(wire
 		(pts
+			(xy 62.23 163.83) (xy 86.36 163.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dcbda3eb-2637-4e3e-9ca4-4afccc205218")
+	)
+	(wire
+		(pts
 			(xy 125.73 106.68) (xy 125.73 111.76)
 		)
 		(stroke
@@ -2233,6 +2250,16 @@
 			(type default)
 		)
 		(uuid "e369bcc8-42c2-4867-b10f-0279faaf4038")
+	)
+	(wire
+		(pts
+			(xy 39.37 109.22) (xy 45.72 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e46598df-9475-4749-8036-b73e04834094")
 	)
 	(wire
 		(pts
@@ -2327,6 +2354,28 @@
 		)
 		(uuid "4992d070-fbde-40d8-a234-3bcbb30c7df3")
 	)
+	(text "B has a ~240 degree phase shift"
+		(exclude_from_sim no)
+		(at 89.662 165.862 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "80abb2b2-9b43-4e14-be11-d56aca30ad1b")
+	)
+	(label "CLK_7.159MHz"
+		(at 72.39 158.75 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7911a99e-383e-4e1e-8dfd-48e452c46a3f")
+	)
 	(label "RESET"
 		(at 163.83 96.52 0)
 		(fields_autoplaced yes)
@@ -2348,6 +2397,28 @@
 			(justify left bottom)
 		)
 		(uuid "8cd25cc9-49d5-49c7-b3aa-4062ec9ccacf")
+	)
+	(label "CLK_2.386MHz_B"
+		(at 76.2 163.83 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "97f25c24-40a2-4774-9f6e-675ee31994b4")
+	)
+	(label "CLK_2.386MHz_A"
+		(at 76.2 161.29 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "98f21a64-0517-4f22-a383-94194e22687d")
 	)
 	(label "RESET"
 		(at 29.21 166.37 0)
@@ -3278,6 +3349,89 @@
 		)
 	)
 	(symbol
+		(lib_id "Oscillator:CXO_DIP8")
+		(at 31.75 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "715507cd-7904-4cf0-92fe-57da6aeb1baa")
+		(property "Reference" "X1"
+			(at 43.18 102.9014 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "CXO_DIP8"
+			(at 43.18 105.4414 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
+			(at 43.18 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://cdn-reichelt.de/documents/datenblatt/B400/OSZI.pdf"
+			(at 29.21 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LCSC #C72124"
+			(at 31.75 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C72124"
+			(at 31.75 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e88ad7c5-8ccb-451a-8718-deaeab25d0bc")
+		)
+		(pin "5"
+			(uuid "8ada1400-0aa0-4924-92e3-5baea3bc4845")
+		)
+		(pin "8"
+			(uuid "4255e9b6-83d2-4a82-b3a0-356d217753b2")
+		)
+		(pin "4"
+			(uuid "2a269ba0-e354-48ae-9c63-76c932947b6b")
+		)
+		(instances
+			(project ""
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
+					(reference "X1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 45.72 114.3 0)
 		(unit 1)
@@ -3285,7 +3439,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "86e19d76-6a2f-4068-b7fe-cd898c9bc1be")
 		(property "Reference" "C47"
 			(at 49.53 114.2999 0)
@@ -3297,13 +3450,12 @@
 			)
 		)
 		(property "Value" "30 pF 1% 10V Ceramic"
-			(at 41.91 113.03 0)
+			(at 72.39 116.586 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
-				(hide yes)
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
@@ -3324,7 +3476,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C527184 "
+		(property "Description" "LCSC #C527184"
 			(at 45.72 114.3 0)
 			(effects
 				(font
@@ -3679,79 +3831,6 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
 					(reference "#PWR0200")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Oscillator:ASCO")
-		(at 31.75 109.22 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8e845084-281f-40a8-b43d-be50e60db9fb")
-		(property "Reference" "X1"
-			(at 48.514 98.806 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "14.31818MHz Crystal Oscillator"
-			(at 48.514 101.346 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Crystal:Crystal_SMD_5032-4Pin_5.0x3.2mm"
-			(at 34.29 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://abracon.com/Oscillators/ASCO.pdf"
-			(at 26.035 106.045 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Crystal Clock Oscillator, Abracon ASCO"
-			(at 31.75 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c6f67eb5-c715-477e-a929-3b9dfe230755")
-		)
-		(pin "4"
-			(uuid "4fcb7200-5777-4f8f-a799-58311411edc5")
-		)
-		(pin "3"
-			(uuid "14ae176e-dda3-473e-b17f-a7956b36124c")
-		)
-		(pin "2"
-			(uuid "4b27b4c0-fd4c-4939-a4f3-2c131a841261")
-		)
-		(instances
-			(project "sbc_8088"
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/fd224fc0-1ec7-490c-af34-c6b2523d21f4"
-					(reference "X1")
 					(unit 1)
 				)
 			)
@@ -4255,7 +4334,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C527184 "
+		(property "Description" "LCSC #C527184"
 			(at 181.61 106.68 0)
 			(effects
 				(font
@@ -4814,7 +4893,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C72116 "
+		(property "Description" "LCSC #C72116"
 			(at 146.05 101.6 0)
 			(effects
 				(font

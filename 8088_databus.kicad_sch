@@ -2572,7 +2572,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C8692 "
+		(property "Description" "LCSC #C8692"
 			(at 227.33 101.6 0)
 			(effects
 				(font
@@ -2971,7 +2971,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C72118 "
+		(property "Description" "LCSC #C72118"
 			(at 139.7 101.6 0)
 			(effects
 				(font

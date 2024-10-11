@@ -232,6 +232,14 @@ entry:
 
     call write_logo
 
+    mov si, debug
+    call puts
+
+    mov dx, 0x2A3
+    .forever:
+    in al, dx
+    jmp .forever
+
     ; run the bootloader
     mov dl, 0x80                ; prefer HDD
     int 0x19
@@ -297,6 +305,7 @@ write_logo:
 section .rdata
 
 mattbios db "Matt BIOS - Option ROM mode...", 13, 10, 0
+debug db "Spinning reading port 2A3 forever...", 13, 10, 0
 
 section .poweron
 jmp 0xF000:start

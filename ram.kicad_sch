@@ -5,21 +5,21 @@
 	(uuid "c80cb149-d59a-4286-8a1d-49dd5994497b")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Connector_Generic:Conn_01x03"
+		(symbol "Connector_Generic:Conn_01x02"
 			(pin_names
 				(offset 1.016) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "J"
-				(at 0 5.08 0)
+				(at 0 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "Conn_01x03"
+			(property "Value" "Conn_01x02"
 				(at 0 -5.08 0)
 				(effects
 					(font
@@ -45,7 +45,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
 				(at 0 0 0)
 				(effects
 					(font
@@ -72,7 +72,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "Conn_01x03_1_1"
+			(symbol "Conn_01x02_1_1"
 				(rectangle
 					(start -1.27 -2.413)
 					(end 0 -2.667)
@@ -96,18 +96,7 @@
 					)
 				)
 				(rectangle
-					(start -1.27 2.667)
-					(end 0 2.413)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 3.81)
+					(start -1.27 1.27)
 					(end 1.27 -3.81)
 					(stroke
 						(width 0.254)
@@ -118,7 +107,7 @@
 					)
 				)
 				(pin passive line
-					(at -5.08 2.54 0)
+					(at -5.08 0 0)
 					(length 3.81)
 					(name "Pin_1"
 						(effects
@@ -136,7 +125,7 @@
 					)
 				)
 				(pin passive line
-					(at -5.08 0 0)
+					(at -5.08 -2.54 0)
 					(length 3.81)
 					(name "Pin_2"
 						(effects
@@ -146,24 +135,6 @@
 						)
 					)
 					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -560,6 +531,12 @@
 			)
 		)
 	)
+	(junction
+		(at 134.62 156.21)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "dc742f60-9244-4b43-99f2-d752b3b887d2")
+	)
 	(wire
 		(pts
 			(xy 161.29 69.85) (xy 161.29 68.58)
@@ -600,16 +577,6 @@
 		)
 		(uuid "12868d05-d9d0-4cce-823a-7a33db41f29e")
 	)
-	(wire
-		(pts
-			(xy 119.38 156.21) (xy 140.97 156.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "150360fa-a1c7-4fa5-9ab2-fa1e5539f88b")
-	)
 	(bus
 		(pts
 			(xy 118.11 66.04) (xy 137.16 66.04)
@@ -642,7 +609,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 156.21) (xy 119.38 153.67)
+			(xy 134.62 156.21) (xy 134.62 153.67)
 		)
 		(stroke
 			(width 0)
@@ -782,6 +749,16 @@
 	)
 	(wire
 		(pts
+			(xy 134.62 158.75) (xy 143.51 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5001b6f4-0be5-4842-89e1-1bca3e5e44a2")
+	)
+	(wire
+		(pts
 			(xy 161.29 97.79) (xy 161.29 99.06)
 		)
 		(stroke
@@ -789,16 +766,6 @@
 			(type default)
 		)
 		(uuid "51a1fd61-d50e-48ca-ae82-0dc6aeda2724")
-	)
-	(wire
-		(pts
-			(xy 132.08 153.67) (xy 140.97 153.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5da6768a-4d7a-4c95-b7e8-1acabff25a83")
 	)
 	(wire
 		(pts
@@ -859,6 +826,16 @@
 			(type default)
 		)
 		(uuid "6b8b0904-8c5d-432b-a083-04f31d582148")
+	)
+	(wire
+		(pts
+			(xy 134.62 156.21) (xy 143.51 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6c5c8ccf-355b-4f6e-b43a-609f9ddb2e48")
 	)
 	(wire
 		(pts
@@ -962,6 +939,16 @@
 	)
 	(wire
 		(pts
+			(xy 124.46 156.21) (xy 134.62 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "944439ef-6c7b-4237-b6ea-ee1e131c3422")
+	)
+	(wire
+		(pts
 			(xy 158.75 124.46) (xy 161.29 124.46)
 		)
 		(stroke
@@ -979,16 +966,6 @@
 			(type default)
 		)
 		(uuid "9b9d6e7e-703e-48b5-b92f-2bd15bcbc389")
-	)
-	(wire
-		(pts
-			(xy 132.08 149.86) (xy 132.08 153.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a002685a-b2dc-44c5-b18d-ccbb38025d7a")
 	)
 	(wire
 		(pts
@@ -1019,16 +996,6 @@
 			(type default)
 		)
 		(uuid "a8d7349f-b397-4823-8161-ee2519692f1f")
-	)
-	(wire
-		(pts
-			(xy 137.16 158.75) (xy 140.97 158.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ad299b8b-a880-4a6c-9ab1-f5a767b53484")
 	)
 	(wire
 		(pts
@@ -1518,7 +1485,7 @@
 		(uuid "b47f4a33-4c0f-4477-bb0a-503432d08726")
 	)
 	(label "~{UMA_CS}"
-		(at 123.19 156.21 0)
+		(at 124.46 156.21 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1669,7 +1636,7 @@
 	)
 	(hierarchical_label "~{RAM_UMA_CS}"
 		(shape input)
-		(at 137.16 158.75 180)
+		(at 134.62 158.75 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1854,200 +1821,6 @@
 			(project "sbc_8088"
 				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6"
 					(reference "#PWR0235")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 132.08 149.86 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3bbd0896-7d7e-4507-91c3-6a82f6544ff8")
-		(property "Reference" "#PWR0395"
-			(at 132.08 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 132.08 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 132.08 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 132.08 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 132.08 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "30921d4f-f680-44f0-8cab-8594783dfa33")
-		)
-		(instances
-			(project "sbc_8088"
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6"
-					(reference "#PWR0395")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 146.05 156.21 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3e1cd2b5-a79e-43ec-acb9-469f4b079710")
-		(property "Reference" "J20"
-			(at 148.59 154.9399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x03"
-			(at 148.59 157.4799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 146.05 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 146.05 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 146.05 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC Part #" "C124376"
-			(at 146.05 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" ""
-			(at 146.05 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" ""
-			(at 146.05 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
-			(at 146.05 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 146.05 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 146.05 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "49926f8a-40b1-4202-9061-027ff0d5ab94")
-		)
-		(pin "1"
-			(uuid "9d790baf-913a-4fc3-8453-e3faa9be7372")
-		)
-		(pin "3"
-			(uuid "9fa08043-92b8-40bc-96ca-5cd9d9286b8d")
-		)
-		(instances
-			(project "sbc_8088"
-				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6"
-					(reference "J20")
 					(unit 1)
 				)
 			)
@@ -2582,6 +2355,130 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 148.59 156.21 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b8acde6f-74a3-4681-a425-99afa090033a")
+		(property "Reference" "J20"
+			(at 151.13 156.2099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "UMA Enable"
+			(at 151.13 158.7499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+			(at 148.59 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 148.59 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LCSC #C124375"
+			(at 148.59 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" ""
+			(at 148.59 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" ""
+			(at 148.59 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" ""
+			(at 148.59 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 148.59 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 148.59 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part #" "C124375"
+			(at 148.59 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "24874187-dc59-4ed3-8e7f-2ceca7c36eeb")
+		)
+		(pin "1"
+			(uuid "986fb801-1336-45e4-9dbe-13a7d864a976")
+		)
+		(instances
+			(project "sbc_8088"
+				(path "/5e468d94-0319-44d1-a77f-2adc451eed13/60e3f5cc-e9a1-4c51-8079-4abea41f3ef6"
+					(reference "J20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 161.29 73.66 0)
 		(unit 1)
@@ -2649,7 +2546,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 119.38 149.86 0)
+		(at 134.62 149.86 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2658,7 +2555,7 @@
 		(fields_autoplaced yes)
 		(uuid "e3c67e0a-23ed-4f6f-a13e-48a64d4788b6")
 		(property "Reference" "R45"
-			(at 121.92 148.5899 0)
+			(at 137.16 148.5899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2667,7 +2564,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 121.92 151.1299 0)
+			(at 137.16 151.1299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2676,7 +2573,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 120.396 150.114 90)
+			(at 135.636 150.114 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2685,7 +2582,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 119.38 149.86 0)
+			(at 134.62 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2693,8 +2590,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376"
-			(at 119.38 149.86 0)
+		(property "Description" "LCSC #C17414"
+			(at 134.62 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2703,7 +2600,7 @@
 			)
 		)
 		(property "Height" ""
-			(at 119.38 149.86 0)
+			(at 134.62 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2712,7 +2609,7 @@
 			)
 		)
 		(property "Manufacturer_Name" ""
-			(at 119.38 149.86 0)
+			(at 134.62 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2721,7 +2618,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" ""
-			(at 119.38 149.86 0)
+			(at 134.62 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2730,7 +2627,7 @@
 			)
 		)
 		(property "Mouser Part Number" ""
-			(at 119.38 149.86 0)
+			(at 134.62 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2739,7 +2636,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" ""
-			(at 119.38 149.86 0)
+			(at 134.62 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2747,8 +2644,8 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C84376 "
-			(at 119.38 149.86 0)
+		(property "LCSC Part #" "C17414"
+			(at 134.62 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2971,7 +2868,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 119.38 146.05 0)
+		(at 134.62 146.05 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2980,7 +2877,7 @@
 		(fields_autoplaced yes)
 		(uuid "f628642f-7404-4f6e-9c8f-50fc5018c7e0")
 		(property "Reference" "#PWR065"
-			(at 119.38 149.86 0)
+			(at 134.62 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2989,7 +2886,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 119.38 140.97 0)
+			(at 134.62 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2997,7 +2894,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 119.38 146.05 0)
+			(at 134.62 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3006,7 +2903,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 119.38 146.05 0)
+			(at 134.62 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3015,7 +2912,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 119.38 146.05 0)
+			(at 134.62 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)

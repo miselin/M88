@@ -521,30 +521,30 @@
 				)
 			)
 		)
-		(symbol "Device:R_Network04"
+		(symbol "Device:R_Network06"
 			(pin_names
 				(offset 0) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "RN"
-				(at -7.62 0 90)
+				(at -10.16 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "R_Network04"
-				(at 5.08 0 90)
+			(property "Value" "R_Network06"
+				(at 7.62 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Footprint" "Resistor_THT:R_Array_SIP5"
-				(at 6.985 0 90)
+			(property "Footprint" "Resistor_THT:R_Array_SIP7"
+				(at 9.525 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -561,7 +561,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "4 resistor network, star topology, bussed resistors, small symbol"
+			(property "Description" "6 resistor network, star topology, bussed resistors, small symbol"
 				(at 0 0 0)
 				(effects
 					(font
@@ -588,16 +588,38 @@
 					(hide yes)
 				)
 			)
-			(symbol "R_Network04_0_1"
+			(symbol "R_Network06_0_1"
 				(rectangle
-					(start -6.35 -3.175)
-					(end 3.81 3.175)
+					(start -8.89 -3.175)
+					(end 6.35 3.175)
 					(stroke
 						(width 0.254)
 						(type default)
 					)
 					(fill
 						(type background)
+					)
+				)
+				(rectangle
+					(start -8.382 1.524)
+					(end -6.858 -2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center -7.62 2.286)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
 					)
 				)
 				(rectangle
@@ -657,6 +679,18 @@
 				)
 				(polyline
 					(pts
+						(xy -7.62 -2.54) (xy -7.62 -3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
 						(xy -5.08 -2.54) (xy -5.08 -3.81)
 					)
 					(stroke
@@ -705,6 +739,30 @@
 				)
 				(polyline
 					(pts
+						(xy 5.08 -2.54) (xy 5.08 -3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -7.62 1.524) (xy -7.62 2.286) (xy -5.08 2.286) (xy -5.08 1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
 						(xy -5.08 1.524) (xy -5.08 2.286) (xy -2.54 2.286) (xy -2.54 1.524)
 					)
 					(stroke
@@ -739,6 +797,18 @@
 						(type none)
 					)
 				)
+				(polyline
+					(pts
+						(xy 2.54 1.524) (xy 2.54 2.286) (xy 5.08 2.286) (xy 5.08 1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(circle
 					(center 0 2.286)
 					(radius 0.254)
@@ -761,10 +831,32 @@
 						(type none)
 					)
 				)
+				(circle
+					(center 2.54 2.286)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 4.318 1.524)
+					(end 5.842 -2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 			)
-			(symbol "R_Network04_1_1"
+			(symbol "R_Network06_1_1"
 				(pin passive line
-					(at -5.08 5.08 270)
+					(at -7.62 5.08 270)
 					(length 2.54)
 					(name "common"
 						(effects
@@ -782,7 +874,7 @@
 					)
 				)
 				(pin passive line
-					(at -5.08 -5.08 90)
+					(at -7.62 -5.08 90)
 					(length 1.27)
 					(name "R1"
 						(effects
@@ -800,7 +892,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -5.08 90)
+					(at -5.08 -5.08 90)
 					(length 1.27)
 					(name "R2"
 						(effects
@@ -818,7 +910,7 @@
 					)
 				)
 				(pin passive line
-					(at 0 -5.08 90)
+					(at -2.54 -5.08 90)
 					(length 1.27)
 					(name "R3"
 						(effects
@@ -836,7 +928,7 @@
 					)
 				)
 				(pin passive line
-					(at 2.54 -5.08 90)
+					(at 0 -5.08 90)
 					(length 1.27)
 					(name "R4"
 						(effects
@@ -846,6 +938,42 @@
 						)
 					)
 					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -5.08 90)
+					(length 1.27)
+					(name "R5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -5.08 90)
+					(length 1.27)
+					(name "R6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1253,12 +1381,20 @@
 		(uuid "04bc695d-799e-4983-990b-f895024e3f36")
 	)
 	(no_connect
+		(at 184.15 92.71)
+		(uuid "0f4a980d-c1bb-42e2-ba0a-3f3ae978def6")
+	)
+	(no_connect
 		(at 127 97.79)
 		(uuid "14537413-1514-4efc-9dab-7842734c968f")
 	)
 	(no_connect
 		(at 127 87.63)
 		(uuid "4aaf548c-e387-4420-9343-d77fab06e51d")
+	)
+	(no_connect
+		(at 184.15 105.41)
+		(uuid "668072c3-d867-485a-affe-48c166134725")
 	)
 	(no_connect
 		(at 127 95.25)
@@ -1336,6 +1472,16 @@
 	)
 	(wire
 		(pts
+			(xy 181.61 100.33) (xy 184.15 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "37cf60ab-8bef-42c4-8dcd-6061e4396ed0")
+	)
+	(wire
+		(pts
 			(xy 114.3 74.93) (xy 114.3 80.01)
 		)
 		(stroke
@@ -1366,16 +1512,6 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 95.25) (xy 184.15 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "43d88a6e-75b1-45c7-b49e-3208cf04a7c9")
-	)
-	(wire
-		(pts
 			(xy 82.55 100.33) (xy 101.6 100.33)
 		)
 		(stroke
@@ -1383,6 +1519,16 @@
 			(type default)
 		)
 		(uuid "4d954aeb-fa5f-4a56-a89d-61d91168acfb")
+	)
+	(wire
+		(pts
+			(xy 181.61 95.25) (xy 184.15 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4e373bcf-62a2-4684-911b-fdb39bba0a2f")
 	)
 	(wire
 		(pts
@@ -1436,6 +1582,16 @@
 	)
 	(wire
 		(pts
+			(xy 181.61 97.79) (xy 184.15 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "89302487-6929-454f-815e-380febff2b0c")
+	)
+	(wire
+		(pts
 			(xy 127 102.87) (xy 137.16 102.87)
 		)
 		(stroke
@@ -1476,6 +1632,16 @@
 	)
 	(wire
 		(pts
+			(xy 181.61 102.87) (xy 184.15 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a31d8492-1757-40af-8cfd-f5de1da79faa")
+	)
+	(wire
+		(pts
 			(xy 96.52 87.63) (xy 101.6 87.63)
 		)
 		(stroke
@@ -1493,16 +1659,6 @@
 			(type default)
 		)
 		(uuid "b25a9df3-18e6-431b-8571-170d5e60b797")
-	)
-	(wire
-		(pts
-			(xy 181.61 92.71) (xy 184.15 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b56de313-22ae-41dc-8127-f5f590a47443")
 	)
 	(wire
 		(pts
@@ -1543,16 +1699,6 @@
 			(type default)
 		)
 		(uuid "d5f317fd-5d3c-4fe9-b2f6-f19dbfb18ecb")
-	)
-	(wire
-		(pts
-			(xy 181.61 100.33) (xy 184.15 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e0f3669a-436c-4e8d-8472-bd2849edc325")
 	)
 	(wire
 		(pts
@@ -1603,16 +1749,6 @@
 			(type default)
 		)
 		(uuid "f130015d-5ab3-4419-814a-523ad8d3cafa")
-	)
-	(wire
-		(pts
-			(xy 181.61 97.79) (xy 184.15 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fad115fe-8dd8-44fd-ba45-3519b18dd90a")
 	)
 	(wire
 		(pts
@@ -1695,7 +1831,7 @@
 	)
 	(hierarchical_label "~{MEMW}"
 		(shape tri_state)
-		(at 181.61 95.25 180)
+		(at 181.61 97.79 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1703,7 +1839,7 @@
 			)
 			(justify right)
 		)
-		(uuid "243f1171-bcec-428b-ac97-33412ad4aab1")
+		(uuid "2b44d345-cb3d-40c3-be98-84eac6436320")
 	)
 	(hierarchical_label "~{IOW}"
 		(shape tri_state)
@@ -1719,7 +1855,7 @@
 	)
 	(hierarchical_label "~{IOR}"
 		(shape tri_state)
-		(at 181.61 97.79 180)
+		(at 181.61 100.33 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1727,7 +1863,19 @@
 			)
 			(justify right)
 		)
-		(uuid "4fa16755-9d7d-4d6e-9fc7-0f5883ffbdb1")
+		(uuid "350e6309-3caa-4343-a384-99a78a4c4d71")
+	)
+	(hierarchical_label "~{IOW}"
+		(shape tri_state)
+		(at 181.61 102.87 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "40b15ba8-6e36-4d3f-bb82-4cf5ee1020ca")
 	)
 	(hierarchical_label "~{IOR}"
 		(shape tri_state)
@@ -1743,18 +1891,6 @@
 	)
 	(hierarchical_label "~{MEMR}"
 		(shape tri_state)
-		(at 181.61 92.71 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "5c94e208-d123-4f1a-8f39-2c783a0a8101")
-	)
-	(hierarchical_label "~{MEMR}"
-		(shape tri_state)
 		(at 146.05 78.74 0)
 		(fields_autoplaced yes)
 		(effects
@@ -1764,18 +1900,6 @@
 			(justify left)
 		)
 		(uuid "5ee0bc05-02c7-431c-bdd6-ba4225a23f06")
-	)
-	(hierarchical_label "~{IOW}"
-		(shape tri_state)
-		(at 181.61 100.33 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "83958fdc-c560-42fe-91fa-f5206d300585")
 	)
 	(hierarchical_label "~{MEMW}"
 		(shape tri_state)
@@ -1788,6 +1912,18 @@
 			(justify left)
 		)
 		(uuid "cb34ff3d-9ded-40c5-8d8e-694a6de78e0a")
+	)
+	(hierarchical_label "~{MEMR}"
+		(shape tri_state)
+		(at 181.61 95.25 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "cf015f4b-3c03-4814-88aa-35178b407cef")
 	)
 	(hierarchical_label "~{WR}"
 		(shape input)
@@ -1935,7 +2071,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C2933536"
+		(property "Description" "LCSC #C17561"
 			(at 140.97 102.87 0)
 			(effects
 				(font
@@ -1989,7 +2125,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C2933536"
+		(property "LCSC Part #" "C17561"
 			(at 140.97 102.87 0)
 			(effects
 				(font
@@ -2056,7 +2192,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C2933536"
+		(property "Description" "LCSC #C17561"
 			(at 140.97 87.63 0)
 			(effects
 				(font
@@ -2110,7 +2246,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C2933536"
+		(property "LCSC Part #" "C17561"
 			(at 140.97 87.63 0)
 			(effects
 				(font
@@ -2244,7 +2380,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C2933536"
+		(property "Description" "LCSC #C17561"
 			(at 140.97 78.74 0)
 			(effects
 				(font
@@ -2298,7 +2434,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C2933536"
+		(property "LCSC Part #" "C17561"
 			(at 140.97 78.74 0)
 			(effects
 				(font
@@ -2389,8 +2525,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Network04")
-		(at 189.23 97.79 270)
+		(lib_id "Device:R_Network06")
+		(at 189.23 100.33 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2414,8 +2550,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Array_SIP5"
-			(at 189.23 104.775 90)
+		(property "Footprint" "Resistor_THT:R_Array_SIP7"
+			(at 189.23 109.855 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2424,7 +2560,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.vishay.com/docs/31509/csc.pdf"
-			(at 189.23 97.79 0)
+			(at 189.23 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2432,8 +2568,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C33175"
-			(at 189.23 97.79 0)
+		(property "Description" "LCSC #C39096"
+			(at 189.23 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2442,7 +2578,7 @@
 			)
 		)
 		(property "Height" ""
-			(at 189.23 97.79 0)
+			(at 189.23 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2451,7 +2587,7 @@
 			)
 		)
 		(property "Manufacturer_Name" ""
-			(at 189.23 97.79 0)
+			(at 189.23 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2460,7 +2596,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" ""
-			(at 189.23 97.79 0)
+			(at 189.23 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2469,7 +2605,7 @@
 			)
 		)
 		(property "Mouser Part Number" ""
-			(at 189.23 97.79 0)
+			(at 189.23 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2478,7 +2614,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" ""
-			(at 189.23 97.79 0)
+			(at 189.23 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2486,8 +2622,8 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C33175"
-			(at 189.23 97.79 0)
+		(property "LCSC Part #" "C39096"
+			(at 189.23 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2509,6 +2645,12 @@
 		)
 		(pin "4"
 			(uuid "9b7cc358-2d2e-49fc-84fd-12b8e2cc00c4")
+		)
+		(pin "6"
+			(uuid "f7139b02-a889-4448-8019-01d1e9c877d3")
+		)
+		(pin "7"
+			(uuid "87100ac7-6314-46b9-ab8f-c8722d6b7f58")
 		)
 		(instances
 			(project "sbc_8088"
@@ -2563,7 +2705,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 123.19 74.93 0)
 			(effects
 				(font
@@ -2617,7 +2759,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 123.19 74.93 0)
 			(effects
 				(font
@@ -3245,7 +3387,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C2933536"
+		(property "Description" "LCSC #C17561"
 			(at 140.97 100.33 0)
 			(effects
 				(font
@@ -3299,7 +3441,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C2933536"
+		(property "LCSC Part #" "C17561"
 			(at 140.97 100.33 0)
 			(effects
 				(font

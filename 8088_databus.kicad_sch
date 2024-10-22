@@ -2545,7 +2545,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "10k (bussed)"
 			(at 237.49 103.1239 0)
 			(effects
 				(font
@@ -2781,7 +2781,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 149.86 78.74 0)
 			(effects
 				(font
@@ -2835,7 +2835,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 149.86 78.74 0)
 			(effects
 				(font

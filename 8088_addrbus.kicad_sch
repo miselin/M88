@@ -4475,7 +4475,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 191.77 60.96 0)
 			(effects
 				(font
@@ -4529,7 +4529,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 191.77 60.96 0)
 			(effects
 				(font
@@ -4836,7 +4836,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "10k (bussed)"
 			(at 245.11 112.0139 0)
 			(effects
 				(font
@@ -5140,7 +5140,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 217.17 60.96 0)
 			(effects
 				(font
@@ -5194,7 +5194,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 217.17 60.96 0)
 			(effects
 				(font
@@ -5264,7 +5264,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 165.1 60.96 0)
 			(effects
 				(font
@@ -5318,7 +5318,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 165.1 60.96 0)
 			(effects
 				(font
@@ -5427,7 +5427,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "10k (bussed)"
 			(at 217.17 112.0139 0)
 			(effects
 				(font
@@ -5816,7 +5816,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R_Network04"
+		(property "Value" "10k (bussed)"
 			(at 262.89 112.0139 0)
 			(effects
 				(font

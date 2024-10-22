@@ -5659,7 +5659,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C114519"
+		(property "Description" "LCSC #C17557"
 			(at 162.56 69.85 0)
 			(effects
 				(font
@@ -5713,7 +5713,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C114519"
+		(property "LCSC Part #" "C17557"
 			(at 162.56 69.85 0)
 			(effects
 				(font
@@ -6303,7 +6303,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 110.49 48.26 0)
 			(effects
 				(font
@@ -6357,7 +6357,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 110.49 48.26 0)
 			(effects
 				(font
@@ -6948,7 +6948,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 54.61 49.53 0)
 			(effects
 				(font
@@ -7002,7 +7002,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 54.61 49.53 0)
 			(effects
 				(font
@@ -7070,7 +7070,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 110.49 110.49 0)
 			(effects
 				(font
@@ -7124,7 +7124,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 110.49 110.49 0)
 			(effects
 				(font
@@ -7885,7 +7885,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 240.03 31.75 0)
 			(effects
 				(font
@@ -7939,7 +7939,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 240.03 31.75 0)
 			(effects
 				(font
@@ -8339,7 +8339,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C114519"
+		(property "Description" "LCSC #C17557"
 			(at 165.1 129.54 0)
 			(effects
 				(font
@@ -8393,7 +8393,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C114519"
+		(property "LCSC Part #" "C17557"
 			(at 165.1 129.54 0)
 			(effects
 				(font

@@ -1997,7 +1997,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 149.86 67.31 0)
 			(effects
 				(font
@@ -2051,7 +2051,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 149.86 67.31 0)
 			(effects
 				(font
@@ -2311,7 +2311,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376"
+		(property "Description" "LCSC #C17414"
 			(at 176.53 137.16 0)
 			(effects
 				(font
@@ -2365,7 +2365,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C84376 "
+		(property "LCSC Part #" "C17414"
 			(at 176.53 137.16 0)
 			(effects
 				(font
@@ -2501,7 +2501,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376"
+		(property "Description" "LCSC #C17414"
 			(at 154.94 135.89 0)
 			(effects
 				(font
@@ -2555,7 +2555,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C84376 "
+		(property "LCSC Part #" "C17414"
 			(at 154.94 135.89 0)
 			(effects
 				(font
@@ -2889,7 +2889,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376"
+		(property "Description" "LCSC #C17414"
 			(at 205.74 130.81 0)
 			(effects
 				(font
@@ -2943,7 +2943,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C84376 "
+		(property "LCSC Part #" "C17414"
 			(at 205.74 130.81 0)
 			(effects
 				(font
@@ -3013,7 +3013,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376"
+		(property "Description" "LCSC #C17414"
 			(at 55.88 71.12 0)
 			(effects
 				(font
@@ -3067,7 +3067,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C84376 "
+		(property "LCSC Part #" "C17414"
 			(at 55.88 71.12 0)
 			(effects
 				(font
@@ -3138,7 +3138,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1952580"
+		(property "Description" "LCSC #C15850"
 			(at 43.18 87.63 0)
 			(effects
 				(font
@@ -3192,7 +3192,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1952580"
+		(property "LCSC Part #" "C15850"
 			(at 43.18 87.63 0)
 			(effects
 				(font

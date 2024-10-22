@@ -2233,7 +2233,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376"
+		(property "Description" "LCSC #C17414"
 			(at 133.35 138.43 0)
 			(effects
 				(font
@@ -2287,7 +2287,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C84376 "
+		(property "LCSC Part #" "C17414"
 			(at 133.35 138.43 0)
 			(effects
 				(font
@@ -2966,7 +2966,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C114529"
+		(property "Description" "LCSC #C17617"
 			(at 212.09 66.04 0)
 			(effects
 				(font
@@ -3020,7 +3020,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C114529 "
+		(property "LCSC Part #" "C17617"
 			(at 212.09 66.04 0)
 			(effects
 				(font
@@ -3400,7 +3400,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1952580"
+		(property "Description" "LCSC #C15850"
 			(at 133.35 67.31 0)
 			(effects
 				(font
@@ -3454,7 +3454,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1952580"
+		(property "LCSC Part #" "C15850"
 			(at 133.35 67.31 0)
 			(effects
 				(font
@@ -3522,7 +3522,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C114529"
+		(property "Description" "LCSC #C17617"
 			(at 210.82 40.64 0)
 			(effects
 				(font
@@ -3576,7 +3576,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C114529 "
+		(property "LCSC Part #" "C17617"
 			(at 210.82 40.64 0)
 			(effects
 				(font
@@ -4209,7 +4209,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376"
+		(property "Description" "LCSC #C17414"
 			(at 146.05 83.82 0)
 			(effects
 				(font
@@ -4263,7 +4263,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C84376 "
+		(property "LCSC Part #" "C17414"
 			(at 146.05 83.82 0)
 			(effects
 				(font
@@ -4821,7 +4821,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C114529"
+		(property "Description" "LCSC #C17617"
 			(at 212.09 76.2 0)
 			(effects
 				(font
@@ -4875,7 +4875,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C114529 "
+		(property "LCSC Part #" "C17617"
 			(at 212.09 76.2 0)
 			(effects
 				(font

@@ -4376,7 +4376,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_1206_3216Metric"
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
 			(at 40.64 32.258 90)
 			(effects
 				(font
@@ -4394,7 +4394,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C92887"
+		(property "Description" "LCSC #C1015"
 			(at 40.64 30.48 0)
 			(effects
 				(font
@@ -4448,7 +4448,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C92887"
+		(property "LCSC Part #" "C1015"
 			(at 40.64 30.48 0)
 			(effects
 				(font
@@ -5196,7 +5196,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376"
+		(property "Description" "LCSC #C17414"
 			(at 260.35 77.47 0)
 			(effects
 				(font
@@ -5250,7 +5250,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C84376 "
+		(property "LCSC Part #" "C17414"
 			(at 260.35 77.47 0)
 			(effects
 				(font
@@ -5586,7 +5586,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 119.38 35.56 0)
 			(effects
 				(font
@@ -5640,7 +5640,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 119.38 35.56 0)
 			(effects
 				(font
@@ -6236,7 +6236,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 160.02 57.15 0)
 			(effects
 				(font
@@ -6290,7 +6290,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 160.02 57.15 0)
 			(effects
 				(font
@@ -6360,7 +6360,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376"
+		(property "Description" "LCSC #C17414"
 			(at 252.73 116.84 0)
 			(effects
 				(font
@@ -6414,7 +6414,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C84376 "
+		(property "LCSC Part #" "C17414"
 			(at 252.73 116.84 0)
 			(effects
 				(font
@@ -6550,7 +6550,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376"
+		(property "Description" "LCSC #C17414"
 			(at 226.06 57.15 0)
 			(effects
 				(font
@@ -6604,7 +6604,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C84376 "
+		(property "LCSC Part #" "C17414"
 			(at 226.06 57.15 0)
 			(effects
 				(font
@@ -7620,7 +7620,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 149.86 157.48 0)
 			(effects
 				(font
@@ -7674,7 +7674,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 149.86 157.48 0)
 			(effects
 				(font
@@ -8014,7 +8014,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_1206_3216Metric"
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
 			(at 240.03 62.738 90)
 			(effects
 				(font
@@ -8032,7 +8032,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C92887"
+		(property "Description" "LCSC #C1015"
 			(at 240.03 60.96 0)
 			(effects
 				(font
@@ -8086,7 +8086,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C92887"
+		(property "LCSC Part #" "C1015"
 			(at 240.03 60.96 0)
 			(effects
 				(font
@@ -8624,7 +8624,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_1206_3216Metric"
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
 			(at 270.51 79.502 90)
 			(effects
 				(font
@@ -8642,7 +8642,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C92887"
+		(property "Description" "LCSC #C1015"
 			(at 270.51 81.28 0)
 			(effects
 				(font
@@ -8696,7 +8696,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C92887"
+		(property "LCSC Part #" "C1015"
 			(at 270.51 81.28 0)
 			(effects
 				(font
@@ -9122,7 +9122,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 219.075 34.29 0)
 			(effects
 				(font
@@ -9176,7 +9176,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 219.075 34.29 0)
 			(effects
 				(font
@@ -9226,7 +9226,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_1206_3216Metric"
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
 			(at 266.7 122.428 90)
 			(effects
 				(font
@@ -9244,7 +9244,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C92887"
+		(property "Description" "LCSC #C1015"
 			(at 266.7 120.65 0)
 			(effects
 				(font
@@ -9298,7 +9298,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C92887"
+		(property "LCSC Part #" "C1015"
 			(at 266.7 120.65 0)
 			(effects
 				(font
@@ -9348,7 +9348,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_1206_3216Metric"
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
 			(at 227.33 150.368 90)
 			(effects
 				(font
@@ -9366,7 +9366,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C92887"
+		(property "Description" "LCSC #C1015"
 			(at 227.33 148.59 0)
 			(effects
 				(font
@@ -9420,7 +9420,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C92887"
+		(property "LCSC Part #" "C1015"
 			(at 227.33 148.59 0)
 			(effects
 				(font
@@ -9490,7 +9490,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C84376"
+		(property "Description" "LCSC #C17414"
 			(at 217.17 144.78 0)
 			(effects
 				(font
@@ -9544,7 +9544,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C84376 "
+		(property "LCSC Part #" "C17414"
 			(at 217.17 144.78 0)
 			(effects
 				(font

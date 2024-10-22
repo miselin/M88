@@ -2034,7 +2034,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LCSC #C1853649"
+		(property "Description" "LCSC #C49678"
 			(at 151.13 67.31 0)
 			(effects
 				(font
@@ -2088,7 +2088,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C1853649"
+		(property "LCSC Part #" "C49678"
 			(at 151.13 67.31 0)
 			(effects
 				(font

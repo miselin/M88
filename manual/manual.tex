@@ -348,6 +348,22 @@ will be preserved.
 
 \newpage
 
+\section{Errata}
+
+\subsection{Errata for A3}
+\begin{itemize}
+    \item DMA signals DACK0, DACK1, DACK2, DACK3, DRQ1, DRQ2, and DRQ3 are floating. DACK0 at a minimum should be tied to +5V.
+    \item The TC signal is floating. It should be tied to GND.
+    \item The AEN signal is floating. It should be tied to GND.
+    \item The RDY signal is both pulled up and down. R3 should be removed (or not populated) for correct operation.
+\end{itemize}
+
+\subsection{Errata for A5}
+\begin{itemize}
+    \item The AEN signal is pulled down to GND through a 10K resistor pack. However, ISA cards (such as the XT-IDE) may include their own pull-ups on this line, and the 10K pack may too weak to correctly pull the signal down. Tie AEN to GND for correct operation.
+    \item The POST Code 7-segment displays are swapped, so the high nibble is shown on the right and the low nibble on the left.
+\end{itemize}
+
 \part{Peripherals}
 
 \section{ISA-to-\itwoc{} Bridge}

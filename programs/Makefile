@@ -21,7 +21,7 @@ LD := ld
 OBJDUMP := objdump
 OBJCOPY := objcopy
 
-all: mkdirs build/rom.bin build/rom.hex build/rom-opt.bin build/disasm.s build/opt-disasm.s
+all: mkdirs build/rom.bin build/rom.hex build/rom-opt.bin build/disasm.s build/opt-disasm.s i2c
 
 clean:
 	@rm -rf build
@@ -68,6 +68,10 @@ build/opt-disasm.s: build/rom-opt.bin
 # Programming file to write to EEPROM
 build/rom.hex: build/rom.bin
 	$(OBJCOPY) -D -I binary -B i8086 -O ihex $< $@
+
+.PHONY: i2c
+i2c:
+	$(MAKE) -C i2c
 
 -include ${ROMLINK_DEPENDS}
 -include ${ELF2BIN_DEPENDS}

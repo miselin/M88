@@ -21,53 +21,44 @@
 #define ERR_NO_ACK 4
 #define ERR_BUS_ERROR 5
 
-/* Status Register Bits */
-#define S1_PIN 0x80 /* Pending Interrupt Not */
-#define S1_BER 0x04 /* Bus Error */
-#define S1_BB 0x01  /* Bus Busy */
-#define S1_LRB 0x08 /* Last Received Bit */
-
 /* Clock settings - indexed by MHz */
 #define CLK_INVALID 0xFF
 unsigned char get_clock_reg(int mhz) {
   switch (mhz) {
     case 3:
-      return 0x00; /* S24=0: 3 MHz */
+      return (0 << 2); /* 3 MHz */
     case 4:
-      return 0x10; /* S24=1, S23-22=00: 4.43 MHz (we use 4 to mean 4.43) */
+      return (4 << 2); /* 4.43 MHz (we use 4 to mean 4.43) */
     case 6:
-      return 0x14; /* S24=1, S23-22=01: 6 MHz */
+      return (5 << 2); /* 6 MHz */
     case 8:
-      return 0x18; /* S24=1, S23-22=10: 8 MHz */
+      return (6 << 2); /* 8 MHz */
     case 12:
-      return 0x1C; /* S24=1, S23-22=11: 12 MHz */
+      return (7 << 2); /* 12 MHz */
     default:
       return CLK_INVALID;
   }
 }
 
 /* SCL frequency */
-#define SCL_90K 0x00  /* S21-20=00: 90 kHz */
-#define SCL_45K 0x01  /* S21-20=01: 45 kHz */
-#define SCL_11K 0x02  /* S21-20=10: 11 kHz */
-#define SCL_1_5K 0x03 /* S21-20=11: 1.5 kHz */
-
-/* PCF8584 Register Addresses - set by A0 pin and ES1/ES2 bits */
-#define S0_DATA 0x00    /* A0=0: Data shift register/read buffer */
-#define S1_CONTROL 0x01 /* A0=1: Control/status register */
+#define SCL_90K (0 << 0)  /* S21-20=00: 90 kHz */
+#define SCL_45K (1 << 0)  /* S21-20=01: 45 kHz */
+#define SCL_11K (2 << 0)  /* S21-20=10: 11 kHz */
+#define SCL_1_5K (3 << 0) /* S21-20=11: 1.5 kHz */
 
 /* S1 Control Register Bits */
-#define S1_PIN 0x80 /* Pending Interrupt Not */
-#define S1_ESO 0x40 /* Enable Serial Output */
-#define S1_ENI 0x10 /* Enable Interrupt */
-#define S1_STA 0x08 /* Start Condition */
-#define S1_STO 0x04 /* Stop Condition */
-#define S1_ACK 0x02 /* Acknowledge */
+#define S1_PIN (1 << 7) /* Pending Interrupt Not */
+#define S1_ESO (1 << 6) /* Enable Serial Output */
+#define S1_ENI (1 << 3) /* Enable Interrupt */
+#define S1_STA (1 << 2) /* Start Condition */
+#define S1_STO (1 << 1) /* Stop Condition */
+#define S1_ACK (1 << 0) /* Acknowledge */
 
 /* S1 Status Register Bits */
-#define S1_PIN_STATUS 0x80 /* PIN status bit */
-#define S1_BB 0x01         /* Bus Busy */
-#define S1_LRB 0x08        /* Last Received Bit */
+#define S1_BB (1 << 0)         /* Bus Busy */
+#define S1_BER (1 << 4)        /* Bus Error */
+#define S1_LRB (1 << 3)        /* Last Received Bit */
+#define S1_PIN_STATUS (1 << 7) /* PIN status bit */
 
 static void print_usage(const char *program_name);
 static int hex_to_int(const char *hex_str);
@@ -221,9 +212,11 @@ static int write_i2c(unsigned port, unsigned char device_addr,
     return status;
   }
 
+  /* Address + Write bit (0) */
+  outp(port, device_addr << 1);
+
   /* Write control byte - generate START and send address */
-  outp(port + 1, S1_ESO | S1_STA | S1_ACK);
-  outp(port, device_addr << 1); /* Address + Write bit (0) */
+  outp(port + 1, S1_ESO | S1_STA | S1_ACK | S1_PIN);
 
   status = wait_for_pin(port);
   if (status != ERR_SUCCESS) {
@@ -238,7 +231,7 @@ static int write_i2c(unsigned port, unsigned char device_addr,
   /* Check for acknowledge */
   if (inp(port + 1) & S1_LRB) {
     fprintf(stderr, "No acknowledge from device\n");
-    outp(port + 1, S1_ESO | S1_STO); /* Generate STOP */
+    outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
     return ERR_NO_ACK;
   }
 
@@ -249,19 +242,19 @@ static int write_i2c(unsigned port, unsigned char device_addr,
     status = wait_for_pin(port);
     if (status != ERR_SUCCESS) {
       fprintf(stderr, "Timeout waiting for data transmission\n");
-      outp(port + 1, S1_ESO | S1_STO); /* Generate STOP */
+      outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
       return status;
     }
 
     if (inp(port + 1) & S1_LRB) {
       fprintf(stderr, "No acknowledge for data byte\n");
-      outp(port + 1, S1_ESO | S1_STO); /* Generate STOP */
+      outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
       return ERR_NO_ACK;
     }
   }
 
   /* Generate STOP condition */
-  outp(port + 1, S1_ESO | S1_STO | S1_ACK);
+  outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN);
 
   return ERR_SUCCESS;
 }
@@ -276,9 +269,11 @@ static int read_i2c(unsigned port, unsigned char device_addr, size_t length) {
     return status;
   }
 
+  /* Address + Read bit (1) */
+  safe_outp(port, (device_addr << 1) | 1);
+
   /* Write control byte - generate START and send address */
   safe_outp(port + 1, S1_ESO | S1_STA | S1_ACK);
-  safe_outp(port, (device_addr << 1) | 1); /* Address + Read bit (1) */
 
   status = wait_for_pin(port);
   if (status != ERR_SUCCESS) {
@@ -287,14 +282,14 @@ static int read_i2c(unsigned port, unsigned char device_addr, size_t length) {
     } else {
       fprintf(stderr, "Timeout during address transmission\n");
     }
-    safe_outp(port + 1, S1_ESO | S1_STO); /* Generate STOP */
+    safe_outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
     return status;
   }
 
   /* Check for acknowledge */
   if (safe_inp(port + 1) & S1_LRB) {
     fprintf(stderr, "No acknowledge from device\n");
-    safe_outp(port + 1, S1_ESO | S1_STO); /* Generate STOP */
+    safe_outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
     return ERR_NO_ACK;
   }
 
@@ -310,8 +305,15 @@ static int read_i2c(unsigned port, unsigned char device_addr, size_t length) {
       } else {
         fprintf(stderr, "Timeout during data reception\n");
       }
-      safe_outp(port + 1, S1_ESO | S1_STO); /* Generate STOP */
+      safe_outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
       return status;
+    }
+
+    /* Check for acknowledge */
+    if (safe_inp(port + 1) & S1_LRB) {
+      fprintf(stderr, "No acknowledge from device\n");
+      safe_outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
+      return ERR_NO_ACK;
     }
 
     /* For last byte, send NAK */
@@ -323,8 +325,19 @@ static int read_i2c(unsigned port, unsigned char device_addr, size_t length) {
     putchar(safe_inp(port));
   }
 
+  status = wait_for_pin(port);
+  if (status != ERR_SUCCESS) {
+    if (status == ERR_BUS_ERROR) {
+      fprintf(stderr, "Bus error during NACK transmission\n");
+    } else {
+      fprintf(stderr, "Timeout during NACK transmission\n");
+    }
+    safe_outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
+    return status;
+  }
+
   /* Generate STOP condition */
-  safe_outp(port + 1, S1_ESO | S1_STO);
+  safe_outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN);
   return ERR_SUCCESS;
 }
 

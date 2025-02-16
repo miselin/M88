@@ -1,8 +1,5 @@
 #include <conio.h> /* For inp/outp functions */
-#include <ctype.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <time.h> /* For clock() */
 
 #include "i2c.h"
@@ -64,7 +61,6 @@ int pcf8584_write(unsigned port, unsigned char device_addr, unsigned char *data,
   /* Wait for bus free */
   status = pcf8584_wait_for_bus(port);
   if (status != ERR_SUCCESS) {
-    fprintf(stderr, "Timeout waiting for bus to be free\n");
     return status;
   }
 
@@ -76,17 +72,11 @@ int pcf8584_write(unsigned port, unsigned char device_addr, unsigned char *data,
 
   status = pcf8584_wait_for_pin(port);
   if (status != ERR_SUCCESS) {
-    if (status == ERR_BUS_ERROR) {
-      fprintf(stderr, "Bus error during address transmission\n");
-    } else {
-      fprintf(stderr, "Timeout during address transmission\n");
-    }
     return status;
   }
 
   /* Check for acknowledge */
   if (inp(port + 1) & S1_LRB) {
-    fprintf(stderr, "No acknowledge from device\n");
     outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
     return ERR_NO_ACK;
   }
@@ -97,13 +87,11 @@ int pcf8584_write(unsigned port, unsigned char device_addr, unsigned char *data,
 
     status = pcf8584_wait_for_pin(port);
     if (status != ERR_SUCCESS) {
-      fprintf(stderr, "Timeout waiting for data transmission\n");
       outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
       return status;
     }
 
     if (inp(port + 1) & S1_LRB) {
-      fprintf(stderr, "No acknowledge for data byte\n");
       outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
       return ERR_NO_ACK;
     }
@@ -122,7 +110,6 @@ int pcf8584_read(unsigned port, unsigned char device_addr, unsigned char *data,
   /* Wait for bus free */
   status = pcf8584_wait_for_bus(port);
   if (status != ERR_SUCCESS) {
-    fprintf(stderr, "Timeout waiting for bus to be free\n");
     return status;
   }
 
@@ -134,18 +121,12 @@ int pcf8584_read(unsigned port, unsigned char device_addr, unsigned char *data,
 
   status = pcf8584_wait_for_pin(port);
   if (status != ERR_SUCCESS) {
-    if (status == ERR_BUS_ERROR) {
-      fprintf(stderr, "Bus error during address transmission\n");
-    } else {
-      fprintf(stderr, "Timeout during address transmission\n");
-    }
     safe_outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
     return status;
   }
 
   /* Check for acknowledge */
   if (safe_inp(port + 1) & S1_LRB) {
-    fprintf(stderr, "No acknowledge from device\n");
     safe_outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
     return ERR_NO_ACK;
   }
@@ -157,11 +138,6 @@ int pcf8584_read(unsigned port, unsigned char device_addr, unsigned char *data,
   for (size_t i = 0; i < length; i++) {
     status = pcf8584_wait_for_pin(port);
     if (status != ERR_SUCCESS) {
-      if (status == ERR_BUS_ERROR) {
-        fprintf(stderr, "Bus error during data reception\n");
-      } else {
-        fprintf(stderr, "Timeout during data reception\n");
-      }
       safe_outp(port + 1,
                 S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
       return status;
@@ -169,7 +145,6 @@ int pcf8584_read(unsigned port, unsigned char device_addr, unsigned char *data,
 
     /* Check for acknowledge */
     if (safe_inp(port + 1) & S1_LRB) {
-      fprintf(stderr, "No acknowledge from device\n");
       safe_outp(port + 1,
                 S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
       return ERR_NO_ACK;
@@ -186,11 +161,6 @@ int pcf8584_read(unsigned port, unsigned char device_addr, unsigned char *data,
 
   status = pcf8584_wait_for_pin(port);
   if (status != ERR_SUCCESS) {
-    if (status == ERR_BUS_ERROR) {
-      fprintf(stderr, "Bus error during NACK transmission\n");
-    } else {
-      fprintf(stderr, "Timeout during NACK transmission\n");
-    }
     safe_outp(port + 1, S1_ESO | S1_STO | S1_ACK | S1_PIN); /* Generate STOP */
     return status;
   }
@@ -261,4 +231,21 @@ int pcf8584_wait_for_bus(unsigned port) {
 
 static unsigned long get_msec(void) {
   return (unsigned long)(clock() * 1000 / CLOCKS_PER_SEC);
+}
+
+const char *pcf8584_strerror(int error) {
+  switch (error) {
+    case ERR_SUCCESS:
+      return "Success";
+    case ERR_TIMEOUT_PIN:
+      return "Timeout waiting for controller acknowledgement";
+    case ERR_TIMEOUT_BUS:
+      return "Timeout waiting for the I2C bus to be idle";
+    case ERR_NO_ACK:
+      return "Timeout waiting for remote device acknowledgement";
+    case ERR_BUS_ERROR:
+      return "I2C bus error";
+    default:
+      return "Unknown error";
+  }
 }

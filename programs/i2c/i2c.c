@@ -98,7 +98,11 @@ int main(int argc, char *argv[]) {
         data_length++;
       }
 
-      return pcf8584_write(port, device_addr, buffer, data_length);
+      int status = pcf8584_write(port, device_addr, buffer, data_length);
+      if (status != ERR_SUCCESS) {
+        fprintf(stderr, "Write failed: %s\n", pcf8584_strerror(status));
+      }
+      return status;
     }
 
     case 'r': {
@@ -117,6 +121,7 @@ int main(int argc, char *argv[]) {
 
       int result = pcf8584_read(port, device_addr, buffer, length);
       if (result != ERR_SUCCESS) {
+        fprintf(stderr, "Read failed: %s\n", pcf8584_strerror(result));
         return result;
       }
 
@@ -137,7 +142,7 @@ static int check_status_command(unsigned port) {
   union pcf8584_status status;
   int result = pcf8584_status(port, &status);
   if (result != ERR_SUCCESS) {
-    fprintf(stderr, "Failed to check status\n");
+    fprintf(stderr, "Failed to check status: %s\n", pcf8584_strerror(result));
     return result;
   }
 

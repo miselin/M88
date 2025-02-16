@@ -1,3 +1,7 @@
+// I2C library routines for controlling a PCF8584 on the ISA Bus
+// Designed for use with the M88 ISA-to-I2C card.
+// Copyright 2024 Matthew Iselin, see github.com/miselin/m88 for license.
+
 #ifndef _I2C_H
 #define _I2C_H
 
@@ -13,7 +17,6 @@
 #define ERR_SUCCESS 0
 #define ERR_TIMEOUT_PIN 1
 #define ERR_TIMEOUT_BUS 2
-#define ERR_TIMEOUT_ACK 3
 #define ERR_NO_ACK 4
 #define ERR_BUS_ERROR 5
 
@@ -64,5 +67,7 @@ int pcf8584_wait_for_pin(unsigned port);
 int pcf8584_wait_for_bus(unsigned port);
 
 unsigned char pcf8584_get_clock_reg_for(int mhz);
+
+const char *pcf8584_strerror(int error);
 
 #endif

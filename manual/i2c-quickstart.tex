@@ -1,0 +1,166 @@
+\documentclass[twoside,10pt,letterpaper]{refart}
+\usepackage{ifthen}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+\usepackage{bytefield}
+\usepackage{makeidx}
+\usepackage[T1]{fontenc}
+\usepackage[lining]{ebgaramond}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{relsize}
+
+\usepackage{fontspec}
+\setmonofont{Courier Prime}
+
+\setlength{\columnseprule}{0.4pt}
+
+\newfontfamily\sixtyfour{Sixtyfour}
+\DeclareTextFontCommand{\codefont}{\sixtyfour}
+
+\newcommand{\forceindent}[1][3em]{\leavevmode{\parindent=#1\indent}}
+
+\ExplSyntaxOn
+\cs_new:Npn \m88 {
+    {\sixtyfour \smaller[1] M88}
+}
+\ExplSyntaxOff
+\newcommand{\itwoc}{I\textsuperscript{2}C}
+
+\makeatletter
+\def\@maketitle{
+  \newpage
+  \null
+  \begin{center}
+  \let \footnote \thanks
+    {\LARGE \bfseries {\@title} \par}
+  \end{center}
+  \par
+}
+\makeatother
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, text width=3cm, draw=black]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, text width=3cm, draw=black]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, text width=3cm, draw=black]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, text width=3cm, aspect=3, draw=black]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\title{\m88 ISA-to-\itwoc{} Bridge Card Quickstart}
+\author{}
+\date{}
+
+\fullpage
+
+\begin{document}
+\maketitle
+\raggedright
+
+Thank you for either purchasing or building an \m88 ISA-to-\itwoc{} card! You're a few short steps away
+from interfacing your IBM PC/AT or compatible with an external \itwoc{} bus. The card is built around
+the NXP PCF8584 \itwoc{} controller. If you wish to write your own software to interact with the card,
+you may refer to the PCF8584 datasheet for more information.
+
+\section*{Initial Configuration}
+
+The ISA-to-\itwoc{} bridge card includes a DIP switch to configure the card's base I/O port address.
+Ports in the range \texttt{000} to \texttt{3FF} can be configured. Your configuration needs
+may vary depending on other peripherals installed on the system, but generally port \texttt{2A0}
+works.
+
+The DIP switch positions for port \texttt{0x3A0} are as follows:
+
+\begin{center}
+    \begin{tabular}{ c|c|c|c|c|c|c|c|c }
+        \textbf{DIP Switch} & A9 & A8 & A7 & A6 & A5 & A4 & A3 & A2 \\
+        \hline
+        \textbf{Position} & 1 & 1 & 1 & 0 & 1 & 0 & 0 & 0
+    \end{tabular}
+\end{center}
+
+\section*{Connecting the Card}
+
+Insert the card to any available ISA slot in your IBM PC/AT or compatible. Securely fasten the card's
+bracket using a screw or other fastener, depending on the slot and your computer's case design.
+
+Two options are provided for connectivity to the \itwoc{} bus: a DE-9 connector and a 4-pin "STEMMA" connector.
+With the computer powered off, connect your \itwoc{} devices to the appropriate connector on the card.
+
+\subsection*{Pinouts}
+
+todo
+
+\section*{Software Installation}
+
+You can obtain supporting software at the GitHub repository for the \m88 project, https://github.com/miselin/m88.
+
+The package includes:
+
+\begin{enumerate}
+    \item \texttt{i2c.exe} - a command-line utility to interact with \itwoc{} devices.
+    \item \texttt{i2c.lib} - a library exposing the card's functionality for use in your own programs.
+    \item \texttt{i2c.h} - C header file for use with \texttt{i2c.lib}.
+\end{enumerate}
+
+\section*{Using \texttt{i2c.exe}}
+
+The \texttt{i2c.exe} utility allows you to get started with interfacing your \itwoc{} devices quickly.
+
+Throughout this section, port \texttt{2A0} is used as the base I/O port address. If you configured the card with a different
+port, you will need to adjust the command line arguments accordingly.
+
+\subsection*{Initialization}
+
+\texttt{I2C 2A0 i [clock] [addr]}
+
+This command initializes the card at base I/O port \texttt{2A0}. If neither \texttt{[clock]} nor \texttt{[addr]} are provided,
+the command will configure the card to assume a 4.43 MHz ISA bus clock, with a 90 kHz \itwoc{} \texttt{SCL} clock frequency.
+
+Valid values for \texttt{[clock]} are 3, 4 (4.43 MHz), 6, 8, or 12.
+
+Valid values for \texttt{[addr]} are \texttt{0} to \texttt{7F}. This address must be specified as a hexadecimal number.
+
+\subsection*{Writing Data}
+
+\texttt{I2C 2A0 w [addr] [data]}
+
+This command writes data to the \itwoc{} device at address \texttt{[addr]}.
+
+Data bytes are specified as hexadecimal numbers, separated by spaces. For example, \texttt{00 01 AB FE}.
+
+\subsection*{Reading Data}
+
+\texttt{I2C 2A0 r [addr] [count]}
+
+This command reads \texttt{[count]} bytes from the \itwoc{} device at address \texttt{[addr]} and emits it to the console.
+
+\subsection*{Status}
+
+\texttt{I2C 2A0 s}
+
+This command polls the \itwoc{} controller and emits status information to the console.
+
+\section*{An Example}
+
+The following example uses \texttt{I2C.EXE} to write digits to a 7-segment display via a HT16K33 controller.
+
+\begin{verbatim}
+@ECHO off
+
+REM Initialize I2C Controller
+I2C 2A0 i 4 AA
+
+REM Initialize HT16K33 Controller
+I2C 2A0 w 70 21
+I2C 2A0 w 70 81
+I2C 2A0 w 70 EF
+
+REM Blank all segments
+I2C 2A0 w 70 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+REM Display "1234"
+I2C 2A0 w 70 00 06
+I2C 2A0 w 70 02 5B
+I2C 2A0 w 70 04 4F
+I2C 2A0 w 70 06 66
+\end{verbatim}
+
+\end{document}

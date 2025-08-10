@@ -5,6 +5,7 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import ImgCard from "../components/ImgCard.astro";
 
+import FinalImage from "../images/final.jpg";
 import CivImage from "../images/civ.jpg";
 import DebugImage from "../images/debug.jpg";
 import PrototypeImage from "../images/prototype.jpg";
@@ -13,68 +14,6 @@ import PrototypeImage from "../images/prototype.jpg";
 <Layout title="The M88 Computer">
   <main>
     <h1>The <span class="scanlines">M88</span> Computer</h1>
-    <h2>Features</h2>
-    <p>
-      <li>Built around the Intel 8088 CPU, running at 4.77 MHz</li>
-      <li>Sockets for 640K of RAM in banks of 128K</li>
-      <li>3 8-bit ISA card slots</li>
-      <li>
-        ATX power connector and Micro-ATX form factor - use an off-the-shelf ATX
-        power supply and PC case!
-      </li>
-      <li>PS/2 keyboard and mouse ports</li>
-      <li>An ATTiny to take care of system resets and ATX power signals</li>
-      <li>Primarily designed using discrete logic in 74-series ICs</li>
-    </p>
-    <h2>Upcoming Features</h2>
-    <p>
-      The next revision of the M88 design is well and truly underway with tweaks
-      based on real-world usage of the computer.
-      <ul>
-        <li>System clock bumped to 8 MHz</li>
-        <li>
-          Support for an additional (but optional) 128K of RAM at <code
-            >E000:0000</code
-          > for DOS upper memory blocks
-        </li>
-        <li>Built-in ATX fan headers</li>
-        <li>
-          Built-in I2C bus with <a
-            href="https://learn.adafruit.com/introducing-adafruit-stemma-qt/what-is-stemma"
-            target="_blank">STEMMA connectors</a
-          > to easily integrate with external devices
-        </li>
-        <li>One more ISA card slot</li>
-        <li>Logic simplifications</li>
-        <li>
-          Removal of the second 8259 Interrupt Controller that was serving
-          limited purpose
-        </li>
-      </ul>
-    </p>
-    <h2>Gallery</h2>
-    <p>
-      <div class="image-gallery">
-        <ImgCard
-          image={CivImage}
-          width={350}
-          alt="The M88 Computer running Civilization"
-          >The <span class="scanlines">M88</span> Computer running Civilization</ImgCard
-        >
-        <ImgCard
-          image={PrototypeImage}
-          width={350}
-          alt="An early prototype of the M88 Computer"
-          >An early prototype for initial design qualification</ImgCard
-        >
-        <ImgCard
-          image={DebugImage}
-          width={350}
-          alt="An earlier revision of the M88 Computer with a mess of testing wires"
-          >A previous revision undergoing testing with bodge wires</ImgCard
-        >
-      </div>
-    </p>
     <h2>Why?</h2>
     <p>
       The <span class="scanlines">M88</span> is a hobby project that seeks to build
@@ -85,6 +24,49 @@ import PrototypeImage from "../images/prototype.jpg";
       >, and achieved just that. Now, the project has expanded to explore more
       possibilities, such as experimenting with I2C bus connectivity to mix
       modern I2C devices with retro software.
+    </p>
+    <h2>Features</h2>
+    <p>
+      <li>Built around the Intel 8088 CPU, running at 8 MHz</li>
+      <li>
+        Sockets for 640K of RAM in banks of 128K, with an optional additional
+        bank at <code>E000:0000</code> for DOS upper memory blocks
+      </li>
+      <li>4 8-bit ISA card slots</li>
+      <li>
+        ATX power connector and Micro-ATX form factor - use an off-the-shelf ATX
+        power supply and PC case!
+      </li>
+      <li>Built-in ATX fan headers</li>
+      <li>PS/2 keyboard and mouse ports</li>
+      <li>An ATTiny to take care of system resets and ATX power signals</li>
+      <li>Primarily designed using discrete logic in 74-series ICs</li>
+      <li>
+        Built-in I2C bus with <a
+          href="https://learn.adafruit.com/introducing-adafruit-stemma-qt/what-is-stemma"
+          target="_blank">STEMMA connectors</a
+        > to easily integrate with external devices
+      </li>
+    </p>
+    <h2>Gallery</h2>
+    <p>
+      <div class="image-gallery">
+        <ImgCard image={FinalImage} width={350} alt="The M88 Computer"
+          >The <span class="scanlines">M88</span> Computer</ImgCard
+        >
+        <ImgCard
+          image={CivImage}
+          width={350}
+          alt="The M88 Computer running Civilization"
+          >An early <span class="scanlines">M88</span> prototype running Civilization</ImgCard
+        >
+        <ImgCard
+          image={PrototypeImage}
+          width={350}
+          alt="An early prototype of the M88 Computer"
+          >An early prototype for initial design qualification</ImgCard
+        >
+      </div>
     </p>
     <h2>Development Log and Manual</h2>
     <p>

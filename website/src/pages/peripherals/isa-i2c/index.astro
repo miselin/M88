@@ -12,7 +12,7 @@ import IsaI2cImage from "../../../images/isa_i2c.jpg";
     <div class="hero">
       <Image
         src={IsaI2cImage}
-        width="400"
+        width="600"
         alt="A 3D model of the ISA-to-I2C Interface Card"
       />
     </div>
@@ -25,10 +25,9 @@ import IsaI2cImage from "../../../images/isa_i2c.jpg";
       >
       IC, and can operate at a frequency of up to 90 kHz when operating as the I2C
       bus controller. While the PCF8584 is an older part, it integrates better with
-      the 5V-centric ISA bus. To support complete hand-soldering, the card is designed
-      for a DIP-20 variant of the PCF8584 which is no longer manufactured (but readily
-      available from eBay and other sources). A custom adapter will be made available
-      that converts a modern surface-mount PCF8584 to the DIP-20 footprint.
+      the 5V-centric ISA bus. The card uses hand-solderable through-hole components
+      for all components except the PCF8584 chip, which is surface-mount to reduce
+      the overall cost of the card.
     </p>
     <p>
       The card can be used to add additional functionality to a system without
@@ -54,6 +53,11 @@ import IsaI2cImage from "../../../images/isa_i2c.jpg";
       purchase soon at <a href="https://www.tindie.com/stores/m88/"
         >the <span class="scanlines">M88</span> Tindie store</a
       >.
+    </p>
+    <h2>Quick Start Guide</h2>
+    <p>
+      Check out the <a href="/docs/i2c-quickstart.pdf">Quick Start Guide</a> that
+      is included with every shipped card.
     </p>
     <h2>Programming Examples</h2>
     <p>

@@ -1,1 +1,5 @@
 build/
+*.lib
+*.o
+*.zip
+*.exe

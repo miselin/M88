@@ -1,6 +1,8 @@
 export WATCOM = /opt/watcom
 export INCLUDE = $(WATCOM)/h
-export PATH = $(WATCOM)/binl:$PATH
+export PATH := $(WATCOM)/binl:$(PATH)
+
+export RELEASE_DIR = /tmp/release-i2c
 
 CC = $(WATCOM)/binl/wcl
 
@@ -20,3 +22,8 @@ i2c.asm: i2c.exe
 
 clean:
 	rm -f *.obj *.sys
+
+release.zip: README.txt i2c.exe i2c.c i2c.h lib.c i2c.lib
+	rm --preserve-root -rf $(RELEASE_DIR) && mkdir -p $(RELEASE_DIR)/i2c
+	cp $^ $(RELEASE_DIR)/i2c/
+	cd $(RELEASE_DIR); zip $(PWD)/$@ i2c/*

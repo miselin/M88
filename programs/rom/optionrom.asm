@@ -12,13 +12,18 @@ call_video_bios:
     mov es, ax
     xor di, di
 
+    clc
+
     cmp word [es:di], 0xAA55
     jne .no_bios
 
     ; BIOS is here, call it
     call 0xC000:0x0003
 
+    ret
+
     .no_bios:
+    stc
     ret
 
 call_option_roms:

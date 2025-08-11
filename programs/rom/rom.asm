@@ -36,7 +36,6 @@ start:
 
     ; POST #0 - we're alive
     mov al, 0x00
-    out 0xE0, al
     out 0x80, al
 
     ; CPU test
@@ -60,7 +59,6 @@ start:
 
     ; POST #1 - CPU is OK
     mov al, 0x01
-    out 0xE0, al
     out 0x80, al
 
     jmp entry
@@ -102,7 +100,6 @@ entry:
 
     ; POST #2 - first 64K of memory is OK
     mov al, 0x02
-    out 0xE0, al
     out 0x80, al
 
     ; do DMA controller config now that memory works
@@ -113,7 +110,6 @@ entry:
 
     ; ; POST #3 - IVT is set up
     mov al, 0x03
-    out 0xE0, al
     out 0x80, al
 
     ; ; set up interrupt controller
@@ -121,7 +117,6 @@ entry:
 
     ; ; POST #4 - PIC is set up
     mov al, 0x04
-    out 0xE0, al
     out 0x80, al
 
     ; set up timer controller
@@ -129,7 +124,6 @@ entry:
 
     ; POST #5 - PIT is set up
     mov al, 0x05
-    out 0xE0, al
     out 0x80, al
 
     ; emit POST beep now that PIT is ready
@@ -140,15 +134,24 @@ entry:
 
     ; POST #6 - interrupts are enabled
     mov al, 0x06
-    out 0xE0, al
     out 0x80, al
 
     ; call VIDEO BIOS
     call call_video_bios
+    jnc .video_ok
+
+    ; POST #99 - VIDEO BIOS failed
+    mov al, 0x99
+    out 0x80, al
+    cli
+    .fail:
+    hlt
+    jmp .fail
+
+    .video_ok:
 
     ; POST #7 - VIDEO BIOS has been called
     mov al, 0x07
-    out 0xE0, al
     out 0x80, al
 
     ; count memory before running Option ROMs (as they may need to know)
@@ -156,7 +159,6 @@ entry:
 
     ; POST #8 - memory count complete
     mov al, 0x08
-    out 0xE0, al
     out 0x80, al
 
     ; swap stack to top of memory now that we know where that is
@@ -173,7 +175,6 @@ entry:
 
     ; POST #9 - stack moved
     mov al, 0x09
-    out 0xE0, al
     out 0x80, al
 
     ; set EBDA at top of memory
@@ -194,7 +195,6 @@ entry:
 
     ; POST #10 - EBDA in place
     mov al, 0x10
-    out 0xE0, al
     out 0x80, al
 
     ; set up keyboard controller
@@ -202,7 +202,6 @@ entry:
 
     ; POST #11 - KBC configured
     mov al, 0x11
-    out 0xE0, al
     out 0x80, al
 
     call configure_serial
@@ -210,35 +209,24 @@ entry:
 
     ; POST #12 - serial/parallel ports configured
     mov al, 0x12
-    out 0xE0, al
     out 0x80, al
 
     call call_option_roms
 
     ; POST #13 - Option ROMs called, configuring I2C if present
     mov al, 0x13
-    out 0xE0, al
     out 0x80, al
 
     call configure_i2c
 
     ; POST #88 - about to call INT19
     mov al, 0x88
-    out 0xE0, al
     out 0x80, al
 
     ; make sure interrupts are on again in case an option ROM turned them off
     sti
 
     call write_logo
-
-    mov si, debug
-    call puts
-
-    mov dx, 0x2A3
-    .forever:
-    in al, dx
-    jmp .forever
 
     ; run the bootloader
     mov dl, 0x80                ; prefer HDD

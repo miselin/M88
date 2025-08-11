@@ -7,6 +7,9 @@ global configure_i2c
 global i2c_send_byte
 global i2c_send_str
 
+; PCF8584_LO              equ 0xE0
+; PCF8584_HI              equ 0xE1
+
 PCF8584_LO              equ 0x2A0
 PCF8584_HI              equ 0x2A1
 
